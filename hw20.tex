@@ -1,0 +1,737 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW20 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+
+  Last week, I introduce perturbative QFT methods to compute transition
+  amplitudes for 1 > 2 (1 particle to 2 particles) processes, which
+  appear in the very first expansion of our S matrix operator
+
+  S = T e^{i \Int d^4x L_{int}(x)}
+    = 1 +  i \Int d^4x L_{int}(x)} + ...
+
+  As examples, I plan to show the following three cases,
+
+  H   > tau+ + tau-   ( spin= 0  )
+  t   > t    + W^+    ( spin= 1  )
+  W^+ > l^+  + \nu_l  ( spin= 1/2)
+
+  Although I gave detailed homework only for W decays, I may come
+  back to the other two processes if time allows.
+
+  This week, I proceed to compute transition matrix elements that are
+  obtained from the 2'nd expansion of the S matrix exponent,
+
+  T (1/2!) [i\Int d^4x L_\int(x)]^2
+  =
+  [i\Int d^4x1 L_\int(x1)] [i\Int d^4x2 L_\int(x2)] \Theta(x1^0-x2^0)
+
+  At this order, we have the time-ordering of the operators, and a
+  propagator appears.  I show how Feynman introduced his causal
+  (Feynman) propagator by using the analyticity of the function in
+  the p^0 plane.
+
+  We examine two processes carefully,
+
+  A: \mu \to \numu e \nuebar
+
+  where the 3 body phase space is evaluated carefully, and
+  we compare its life-time with the prediction of the SM.
+
+  As a supplement, I mention the two processes:
+
+  A-1: \tau \to \nutau e \nuebar
+  A-2: n    \to p      e \nuebar
+
+  briefly.  A-1 shows the scaling law
+
+  \Gamma(\tau \to \nutau e \nuebar)   (m_\tau)^5
+  --------------------------------- = ----------
+  \Gamma(\mu  \to \numu  e \nuebar)    (m_\mu)^5
+
+  A-2 is to show the importance of phase space suppression
+  due to the very small mass difference
+
+  m(n) - m(p) = 1.29MeV
+
+  which is not much larger than m(e)=0.51MeV.
+
+  B: e- e+ \to f fbar
+
+  Here, we introduce the definition of the scattering cross section,
+  unitarization of the Z-boson propagator (which gives the normalization
+  of the Z-boson decay width which is similar to the W width we calculated
+  in the last lecture), and again the d-functions for spin 1 particle
+  production and decay that govern the angular distributions.
+
+  If possible, I may try to cover the following two processes:
+
+  C: u dbar \to W^+ \gamma
+
+  which contains the WW\gamma coupling, and a single top quark production
+  by the W boson exchange
+
+  D: u b \to d t
+
+  followed by the top quark decay
+
+  E: t \to b l^+ \nu_l.
+
+  They are all very interesting processes, where you can learn a lot by
+  calculating the helicity amplitudes explicitly.
+
+  ======================
+  A: mu -> numu e nuebar
+  ======================
+
+  There are just two terms in L_\int(x) which contribute to this amplitude
+  in the lowest (n=2) order of the expansion:
+
+  01) L_\int(x)
+  = W^+_\mu(x) \nl(x)^\dgr \sigma_-^\mu (-g_L^{Wnl}) \lL(x)
+  + W^-_\mu(x) \lL(x)^\dgr \sigma_-^\mu (-g_L^{Wln}) \nl(x)
+  = W^+_\mu(x) J_{Wnl}^\mu(x)
+  + W^-_\mu(x) J_{Wln}^\mu(x)
+
+  where I used the generic notation of hw19 for the couplings.  The first
+  term give the transition from the initial muon into \numu and (virtual)
+  W^- (l=\mu), whereas the second term gives the transition of this
+  (virtual) W^- into electron and \nuebar.
+
+  In the above paragraph, I used the expression which became standard
+  after Feynman proposed his Feynman's propagator (and all of us
+  accepted his method of calculating transition amplitudes), please note
+  at this moment that the first operator,
+
+  01a) W^+_\mu(x) \nl(x)^\dgr \sigma_-^\mu (-g_L^{Wnl}) \lL(x)
+
+  can annihilate W^+ and l^-, and create \nu\l at the spacetime point
+  x^\mu, whereas the second operator
+
+  01b) W^-_\mu(x) \lL(x)^\dgr \sigma_-^\mu (-g_L^{Wln}) \nl(x)
+
+  can create W^+, l^-, \nubar_l from the vacuum at x^\mu.
+
+hw20-1: Please select (01) from our SM Lagrangian, and explain that no
+  other terms in the Lagrangian can contribute to the process A, in the
+  second order of perturbation theory.
+
+  Let us parametrize the helicity and momenta of all the external
+  particles as:
+
+  02) \mu(p,h) -> e(p1,-1/2) + \nuebar(p2,+/12) + \numu(p3,-1/2)
+
+  where h = +-1/2 gives the Jz eigenvalue of the polarized muon, and the
+  helicities of all the final state particles, e, nuebar, numu, are fixed
+  in the massless limit.
+
+  I neglect the electron mass
+
+  03)  [m(e)/m(mu)]^2 = (0.51/106)^2 = (1/207)^2 = 2.3*10^{-5}
+
+  in this study.  Note that the present measurement accuracy of the muon
+  life time, or that of the Fermi constant G_F is 2 times 10^{-5}, see
+  RPP, and hence the electron mass cannot be neglected in precision
+  physics.
+
+  The 4-momentum conservation gives
+
+  04a) p = p1 + p2 + p3
+
+  with
+
+  04b) p^2 = M^2 (M=m(\mu)), p1^2 = p2^2 = p3^2 = 0
+
+  The initial and final states are
+
+  05a) |i> = a^\dagger_{mu,      p,   h} |0>
+  05b) |f> = a^\dagger_{e,      p1,-1/2}
+             b^\dagger_{\nuebar,p2,+1/2}
+             a^\dagger_{\numu,  p3,-1/2} |0>
+
+  05c) <f| = <0| a_{\numu,  p3,-1/2}
+                 b_{\nuebar,p2,+1/2}
+                 a_{e,      p1,-1/2}
+
+  The leading order amplitude is
+
+  06) iT_{fi}
+  = <f| S |i>
+  = <f| T e^{i\Int d^4x L_int(x)} |i>
+  = <f| (1/2!) T (i\Int d^4x L_int(x))^2 |i>         + ...
+  = <f| T [i\Int d^4x W^-_\mu(x) J_{Wln}^\mu(x)]
+          [i\Int d^4y W^+_\nu(y) J_{Wnl}^\nu(y)] |i> + ...
+
+  where the factor of 1/2 has been eliminated by retaining only the
+  J_{Wln} term in L_\int(x), and J_{Wnl} term in L_\int(y).
+
+hw20-2: Please show that (06) gives the correct normalization by using
+  the definition of the time ordering:
+
+  07a) T A(x) B(y) = A(x) B(y) \Theta(x^0-y^0)
+                   + B(y) A(x) \Theta(y^0-x^0)
+
+  when A(x) and B(x) commutes,
+
+  07b) T A(x) B(y) = A(x) B(y) \Theta(x^0-y^0)
+                   - B(y) A(x) \Theta(y^0-x^0)
+
+  when A(c) and B(x) anti-commutes.  Because all terms in L_{int}(x) are
+  Lorentz scalar, only the commuting case (07a) appears in the expansion
+  of our S matrix.
+
+hint: Please note that the factor of 1/2! is compensated by the fact
+  that two contributing terms in L_{int}(x), say, A(x) and B(x), are
+  needed to give non-zero amplitudes, where both TA(x)B(y) and TB(x)A(y)
+  contributes with the same way.  Schematically, you should prove
+
+  07c) T   L_int(x)    *   L_int(y)
+    =  T (A(x) + B(x)) * (A(y) + B(y))
+    =    (T A(x)*B(y)) + (T B(x)*A(y))
+    =  2 (T A(x)*B(y)).
+
+  Since this is the first time we encounter the t-ordered product of
+  field operators, let us show the free field expansions of all the
+  fields again:
+
+  08a) W^-_\mu(x)
+  = \Sum_h \Int d^3q1/(2pi)^3/2E(q1) \Sum_{h1}
+    { a_{W^-:q1,h1}         \eps_\mu(q1,h1)   e^{-iq1x}
+    + b_{W^+:q1,h1}^\dagger \eps_\mu(q1,h1)^* e^{ iq1x} }_{q1^0=E(q1)} }
+
+  08b) \Psi(x)_{l=\mu}
+  = \Sum_h \Int d^3k/(2pi)^3/2E(k) \Sum_{h'}
+    { a_{mu:k,h'}         u(k,h') e^{-ikx}
+    + b_{mu:k,h'}^\dagger v(k,h') e^{+ikx} }_{k^0=E(k)} }
+
+  08c) \Psibar(x)_{n=\numu}
+  = \Sum_h \Int d^3k3/(2pi)^3/2E(k3)
+    { a_{\numu:k3}^\dagger ubar(k1,-1/2) e^{+ik3x}
+    + b_{\numu:k3}         vbar(k1,+1/2) e^{-ik3x} }_{k3^0=E(k3)} }
+
+  in L_\int(x), and
+
+  08d) W^+_\mu(y)
+  = \Sum_h \Int d^3q2/(2pi)^3/2E(q2) \Sum_{h2}
+    { b_{W^+:q2,h2}         \eps_\mu(q2,h2)   e^{-iq2y}
+    + a_{W^-:q2,h2}^\dagger \eps_\mu(q2,h2)^* e^{ iq2y} }_{q2^0=E(q2)} }
+
+  08e) \Psibar(y)_{l=e}
+  = \Sum_h \Int d^3k1/(2pi)^3/2E(k1) \Sum_{h1}
+    { a_{e:k1,h1}^\dagger ubar(k1,h1) e^{+ik1y}
+    + b_{e:k1,h1}         vbar(k1,h1) e^{-ik1y} }_{k1^0=E(k1)} }
+
+  08f) \Psi(y)_{n=\nue}
+  = \Sum_h \Int d^3k2/(2pi)^3/2E(k2)
+    { a_{\nue:k2}         u(k,-1/2) e^{-ik2y}
+    + b_{\nue:k2}^\dagger v(k,+1/2) e^{+ik2y} }_{k2^0=E(k2)} }
+
+  in L_\int(y).  Here, I used Dirac fermion notation, in order to avoid
+  giving L and R indices for the field operators and u and v spinors.
+  Please note that the Dirac conjugates simply gives complex conjugates
+  (^\dgr) for uL, uR, vL, vR spinors.
+
+  Now, by making use of the anti-commutators of the fermion operators,
+
+  09a) {a_{mu:k,h'},a^\dg_{mu:p,h}}=(2pi)^3 2E(k)\delta^3(p-k) \d_{h,h'}
+  09b) {a_{e:p1,-1/2},a^\dg_{e:k1}}=(2pi)^3 2E(k1)\delta^3(p1-k1)
+  09c) {b_{nue:p2,+1/2},b^\dg_{nue:k2}}=(2pi)^3 2E(k2)\delta^3(p2-k2)
+  09d) {a_{num:p3,-1/2},a^\dg_{num:k3}}=(2pi)^3 2E(k3)\delta^3(p3-k3)
+
+  the amplitude (07) can be immediately reduced to
+
+  10) iT_{fi}
+  = <f| (1/2!) T (i\Int d^4x L_int(x))^2 |i>         + ...
+  = <f| T [i\Int d^4x W^-_\mu(x) J_{Wln}^\mu(x)]
+          [i\Int d^4y W^+_\nu(y) J_{Wnl}^\nu(y)] |i> + ...
+  = \Int d^4x \Int d^4y
+    <0| T W^-_\mu(x) W^+_\nu(y) |0>
+    \ubar(e:p1) \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2) e^{-ix(-p1-p2)}
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h) e^{-iy(p-p3)}
+
+hw20-3: Derive (10).  This is just a review of our last homework.
+
+  Please note that the factor of i has been included in each coupling
+  factor, in accordance with the rule (the Feynman rule) we introduced
+  in the last homework.
+
+  In eq.(10), we have a new term, the propagator, which connects the
+  interaction at a spacetime point x^\mu and the other interaction which
+  occurs at another spacetime point y^\mu.  The time ordering tells
+
+  11) <0| T W^-_\mu(x) W^+_\nu(y) |0>
+  = \Theta(x^0-y^0) <0| W^-_\mu(x) W^+_\nu(y) |0>
+  + \Theta(y^0-x^0) <0| W^+_\nu(y) W^-_\mu(x) |0>
+
+  which ensures that the time flows from the right (the initial state at
+  t=-\infty) to the left (the final state at t=+\infty).
+
+  The relative sign between the two terms in (11) is plus, because the
+  W field is a bosonic operator.
+
+  Now, let us evaluate the propagator (11) by using the free field
+  expansions, (08a) and (08b).  The only possible surviving terms are:
+
+  12a) <0| a_{W^-:q1,h1} a_{W^-:q2,h2}^\dagger |0>
+     = [a_{W^-:q1,h1}, a_{W^-:q2,h2}^\dagger]
+     = (2pi)^3 (2E(q2) \delta^3(q1-q2) \delta_{h1,h2}
+
+  12b) <0| b_{W^+:q2,h2} b_{W^+:q1,h1}^\dagger |0>
+     = [b_{W^+:q2,h2}, b_{W^+:q1,h1}^\dagger]
+     = (2pi)^3 (2E(q2) \delta^3(q1-q2) \delta_{h1,h2}
+
+hw20-4: Show that only the term (12b) survives in the first term of (11),
+  whereas only the term (12a) survives in the second term of (11).
+
+  Let us start from the first term in eq.(11)
+
+  13) \Theta(x^0-y^0) <0| W^-_\mu(x) W^+_\nu(y) |0>
+  = \Theta(x^0-y^0) <0| W^-_\mu(x) W^+_\nu(y) |0>
+  = \Theta(x^0-y^0)
+    \Int d^3q1/(2pi)^32E(q1) e^{-iq1(x-y)}_{q1^0=E(q1)}
+    \Sum_{h1} \eps_\mu(q1,h1) \eps_\nu(q1,h1)^*
+  = \Theta(x^0-y^0)
+    \Int d^3q1/2E(q1) e^{-iq1(x-y)}_{q1^0=E(q1)}
+    (-g_{\mu\nu} + q1_\mu q1_\nu/m_W^2)
+
+hw20-5: Derive (13), except for the last part, which is explained below.
+
+  The identity
+
+  14) \Sum_{h=+-1,0} \eps_\mu(q,h) \eps_\nu(q,h)^*
+    = (-g_{\mu\nu} + q_\mu q_\nu/m_W^2)
+
+  has been shown in previous homework when q^2=m_W^2 (on-shell).  When
+  q^2 \neq m_W^2 (off-shell), the use of the polarization sum (14) is
+  called `Unitary gauge'.  We can show that the Unitary gauge propagator
+  can reproduce the spin=0 component of off-shell weak bosons in the
+  tree level (such as the virtual W contribution to \pi^\pm and K^\pm
+  decays into muon and muon-neutrino).
+
+  In order to understand the reason  why eq.(14) gives a consistent
+  description of the sum of off-shell vector boson wave functions,
+  you need to study quantization of gauge bosons in spontaneously
+  broken theories.
+
+  Now, what Feynman showed is that the remaining part of the propagator
+  can be expressed simply as (I denote q1 as q below)
+
+  15) \Theta(x^0-y^0)
+               d^3 q
+      \Int -------------- e^{-iq(x-y)}_{q^0=E(q)}
+           (2pi)^3 2E(q)
+  =
+      \Theta(x^0-y^0)
+               d^4 q             i
+      \int  ------------  ---------------  e^{-iq(x-y)}
+              (2pi)^4      q^2 - M^2 +i0
+
+  It is relatively easy to show the upper expression (which we obtained
+  from the commutation relations) from the lower expression, which is
+  a part of the Feynman's propagator.
+
+  We first note that
+
+  16) q^2 - M^2 = (q^0)^2 - |qvec|^2 - M^2
+                = (q^0)^2 - E(qvec)^2
+                = [(q^0) + E(qvec)] [(q^0) - E(qvec)]
+
+  and hence the the function
+
+  16') 1/(q^2-M^2)
+
+  has two poles in the complex q^0 plane.  Feynman's +i0 prescription,
+  moves the pole from the real q^0 axis to the complex plane,
+
+            1                     1
+  17) --------------- = ------------------------
+      q^2 - M^2 + i0    (q^0)^2 - E(qvec)^2 + i0
+                                  1
+                      = ------------------------
+                        (q^0 + E)(q^0 - E) + i0
+                                  1
+                      = --------------------------
+                        (q^0 + E -i0)(q^0 - E +i0)
+
+  since E=E(qvec)>0.  Now, the region of the q^0 integral in the d^4 q is
+
+  18) \Int_{-\infty}^{+\infty d q^0
+
+  we want to close this q^0 integration contour such that the contribution
+  from the far distance |q^0| \to \infty is regular, and the q^0 = E pole
+  is inside.  Because
+
+  19) (x^0-y^0) > 0
+
+  due to the Theta function, the exponential function
+
+  20) e^{-i(q^0)(x^0-y^0)}
+
+  is regular in the lower (negative imaginary part) half plane.   We can
+  close the contour by starting from -\infty in the real q^0 axis, move
+  to +\infty along the real axis, then make a large half circle in the
+  negative imaginary plane, and goes back to the original -\infty on the
+  real axis.  This is a counter-clockwise circle (which gives a negative
+  sign when applying the residue theorem).  Now, the only pole which
+  exists inside this contour is the one at
+
+  21) q^0 = E-i0
+
+  The residue theorem tells
+
+  22) \Int_{clockwise} dz f(z) = 2\pi i c_{-1}
+
+  and hence
+
+  23) \Int_{counter-clockwise} dz f(z) = 2\pi (-i) c_{-1}
+
+  Here c_n is the n'th pole in the expansion
+
+  24) f(z) = \Sum_{n=all integers} c_n (z-z0)^n
+
+  By applying the residue theorem (23), we find
+
+  25)                                       1
+  \Int_{counter-clockwise} dq^0 --------------------------
+                                (q^0 + E -i0)(q^0 - E +i0)
+                                          1
+  = \Int_{counter-clockwise} dq^0 ------------------
+                                   2E (q^0 - E +i0)
+  = 2\pi (-i)/(2E)
+
+  Inserting this into the bottom expression of (15) gives the starting
+  expression of (15).
+
+hw20-6:  Please confirm the above proof by yourself, and show that
+  exactly the same propagator is found for the y^0-x^0 > 0 case of
+  eq.(11):
+
+  26) \Theta(y^0-x^0) <0| W^+_\nu(y) W^-_\mu(x) |0>
+  = \Theta(y^0-x^0)
+    \Int d^3q1/(2pi)^32E(q1) e^{-iq1(y-x)}_{q1^0=E(q1)}
+    \Sum_{h1} \eps_\nu(q1,h1) \eps_\mu(q1,h1)^*
+  = \Theta(y^0-x^0)
+    \Int d^3q1/2E(q1) e^{-iq1(y-x)}_{q1^0=E(q1)}
+    (-g_{\mu\nu} + q1_\mu q1_\nu/m_W^2)
+
+  where the anti-particle (W^+ in our case) is produced at x and
+  annihilates at y.  Since the only difference is the exchange of x
+  and y everywhere, we find, instead of (15)
+
+  27) \Theta(y^0-x^0)
+               d^3 q
+      \Int -------------- e^{-iq(y-x)}_{q^0=E(q)}
+           (2pi)^3 2E(q)
+  =
+      \Theta(y^0-x^0)
+               d^4 q             i
+      \Int  ------------  ---------------  e^{-iq(y-x)}
+              (2pi)^4      q^2 - M^2 +i0
+
+  We can now find the whole expression for the propagator (11):
+
+  28) <0| T W^-_\mu(x) W^+_\nu(y) |0>
+  = \Theta(x^0-y^0) <0| W^-_\mu(x) W^+_\nu(y) |0>
+  + \Theta(y^0-x^0) <0| W^+_\nu(y) W^-_\mu(x) |0>
+          d^4 q       i                          q_\mu q_\nu
+  = \Int ------- --------------- (-g_{\mu\nu} + -------------)
+         (2pi)^4  q^2 - M^2 + i0                    M^2
+    \times { \Theta(x^0-y^0) e^{-iq(x-y)
+           + \Theta(y^0-x^0) e^{-iq(y-x) }
+
+  Inserting (28) into our amplitude (10), we find
+
+  29) iT_{fi}
+  = <f| (1/2!) T (i\Int d^4x L_int(x))^2 |i>         + ...
+  = <f| T [i\Int d^4x W^-_\mu(x) J_{Wln}^\mu(x)]
+          [i\Int d^4y W^+_\nu(y) J_{Wnl}^\nu(y)] |i> + ...
+
+  = \Int d^4x \Int d^4y
+    \ubar(e:p1) \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2) e^{-ix(-p1-p2)}
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h) e^{-iy(p-p3)}
+    { \Theta(x^0-y^0) e^{-iq(x-y) + \Theta(y^0-x^0) e^{-iq(y-x) }
+          d^4 q       i                          q_\mu q_\nu
+    \Int ------- --------------- (-g_{\mu\nu} + -------------)
+         (2pi)^4  q^2 - M^2 + i0                    M^2
+
+  = \ubar(e:p1) \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2)
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h)
+    { \Theta(x^0-y^0) (2pi)^8 \delta^4(q-p1-p2) \delta^4(p-q3-q)
+    + \Theta(y^0-x^0) (2pi)^8 \delta^4(q+p1+p2) \delta^4(p-p3+q) }
+          d^4 q       i                          q_\mu q_\nu
+    \Int ------- --------------- (-g_{\mu\nu} + -------------)
+         (2pi)^4  q^2 - M^2 + i0                    M^2
+
+  = \ubar(e:p1) \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2)
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h)
+    { \Theta(x^0-y^0) (2pi)^4 \delta^4(p-p3-p1-p2)
+    + \Theta(y^0-x^0) (2pi)^4 \delta^4(-p+p3+p1+p2) }
+            i                          (p1+p2)_\mu (p1+p2)_\nu
+    -------------------- (-g_{\mu\nu} + -----------------------)
+    (p1+p2)^2 - M^2 + i0                         M^2
+
+  = (2pi)^4 \delta^4(p-p1-p2-p3)
+    \ubar(e:p1) \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2)
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h)
+            i                          (p1+p2)_\mu (p1+p2)_\nu
+    -------------------- (-g_{\mu\nu} + -----------------------)
+    (p1+p2)^2 - M^2 + i0                         M^2
+
+  since
+
+  30) \Theta(x^0-y^0) + \Theta(y^0-x^0) = 1.
+
+hw20-7: Please follow my long derivation of eq.(29).
+
+  It is indeed amazing that the contributions of the W^- propagation and
+  W^+ propagation sum up to the above extremely simple formula.
+
+  Let me try to follow the time-ordered perturbation theory calculation
+  for the above example.
+
+  When x^0>y^0, the term L_int(y) in eq.(06) annihilates \mu, and creates
+  \nu_\mu and W^- at the spacetime point y^mu, and then L_int(x)
+  annihilates W^-, creates e and \nubar_e at the spacetime point x^\mu.
+  The process may be expressed as (the time flows from left to right):
+
+  <-- <-- <-- <-- <-- <-- <-- <-- time <-- <-- <-- <-- <-- <-- <-- <--
+
+  \nu_\mu <----------------------------------------- y <---------  \mu
+                                                   / W^-
+                                                /    is created
+                                             /       at y^\mu
+                                          /
+                                       /
+  e       <------------------------- x W^- is annihilated
+                                   /       at x^\mu
+                                /
+                             /
+                          /
+  \nubar_e  <--------- /
+
+  The propagation of W^- from y^\mu to x^\mu is shown.
+
+  Now, when y^0 > x^0, the ordering of the two operators change, and
+  the process can be depicted as
+
+  <-- <-- <-- <-- <-- <-- <-- <-- time <-- <-- <-- <-- <-- <-- <-- <--
+
+  \nu_\mu <--------- y <-----------------------------------------  \mu
+                       -  W^+ is annihilated
+                          -    at y^\mu
+                             -
+                                 -
+                                     -
+  e       <---------------------------- x W^+ is created
+                                     /       at x^\mu
+                                 /
+                             /
+                          /
+  \nubar_e  <--------- /
+
+  The propagation of W^+ from x^\mu to y^\mu is shown.
+
+  Therefore the S-matrix elements are the sum of the amplitudes depicted
+  by the above two plots:  One where W^- is created first at y^\mu by
+  annihilating \mu and creating \nu_\mu, and this W^- is annihilated
+  at a later time at x^\mu, creating e and \nubar_e.  The other one is
+  when W^+ is created with e and \nubar_e from the vacuum at x^\mu,
+  and at a later time, W^+ is annihilated at y^\mu, where \mu is also
+  annihilated and \nu_\mu is created.
+
+  Before Feynman, we calculated the above two contributions separately,
+  and their sum is the transition amplitudes.  Feynman showed that the
+  sum of the above two contributions can be expressed by a single
+  amplitudes with Feynman's propagator (I use a scalar boson propagator
+  to avoid the polarization sum term):
+
+  31) <0| T \Phi(x) \Phi^*(y) |0>
+  = \Theta(x^0-y^0) <0| \Phi(x) \Phi^*(y) |0>
+  + \Theta(y^0-x^0) <0| \Phi^*(y) \Phi(x) |0>
+  =
+                         d^4 q         i
+  \Theta(x^0-y^0) \int  -------  -------------  e^{-iq(x-y)}
+                        (2pi)^4  q^2 - M^2 +i0
+  +
+                         d^4 p         i
+  \Theta(y^0-x^0) \int  -------  -------------  e^{-ip(y-x)}
+                        (2pi)^4  p^2 - M^2 +i0
+
+  =
+                         d^4 q         i
+  \Theta(x^0-y^0) \int  -------  -------------  e^{-iq(x-y)}
+                        (2pi)^4  q^2 - M^2 +i0
+  +
+                         d^4 q         i
+  \Theta(y^0-x^0) \int  -------  -------------- e^{-iq(x-y)}
+                        (2pi)^4  q^2 - M^2 +i0
+  =
+                         d^4 q         i
+                        -------  -------------  e^{-iq(x-y)}
+                        (2pi)^4  q^2 - M^2 +i0
+
+  In the next-to-the-last step above, I set p=-q.  Amazingly, the two
+  contributions, the particle propagation from y^\mu to x^\mu when
+  x^0>y^0, and the anti-particle propagation from x^\mu to y^\mu when
+  y^0>x^0, sum up to a very simple term which is now called Feynman.
+
+  Feynman's discovery allows us to forget about the time-ordering of
+  the operators in the evaluation of the S matrix elements, because
+  the only operator products whose v.e.v. is non-vanishing are expressed
+  as bi-linear combination of the same field operator, which can all be
+  expressed as above, except for the polarization sum factors which do
+  not depend on the operator ordering.  By using the Feynman propagator,
+  the two `processes' depicted above can be expressed by one `diagram'
+
+  <-- <-- <-- <-- <-- <-- <-- <-- time <-- <-- <-- <-- <-- <-- <-- <--
+
+  \nu_\mu <----------------------------------------- y <---------  \mu
+                                                   /
+                                                /
+                                             / Feynman's propagator
+                                          /    of W^\pm
+                                       /
+  e       <------------------------- x
+                                   /
+                                /
+                             /
+                          /
+  \nubar_e  <--------- /
+
+  where the initial state at t=-\infty and the final state at t=+\infty
+  are still ordered, but the time-ordering between x^\mu and y^\mu no
+  more exists.  The Feynman's propagator above gives the sum of
+
+  W^- is produced at y^\mu and annihilated at x^\mu when x^0>y^0
+
+  and
+
+  W^+ is produced at x^\mu and annihilated at y^\mu when y^0>x^0
+
+  Therefore, when we draw Feynman diagrams, there is no time-ordering
+  between the interaction points.  More accurately, in the n-th order,
+  the total sum of all the possible time-ordering among n-interaction
+  points (n! cases) can be expressed by just one diagram !!!
+
+  No wonder how everybody was delighted by Feynman's discovery, and
+  shortly after his work, everybody started calling our transition
+  matrix elements as Feynman amplitudes, and the corresponding
+  plots as above as Feynman diagrams.
+
+                                   *****
+
+  Now with our standard amplitude convention,
+
+  32)
+  iT_{fi} = (2pi)^4 \delta^4(\Sum{p_i}-\Sum{p_f}) iM_{fi}
+
+  the Feynman amplitudes for the process (02) reads
+
+  33) iM_{fi}
+  = \ubar(e:p1)   \gamma^\mu (-ig_L^{Wln}) P_L v(nue:p2)
+    \ubar(num:p3) \gamma^\nu (-ig_L^{Wnl}) P_L u(mu:p,h)
+            i                          (p1+p2)_\mu (p1+p2)_\nu
+    -------------------- (-g_{\mu\nu} + -----------------------)
+    (p1+p2)^2 - M^2 + i0                         M^2
+
+  = (-ig_L^{Wln}) uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+    (-ig_L^{Wnl}) uL(num:p3)^\dagger \sigma_-^\nu uL(mu:p,h)
+            i                          (p1+p2)_\mu (p1+p2)_\nu
+    -------------------- (-g_{\mu\nu} + -----------------------)
+    (p1+p2)^2 - M^2 + i0                         M^2
+
+  We call the expression (33) as the Feynman amplitude, which follows
+  from the Feynman rules.  As expected, the factor of i cancel (it is
+  important to note that Feynman's propagator has a factor of i, coming
+  from the residue theorem).  After removing the common factor of i,
+  we find
+
+  34) M_{fi}
+  = -(g_L^{Wln} g_L^{Wnl})
+    uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+    uL(num:p3)^\dagger \sigma_-^\nu uL(mu:p,h)
+            1                          (p1+p2)_\mu (p1+p2)_\nu
+    -------------------- (-g_{\mu\nu} + -----------------------)
+    (p1+p2)^2 - M^2 + i0                         M^2
+
+  which is usually the starting point of our amplitude calculation.
+
+hw20-8: Obtain (34) directly from the `Feynman rule'.
+
+  Let us make a few simplification.  Since we do not distinguish the
+  three neutrino mass eigenstates in this measurements (neutrinos in
+  the final states are measured only through their missing energy-momenta,
+  whose accuracy cannot distinguish tiny mass-squared differences of
+  the order of (0.1eV)^2), we can ignore the MNS mixing terms.
+
+  35) g_L^{Wln} = g_L^{Wnl} = g_W/\rt2
+
+  Next, since we ignore the electron mass, the second term in the W boson
+  polarization vector sum do not contribute:
+
+  36)
+  uL(e:p1)^\dagger \sigma_-^\mu vL(nue:p2) (p1+p2)_\mu = 0.
+
+hw20-9: Show (36) by using the Dirac equations.
+
+  Third, since
+
+  37) (p1+p2)^2 < m_\mu^2 << M^2 (M=m_W)
+
+  the on-shell pole of the Feynman propagator can never be reached.
+  Therefore +i0 can be set to zero.
+
+  After these simplification, the amplitude reads
+
+  38) M_{fi}
+  = (g_W/\rt2)^2/[(p1+p2)^2 - M^2]
+    uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+    uL(num:p3)^\dagger \sigma_-_\mu uL(mu:p,h)
+
+  We can further drop the (p1+p2)^2 piece in the W propagator because
+
+  39) (p1+p2)^2/M^2 < (m_\mu/m_W)^2 = (0.106/80.4)^2 = 2*10^{-6}
+
+  which is smaller than the experimental error of the muon life-time.
+
+  40) M_{fi}
+  = -g_W^2/(2m_W^2)
+    uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+    uL(num:p3)^\dagger \sigma_-_\mu uL(mu:p,h)
+
+  We can now calculate the above amplitudes, and obtain the muon life
+  time by integrating their absolute value square's over the three body
+  phase space.
+
+                          *****
+
+That's all for hw20.
+
+Best regards,
+
+Kaoru
+
+
+
+\end{document}

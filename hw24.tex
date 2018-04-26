@@ -1,0 +1,833 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW24 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+Please let me send you my last homework today (04.10), so that you will
+have more than a week to send me your report by my last lecture on
+Apr/19.  By the last lecture and the homework 23, I introduced all the
+most basic knowledge and technique that I think are useful for your
+research in particle physics.  Materials were chosen based on my own
+experiences as a particle physics researchers in the past 40 years.
+What I taught in my lectures (and in hw01 to hw23) are all those
+materials which were useful for my own research at some stage of my
+past research.  I hope that they will be useful for you as well.
+
+There is another reason for selecting certain materials in my lectures.
+You may have felt that I emphasized many times that before the EW
+symmetry breaking, all particles in the SM (except the Higgs boson)
+are massless, and hence massless representation for fermions (the
+Weyl representation) and massless gauge bosons are more fundamental
+than Dirac fermions and massive weak bosons which we observe.  It is
+because, in my opinion, the particular representations of the SM
+fermions, the sextet Q, two triplets uR and dR, one doublet L, and
+on singlet lR, and their very particular values of the hypercharge,
+1/6, 2/3, -1/3, -1/2, and -1, are the most important hint of physics
+beyond the SM.  I planned my lectures in such a way that in my last
+lecture and hw, I can explain the classical idea of SU(5) model by
+using only those materials which were introduced during the course
+of my lectures.  Whether it is true or not, I am sure that it is the
+most important hint that the SM of particle physics gave us.
+
+                               *****
+
+In the last lecture, I will make use of all what you learned from my
+past lectures.  In addition, I try to explain how radiative corrections
+affect effective gauge couplings in a heuristic manner.  You should
+study quantization of gauge fields, technique to calculate quantum
+(radiative) corrections, renormalization of UV sensitive terms, and
+the renormalization scale dependence of the effective couplings,
+which simply follows from the requirement that physics (as we observe)
+should not depend on how we renormalize our QFT.
+
+Before introducing SU(5) theory, let us make a preparation.
+Out motivation is try to find a possibility that the fundamental
+fermions of the SM, in each generation,
+
+1) Q, uR, dR, L, lR
+
+which we may write 6+3+3+2+1=15, can be components of bigger multiplets,
+just like uL and dL are upper and lower components of Q.  In order to
+study such possibility, we should note that all components of such
+bigger multiplet should have exactly the same Lorentz transformation
+properties.  Among the 5 multiplets of (1), Q and L transform as left
+handed Weyl spinor, while uR, dR, lR transform as right-handed Weyl
+spinor.  Since we already learn that the charge conjugate of
+right-handed Weyl spinor transform as left-handed Weyl-spinor, let
+us first write down the SM Lagrangian in terms of left-handed Weyl
+spinors only:
+
+2) Q, uR^c, dR^c, L, lR^c
+
+The fermions appear only in two parts of the SM Lagrangian, which are
+
+3) L_fermion
+= Q^\dagger  iD_\mu \sigma_-^\mu Q
++ uR^\dagger iD_\mu \sigma_+^\mu uR
++ dR^\dagger iD_\mu \sigma_+^\mu dR
++ L^\dagger  iD_\mu \sigma_-^\mu L
++ lR^\dagger iD_\mu \sigma_+^\mu lR
+
+and
+
+4) L_Yukawa
+= y^u Q^\dagger uR \phi^c
++ y^d Q^\dagger dR \phi
++ y^l L^\dagger lR \phi
++ h.c.
+
+where I dropped the neutrino mass term, by going back in time to 1973.
+
+hw24-1: Please write (3) and (4) solely in terms of left-handed Weyl
+fermions, (2).
+
+Let me try, e.g., for the 2nd term in (3), and for the 3rd term in (4)
+
+5) uR^\dagger iD_\mu \sigma_+^\mu uR
+= (uR^\dagger iD_\mu \sigma_+^\mu uR)^T
+= -(iD_\mu \sigma_+^\mu uR)^T uR^*
+= -((i\del_\mu -gT^aA^a_\mu)\sigma_+^\mu uR)^T uR^*
+= (uR)^T (i\del_\mu + g(T^a)^T A^a_\mu) (\sigma_+^\mu)^T uR^*
+= (uR)^T (-i\sigma^2)(i\del_\mu + g(T^a)^T A^a_\mu)
+          (i\sigma^2) (\sigma_+^\mu)^T (-i\sigma^2)(i\sigma^2) uR^*
+= (uR^c)^\dagger (i\del_\mu + g(T^a)^T A^a_\mu) \sigma_-^\mu uR^c
+= (uR^c)^\dagger iD_\mu^* \sigma_-^\mu uR^c
+
+I hope you can follow all the steps by now.  If not, please go back
+to the relevant hw, and repeat it.  In the last step of (5), I
+introduce complex conjugate of the covariant derivative,
+
+6a) D_\mu   = \del_\mu + ig  T^a    A^a_\mu
+6b) D_\mu^* = \del_\mu - ig (T^a)^* A^a_\mu
+
+Although I wrote only SU(3)_c coupling part, the same applies for both
+SU(2)_L and U(1)_Y couplings.  All the charges should change the sign,
+and the SU(3) and SU(2) generators should be replaced by complex
+conjugates (or transpose).  Most importantly, the chiral \sigma
+four vectors  are now all left-handed.
+
+The Yukawa interactions can be expressed the same way.  For instance,
+
+7) y^l  L^\dagger lR \phi
+=  y^l (L^\dagger lR \phi)^T
+=  -y^l (lR)^T (L^\dagger \phi)^T
+=  -y^l (lR)^T \phi^T L^*
+=  -y^l (lR)^T (-i\sigma^2)(i\sigma^2) \phi^T L^*
+=  -y^l (lR^c)^\dagger (i\sigma^2) \phi^T L^*
+=  y^l (lR^c)^\dagger (-i\sigma^2) \phi^T L^*
+
+The Yukawa interaction now looks like the Majorana couplings between
+two left-handed Weyl fermions.  The Hermetian conjugate of (7) gives
+
+8) y^l  L^\dagger lR \phi + h.c.
+=  y^l (lR^c)^\dagger (-i\sigma^2) \phi^T L^*  + h.c.
+=  y^l    (lR^c)^\dagger (-i\sigma^2) \phi^T L^*
++ (y^l)^* (lR^c)^T        (i\sigma^2) \phi^\dagger L
+
+Although the appearance of (i\sigma^2) between two left-handed Weyl
+fermions look like Majorana couplings, they are still Dirac couplings
+because the two left-handed Weyl fermions are different particles.
+
+The only lesson I would like you to learn from the above hw24-1
+is that we can express the whole SM Lagrangian in terms of left-handed
+(or right-handed) Weyl fermions only.
+
+Now we are read to introduce the SU(5) model of Georgi-Glashow (1973).
+
+==================================
+SU(5) model (original: 2007.10.12)
+==================================
+
+In the SU(5) theory, we can write down the covariant derivative as
+
+9) D_\mu = \del_\mu + i g T^a A^a_\mu
+
+where the superscript a runs from 1 to 24.
+
+Let us identify T^1 to T^8 as the SU(3) generators in the
+(i,j)=(1,2,3) corner of the 5*5 matrix.
+
+Let us identify T^9 to T^11 as the SU(2) generators in the
+(i,j)=(4,5) corner of the matrix.
+
+Let us identify T^12 as the hypercharge generator.
+
+With these identifications, 12 out of 24 gauge bosons of the SU(5)
+theory are identified as the SM gauge bosons:
+
+10a) A^1_\mu to A^8_\mu are gluons
+10b) A^9_\mu=W^1_\mu, A^10_\mu=W^2_\mu, A^11_\mu=W^3_\mu
+10c) A^12_\mu=B_\mu
+
+When we compare the SU(5) covariant derivative with that of the SM,
+we immediately notice the unification condition
+
+11) g_s = g_W = g
+
+but a care is needed for the hypercharge coupling g_Y.
+
+This is because the hypercharge coupling is not normalized in the SM,
+being the U(1) charge.
+
+In the SU(5) theory, T^12 is one of the 24 generators.  All the 24
+generators satisfy
+
+12a) Tr( T^a ) = 0
+12b) Tr( T^a T^b ) = (1/2) \delta^{ab}
+
+The condition (12b) determines the normalization N of the generator
+T^12,
+
+13) T^12 = N \diag(1/3, 1/3, 1/3, -1/2, -1/2)
+
+hw24-2: Obtain N from the condition (12b).
+
+hw24-3: Obtain all 24 generators as 5x5 Hermetian matrices that satisfy
+(12a) and (12b).
+
+hint: T^1 to T^8 are QCD generators, so
+
+14a) T^1 = 1/2 [ 0  1 0 0 0 ]
+               [ 1  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+14b) T^2 = 1/2 [ 0 -i 0 0 0 ]
+               [ i  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+14c) T^3 = 1/2 [ 1  0 0 0 0 ]
+               [ 0 -1 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+               [ 0  0 0 0 0 ]
+14d) T^4 = 1/2 [ 0 0  1 0 0 ]
+               [ 0 0  0 0 0 ]
+               [ 1 0  0 0 0 ]
+               [ 0 0  0 0 0 ]
+               [ 0 0  0 0 0 ]
+14e) T^5 = 1/2 [ 0 0 -i 0 0 ]
+               [ 0 0  0 0 0 ]
+               [ i 0  0 0 0 ]
+               [ 0 0  0 0 0 ]
+               [ 0 0  0 0 0 ]
+14f) T^6 =
+14g) T^7 =
+14h) T^8 = 1/2\rt{3} [ 1 0  0 0 0 ]
+                     [ 0 1  0 0 0 ]
+                     [ 0 0 -2 0 0 ]
+                     [ 0 0  0 0 0 ]
+                     [ 0 0  0 0 0 ]
+
+T^9 to T^11 are SU(2) generators, and hence
+
+14i) T^9 = 1/2 [ 0 0 0 0  0 ]
+               [ 0 0 0 0  0 ]
+               [ 0 0 0 0  0 ]
+               [ 0 0 0 0  1 ]
+               [ 0 0 0 1  0 ]
+14j) T^10 =
+14k) T^11 =
+
+T^12 is obtained as (5) and hw24-2.
+
+T^13 to T^24 can be obtained simply as the Hermetian matrices
+that have components in i=1-3 and j=4,5, or i=4,5 and j=1-3.
+
+14l) T^13 = 1/2 [ 0 0 0  1 0 ]
+                [ 0 0 0  0 0 ]
+                [ 0 0 0  0 0 ]
+                [ 1 0 0  0 0 ]
+                [ 0 0 0  0 0 ]
+14m) T^14 = 1/2 [ 0 0 0 -i 0 ]
+                [ 0 0 0  0 0 ]
+                [ 0 0 0  0 0 ]
+                [ i 0 0  0 0 ]
+                [ 0 0 0  0 0 ]
+14n) T^15 = 1/2 [ 0 0 0  0 0 ]
+                [ 0 0 0  1 0 ]
+                [ 0 0 0  0 0 ]
+                [ 0 1 0  0 0 ]
+                [ 0 0 0  0 0 ]
+14o) T^16 =
+14p) T^17 =
+14q) T^18 =
+14r) T^19 = 1/2 [ 0 0 0 0  1 ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 0 0  0 ]
+                [ 1 0 0 0  0 ]
+14s) T^20 = 1/2 [ 0 0 0 0 -i ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 0 0  0 ]
+                [ i 0 0 0  0 ]
+14t) T^21 =
+14u) T^22 =
+14v) T^23 =
+14w) T^24 = 1/2 [ 0 0 0 0  0 ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 0 0 -i ]
+                [ 0 0 0 0  0 ]
+                [ 0 0 i 0  0 ]
+
+Since I will later use the above generator numbers for our SU(5) gauge
+boson numbers, A^1 to A^24, please follow my notation for all the 24
+matrices.
+
+hw24-4: Please identify 4 diagonal generators among 24 generators.
+Please confirm that 2 of them are SU(3) QCD generators, 1 of them
+is the SU(2) generator, and the last one is T^12.  Please show that
+the number of diagonal generators is n-1 for SU(n).  The number of
+diagonal generators is called `rank' of the Group.  The rank of U(1)
+group is 1.  The rank of the SM and SU(5) are both 4.
+
+Because the diagonal generators give neutral currents, the rank of the
+group gives the number of neutral currents.
+
+Because the SM has 4 neutral currents (2 of which are gluons), the
+unifying group should at least have rank 4.  The SU(5) model is hence
+the smallest possible unification group, which has no additional
+neutral current.
+
+Let us choose the 5^* representation of SU(5) as
+
+15) 5^* = ( (d_R^c)^1, (d_R^c)^2, (d_R^c)^3, \l_L, -\nu_L )^T
+        = (      F*^1,      F*^2,      F*^3, F*^4,   F*^5 )^T
+
+which should transform under SU(5) as a 5^* representation,
+
+16a) F  > F'  = U   F
+16b) F* > F*' = U^* F*
+
+where I symbolically write F and F* for the column vector with 5
+components.
+
+Please note the hypercharge of the above 5 components can be expressed
+as a diagonal 5x5 matrix
+
+17) Y F*= \diag(1/3, 1/3, 1/3, -1/2, -1/2) F*
+
+Please observe that the above Y matrix is traceless!!!  This is the
+reason why the Hypercharge gauge boson (the B boson) can be interpreted
+as one of the SU(5) gauge bosons.
+
+Please observe that all 5 components of (15) transform as left-handed
+Weyl fermions under the Lorentz transformation.  Therefore, they
+transform as a 5-plet under the Lorentz transformation.  This is why
+I spent lots of time explaining the Lorentz transformation of the
+Weyl fermions and that of their charge conjugates.
+
+Please note that since (\nu_L, \l_L)^T is an SU(2) doublet,
+i\sigma^2 (\nu_L, \l_L)^T = (\l_L, -\nu_L)^T transforms as an SU(2)
+anti-doublet, or as 2^*.  Please remember how we obtain an SU(2)
+doublet Higgs boson, \phi^c, from the SU(2) doublet Higgs boson \phi.
+This tells that a doublet (\psi^c)^* = -i\sigma^2 \phi, transform as
+an anti-doublet, or as 2^*.
+
+hw24-5: Please confirm that the 1-3 components of F* transform as 3^*
+of SU(3), and the 4-5 components of F* transform as 2^* of SU(2).
+
+For the fundamental n representation of SU(n), I denote
+f_i (i=1,2,...,n) for the fundamental representation, and
+f^i (i=1,2,...,n) for the complex conjugate, or n^* representation
+(without putting a bar on f).  For instance, the quark fields may be
+denoted as q^i (i=1,2,3), and the anti-quark fields may be denoted
+as qbar_i (i=1,2,3).  In the tensor representation, the lowering of
+indices changes n to n^* representations, and hence we don't need
+to put a bar: q_i transform as n^* if q^i transforms as n.
+
+The transformation laws of (16a) and (16b) are now written as
+
+16a) F  > F'  = U   F   => 18a) F^i > F^i' = U^i_j F^j
+16b) F* > F*' = U^* F*  => 18b) F_i > F_i' = U_i^j F_j
+
+The transformation tensor/matrix are related as
+
+19a) U^i_j =  U_{ij}
+19b) U_i^j = (U^*)_{ij} = (U^\dgr)_{ji} = (U^{-1})_{ji}
+
+which satisfy
+
+20a) U^i_j U_k^j  = \delta^i_k
+20b) U     U^\dgr = 1
+
+hw24-6: Please confirm the relationship between the matrix representation
+and tensor representation as given in eqs.(16)-(20).
+
+We can now identify the relation between the hyper-charge coupling
+g_Y in the SM and the SU(5) coupling g as follows:
+
+21) g T^12 B_\mu = g_Y Y B_\mu
+
+or, by using the normalization factor N of hw24-2.
+
+22) N g = g_Y
+
+hw24-7: Please obtain the SU(5) value of the weak mixing angle
+as follows:
+
+23a) \tan\theta_W = g_Y/g_W = (N g)/g = N
+23b) \sin^2\theta_W = 1 -\cos^2\theta_W
+                    = 1 -1/(1+\tan^2\theta_W)
+                    = 1 -1/(1+N^2)
+
+hw24-8: Please compare the ratio of the 3 couplings in the
+SU(5) theory
+
+24) g_s^2 : g_W^2 : g_Y^2 = g^2 : g^2 : (N g)^2
+                          = 1   : 1   : N^2
+
+with the observed values from the PDG tables
+
+25) \alpha_s : \alpha/\sin^2\theta_W : \alpha/\cos^2\theta_W
+    = 1 : x : xy
+
+Please observe that x is significantly smaller than 1, and y is
+significantly smaller than N^2.  Therefore, the SU(5) theory does
+not agree with the observation at this level.
+
+Nevertheless, Georgi and Glashow were excited in 1973 to find that
+the quantization of the hypercharge follows from the tracelessness
+of the SU(5) generator, (5).
+
+Most importantly, they found out that the mysterious factor of the 1/3
+unit of quark charges is a direct consequence of the fact that quarks
+are color-triplets, once quarks and leptons are in a same multiplet.
+Even more, they found that the right-handed down quark should be SU(2)
+singlet if the left-handed leptons form a SU(2) doublet.
+
+hw24-9: Please observe that for the 5-plet state, F* (7), its i=1-3
+components transform as 3^* of SU(3), does NOT transform under SU(2)
+(and hence they are SU(2) singlet), whereas the i=4-5 components trans
+form as 2^* of SU(2), whereas they don't transform under SU(3)
+(color singlet).
+
+They further found that the remaining 15-5=10 fermions of the SM, i.e.,
+the left-handed quark doublet (6), the right-handed up quark (3),
+and the right-handed lepton (1) makes up the 10 plet of SU(5).
+
+10 plet has two SU(5) indices
+
+26) T_[ij]
+
+where ij are anti-symmetric.  It can hence be expressed as 5x5
+anti-symmetric matrix, which has just 10 components.
+
+hw24-10: Please confirm that there are 10 independent components in
+the 5x5 anti-symmetric matrix.
+
+Please note that F^i and T_ij transform as
+
+27a) T_ij -> T_kl = U_k^i U_l^j T_ij
+27b) F^i  -> F^j  = U^j_i F^i
+
+where
+
+28a) U_i^j = [U]_ij
+28b) U^i_j = [U^*]_ij
+
+in terms of the 5*5 unitary matrix U.
+
+Please note that it is not trivial to express the transformation
+(27a) by using the matrix notation.  I find
+
+29a) [T]  -> [T']  = [U] [T] [U^T]
+29b) [F*] -> [F*'] = [U^*] [F*]
+
+in the matrix representations.
+
+hw24-11: Please prove (29).
+
+hw24-12: Show that
+
+30) [T_14, T_24, T_34] = [u_L_1, u_L_2, u_L_3]
+    [T_15, T_25, T_35]   [d_L_1, d_L_2, d_L_3]
+
+transform as SU(3) triplet for the (1,2,3) indices,
+and as SU(2) doublet for the (4,5) indices.
+
+Please also show that
+
+31) [T_12, T_23, T_31] = [u_R^c^3, u_R^c^1, u_R^c^2]
+
+by using the fact that
+
+32) \epsilon_{ijk} q_i q_j q_k
+
+is a color SU(3) singlet when i,j,k are the SU(3) indices.
+
+hw24-13: Prove that (32) is SU(3) invariant by using the property of
+the SU(n) transformation matrix, det[U]=1.
+
+It then follows that
+
+33) \epsilon_{ijk} q_i q_j
+
+transforms as q^k (anti-quark).  Finally, we can identify
+
+34) T_45 = l_R^c
+
+hw24-14: Please calculate the hypercharge of all the components of
+T_ij, and show that the above identification agrees with the SM.
+
+In this way, all the 15 components of the SM generation are identifies
+with 5^* and 10 plets of the SU(5).
+
+Let us now assume that the remaining 12 gauge bosons of the SU(5)
+theory, A^13 to A^24 should all be heavy.  Because we exhausts all
+the block-diagonal generators by T^1 to T^12, all the remaining
+generators have only block-off-diagonal components.  We may write
+
+35) \Sum_{a=13 to 24} T^a A^a = 1/\sqrt{2}
+                              * [ 0   0   0   X Y ]
+                                [ 0   0   0   X Y ]
+                                [ 0   0   0   X Y ]
+                                [ X^* X^* X^* 0 0 ]
+                                [ Y^* Y^* Y^* 0 0 ]
+
+This is very similar to the SU(2) case, where we had
+
+36) \Sum_{a=1,2} T^a W^a = 1/\sqrt{2} * [ 0   W^+ ]
+                                        [ W^- 0   ]
+
+Just like we can express W^+ and W^- in terms of the real gauge bosons
+W^1 and W^2, we can express X^{-4/3} and Y^{-1/3} in terms of A^a
+(a=13,...,24).
+
+hw24-15: Please express the charged gauge bosons X^{-4/3} and Y^{-1/3}
+in terms of the 12 neutral gauge bosons, A^13 to A^24.
+
+********************************************************************
+This is my last question, for which I expect to receive your report.
+Please read the following parts, which I gave to my students at KEK
+to play.  You may enjoy making many plots, and may want to learn how
+to evaluate quantum corrections by yourself, which was the subject
+of my next advanced course at KEK.
+********************************************************************
+
+Let us now assume that all X and Y have a common mass M.  Because at
+scales far above the breakdown of SU(2), we should assume the SU(2)
+invariance to hold, and hence this assumption of the same mass for
+X and Y are necessary condition for the theory to contain the SM.
+
+Below the mass scale of M, X and Y bosons do not contribute to radiative
+corrections (decoupling of heavy particles).  Only the light bosons
+(such as gluons, W's and B, Higgs, and quarks and leptons) contribute
+to radiative corrections.
+
+For instances, the gluon propagator receives corrections from gluons
+and quarks, while the weak-boson propagator receives corrections
+from the electroweak bosons, quarks and leptons.
+
+Therefore, even though the couplings are the same in the tree-level,
+the radiative corrections at the scale \mu << M will be very different:
+
+37a) q-q scattering
+                      q|    |q       q|         |q
+                       |    |         |         |
+                 =    g|----|g   +   g|---[A]---|g
+                       | g  |         | g     g |
+                      q|    |q       q|         |q
+
+
+37b) nu-lL scattering
+                     nu|    |lL     nu|         |lL
+                       |    |         |         |
+                 =    g|----|g   +   g|---[B]---|g
+                       | W  |         | W     W |
+                     lL|    |nu     lL|         |nu
+
+
+37c) lR-lR scattering
+                     lR|    |lR     lR|         |lR
+                       |    |         |         |
+                 =    g|----|g   +   g|---[C]---|g
+                       | B  |         | B     B |
+                     lR|    |lR     lR|         |lR
+
+
+In the tree-level, the first term in the r.h.s. of eqs.(37a,b,c),
+all the above 3 scattering amplitudes have the same magnitude in
+the SU(5) theory.
+
+However, the radiative corrections at the scale \mu << M will be very
+different.  In [A], only gluons and quarks can contribute.  In [B],
+only electroweak gauge bosons and left-handed quarks and leptons can
+contribute.  In [C], no gauge bosons can contribute while all the
+quarks and leptons will contribute.
+
+The scattering amplitudes at the scale \mu can be expressed as the sum
+of the tree-level and the loop-level amplitudes, the first and the
+second terms in the r.h.s. of eqs.(37a,b,c), and they can be expressed
+as `effective couplings' for each scattering at the scale \mu:
+
+38a) g_3^2(\mu) = g^2 + g^2*[A] + ...
+38b) g_2^2(\mu) = g^2 + g^2*[B] + ...
+38c) g_1^2(\mu) = g^2 + g^2*[C] + ...
+
+where
+
+39a) g_3^2(\mu) = g_s^2(\mu)     = 4\pi\alpha_s(\mu)
+39b) g_2^2(\mu) = g_W^2(\mu)     = 4\pi\alpha_W(\mu)
+39c) g_1^2(\mu) = g_Y^2(\mu)/N^2 = 4\pi\alpha_Y(\mu)/N^2
+
+The terms A, B, C, are obtained from the loop corrections in the
+diagrams in (37a,b,c), respectively.  We find
+
+40a) A = g^2/4pi^2 * b_3 * \ln(M/\mu) + ...
+40b) B = g^2/4pi^2 * b_2 * \ln(M/\mu) + ...
+40c) C = g^2/4pi^2 * b_1 * \ln(M/\mu) + ...
+
+The radiative corrections are renormalized such that they vanish at
+the scale \mu=M, recovering the unification.  Indeed, above the
+unification scale, \mu > M, all the SU(5) gauge bosons as well as
+scalar/fermion multiplets contribute to the loops, making the
+coefficients the same (b_5) for all the processes.
+
+At \mu << M, however, because all the particles with mass \sim M
+decouple, the coefficients b_3,2,1 reflect the number of light
+bosons and fermions which couple to each gauge boson.
+
+By inserting (40) back into (38), we find
+
+41a) 4\pi^2/g_3^2(\mu) = 4\pi^2/g^2 - b_3 * \ln(M/\mu) + ...
+41b) 4\pi^2/g_2^2(\mu) = 4\pi^2/g^2 - b_2 * \ln(M/\mu) + ...
+41c) 4\pi^2/g_1^2(\mu) = 4\pi^2/g^2 - b_1 * \ln(M/\mu) + ...
+
+Can you derive (41) from (38)?
+
+If only the SM particles are light as compared to M, we obtain
+
+42a) b_3 = (11/6)*T_A -(4/3)*T_F*nG
+         =  11/2          -(2/3)*nG
+42b) b_2 = (11/6)*T_A -(4/3)*T_F*nG -(1/12)*nH
+         =  11/3          -(2/3)*nG -(1/12)*nH
+42c) b_1 =            -(4/3)*T_F*nG -(1/20)*nH
+         =                -(2/3)*nG -(1/20)*nH
+
+Here T_R = T(R) are group theory constants defined by
+
+43) Tr[ T^a(R) T^b(R) ] = T(R) \delta^{ab}
+
+for the generators in the R-representation.  R=F is fundamental
+representation, for which T(F)=T_F=1/2 for all SU(n).  R=A is
+adjoint, for which T(A)=n for SU(n).  T(A)=0 for U(1).
+
+In eqs.(42a,b), the first term is the contribution from the gauge
+bosons in the loop, the second term which is proportional to T_F is
+the contribution from the fermions, the sum of quarks and leptons,
+and the last term is the contribution from the scalar bosons, the
+Higgs doublet.  nG is the number of quark and lepton generations,
+nH is the number of Higgs doublets.
+
+It is instructive to note how quarks and leptons contribute to b_n:
+
+44a) b_3: -(2/3)*T_F each from up-quark and down-quark
+44b) b_2: -1*T_F from the quark doublet Q, -(1/3)*T_F from L.
+44c) b_1: -(1/5)*[6*(1/6)^2+3*(2/3)^2+3*(1/3)^2+2*(1/2)^2+1^2]=-2/3
+
+Because quarks and leptons of each generation have the same (zero)
+mass for the complete SU(5) multiplets, 5^* and 10, their contri-
+bution to the running of the gauge couplings are identical.
+
+It will be fun to confirm that, b_3=b_2=b_1=-(2/3)*nG, if there
+are nG generations of 15 fermions.
+
+It is the contributions of split representations, where one SU(5)
+multiplet splits into particles of mass M and massless particles,
+which make the radiative corrections different for each coupling.
+
+The first terms in (42a,b) comes from the gauge boson sector, where
+the SU(5) multiplet of 24 splits into 12 massive bosons (X,Y,X^*,Y^*)
+and 12 massless gauge bosons (8 gluons, 3 W's, 1 B). Only the massless
+gauge bosons contribute to the radiative corrections at \mu << M.
+The sign of the first term for SU(3) and SU(2) couplings show the
+asymptotic freedom [the couplings become small at high energies].
+Because of the splitting of the SU(5) multiplet (with 24 gauge bosons)
+into massive (12) and massless (12) bosons, the gauge boson
+contributions to the radiative corrections differ for the 3 processes.
+
+The last terms in (42b,c) comes from the Higgs boson sector, where
+the SU(5) multiplet of 5 splits into 3 massive bosons and 2 massless
+bosons (the Higgs boson of the SM).  nH is the number of the Higgs
+doublets.  nH=1 for the minimum SM.  Again, it is the splitting of
+the SU(5) multiplet of Higgs bosons into massive (3) and massless (2)
+bosons, the Higgs boson contribution to the radiative corrections
+differ for the 3 processes.
+
+It is easy to show that the 3 equations of (41) can be solved as:
+
+45a) \sin^2\theta_W(\mu)
+
+          3(b_3-b_2)              5(b_2-b_1)          \alpha(\mu)
+   = --------------------- + --------------------- * -------------
+     5(b_3-b_1)+3(b_3-b_2)   5(b_3-b_1)+3(b_3-b_2)   \alpha_3(\mu)
+
+45b) \ln(M/\mu)
+
+               8               3     \pi            \pi
+   = --------------------- * [ - * ----------- - ------------- ]
+     3(b_3-b_2)+5(b_3-b_1)     8   \alpha(\mu)   \alpha_3(\mu)
+
+Eq.(45a) gives the SU(5) prediction of the weak mixing angle \theta_W,
+e.g. at the \mu=mZ scale, once we know \alpha(mZ) and \alpha_3(mZ).
+Eq.(45b) gives the GUT scale M, in terms of the couplings measured
+at \mu=mZ.
+
+Please use as inputs the observed value of mZ (in the PDG tables) and
+
+46a) 1/\alpha(mZ) = 128.12
+46b) 1/\alpha_3(mZ) = 9.09
+
+I give the numerical values in (46), because it is not easy to find
+them in the reviews of the PDG book.  For advanced students, the above
+values are the measured mean values of the running coupling constants
+in the MSbar scheme, including the top-quark contribution.  Their
+magnitudes differ significantly from those which appear in the SM
+Lagrangian in the weak boson mass scale, since the latter couplings
+are obtained in the effective theory without the top quark (the
+effective 5-quark theory).  Because in the MSbar scheme the heavy
+quarks do not decouple from the beta function, the magnitude of the
+MSbar couplings with or without the top-quark differ significantly
+from each other (their magnitudes are determined by the requirement
+that the full theory with the top quark, and the effective theory
+without the top quark give quantitatively the same predictions for
+all the low energy phenomena below the top quark mass scale).
+
+If one uses the MSbar coupling values without the top-quark
+contribution at the scale \mu = mZ, in the following analysis, one
+should use the 5-quark RG equations in the region mZ<\mu<mt, and
+then the 6-quark RG equation at mt<\mu<M.  This is an unnecessary
+complication, if we use the 6-quark MSbar couplings in the whole range.
+In order to obtain the same physics outputs, the coupling values
+should be shifted as above.
+
+You can now find the SU(5) predictions of \sin^2\theta_W(\mz) and M
+with the above inputs (46), for
+
+47) nH = 0, 1 (minimum SM), 2, 3, 4, 5, 6, 7, 8.
+
+If my memory is correct, the SU(5) prediction for the mixing angle
+agrees with the observation
+
+48) \sin^2\theta_W(mZ) = 0.2314
+
+when nH \sim 7.   Please make a table of your results as
+
+49)  nH     \sin^2\theta_W(mZ)   M         1/\alpha_GUT    \tau_p
+
+   0     ...                   ... (GeV)   ...          ... (year)
+   1     ...                   ... (GeV)   ...          ... (year)
+   2     ...                   ... (GeV)   ...          ... (year)
+
+by estimating the proton decay life time as follows:
+
+50a) \Gamma = 1/(2m) 1/2 |(g^2/2)/M^2|^2 m^6 1/8\pi
+            = g^4/128\pi m^5/M^4
+            = \pi/8 (\alpha_GUT)^2 m^5/M^4
+
+50b) \tau = 1/Gamma
+
+with m=m_proton.  g^2=g^2(\mu=M) should be estimated from eq.(51):
+
+51a) 4\pi^2/g^2     = 4\pi^2/g_3^2(mZ) + b_3 * \ln(M/mZ)
+51b) \pi/\alpha_GUT = \pi/\alpha_3(mZ) + b_3 * \ln(M/mZ)
+
+Please note that the above estimate for the proton decay width (50a)
+is extremely rough, where I used an order of magnitude estimate for
+the proton to lepton plus meson matrix elements as m(proton)^3.
+There have been careful estimates of the perturbative renormalization
+of the operator (from the scale M down to the scale m(proton)),
+and the matrix elements are now evaluated by Lattice QCD.
+
+Now, please work out the running of the 3 couplings in the
+opposite direction.  Please start from the `observed' values
+
+52) 1/\alpha_1(mZ) = 59.08
+    1/\alpha_2(mZ) = 29.65
+    1/\alpha_3(mZ) = 9.09
+
+and examine the running of the 3 gauge couplings at \mu >> mZ.
+In the leading order, the solution of the RG equations, (41a,b,c),
+is linear in \ln\mu for 1/\alpha_i(\mu).  Therefore, please make
+a plot by taking the \log scale in the horizontal direction,
+and 1/\alpha_i(\mu) in the vertical direction.
+
+How the curves look like, say, for nH=1,3,5,7 ?
+
+Let us repeat this last analysis in the supersymmetric SM.
+The \beta functions of (34) change as follows:
+
+53a) b_3 = (11/6)*T_A -(1/3)*T_A -(4/3+2/3)*T_F*nG
+         =  (7/6)*3                      -2*T_F*nG
+53b) b_2 = (11/6)*T_A -(1/3)*T_A -(4/3+2/3)*T_F*nG -(1/12+2/12)*nH
+         =  (7/6)*2                      -2*T_F*nG       -(1/4)*nH
+53c) b_1 =                               -2*T_F*nG      -(3/20)*nH
+
+It is very easy to obtain the MSSM result (53) from the SM one (42).
+In the expression for b_3, -(1/3)*T_A is the gluino contribution,
+which is just like the standard quark contribution with the adjoint
+color factor T_A instead of T_F.
+
+For the squark contribution, it suffices to know that a complex scalar
+boson contributes just half of the corresponding Weyl fermion.  Hence
+the quark and lepton contributions are multiplied by (1+1/2)=3/2.
+The Higgs contributions are multiplied by (1+2)=3, because the
+Higgsino contribution is twice as large as the Higgs contribution,
+by the same token.
+
+In addition, we note that only even number of the Higgs doublets are
+acceptable for the supersymmetric SM.  [This is essentially because
+we cannot make a supersymmetric Lagrangian from \phi and \phi^c.  If
+a super-partner of \phi is a left-handed Weyl fermion, then a
+super-partner of \phi^c is a right-handed Weyl spinor.  If we have
+both left- and right-handed Weyl spinors, we cannot make the Yukawa
+interactions supersymmetric.  Therefore, instead of using \phi and
+\phi^c to give masses to both up and down quarks, we should introduce
+two Higgs doublets \phi_u and \phi_d with opposite Hyper charge, both
+having left-handed Weyl spinors, the Higgsinos \tilde{\phi}_u and
+\tilde{\phi}_d, respectively.]
+
+You may draw a new figure of 1/\alpha_i(\mu) vs \log\mu, for
+the supersymmetric SM, but for nH = 0, 2, 4.  nH=2 is the minimal
+SUSY SM (MSSM).  Observe that only the MSSM satisfies the GUT condition.
+
+Finally, please obtain the GUT scale M, and the GUT coupling
+1/\alpha_GUT for the MSSM by using the same formula which you used
+to make a table for the SM.  How large is the proton lifetime for
+the MSSM (nH=2) ?  Please estimate the size (in units of ton's) of
+the detector which can observe one proton decay in one year.
+
+This is the last homework of my PT1 lectures.
+
+Best regards,
+
+Kaoru
+
+
+
+
+\end{document}

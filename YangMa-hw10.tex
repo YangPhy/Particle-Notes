@@ -1,0 +1,316 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW10}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+\begin{eqnarray}
+    V &=& O_{23} P O_{13} P^* O_{12} \\
+    &=&
+    \begin{pmatrix}
+        1 & 0& 0 \\
+        0 &c_{23}&s_{23}\\
+        0& -s_{23}&c_{23}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0 & 0 \\ 
+        0 & 1 & 0 \\ 
+        0 & 0 & e^{i\delta} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{13} & 0& s_{13} \\
+        0 &1&0\\
+        -s_{13}& 0&c_{13}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0 & 0 \\ 
+        0 & 1 & 0 \\ 
+        0 & 0 & e^{-i\delta} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{12} & s_{12}& 0 \\
+        -s_{12} &c_{12}&0\\
+        0& 0&1
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        1 & 0& 0 \\
+        0 &c_{23}&s_{23}e^{i\delta}\\
+        0& -s_{23}&c_{23}e^{i\delta}
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{13} & 0& s_{13} \\
+        0 &1&0\\
+        -s_{13}& 0&c_{13}
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{12} & s_{12}& 0 \\
+        -s_{12} &c_{12}&0\\
+        0& 0& e^{-i\delta}
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        1 & 0& 0 \\
+        0 &c_{23}&s_{23}e^{i\delta}\\
+        0& -s_{23}&c_{23}e^{i\delta}
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{12}c_{13} & s_{12}c_{13}& s_{13}e^{-i\delta} \\
+        -s_{12} &c_{12}& 0 \\
+        -c_{12}c_{13}& -s_{12}s_{13}&c_{13}e^{-i\delta}
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        c_{12}c_{13} & s_{12}c_{13} & s_{13}e^{-i\delta} \\
+        -c_{23}s_{12}-c_{12}s_{13}s_{23}e^{i\delta} &c_{12}c_{23}-s_{12}s_{23}s_{13}e^{i\delta}& c_{13}s_{23} \\
+        s_{12}s_{23}-c_{12}c_{13}c_{23}e^{i\delta}&-c_{12}s_{23}-s_{12}s_{13}c_{23}e^{i\delta}&c_{13}c_{23}
+    \end{pmatrix}
+  \end{eqnarray}
+This agrees with the CKM Matrix in PDG.
+
+\section{ }
+By choosing
+\begin{eqnarray}
+    V_{ud}, V_{us}, V_{cb}, V_{tb} > 0,
+\end{eqnarray}
+  we see that 
+  \begin{eqnarray}
+    0 \le \theta_{23}, \theta_{13}, \theta_{12} < \pi/2.
+  \end{eqnarray}
+\section{ }
+Recall
+\begin{eqnarray}
+    D_\mu = \del_\mu +\frac{ig}{\sqrt 2} (T^+ W_\mu^+ + T^-W_\mu^-)+ig_Z(T^3-Q\sin^2\theta_W)Z_\mu + iQeA_\mu,
+\end{eqnarray}
+note that $Q=0$ for Higgs, so we have
+\begin{eqnarray}
+    D_\mu \phi =\frac{1}{\sqrt 2}\del_\mu H + \frac{ig}{\sqrt 2} W_\mu^+
+    \begin{pmatrix}
+        \frac{v+H}{\sqrt{2}} \\ 0 
+    \end{pmatrix}
+    -\frac{ig_Z}{2}
+    \begin{pmatrix}
+        0 \\ \frac{v+H}{\sqrt{2}}
+    \end{pmatrix}
+    Z_\mu,
+\end{eqnarray}
+and
+\begin{eqnarray}
+    (D_\mu \phi)^\dagger (D^\mu \phi) =  \frac{1}{ 2}\del_\mu H \del^\mu H + \frac{g^2}{2}W_\mu^-{W^+}^\mu \frac{(v+H)^2}{2}+\frac{g_Z^2}{4} \frac{(v+H)^2}{2} Z_\mu Z^\mu. 
+\end{eqnarray}
+Also we can write the Higgs potential
+\begin{eqnarray}
+    V(\phi) &=& \frac{\lambda}{4} (\phi^\dagger \phi)^2 + \mu^2 (\phi^\dagger \phi) 
+    =\frac{\lambda}{4} (\phi^\dagger \phi)^2 - \frac{\lambda v^2}{4}(\phi^\dagger \phi) \\
+    &=& \frac{\lambda}{4} \frac{(v+H)^4}{4} - \frac{\lambda v^2}{4}\frac{(v+H)^2}{2} \\
+    &=& \frac{\lambda}{16}(H^4+4vH^3+4v^2H^2-v^4),
+  \end{eqnarray}
+and finally obtain ${\cal L}_{Higgs}$,
+\begin{eqnarray}
+    {\cal L}_{Higgs} &=& (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi) \\ 
+    &=& \frac{1}{2}\del_\mu H \del^\mu H + \frac{g^2}{2}W_\mu^-{W^+}^\mu \frac{(v+H)^2}{2}+\frac{g_Z^2}{4} \frac{(v+H)^2}{2} Z_\mu Z^\mu \nonumber \\ &&- \frac{\lambda}{16}(H^4+4vH^3+4v^2H^2-v^4) \\
+    &=& \frac{1}{2}\del_\mu H \del^\mu H + \frac{g^2}{4}W_\mu^-{W^+}^\mu H^2 + \frac{g^2v^2}{4}W_\mu^-{W^+}^\mu +\frac{g^2v}{2}W_\mu^-{W^+}^\mu H +\frac{g_Z^2}{8}Z_\mu Z^\mu H^2 \nonumber \\ && +\frac{g_Z^2v^2}{8}Z_\mu Z^\mu +\frac{g_Z^2 v}{4}Z_\mu Z^\mu H- \frac{\lambda}{16}H^4-\frac{\lambda v}{4}H^3-\frac{\lambda v^2}{4}H^2+  \frac{\lambda v^4}{4}
+\end{eqnarray}
+
+\section{ }
+Now we can parameterize ${\cal L}_{Higgs}$ as
+\begin{eqnarray}
+    {\cal L}_{Higgs} &=& \frac{1}{2} \del_\mu H \del^\mu H+
+                m_W^2 W^+_\mu {W^-}^\mu
+                + \frac{m_Z^2}{2} Z_\mu Z^\mu
+                + g_{HWW} H W^+_\mu {W^-}^\mu
+                \nonumber \\ &&+ \frac{g_{HZZ}}{2} H Z_\mu Z^\mu
+                + \frac{g_{HHWW}}{2} HH W^+_\mu {W^-}^\mu
+                + \frac{g_{HHZZ}}{4} HH Z_\mu Z^\mu
+                \nonumber \\ &&- \frac{m_H^2}{2} H^2
+                - \frac{g_{HHH}}{3!} H^3
+                - \frac{g_{HHHH}}{4!} H^4.
+  \end{eqnarray}
+By comparing with the result in {\bf hw10-3}, we see
+\begin{eqnarray}
+    &&m_W= \frac{gv}{2}, m_Z=\frac{g_Zv}{2},~~ g_{HWW}=\frac{g^2v}{2},~~g_{HZZ}=\frac{g_Z^2v}{2},~~g_{HHWW}= \frac{g^2}{2},\\
+    && g_{HHZZ}=\frac{g_Z^2}{2},~~m_H=\sqrt{\frac{\lambda v^2}{2}},~~g_{HHH}=\frac{3}{2} \lambda v,~~g_{HHHH}=\frac{3}{2} \lambda
+\end{eqnarray}
+
+\section{ }
+Make the replacement
+\begin{eqnarray}
+    m_f \to m_f (1+H/v)
+  \end{eqnarray}
+in
+\begin{eqnarray}
+    {\cal L}_{Yukawa} &=&
+    -u_L^\dagger M^u u_R + d_L^\dagger M^d d_R + l_L^\dagger M^l l_R + h.c. \\
+    &=&
+    -(u_L^\dagger, c_L^\dagger, t_L^\dagger) {\rm diag}\{m_u,m_c,m_t\} (u_R,c_R,t_R)^T\nonumber \\
+    &&-(d_L^\dagger, s_L^\dagger, b_L^\dagger) {\rm diag}\{m_d,m_s,m_b\} (d_R,s_R,b_R)^T \nonumber \\ &&- (e_L^\dagger, \mu_L^\dagger, \tau_L^\dagger) {\rm diag}\{m_e,m_\mu,m_\tau\} (e_R,\mu_R,\tau_R)^T
+    +
+    h.c. \\
+    &=& - \sum_f g_{Hff} m_f (f_L^\dagger f_R + f_R^\dagger f_L),
+  \end{eqnarray}
+  we have
+  \begin{eqnarray}
+    {\cal L}_{Yukawa} &=& - \sum_f  m_f (1+H/v) (f_L^\dagger f_R + f_R^\dagger f_L)
+ \end{eqnarray}
+see $g_{Hff}=m_f/v$ in 
+\begin{eqnarray}
+    {\cal L}_{Hff} = - \sum_f g_{Hff} H (f_L^\dagger f_R + f_R^\dagger f_L).
+\end{eqnarray}
+
+\section{ }
+The neutrino term in Yukawa Lagrangian is
+\begin{eqnarray}
+    \frac{y_{ij}^\nu v^2}{4\Lambda} \nu_{Li} \cdot \nu_{Rj}+h.c.,
+\end{eqnarray}
+and the mass term is 
+\begin{eqnarray}
+    \vec{\nu}_L^T m_\nu \vec{\nu}_L+ h.c.
+\end{eqnarray}
+We need the replacement 
+\begin{eqnarray}
+    v^2 \to (v+H)^2=v^2(1+H^2/v^2+2H/v)
+\end{eqnarray}
+which leads
+\begin{eqnarray}
+    m_\nu \to m_\nu(1+H^2/v^2+2H/v)
+\end{eqnarray}
+and $g_{H\nu\nu}=m_\nu/v $ in
+\begin{eqnarray}
+    {\cal L}_{H\nu\nu} = - \sum_{k=1,2,3} \frac{g_{Hkk}}{2} H (\nu_k \cdot \nu_k).
+\end{eqnarray}
+We also note that there is another $HH\nu\nu$ coupling term.
+
+\section{ }
+Take the limit
+\begin{eqnarray}
+    y^t = y^b = y,
+  \end{eqnarray}
+we have the Yukawa Lagrangian
+\begin{eqnarray}
+    {\cal L}_{Yukawa}  &=&  y^t (t_L^\dagger,b_L^\dagger) \phi^c t_R
+    + y^b (t_L^\dagger,b_L^\dagger) \phi   b_R
+    + h.c. \\ &=& y
+    \begin{pmatrix}
+      t_L^\dagger & b_L^\dagger
+    \end{pmatrix}
+    (\phi^c t_R + \phi b_R) + h.c. \\
+    &=& y 
+    \begin{pmatrix}
+      t_L^\dagger & b_L^\dagger
+    \end{pmatrix}
+    \begin{pmatrix}
+      \phi^c & \phi
+    \end{pmatrix}
+    \begin{pmatrix}
+      t_R \\ b_R
+    \end{pmatrix}+h.c.\\
+    &=& y 
+    \begin{pmatrix}
+      t_L^\dagger & b_L^\dagger
+    \end{pmatrix}
+    \Phi
+    \begin{pmatrix}
+      t_R \\ b_R
+    \end{pmatrix} +h.c.
+  \end{eqnarray}
+Under the joint transformation
+\begin{eqnarray}
+    &&\Phi \to \Phi' = U_L \Phi U_R^\dagger \\
+    &&(t_L, b_L)^T \to (t_L', b_L')^T = U_L (t_L, b_L)^T  \\
+    &&(t_R, b_R)^T \to  (t_R', b_R')^T = U_R (t_R, b_R)^T 
+\end{eqnarray}
+this Lagrangian turns into 
+\begin{eqnarray}
+    {\cal L}'_{Yukawa} &=& y 
+    \begin{pmatrix}
+      {t_L'}^\dagger & {b_L'}^\dagger
+    \end{pmatrix}
+    \Phi
+    \begin{pmatrix}
+      t_R' \\ b_R'
+    \end{pmatrix} +h.c. \\
+    &=&y  
+        \begin{pmatrix}
+        t_L^\dagger & b_L^\dagger 
+        \end{pmatrix}
+        {U_L}^\dagger U_L \Phi {U_R}^\dagger U_R    
+         \begin{pmatrix}
+            t_R \\ b_R
+          \end{pmatrix} +h.c.\\
+    &=& y 
+    \begin{pmatrix}
+      t_L^\dagger & b_L^\dagger
+    \end{pmatrix}
+    \Phi
+    \begin{pmatrix}
+      t_R \\ b_R
+    \end{pmatrix} +h.c.,
+\end{eqnarray}
+where we used $U_L^\dagger U_L=U_R^\dagger U_R=1$ in the last step.
+
+\section{ }
+For
+\begin{eqnarray}
+    <\phi_k> = \frac{v_k}{\sqrt{2}} {\rm unit}(T_k,T^3=-y_k),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    (D^\mu <\phi_k>)^\dagger (D_\mu <\phi_k>)
+    &=& (\frac{ig_W}{\sqrt2} (T^+ {W^+}^\mu + T^- {W^-}^\mu) <\phi_k>
+    + ig_Z       T^3 Z^\mu<\phi_k>)^\dagger \nonumber \\ 
+    && (\frac{ig_W}{\sqrt2} (T^+ W^+_\mu + T^- W^-_\mu) <\phi_k>
+    + ig_Z       T^3 Z_\mu<\phi_k>) \\
+    &=& \frac{g_W^2}{2}<\phi_k>^\dagger(T^+T^-+T^-T^+){W^+}^\mu W^-_\mu<\phi_k> \nonumber \\
+    && +g_Z^2 <\phi_k>^\dagger Z_\mu Z^\mu T^3T^3 <\phi_k> \\
+    &=&\frac{g_W^2 v_k^2}{4}{W^+}^\mu W^-_\mu {\rm unit}(T_k,-y_k)^T (T^+T^-+T^-T^+) {\rm unit}(T_k,-y_k) \nonumber \\
+    && +\frac{g_Z^2 v_k^2}{2}Z_\mu Z^\mu {\rm unit}(T_k,-y_k)^T T^3T^3  {\rm unit}(T_k,-y_k)
+  \end{eqnarray}
+
+\section{ }
+With
+\begin{eqnarray}
+    T^- T^+ + T^+ T^- &=& (T^1-iT^2)(T^1+iT^2)+(T^1+iT^2)(T^1-iT^2) \\ 
+    &=& 2 [(T^1)^2 + (T^2)^2 ] \\
+    &=& 2 [(T^2)^2 + (T^2)^2 + (T^3)^2] - 2(T^3)^2,
+\end{eqnarray}
+we have the W mass term
+\begin{eqnarray}
+    &&\frac{g_W^2 v_k^2}{4}{W^+}^\mu W^-_\mu {\rm unit}(T_k,-y_k)^T (T^+T^-+T^-T^+) {\rm unit}(T_k,-y_k) \\
+    &=&\frac{g_W^2 v_k^2}{4}{W^+}^\mu W^-_\mu {\rm unit}(T_k,-y_k)^T \{ 2 [(T^2)^2 + (T^2)^2 + (T^3)^2] - 2(T^3)^2 \} {\rm unit}(T_k,-y_k) \nonumber \\
+    &=& \frac{g_W^2 v_k^2}{4}{W^+}^\mu W^-_\mu {\rm unit}(T_k,-y_k)^T 2 [T_k(T_k+1) -y_k^2] {\rm unit}(T_k,-y_k) \nonumber \\
+    &=&  \frac{g_W^2 v_k^2}{2}{W^+}^\mu W^-_\mu [T_k(T_k+1) -y_k^2] = \frac{g_W^2 v_k^2}{4}{W^+}^\mu W^-_\mu,
+\end{eqnarray}
+for $T_k=1/2$ and $|y_k|=1/2$, which agrees with our result in MSM.
+
+
+\section{ }
+With
+\begin{eqnarray}
+    m_W^2 &=& \sum_k (g_W v_k/2)^2 2 [ T_k(T_k+1) - y_k^2 ] ,\\
+    m_Z^2 &=& \sum_k (g_Z v_k/2)^2 (y_k)^2,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+v^2 = 4 m_W^2/g_W^2 = 2 v_k^2 [ T_k(T_k+1) - y_k^2 ],
+\end{eqnarray}
+and then we can obtain
+\begin{eqnarray}
+    1-\frac{1}{\rho}&=& 1- \frac{g_W^2/m_W^2}{g_Z^2/m_Z^2} =1-\frac{g_W^2 m_Z^2}{g_Z^2 m_W^2}=1- \frac{v_k^2y_k^2}{v^2} \\
+    &=& \frac{2 v_k^2 [ T_k(T_k+1) - y_k^2 ] -v_k^2y_k^2 }{v^2}\\ 
+    &=& [2T_k(T_k+1)-3(y_k)^2](v_k/v)^2
+\end{eqnarray}
+
+
+\end{document}

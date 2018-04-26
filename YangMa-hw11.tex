@@ -1,0 +1,695 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW11}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+In matrix reprensation, we have the Lorectz transformation as
+\begin{eqnarray}
+    (b^\mu) \to ({b'}^\mu) &=&      L     (b^\mu) \\
+    (a_\mu) \to ({a'}_\mu) &=& L' (a_\mu).
+\end{eqnarray}
+Now we write out
+\begin{eqnarray}
+    (a'_\mu)^T (b'^\mu) =  (a_\mu)^T L^T  L' (b^\mu)
+\end{eqnarray}
+and see the condition
+\begin{eqnarray}
+    L'=(L^{-1})^T,
+\end{eqnarray}
+helps to guarantee Lorentz invariance of $a_\mu b^\mu$.
+
+\section{ }
+With
+\begin{eqnarray}
+    M^{ij} = \epsilon_{ijk} J_k,  ~~ \omega_{ij} = \epsilon_{ijk} \theta_k, ~~ M^{0k} = K_k,  ~~              \omega_{0k} = y_k, 
+  \end{eqnarray}
+we can write
+\begin{eqnarray}
+    \frac{1}{2} \omega_{ab} M^{ab}
+    &=&  \frac{1}{2} (\epsilon_{ijk}\epsilon^{ijl}\theta_k J_l + 2\omega_{0k} M^{0k})\\
+    &=&  \frac{1}{2} (2\delta^l_k \theta_k J_l + 2\omega_{0k} M^{0k})\\
+    &=& \theta_1 J_1  +\theta_2 J_2  +\theta_3 J_3  +y_1 K_1  +y_2  K_2  +y_3  K_3, 
+\end{eqnarray}
+    
+\section{ }
+With
+\begin{eqnarray}
+    \omega_{\mu\nu} = g_{\mu_\rho}g_{\nu \sigma} \omega^{\rho\sigma},
+\end{eqnarray}
+we see
+\begin{eqnarray}
+    \omega_{12} = g_{11}g_{22} \omega^{12}=\omega^{12}, ~~\omega_{03} = g_{00}g_{33} \omega^{03}=\omega^{03}.
+\end{eqnarray}
+With
+\begin{eqnarray}
+    \omega_{\mu\nu} = g_{\mu_\rho} \omega^\rho_{~\nu},
+\end{eqnarray}
+we see
+\begin{eqnarray}
+    &&\omega_{12} = g_{11} \omega^1_{~2}=-\omega^1_{~2}, ~~\omega_{21} = g_{22} \omega^2_{~1}=-\omega^2_{~1},\\
+    &&\omega_{03} = g_{00} \omega^0_{~3}=\omega^0_{~3}, ~~~\omega_{30} = g_{33} \omega^3_{~0}=-\omega^3_{~0}.
+\end{eqnarray}
+Recall
+\begin{eqnarray}
+    \omega_{ab}=-\omega_{ba},
+\end{eqnarray}
+we finally have
+\begin{eqnarray}
+   && \omega_{12}  
+    = -\omega_{21}
+    =  \omega^{12}
+    = -\omega^1_{~2}
+    =  \omega^2_{~1} \\
+    && \omega_{03}     
+      = -\omega_{30}
+      = -\omega^{03}
+      =  \omega^0_{~3}
+      =  \omega^3_{~0}
+\end{eqnarray}
+
+\section{ }
+This problem overlaps with previous one.
+
+\section{ }
+\begin{eqnarray}
+    [J_1,J_2]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}\\ 
+    &=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 &-1 & 0 & 0\\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+      =iJ_3 
+\end{eqnarray}
+\begin{eqnarray}
+    [J_2,J_3]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix} \\ 
+    &=& 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 &-1 & 0
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    =iJ_1
+\end{eqnarray}
+\begin{eqnarray}
+    [J_3,J_1]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}\\ 
+    &=& 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -1 \\
+        0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    =iJ_2
+\end{eqnarray}
+As as summary, we see 
+\begin{eqnarray}
+    [ J_j, J_k ] = i\epsilon_{jkl} J_l .
+  \end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    &&[M_i,M_j]=[2J_i,2J_j]=4[J_i,J_j]=4i\epsilon_{ijk}J_k=2i\epsilon_{ijk}M_k \\
+    &&[N_i,N_j]=[-J_i,J_j]=[J_i,J_j]=i\epsilon_{ijk}J_l=-i\epsilon_{ijk}N_k
+\end{eqnarray}
+
+\section{ }
+With the commutation relations
+\begin{eqnarray}
+    &&[T^a,T^b]=if_{abl}T^l, \\
+    &&[T^b,T^c]=if_{bcm}T^m, \\
+    &&[T^c,T^a]=if_{can}T^n, 
+\end{eqnarray}
+we have
+\begin{eqnarray}
+  &&[T^a,[T^b,T^c]]= if_{bcm}[T^a,T^m]=-f_{bcm}f_{amp}T^p, \\
+  &&[T^b,[T^c,T^a]]= if_{can}[T^b,T^n]=-f_{can}f_{bnq}T^q, \\
+  &&[T^c,[T^a,T^b]]= if_{abl}[T^c,T^l]=-f_{abl}f_{clr}T^r.
+\end{eqnarray}
+Plug above relations into the Jacobi identity
+\begin{eqnarray}
+  [A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0,
+\end{eqnarray}
+we then see the
+\begin{eqnarray}
+    f_{bcm}f_{amp}T^p+f_{can}f_{bnq}T^q+f_{abl}f_{clr}T^r=0.
+\end{eqnarray}
+By choosing $p=q=r$, the above relation turns into
+\begin{eqnarray}
+    f_{bcm}f_{amp}+f_{can}f_{bnp}+f_{abl}f_{clp}=0.
+\end{eqnarray}
+
+Now let's use the adjoint reprensation
+\begin{eqnarray}
+    (T^a(A))_{bc} = (F^a)_{bc} = -i f_{abc},
+\end{eqnarray}
+to rewrite the commutation relation as
+\begin{eqnarray}
+    [T^a,T^b]_{lp}&=&(-if_{aln})(-if_{bnp})-(-if_{blm})(-if_{amp})=f_{blm}f_{amp}-f_{aln}f_{bnp} \\ 
+    &=&(if_{abc})(-if_{clp})=f_{abc}f_{clp}=f_{abs}f_{slp}.
+\end{eqnarray}
+Choose $l=c$ in above equation, we have
+\begin{eqnarray}
+    f_{bcm}f_{amp}-f_{acn}f_{bnp}=f_{abs}f_{scp},
+\end{eqnarray}
+which is nothing but the one we derived from Jacobi identity if we change $s\to l$. Note we used $f_{acn}=-f_{can}$ and $f_{lcp}=-f_{clp}$.
+
+\section{ }
+\begin{eqnarray}
+    [k_1,k_2]&=&
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    =-i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    =-iJ_3 
+\end{eqnarray}
+\begin{eqnarray}
+    [k_2,k_3]&=&
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}\\
+    &=& 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -1 \\
+        0 & 0 & 1 & 0
+    \end{pmatrix}
+    =-i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    =-iJ_1
+\end{eqnarray}
+\begin{eqnarray}
+    [k_3,k_1]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix} \\
+    &=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 
+    \end{pmatrix}
+    =-i
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    =-iJ_2
+\end{eqnarray}
+\begin{eqnarray}
+    [J_1,K_2]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix} \\ 
+    &=&
+    \begin{pmatrix}
+        0 & 0 & 0 & -1 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        -1 & 0 & 0 & 0 
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    =iK_3
+\end{eqnarray}
+\begin{eqnarray}
+    [J_2,K_3]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+    \end{pmatrix} \\
+    &=&
+    \begin{pmatrix}
+        0 & -1 & 0 & 0\\ 
+        -1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    =iK_1
+\end{eqnarray}
+\begin{eqnarray}
+    [J_3,K_1]&=&
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix} \\ 
+    &=&
+    \begin{pmatrix}
+        0 & 0 & -1 & 0\\ 
+        0 & 0 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    =i
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    =iK_2
+\end{eqnarray}
+We then summarize
+\begin{eqnarray}
+    &&[ K_l, K_m ] = -i\epsilon_{lmn} J_n, \\
+    &&[ J_l, K_m ] =  i\epsilon_{lmn} K_n.
+\end{eqnarray}
+
+\section{ }
+When $y_1=y_2=0$, $y_3=y$, we write
+\begin{eqnarray}
+    &&L(y_3 = y)
+    = e^{ i K_3 y }= \exp
+    {\begin{pmatrix}
+        0 & 0 & 0 & -y \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        -y & 0 & 0 & 0 
+    \end{pmatrix}}\\
+    &=&
+    1+
+    \begin{pmatrix}
+        0 & 0 & 0 & -y \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        -y & 0 & 0 & 0 
+    \end{pmatrix}
+    +\frac{1}{2!}\begin{pmatrix}
+        0 & 0 & 0 & -y \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        -y & 0 & 0 & 0 
+    \end{pmatrix}^2
+    +\frac{1}{3!}\begin{pmatrix}
+        0 & 0 & 0 & -y \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        -y & 0 & 0 & 0 
+    \end{pmatrix}^3
+    +\cdots \\
+    &=&
+    \begin{pmatrix}
+        \cosh y & 0 & 0 & -\sinh y \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        -\sinh y & 0 & 0 & \cosh y
+    \end{pmatrix}
+  \end{eqnarray}
+
+\section{ }
+Compare
+\begin{eqnarray}
+    \begin{pmatrix}
+      t' \\ x' \\ y' \\ z'
+    \end{pmatrix}
+    = L(y_3=y)
+    \begin{pmatrix}
+      t \\ x \\ y \\ z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      t\cosh y -z\sinh y \\ x \\ y \\ z\cosh y -t\sinh y
+    \end{pmatrix},
+  \end{eqnarray}
+with
+\begin{eqnarray}
+    \begin{pmatrix}
+      t' \\ x' \\ y' \\ z'
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+     \gamma (t-\beta z) \\ x \\ y \\ \gamma (z-\beta t)
+    \end{pmatrix},
+\end{eqnarray}
+so we have
+\begin{eqnarray}
+    \cosh y=\gamma, ~~~\sinh y = \gamma \beta.
+\end{eqnarray}
+The result also shows that $\beta -\tanh y $.
+
+\section{ }
+Since
+\begin{eqnarray}
+    [J_3,J_3]=[K_3,k_3]=0,
+\end{eqnarray}
+we can write
+\begin{eqnarray}
+    &&e^{ i\phi_a J_3 } e^{ i\phi_b J_3 }
+   = e^{ i(\phi_a+\phi_b) J_3 },\\
+    &&e^{ i a K_3 } e^{ i b K_3 }
+  = e^{ i (a+b) K_3 }.
+\end{eqnarray}
+This would lead to
+\begin{eqnarray}
+    L(\theta_3=\phi_a) L(\theta_3=\phi_b)
+     = e^{ i\phi_a J_3 } e^{ i\phi_b J_3 }
+     = e^{ i(\phi_a+\phi_b) J_3 }
+     = L(\theta_3 = \phi_a + \phi_b ),
+  \end{eqnarray}
+   and
+  \begin{eqnarray}
+    L(y_3 = a) L(y_3 = b)
+    = e^{ i a K_3 } e^{ i b K_3 }
+    = e^{ i (a+b) K_3 }
+    = L(y_3 = a+b ) .
+  \end{eqnarray}
+
+  \section{ }
+  Apply Lorentz transformation on
+  \begin{eqnarray}
+    p^\mu &=& 
+    \begin{pmatrix}
+      m \\ 0 \\ 0 \\ 0
+    \end{pmatrix},
+  \end{eqnarray}
+one have
+  \begin{eqnarray}
+    {p'}^\mu = B_z(y) p^\mu =
+    \begin{pmatrix}
+        \cosh y & 0 & 0 & \sinh y \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        \sinh y & 0 & 0 & \cosh y
+    \end{pmatrix}
+    \begin{pmatrix}
+        m \\ 0 \\ 0 \\ 0
+      \end{pmatrix}
+    =
+    \begin{pmatrix}
+      m \cosh y \\ 0 \\ 0 \\ m \sinh y 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+     E \\ 0 \\ 0 \\ p
+    \end{pmatrix},
+  \end{eqnarray}
+
+\begin{eqnarray}
+    {p{''}}^\mu = R_y(\theta)B_z(y) p^\mu =
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 &\cos\theta & 0 &\sin\theta \\
+        0 & 0 & 1 & 0\\
+        0 &-\sin\theta & 0 & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        E \\ 0 \\ 0 \\ p
+    \end{pmatrix} 
+    =
+    \begin{pmatrix}
+      E \\ p \sin\theta \\ 0 \\ p\cos\theta
+    \end{pmatrix} 
+\end{eqnarray}
+\begin{eqnarray}
+    {p{'''}}^\mu = R_z(\phi)R_y(\theta)B_z(y) p^\mu =
+    \begin{pmatrix}
+     1 & 0 & 0 & 0\\
+     0 & \cos\phi & -\sin\phi & 0 \\
+     0 & \sin\phi & \cos\phi & 0 \\
+     0 & 0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        E \\ p \sin\theta \\ 0 \\ p\cos\theta
+      \end{pmatrix} 
+      =
+    \begin{pmatrix}
+      E \\ p\sin\theta\cos\phi \\ p\sin\theta\sin\phi \\ p\cos\theta
+    \end{pmatrix}
+\end{eqnarray}
+
+\end{document}

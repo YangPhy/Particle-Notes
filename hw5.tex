@@ -1,0 +1,293 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW5 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students:\\
+
+  Today, I introduce `gauge transformations', or `local
+  phase transformations' of the SM gauge group, and showed
+  how to obtain the gauge invariant Lagrangian of the SM. \\
+
+  Let us start with the $U(1)$ gauge transformation:
+   \begin{eqnarray}
+    f(x) \to f'(x) = U(x) f(x) \\
+    U(x) = e^{ i Q \theta(x) }
+   \end{eqnarray} 
+    $Q$ is the generator of U(1), and it takes the value of
+  the charge (eigen value) of the complex field $f(x)$.
+  Let us write down the covariant derivative as
+  \begin{eqnarray}
+    D_\mu = \del_\mu + i g Q A_\mu(x)
+  \end{eqnarray}
+  with an arbitrary positive number $g$ ($g>0$ is my convention).
+  Since $\del_\mu$ transform as a vector under the Lorentz
+  transformation, $A_\mu$ should also transform as a vector.
+
+  Also note that since $\del_\mu$ has the mass dimension of 1,
+  $g A_\mu(x)$ has the mass dimension of 1.  In 4 space-time
+  dimensions, the coupling $g$ has the mass dimension of $0$,
+  and the gauge field $A_\mu(x)$ has the mass dimension 1.
+
+{\bf hw05-1}:
+
+  Please show that $A_\mu(x)$ should be a real field
+\begin{eqnarray}
+    A_\mu(x)^\dagger = A_\mu(x)
+\end{eqnarray}
+  when $g$ is real and $Q$ is Hermitian ($Q^\dagger = Q$).
+
+  hint: In quantum mechanics,
+\begin{eqnarray}
+    i\del_\mu = i d/dx^\mu = p_\mu
+\end{eqnarray}
+is an Hermetian operator.  Please note that since $p_\mu = (E, -p_x, -p_y, -p_z)$, and $x^\mu = (t,x,y,z)$, the above equation
+\begin{eqnarray}
+    p^\mu = i\del^\mu = g^{\mu\nu} i\del_\nu
+\end{eqnarray}
+gives $E = i d/dt$, $p_x = -i d/dx$, $p_y = -i d/dy$, $p_z = -i d/dz$.
+
+hint2: You may need to insert the derivative operator
+    inside of other fields, say, $A(x) i \del _\mu B(x)$
+    in order to tell that it is an Hermetian operator.
+\begin{eqnarray}
+    [ A(x) i\del_\mu B(x) ]^\dagger &=&
+     -i \del_\mu B(x)^\dagger A(x)^\dagger \\
+    &=& 
+    -i \del_\mu [ B(x)^\dagger A(x)^\dagger ]
+    + B(x)^\dagger [ i \del_\mu ] A(x)^\dagger
+\end{eqnarray}        
+
+    If we ignore the total derivative part (which does
+    not give physics in the local vicinity in QFT), the
+    above identity tells that
+\begin{eqnarray}
+    (i \del_\mu)^\dagger = i \del_\mu
+\end{eqnarray}
+ where the derivative operates to its right hand side.
+
+{\bf hw05-2}:
+  Please obtain the transformation property of $A_\mu(x)$
+\begin{eqnarray}
+    A_\mu(x) \to A'_\mu(x) = A_\mu(x) + X_\mu(x)
+\end{eqnarray}
+  which ensures $D_\mu$ transforms as a covariant derivative,
+\begin{eqnarray}
+    D_\mu f(x) \to D'_\mu(x) f'(x) = U(x) D_\mu(x) f(x)
+\end{eqnarray}
+ or equivalently,
+\begin{eqnarray}
+    D_\mu \to D'_\mu(x) = U(x) D_\mu(x) U(x)^{-1}
+\end{eqnarray}
+  hint: $X_\mu(x)$ can be expressed in terms of the x-dependent
+        (local) gauge transformation phase, $\theta(x)$.
+  The combination of the transformations of $f(x)$ and $A_\mu(x)$
+  that we obtained in the above two excercises
+\begin{eqnarray}
+    &&f(x) \to f'(x) = U(x) f(x) \\
+    &&A_\mu(x) \to A'_\mu(x) = A_\mu(x) + X_\mu(x)
+\end{eqnarray}
+ is called the $U(1)$ gauge transformations.
+
+{\bf hw05-3}:
+  Please show that the commutator
+  $[ D_\mu(x), D_\nu(x) ]$
+  is invariant under the $U(1)$ gauge transformations.
+
+{\bf hw05-4}:
+  Please show that the Lagrangian
+  \begin{eqnarray}
+    L = -1/4 F_{\mu\nu} F^{\mu\nu}
+      + \psi(x)^\dagger \gamma^0 i D_\mu(x) \gamma^\mu \psi(x)
+      - m \psi(x)^\dagger \gamma^0 \psi(x)
+  \end{eqnarray}
+  is invariant under the gauge transformation. The Lorentz
+  invariance of the above Lagrangian will be studied in the
+  next lectures.
+
+  hint: $F_{\mu\nu}(x)$ is proportional to $[ D_\mu(x), D_\nu(x) ]$
+  hint2: $(\gamma^\mu)'$s ($\mu = 0,1,2,3$) are just numbers.
+  The above Lagrangian is that of QED (Quantum Electro Dynamics),
+  the prototype of the U(1) gauge theory, where the coupling is
+\begin{eqnarray}
+    g = e = \sqrt{4\pi\alpha} \approx \sqrt{4\pi/137} \approx 0.30
+\end{eqnarray}
+  and the charge $Q = -1$ for the electron.  The first successful
+  quantum field theory, QED, is invariant under the $U(1)_{EM}$
+  gauge transformation.
+
+{\bf hw05-5}:
+  Please express the QED Lagrangian by using the standard
+  derivative $\del_\mu$ and $A_\mu(x)$.  It is now a function of
+  $\psi(x)$, $\del_\mu \psi(x)$, $\psi(x)^\dagger$, $A_\mu(x)$, $\del_\mu A_\mu(x)$.
+
+{\bf hw05-6}:
+  Please obtain the equation of motion (E.O.M.) from the above
+  Lagrangian for the field $\psi(x)$.
+
+  hint: Equation of motion for a generic Lagranian density
+  $L(\phi(x)$, $\del_\mu\phi(x))$
+  is
+\begin{eqnarray}
+    \del^\mu \delta L/\delta(\del^\mu\phi(x))
+    - \delta L/\delta(\phi(x))
+    = 0
+\end{eqnarray}
+  where $\delta/\delta(\phi(x))$ and
+  $\delta/\delta(\del^\mu\phi(x))$ are functional derivatives.
+  [You can treat them as ordinary derivatives at a given
+  spacetime point, x.]
+
+  hint2:
+  In case of the above QED Lagrangian, since it does not have
+  the term proportional to $[\del \psi^\dagger(x)]$, the E.O.M.
+  of $\psi(x)$ is obtained simply from
+\begin{eqnarray}
+    \delta L/\delta(\psi(x)^\dagger) = 0.
+\end{eqnarray}
+ This E.O.M. often appears when we study the electron behavior
+  inside EM fields.
+
+{\bf hw05-7}:
+  Please obtain the equation of motion (E.O.M.) from the above
+  Lagrangian for the field $A_\mu(x)$.
+
+  hint: We find Maxwell's equations in presence of currents.
+  In the SM, the $U(1)_Y$ phase transformations are NOT proportional
+  to the electromagnetic charge $Q$, but they are proportional to
+  the hypercharge, which we denote as $Y$.
+\begin{eqnarray}
+    f(x) \to f'(x) = U(x) f(x) = e^{i Y \theta(x)} f(x) 
+\end{eqnarray}
+  After the spontaneous breakdown of the $SU(2)_L \times U(1)_Y$
+  symmetry, which will be studied in the next lectures, the
+  $U(1)_{EM}$ gauge symmetry remains, and the electroweak part of
+  the SM interactions reduce to the effective theory of dimension
+  6 four fermion operators that describes the weak interactions
+  at low energies (Fermi theory).
+
+  Schematically, we write
+\begin{eqnarray}
+    L_{SM} \to L_{QCD} + L_{QED} + L_{Fermi}
+\end{eqnarray}
+   at low energies (energies far below the EW scale, v=246GeV).
+  It is important to note that $L_{QCD}$ and $L_{QED}$ have only
+  operators of dimension 4 or less, and hence they are
+  `renormalizable', while $L_{Fermi}$ have 4 fermion fields,
+  and hence their mass dimension are 6.  We say that $L_{Fermi}$
+  are non-renormalizable interactions.  Nevertheless, the
+  full Lagrangian above are invariant under the low energy
+  gauge symmetry of the SM,
+  $SU(3)_C \times U(1)_{EM}$.
+  Such theories, with renormalizable QFT terms plus higher
+  dimensional operators which preserve all the symmetries of
+  the renormalizable part of QFT, are called effective theories.
+  In effective theories, we cannot calculate radiative corrections
+  due to non-renormalizable higher dimensional interactions, but
+  we can calculate radiative corrections to all the effective
+  operators.  In Fermi theory of weak interactions, QCD and
+  QED radiative corrections play very important roles for
+  determining the effective strengths of the weak interactions
+  at low energies.\\
+    
+  Let us repeat the above derivations for the non-Abelian group
+  $SU(n)$:
+\begin{eqnarray}
+    f(x) \to f'(x) = U(x) f(x) \\
+    U(x) = e^{ i T^a \theta^a(x) }
+\end{eqnarray}
+  The covariant derivative is now expressed as
+\begin{eqnarray}
+    D_\mu(x) = I \del_\mu + i g T^a A^a_\mu(x)
+\end{eqnarray}
+  where I is the n times n unit matrix, and $T^a$ ($a = 1$ to $n^2-1$)
+  are the generators of the group $SU(n)$.  $g>0$ is my convention.
+
+{\bf hw05-8}:
+  Please obtain the transformation property of $A^a_\mu(x)$
+\begin{eqnarray}
+    A^a_\mu(x)\to A'^a_\mu(x) = A^a_\mu(x) + X^a_\mu(x)
+\end{eqnarray}
+  such that $D_\mu$ transforms as the covariant derivative,
+\begin{eqnarray}
+    D_\mu(x) \to D'_\mu(x) = U(x) D_\mu(x) U(x)^{-1}
+\end{eqnarray}
+  Please use the $SU(n)$ algebra,
+$ [ T^a, T^b ] = i f^{abc} T^c$
+  with real structure constants $f^{abc}$.
+
+  note: The above algebra should be read as follows:
+        Comutators of all the generators are expressed
+        as linear combination of the generators.  This is
+        the necessary condition that an arbitrary product
+        of two transformations is also a transformation
+        (so that the transformations form a `group').
+
+{\bf hw05-9}:
+  Show that
+  $Tr \{ [D_\mu(x), D_\nu(x)] [D^mu(x),D^\nu(x)] \}$
+  is invariant under the SU(n) gauge transformations, and
+  then express it interms of the derivative operator $\del_\mu$
+  and the gauge fields $A^a_\mu(x)$.
+
+  In the second step of the above excercise, please
+  introduce the normalization of the generators,
+  $Tr\{ T^a, T^b \} = T(R) \delta^{ab}$
+
+  note: The normalization T(R) depends on the representation.
+        I define
+        $T(F) = 1/2$
+        for the fundamental representation (F), or the
+        n-representatio of SU(n), following the normalization
+        of the rotation operator,
+        $T^a(F) = (\sigma^a)/2$
+        for the fundamental representation of $SU(2)$.
+
+{\bf hw05-10}:
+  Please obtain the coefficient c of the Yang-Mills Lagrangian
+\begin{eqnarray}
+    L_{YM} = c Tr\{ [D_\mu(x), D_\nu(x)] [D^\mu(x),D^\nu(x)] \}
+\end{eqnarray}
+  such that in the absence of non-linear terms (terms which
+  contain 3 or 4 $A^a_\mu(x)$ fields] the Lagrangian reduces
+  to $n^2-1$ times that of the $U(1)$ gauge fields.
+
+{\bf hw05-11}:
+
+  With the above normalization, please obtain the terms which
+  contain 3 gauge fields (the terms proportional to g), and
+  those which contain 4 gauge fields (the terms proportional
+  to $g^2$).
+
+  Those interactions are absent in the $U(1)$ theory.  The photons
+  do not scatter with the other photons in the lowest order of
+  the perturbation theory (which is called the classical level
+  in QED).  In other words, the light-by-light scattering is
+  a quantum effect in QED, which is strongly suppressed at
+  energies below the electron mass scale.
+
+  In non-Abelian gauge theories like $SU(3)_C$, the gauge bosons
+  interact with the other gauge bosons at the tree-level.
+  There is no scale below which the gauge bosons behave as
+  classical fields.  This is the origin of the absence of
+  classical gluon fields (confinement, infrared slavery)
+  in QCD.
+
+That's all for hw.05.\\
+
+Best regards,\\
+
+Kaoru
+
+\end{document}

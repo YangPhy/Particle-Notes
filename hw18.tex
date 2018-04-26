@@ -1,0 +1,762 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW18 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+This week I introduce the perturbative expansion of
+the scattering matrix in quantum field theory (QFT), and try to
+compute simple transition matrix elements in the Standard Model
+that appear in the very first expansion.
+\begin{eqnarray}
+    \bra{f}S\ket{i}&=& S_{fi} = i T_{fi}=\bra{f}T e^{i\int d^4x {\cal L}_{int}(x)} \ket{i} \\ 
+    &=& \bra{f}T \sum_{n=0}^{n=\infty}\frac{1}{n!} (i\int d^4x {\cal L}_{int}(x))^n \ket{i} \\
+    &=& \bra{f}i\int d^4x {\cal L}_{int}(x) \ket{i} +h.o. \label{eq.18_1}
+\end{eqnarray}
+Since only one term appears, the T-ordering does nothing.
+
+The SM contains many terms in ${\cal L}_{int}(x)$, which can be written
+as transitions among
+\begin{itemize}
+    \item $V-f-f$: $W$,$Z$,$\gamma$, gluon and quarks and leptons
+    \item $H-f-f$: Higgs boson and quarks and leptons
+    \item $V-V-V$ and $V-V-V-V$: gauge boson self-interactions
+    \item $H-V-V$ and $H-H-V-V$: Higgs and gauge bosons
+    \item $H-H-H$ and $H-H-H-H$: Higgs boson self-interactions
+\end{itemize}
+
+{\bf hw18-1}: Can you identify all the terms in the SM Lagrangian that
+contribute to the above interactions?
+
+The above interactions have mass dimension 4 or 3 (H-V-V and H-H-H
+coupling terms have mass dimension 3, while all the rest have mass
+dimension 4), and they are renormalizable interactions.  You will
+study the renormalization of high-frequency (high-energy, or
+ultra-violet) quantum fluctuations in perturbative QFT in advanced
+courses.  Here, it suffices to tell, that renormalizability of QFT
+has been shown in theories of spin $0$, $1/2$, $1$ fields, whose interaction
+terms have mass dimension $4$ or less, and when all spin $1$ particles
+are gauge bosons. Please note that the SM satisfies all the above
+conditions, except for the neutrino mass terms and the neutrino
+interactions with the Higgs bosons: see {\bf hw18-2}.
+
+Because the existence of graviton (quantum mechanics of gravity) is
+almost certain, the condition of renormalizability in QFT may sound
+too strong for you. The absence of renormalizability means that the
+theory can only be an effective one, which may apply only at a given
+energy scale (such as at energy scale much smaller than the gravity
+scale, or the Planck mass, $10^{19}$ GeV). Such theory cannot have
+predictive power beyond its validity region, and in addition,
+whenever the quantum fluctuation contains sensitivity to high
+momentum scale, we cannot calculate quantum corrections.
+
+It is possible to define a non-renormalizable QFT at a given energy
+scale, excluding even quantum fluctuations above the scale.  It is
+then often possible to study the scale dependence of such effective
+theory (examples include QCD radiative corrections to Fermi-theory
+of weak interactions, such as the strengths and mixing among various
+operators of order $G_F$ between the weak boson mass scale and the energy
+scale of $B/D/K$ mesons, effective theory of pion interactions in models
+with spontaneously broken chiral symmetry, called chiral perturbation
+theories, etc). In my understanding, the renormalizable QFT differs
+from those effective theories only by the condition that there is no
+a priori frequency/energy upper bound on our ability to evaluate
+quantum fluctuations. Within the validity range, radiative corrections
+of effective theories are identical to those of renormalizable theories.
+
+Because of this, I do not regard ``renormalizability'' as a guiding
+principle for introducing new interactions.  This is why I prefer
+dimension 5 operators to describe the neutrino mass in the SM.
+If we introduce two or three new particles, called right-handed
+neutrino's, we can give Dirac masses to neutrino's, and the theory
+is renormalizable.
+
+Historically, theory of massive spin 1 particles were believed to be
+non-renormalizable.  The discovery of the renormalizability of
+spontaneously broken gauge theory (1971 by t'Hooft) made SM a consistent
+QFT that has powerful predictive powers, once all UV sensitive terms
+(the terms that appear in our Lagrangian!) are fixed (renormalized)
+by measurements.  This is made possible, because quantum fluctuations
+satisfy the gauge symmetry of the theory, and hence the pattern of
+UV sensitive fluctuations are limited to finite forms.  Once these
+finite number of UV sensitive fluctuations are fixed by observations,
+all the remaining quantum fluctuations give finite contributions
+(quantum or radiative corrections) to arbitrary scattering matrix
+elements, which can be tested experimentally.
+
+Physics of quantum correction in QFT and that of its renormalizability
+are hence the established basis of our understanding of the laws of
+nature.  Our pursuit for physics beyond QFT can only start from its
+deep understanding.  Let us start studying it.
+
+In my SM Lagrangian, I introduced one term whose mass dimension is 5,
+the so-called Majorana mass term for neutrinos:
+\begin{eqnarray}
+    {\cal L}_{\nu~mass}
+    = -\frac{y^{\nu}_{ij}}{2\Lambda}
+    ({\phi^c}^\dagger L) \cdot ({\phi^c}^\dagger L) \label{eq.18_3}
+\end{eqnarray}
+where you now know that $\cdot$ means the Lorentz invariant interaction
+of two left-handed fermions,
+\begin{eqnarray}
+    \psi_L \cdot \psi_L
+= {\psi_L^c}^\dagger \psi_L
+= {\psi_L}^T (i\sigma^2) \psi_L\label{eq.18_4}
+\end{eqnarray}
+in the spinor space. You can write the above term as
+\begin{eqnarray}
+    {\cal L}_{\nu~mass}
+= -\frac{y^{\nu}_{ij}}{2\Lambda}
+(\phi^T i\sigma^2 L)^T i\sigma^2 (\phi^T i\sigma^2 L)\label{eq.18_5}
+\end{eqnarray}
+if you are sure that you know what each $i\sigma^2$ means.  (You should
+distinguish a matrix in the gauge $SU(2)_L$ space and a matrix in the
+spinor space that governs the Lorentz transformations).
+
+In any case, this term has mass dimension $5$, which may be clear from
+our introduction of an arbitrary mass scale $1/\Lambda$. It clearly
+has interactions like 
+\begin{eqnarray}
+    H-f-f~ and ~H-H-f-f~ (f=l~ or ~\nu) \label{eq.18_6}
+\end{eqnarray}
+whose mass dimensions are $4$ and $5$, respectively, and hence our QFT
+model is non-renormalizable. Since the neutrino mass is very small,
+\begin{eqnarray}
+    M(\nu)_{ij} = \frac{y^{\nu}_{ij} v^2}{2 \Lambda} \label{eq.18_7}
+\end{eqnarray}
+the interactions like Eq.\ref{eq.18_6} are negligibly small in the SM.
+
+{\bf hw18-2}: Please express Eq.\ref{eq.18_3} or Eq.\ref{eq.18_5} in terms of component fields,
+\begin{eqnarray}
+    && L = (\nu_l, l_L)^T \label{eq.18_8a}\\
+    && \phi = (0, (v+H)/\sqrt{2})^T \label{eq.18_8b}
+\end{eqnarray}
+and identify the neutrino mass term, $H-f-f$ interaction terms, and
+$H-H-f-f$ interaction terms. Please distinguish between $f = \nu$ and $f=l$.
+We should always remember that Fermi's theory of weak interactions
+are 4-Fermi interactions,
+$f-f-f-f$
+whose mass dimension is $6$, and hence are non-renormalizable.  They have
+common (the universality was found by Cabibbo) parameter $G_F$ (whose mass
+dimension is $-2$, in order to compensate for the dimension 6 interactions
+of $4$ fermions). It was originally written as
+\begin{eqnarray}
+    {\cal L}_{Fermi}
+= G_F ({\overline \Psi} \gamma^\mu \Psi) ({\overline \Psi} \gamma_\mu \Psi) \label{eq.18_9}
+\end{eqnarray}
+assuming the vector current form of a pair of fermion, just like the
+electromagnetic current that couple to the photon in QED.
+
+We will find in the following lectures that the weak interactions
+of the SM reduces to the Fermi theory at low energies (energies much
+smaller than the W mass), with appropriate modifications (only
+left-handed components of fermions have charged weak interactions):
+\begin{eqnarray}
+    \frac{G_F}{\sqrt{2}}=\left(\frac{1}{2}\right)^2 \left(\frac{g_W}{{\sqrt 2}m_W}\right)^2 =\frac{1}{8} \left(\frac{g_W}{m_W}\right)^2 =\frac{1}{8} \left(\frac{2}{v}\right)^2 =\frac{1}{2v^2} \label{eq.18_10}
+\end{eqnarray}
+We will learn the numerical factors above in the next homework.
+
+Although Fermi's theory of weak interactions are non-renormalizable,
+and hence we cannot predict what happens at high energies, it gives
+accurate description of all the charged current weak interactions at low
+energies (energies below the W mass scale), and the observed
+universality of weak interactions (say, the universality between the
+charged weak currents of hadrons and those of leptons was discovered
+by Cabibbo in 1962) led us to discover the SM of the electroweak
+gauge theory in 1967, even before the discovery of the weak bosons.
+
+I therefore do not hesitate including non-renormalizable terms in the
+SM Lagrangian.  We should test if they reproduce the data accurately
+(most crucially, the neutrino-less double beta decay experiments
+should demonstrate fermion number non-conservation).
+
+By using the first order of the S-matrix expansion, we can compute all
+the transition matrix elements, exactly the same way.  You can try out all of them, but I give just $4$ exercises
+below, which are related to my questions in the very first two homeworks
+(why the width/mass ratio of top, $Z$ and $W$ are similar?).
+\begin{eqnarray}
+    W^- \to l + {\overline \nu} \label{eq.18_11a}\\
+    Z   \to  f + {\overline f} \label{eq.18_11b} \\
+    H   \to  \tau + {\overline \tau} \label{eq.18_11c}\\
+    t   \to  b + W^+ \label{eq.18_11d}
+\end{eqnarray}
+Last week, we examined (\ref{eq.18_11c}), and found the amplitudes in terms of
+Dirac 4-spinor wave functions, $u(p_\tau,h_\tau)$ and $v(p_{\overline \tau},h_{\overline \tau})$.
+
+This week, let us calculate the amplitudes for (\ref{eq.18_11a}), in the massless lepton limits. The wave functions are then very simple 2-spinors,
+and we can calculate them easily.
+
+\subsection{$W^- \to l + {\overline \nu}_l (l=e,\mu,\tau)$}
+Please first recall the covariant derivative of the SM:
+\begin{eqnarray}
+    D_\mu = \del_\mu
+    + i g_s           T^a A^a_\mu
+    + i \frac{g_W}{\sqrt 2} [T^+ W^+_\mu  + T^- W^-_\mu]
+    + i g_Z [ T^3 - Q \sin^2\theta_W ] Z_\mu
+    + i e Q A_\mu \label{eq.18_12}
+\end{eqnarray}
+after the $SU(2)_L \times U(1)_Y$ breaks down to $U(1)_{EM}$.  Here $A^a_\mu$
+($a=1$ to $8$) are gluons, $T^a$ are $3\times3$ generators of the $SU(3)_c$ group, $T^\pm = T^1 \pm iT^2$ and $T^3$ are $2\times 2$ generators of the $SU(2)_L$ group, $A_\mu$ is the photon field and $Q=T^3+Y$ is the EM charge.
+
+For simplicity, let us take the EW gauge-boson contributions only.
+The relevant interaction Lagrangian can be expressed as
+\begin{eqnarray}
+   && {\cal L}_{int}(x)
+    = {\overline \Psi}(x)_{f'} i(D_\mu -\del_\mu) \gamma^\mu \Psi(x)_f \\ 
+    &=& -\frac{g_W}{\sqrt 2} W^+_\mu(x) u_L(x)^\dgr \sigma_-^\mu d_L(x)
+    -\frac{g_W}{\sqrt 2} W^-_\mu(x)  d_L(x)^\dgr \sigma_-^\mu u_L(x)
+    \nonumber \\&&-g_Z Z_\mu(x) [(T^3_f-Q_f\sin^2\theta_w) f_L(x)^\dgr \sigma_-^\mu f_L(x)  + (-Q_f\sin^2\theta_w) f_R(x)^\dgr \sigma_+^\mu f_R(x) ]
+    \nonumber \\ &&  -e A_\mu(x)  Q_f   [ f_L(x)^\dgr \sigma_-^\mu f_L(x)
+                                  +f_R(x)^\dgr \sigma_+^\mu f_R(x) ]\\
+    &=& V_\mu(x)     [  -g_L^{Vff'} f_L(x)^\dgr \sigma_-^\mu f'_L(x)
+                    -g_R^{Vff'} f_R(x)^\dgr \sigma_+^\mu f'_R(x) ] \label{eq.18_13}
+\end{eqnarray}
+Here, I wrote first the definition of the interaction terms, their
+explicit form for $W^\pm$, $Z$ and photon ($A$), and then a generic
+expression which is convenient for calculating the transition
+matrix elements (Feynman diagrams).
+
+The abbreviations are:
+% \begin{eqnarray}
+%     e = gW \sw    = gW \sin\theta_W
+%     = gZ \cw\sw = gZ \cos\theta_W \sin\theta_W
+% \sw2 = \sin^2\theta_W
+%     = e^2/(gW)^2
+% \end{eqnarray}
+% 14) 
+\begin{eqnarray}
+    e   = g_W \sin\theta_W = g_Z \cos\theta_W \sin\theta_W \label{eq.18_14}
+\end{eqnarray}  
+for the EW couplings, and
+\begin{eqnarray}
+    &&f_L(x) = \psi_L^f(x) \label{eq.18_15a} \\
+    &&f_R(x) = \psi_R^f(x) \label{eq.18_15b}
+\end{eqnarray}
+for $f = u, d, \nu_e, e$, for the first generation,
+or  $f = u,c,t, d,s,b, e,\mu,\tau, \nu_e,\nu_\mu,\nu_\tau$ (or $\nu_1,\nu_2,\nu_3$)
+for 3 generations.
+
+With this notation, all the EW couplings of the SM can be made into
+a table (which you typically find in any matrix element calculators,
+such as MadGraph):
+\begin{eqnarray}
+g_L^{Wud} = \frac{g_W}{\sqrt 2} V(CKM)_{ud},~~~
+g_L^{Wnl} = \frac{g_W}{\sqrt 2} V(MNS)_{ln}^* \label{eq.18_16a}
+\end{eqnarray}
+for $W^+$,
+\begin{eqnarray}
+g_L^{Wdu} = \frac{g_W}{\sqrt 2} V(CKM)_{ud}^*,~~~
+g_L^{Wln} = \frac{g_W}{\sqrt 2} V(MNS)_{ln} \label{eq.18_16b}
+\end{eqnarray}
+for $W^-$,
+\begin{eqnarray}
+    g_R^{Wf'f} = 0 \label{eq.18_16c}
+\end{eqnarray}
+for all ${Wf'f}$ combinations,
+\begin{eqnarray} \label{eq.18_16d}
+g_L^{Zff} &=& g_Z (T^3_f - Q_f \sin^2\theta_w ) \\ 
+         &=& g_Z (  1/2            )~  for~ f=\nu_l ~(l=e,\mu,\tau)\nonumber \\
+         &=& g_Z ( -1/2 +     \sin^2\theta_w )  ~for ~f=l~ (=e,\mu,\tau)\nonumber \\
+         &=& g_Z (  1/2 - 2/3 \sin^2\theta_w )  ~for ~f=u~ (=u,c,t) \nonumber \\
+         &=& g_Z ( -1/2 + 1/3 \sin^2\theta_w )  ~for ~f=d~ (=d,s,b) \nonumber
+\end{eqnarray}
+\begin{eqnarray}\label{eq.18_16e}
+    g_R^{Zff} &=& g_Z (      - Q_f \sin^2\theta_w ) \\ 
+            &=& 0                  ~     for ~f=\nu_l ~(l=e,\mu,\tau) \nonumber \\
+            &=& g_Z (      +     \sin^2\theta_w )~  for ~f=l ~(l=e,\mu,\tau)\nonumber \\
+            &=& g_Z (      - 2/3 \sin^2\theta_w ) ~ for ~f=u ~(u=u,c,t)\nonumber \\
+            &=& g_Z (      + 1/3 \sin^2\theta_w ) ~ for ~f=d ~(d=d,s,b)\nonumber 
+\end{eqnarray}
+for Z,
+\begin{eqnarray}\label{eq.18_16f}
+g_L^{Aff} &=& g_R^{Aff} = e Q_f \\ 
+                &=& 0         ~for~ f=\nu_l~ (l=e,\mu,\tau) \nonumber \\
+                &=& e ( -1 )  ~for~ f=l ~(l=e,\mu,\tau) \nonumber \\
+                &=& e ( 2/3)  ~for~ f=u ~(u=u,c,t) \nonumber \\
+                &=& e (-1/3)  ~for~ f=d ~(d=d,s,b)\nonumber 
+\end{eqnarray}
+for the photon $A$.
+
+{\bf hw18-3}: Derive Eq.\ref{eq.18_13}, and obtain all the EW couplings Eqs.(\ref{eq.18_16a},\ref{eq.18_16b},\ref{eq.18_16c},\ref{eq.18_16d},\ref{eq.18_16e},\ref{eq.18_16f}).
+
+Although the above couplings Eqs.(\ref{eq.18_16a},\ref{eq.18_16b},\ref{eq.18_16c},\ref{eq.18_16d},\ref{eq.18_16e},\ref{eq.18_16f}) may look complicated for you, we should appreciate the fact that the
+\begin{eqnarray}
+    4(W^+,W^-,Z,A) \times 12(q+l) \times 12(q+l) \times 2(L,R) = 1,152
+\end{eqnarray}
+couplings of the EW couplings of the SM
+\begin{eqnarray}
+    g_L^{Vf'f} ~and~ g_R^{Vf'f} \label{eq.18_18}
+\end{eqnarray}
+are parametrized by just two couplings $g_W$ and $g_Y=g_W/\cos\theta_W$ ($SU(2)_L$ and $U(1)_Y$ gauge couplings) or equivalently by $e$ and $\sin^2\theta_W$
+This universality of the couplings is the most important
+consequence of the gauge invariance of the SM Lagrangian.
+Please note that the two $3$ by $3$ unitary mixing matrices and the
+fermion masses are the parameters of the Yukawa sector of the SM.
+
+Throughout the 1970's, all the above couplings (except those including
+the top quark) have been measured accurately, and the SM of the EW
+theory was established by 1979.
+The $W$ and $Z$ bosons were discovered in 1982 and 1983 by $p{\overline p}$ collider (SppbarS) experiments at CERN, and the precision measurements of the
+weak boson masses and their couplings were performed in 1990's by
+$e^+e^-$ colliders LEP (CERN) and SLC (SLAC), and by $p{\overline p}$ collider
+Tevatron (FNAL). The validity of the EW gauge theory including
+quantum (radiative) corrections was confirmed when the top quark
+was discovered in 1995 at the Tevatron collider within the mass range
+predicted by the theory. Once the top quark mass is determined
+precisely, the electroweak theory predicted that the Higgs boson
+mass should be below about 200 GeV or so, and it was discovered
+at the right mass range in 2012 at the $pp$ collider LHC.
+
+Let us now compute the amplitudes for the transitions:
+\begin{eqnarray}
+    W^+(q,\lambda) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)~(l=e,\mu,\tau)\label{eq.18_20}
+\end{eqnarray}
+where I introduced the four momenta:
+\begin{eqnarray}
+    q^\mu = p_1^\mu + p_2^\mu \label{eq.18_21}
+\end{eqnarray}
+for $W^+$, $l^+$, and $\nu_L$. I neglect the lepton and neutrino masses,
+so they are purely left-handed (helicity of $l^+$ is $+1/2$, and that of
+$\nu_l$ is $-1/2$), whereas W can have 3 polarizations, $\lambda = \pm1,0$.
+
+The initial state is
+\begin{eqnarray}
+    \ket{i}=b^\dagger_{W^+}(q,\lambda)\ket{0} \label{eq.18_22}
+\end{eqnarray}
+where I chose $W^-$ as a particle, and $W^+$ as an anti-particle.
+Let us take the $W^+$ boson rest-frame
+\begin{eqnarray}
+    q^\mu = (m_W, 0, 0, 0)\label{eq.18_23}
+\end{eqnarray}
+and its spin polarization along the $z$-direction
+\begin{eqnarray}
+    J_z W^+ = \lambda W^+ ~(\lambda = \pm1,0) \label{eq.18_24}
+\end{eqnarray}
+The final state is a pair of $l^+$ and $\nu_l$ in the same frame:
+\begin{eqnarray}
+    \ket{f}=a^\dagger_{\nu_l}(p_2,-1/2) b^\dagger_{l^+}(p_1,1/2) \ket{0} \label{eq.18_25}
+\end{eqnarray}
+where
+\begin{eqnarray}
+p_1 = E(1,  \sin\theta, 0,  \cos\theta),~~~
+p_2 = E(1, -\sin\theta, 0, -\cos\theta)\label{eq.18_26}
+\end{eqnarray}
+from the energy momentum conservation, we can tell $E = m_W/2$
+For simplicity, we ignore all the masses of fermions that appear in
+W-boson decays.
+
+{\bf hw18-4}: Explain in the massless limit, $\psi_L(x)$ has only helicity
+$-1/2$ fermions, and helicity $+1/2$ anti-fermions.  Also, explain
+why the two fermion four momenta in the W rest frame Eq.\ref{eq.18_23} can
+be parametrized as Eq.\ref{eq.18_26}. Why we don't need to specify the
+azimuthal angle $\phi$?
+
+Let us first obtain the amplitude
+\begin{eqnarray}
+    &&iT[W^+(q,\lambda) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)] \nonumber \\ 
+    &=&\bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} S\ket{W^+(q,\lambda)} \\
+    &=& \bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} Te^{i\int d^4x {\cal L}_{int}(x)} \ket{W^+(q,\lambda)} \\
+    &=& \bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} i\int d^4x {\cal L}_{int}(x) \ket{W^+(q,\lambda)}+\cdots \\
+    &=&\bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} i\int d^4x
+    (-g_L^{Wnl} W^+_\mu(x) \nu_L^\dagger \sigma_-^\mu l_L(x) \ket{W^+(q,\lambda)} + \cdots\\
+    &=&(-ig_L^{Wnl}) \int d^4x \bra{0}b_{l^+}(p_1,1/2) a_{\nu_l}(p_1,-1/2)
+    W^+_\mu(x) \nu_L^\dagger \sigma_-^\mu l_L(x) b^\dagger_{W^+}(q,\lambda) \ket{0}+\cdots \label{eq.18_28}
+\end{eqnarray}
+where I retained only the first non-vanishing contribution (the Born
+approximation).  Please note that I wrote the amplitude as $iT_{fi}$,
+following the $S$-matrix notation,
+\begin{eqnarray}
+    \bra{f}S\ket{i}=i\bra{f}T\ket{i}=i T_{fi}\label{eq.18_29}
+\end{eqnarray}
+The operators in ${\cal L}_{int}(x)$ of Eq.\ref{eq.18_28} are:
+\begin{eqnarray}
+    W^+_\mu(x) = W^-_\mu(x)^\dgr
+= \sum_h \int \frac{d^3k}{2E}
+( b_{W^+}(k,h)         \epsilon_\mu(k,h)   e^{-ikx}
++ a_{W^-}(k,h)^\dagger \epsilon_\mu(k,h)^* e^{ikx})_{k^0=E_k} \label{eq.18_30}
+\end{eqnarray}
+where the sum is over $h=+1,0,-1$, and $E_k=\sqrt{m_W^2+{\vec k}^2}$.
+
+Likewise for fermions,
+\begin{eqnarray}
+    f_L(x)^\dgr
+    = \sum_h \int \frac{d^3k_1}{2E_1}
+    ( a_f(k_1,h_1)^\dgr u_L(k_1,h_1)^\dgr e^{+ik_1x}
+    + b_f(k_1,h_1)      v_L(k_1,h_1)      e^{-ik_1x} )_{k_1^0=E_{k_1}} \label{eq.18_31}
+\end{eqnarray}
+\begin{eqnarray}
+    f'_L(x)
+= \sum_h \int \frac{d^3k_2}{2E_2}
+( a_{f'}(k_2,h_2)    u_L(k_2,h_2) e^{-ik_2x}
++ b_{f'}(k_2,h_2)^\dgr v_K(k_2,h_2) e^{+ik_2x} )_{k_2^0=E_{k_2}}  \label{eq.18_32}
+\end{eqnarray}
+Now, we can evaluate the matrix elements Eq.\ref{eq.18_28} by inserting the free field solutions, Eqs.(\ref{eq.18_30},\ref{eq.18_31},\ref{eq.18_32}) into Eq.\ref{eq.18_28}. Please confirm that only the following terms survive after using the definition of the vacuum,
+\begin{eqnarray}\label{eq.18_33}
+&&a(any~particle,~any~momentum,~any~spin)\ket{0} = 0, \nonumber \\ 
+&&b(any~particle,~any~momentum,~any~spin) \ket{0} = 0 
+\end{eqnarray}
+and an appropriate normalization, $\bra{0}\ket{0} = 1$, which depends on how we
+normalize the creation/annihilation operators. I adopt the covariant
+normalization
+\begin{eqnarray}\label{eq.18_34}
+&&[ a_{k,h}, a^\dagger_{k',h'} ] = 2E \delta^3(k - k') \delta_{hh'} \nonumber \\
+&&[ b_{k,h}, b^\dagger_{k',h'} ] = 2E \delta^3(k - k') \delta_{hh'}
+\end{eqnarray}
+as explained in the previous lectures. In Eq.\ref{eq.18_34}, ``,'' should be a
+commutator for bosons, and an anti-commutator for fermions.
+
+In our example, we find just 3 non-vanishing (anti-)commutators:
+\begin{eqnarray}
+    &&[ b_{W^+}(k,h), b^\dagger_{W^+}(q,\lambda)]= (2\pi)^3 2E_k \delta^3(k-q) \delta_{h,\lmd}\label{eq.18_35a}\\ 
+    &&\{ a_{\nu_l}(p_1,-1/2), a^\dagger_f(k_1,h_1) \}
+    = (2\pi)^3 2E_{k_1} \delta^3(k_1-q) \delta_{h_1,-1/2} \delta_{f,\nu_l}\label{eq.18_35b} \\
+    &=&  \{ b_{l^+}(p_1,1/2), b^\dagger_{f'}(k_2,h_2) \}
+    = (2\pi)^3 2E_{k_2} \delta^3(k_2-p_1) \delta_{h_2,+1/2} \delta_{f',l^+}\label{eq.18_35d}
+\end{eqnarray}
+In Eqs.(\ref{eq.18_35b},\ref{eq.18_35d}), I denote $\{A,B\} = AB+BA$ for anti-commutators.
+
+The three 3-dimensional momentum integrals, in terms of $k$ for $W^+$,
+$k_1$ for $\nu_l$, $k_2$ for $l^+$, can be done instantly by the three
+3-dimensional $\delta$ functions, and the factors of $(2\pi)^3 2E$ cancel.
+After using our simple vacuum normalization $\bra{0}\ket{0}=1$,
+we find that Eq.\ref{eq.18_28} reduces to
+\begin{eqnarray}
+ &&   iT[W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)] \nonumber \\
+&=& (-ig_L^{Wnl}) \int d^4x
+\bra{0} b_{l^+}(p_1,1/2) a_{\nu_l}(p1,-1/2)
+    W^+_\mu(x) \nu_L(x) \sigma_-^\mu l_L(x)
+                                b^\dagger_{W^+}(q,\lmd) \ket{0}\\ 
+&=& (-ig_L^{Wnl}) \int d^4x e^{-ix(q-p_1-p_2)}
+\eps_\mu(W^+,q,\lmd) u_L(p_2,-1/2)^\dgr \sigma_-^\mu v_L(p_1,+1/2) \label{eq.18_37}
+\end{eqnarray}
+
+{\bf hw18-5}: Please derive Eq.\ref{eq.18_37} by yourself, following the above steps.
+
+Now, the four dimensional integral over the spacetime $x^\mu$ simply
+gives the four-momentum conservation
+\begin{eqnarray}
+    \int d^4x e^{-ix(q-p_1-p_2)} = (2\pi)^4 \delta^4(q-p_1-p_2) \label{eq.18_38}
+\end{eqnarray}
+We define the reduced transition matrix elements after factorizing the
+four-momentum conservation factor as
+\begin{eqnarray}
+    S_{fi}= i T_{fi} = i M_{fi} (2\pi)^4 \delta^4(p_f-p_i) \label{eq.18_39}
+\end{eqnarray}
+where $p_f$ and $p_i$ are sum over all the four momenta in the final and
+initial states, respectively. Finally, the transition matrix elements
+are expressed as
+\begin{eqnarray}
+  &&  i M_{fi}
+= i M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2))\\
+&=& \eps_\mu(W^+,q,\lmd)
+u_L(\nu_l,p_2,-1/2)^\dgr [ -ig_L^{Wnl} \sigma_-^\mu ] v_L(l^+,p_1,+1/2) \label{eq.18_40a}
+\end{eqnarray}
+This final form of the matrix elements have wave functions of the
+external particles, $W^+$,$l^+$ and $\nu_l$, which sandwiches the factor
+inside the parenthesis ``$[ ~]$'', which reads
+\begin{eqnarray}
+    -ig_L^{Wln} \sigma_-^\mu \label{eq.18_40b}
+\end{eqnarray}
+Feynman showed that in all the amplitudes at arbitrary orders, whenever
+the ${\cal L}_{int}(x)$ term Eq.\ref{eq.18_13} appears, its effect can be represented simply by the above factor in Eq.\ref{eq.18_40b} .
+Once we know the rule, we can immediately write down the $S$ matrix
+elements as Eq.\ref{eq.18_40a}. Eq.\ref{eq.18_40b} is called the ``Feynman rule'' for the $Wln$ term inside ${\cal L}_{int}(x)$ in Eq.\ref{eq.18_13}.
+
+Note that the $2\times 2$ $\sigma_\pm^\mu$ vectors can be expressed as
+\begin{eqnarray}
+    \sigma_\pm
+=    \gamma^\mu P_\pm
+=    \frac{\gamma^\mu (1 \pm \gamma_5)}{2} \label{eq.18_41a}
+\end{eqnarray}
+by using the Dirac four spinors in its both sides,
+\begin{eqnarray}
+    {\overline \Psi}(x) \gamma^\mu \frac{1 \pm \gamma_5}{2} \Psi(x)
+=    \psi_\pm(x)^\dgr  \sigma_\pm^\mu  \psi_\pm(x) \label{eq.18_41b}
+\end{eqnarray}
+by denoting the two Weyl spinors as $\psi_L(x)=\psi_-(x)$ and
+$\psi_R(x)=\psi_+(x)$.  The Feynman rules are usually expressed by
+using the $\gamma$ matrix and the projector, $P_\pm$ in Eq.\ref{eq.18_41a}.
+
+Let us now compute the amplitudes in Eqs.(\ref{eq.18_40a},\ref{eq.18_40b}): first remove the common factor of $i$, and we find for the matrix elements $M_{fi}$
+\begin{eqnarray}
+ &&   M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2))\nonumber \\
+&=& -g_L^{Wnl}
+\eps_\mu(W^+,q,\lmd)
+u_L(\nu_l,p_2,-1/2)^\dgr \sigma_-^\mu v_L(l^+,p_1,+1/2) \label{eq.18_42}
+\end{eqnarray}
+
+{\bf hw18-6}: Derive Eq.\ref{eq.18_42} by yourself, following my explanation.
+
+Now, all we should do is to insert the wave functions of the free
+fields we obtained previously.
+The polarization vectors are:
+\begin{eqnarray}
+&&\eps^\mu(q,+1) = ( 0, -1, -i, 0 )/\sqrt2 \label{eq.18_43a} \\
+&&\eps^\mu(q, 0) = ( 0,  0,  0, 1 ) \label{eq.18_43b} \\
+&& \eps^\mu(q,-1) = ( 0, +1, -i, 0 )/\sqrt2 \label{eq.18_43c}
+\end{eqnarray}
+when we choose the $z$-axis along the $W^+$ polarization direction.
+
+Please note that the $W^+$ boson produced at hadron colliders are
+polarized strongly. For instance, if $W^+$ is produced by an
+annihilation of an up quark with the momentum along the positive $z$
+direction, and the anti-down quark with the momentum along the
+negative $z$ direction, the produced $W^+$ is $100\%$ polarized along the
+negative $z$-axis, because only left-handed up quark and right-handed
+anti-down quark can annihilate to produce $W^+$.  Its wave function can
+hence be approximated by Eq.\ref{eq.18_43c}.
+When the up quark momentum is along the negative $z$ direction, the $W^+$
+should have $100\%$ polarization along the positive $z$ direction, and
+its wave function should be Eq.\ref{eq.18_43a}.
+
+We cannot produce $W^+$ boson with $J_z=0$ (Eq.\ref{eq.18_43b}) eigenstate in massless quark-anti-quark annihilation in the SM.  Please note that an
+un-polarized $W^+$ should be an equal mixture of the $3$ polarized states.
+Therefore, we can tell that the W bosons produced at colliders are
+always polarized strongly.  Even when the $W^+$ momentum along the z-axis
+is zero, $p_z=0$, or its rapidity is zero, $y=(1/2)\ln((E+p_z)/(E-p_z))=0$,
+where the above two processes occur with the same probability, the
+produced $W$'s are purely transversely polarized.
+
+Next, let us recall the massless fermion wave functions.  The neutrino
+wave function should be
+\begin{eqnarray}
+    u_L(p,-1/2) =  \sqrt{2E}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \label{eq.18_44}
+\end{eqnarray}
+if the momentum $p$ is along the positive $z$-axis
+\begin{eqnarray}
+    p = E(1, 0, 0, 1) \label{eq.18_45}
+\end{eqnarray}
+The $p_2$ momentum in Eq.\ref{eq.18_26} is obtained from Eq.\ref{eq.18_45} by $-(\pi-\theta)$ rotation about the $y$-axis (or equivalently, $+(\pi+\theta)$ rotation):
+\begin{eqnarray}
+    R_y(-(\pi-\theta)) p = E(1, -\sin\theta, 0, -\cos\theta) = p_2 \label{eq.18_46}
+\end{eqnarray}
+
+{\bf hw18-7}: Show Eq.\ref{eq.18_46}, and also $R_y(-(\pi-\theta))p = R_y(\pi+\theta) p$.
+Therefore,
+\begin{eqnarray}
+    u_L(p_2,-1/2)
+    &=& \sqrt{2E} R_y(-(\pi-\theta)) 
+    \begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix}
+    =\sqrt{2E} e^{-i\sigma^2/2(-(\pi-\theta))}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\ 
+    &=&\sqrt{2E} e^{-i
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
+    (-(\pi-\theta))/2 }
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\
+    &=& \sqrt{2E}
+    \begin{pmatrix}
+        \cos(\pi/2-\th/2) & \sin(\pi/2-\th/2) \\
+        -\sin(\pi/2-\th/2) &  \cos(\pi/2-\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\
+    &=& \sqrt{2E} 
+    \begin{pmatrix}
+        \cos(\theta/2) \\ \sin(\theta/2)
+    \end{pmatrix} \label{eq.18_47}
+\end{eqnarray}
+
+{\bf hw18-8}: Obtain the spinor wave function Eq.\ref{eq.18_47} by yourself.  Repeat the calculation by using $R_y(\pi+\theta)$ instead of $R_y(-(\pi-\theta))$. Observe that the sign of the spinor wave function depends on the way
+we make rotation.
+
+Finally, we need the $l^+$ wave function $v_L(p_1,+1/2)$
+Again, when the momentum is along the positive $z$-axis Eq.\ref{eq.18_45},
+\begin{eqnarray}
+    v_L(p,+1/2) &=& u_R(p,+1/2)^c = i\sigma^2 u_R(p,+1/2)^* \\
+    &=& 
+    \begin{pmatrix}
+        0 & 1 \\
+        -1 & 0
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+    =\sqrt{2E}
+    \begin{pmatrix}
+        0 \\ -1
+    \end{pmatrix} \label{eq.18_49}
+\end{eqnarray}
+The momentum $p_1$ in Eq.\ref{eq.18_49} is obtained from $p$ in Eq.\ref{eq.18_45} as
+\begin{eqnarray}
+    R_y(\theta) p = p_1 = E(1,  \sin\theta, 0,  \cos\theta) \label{eq.18_50}
+\end{eqnarray}
+and hence
+\begin{eqnarray}
+    v_L(p_1,+1/2) &=& R_y(\theta) v_L(p,+1/2) = \sqrt{2E} e^{-i\sigma^2/2 \theta}
+    \begin{pmatrix}
+        0 \\ -1
+    \end{pmatrix}\\
+    &=& \sqrt{2E}  e^{-i
+    \begin{pmatrix}
+        0 & -i \\
+        i & 0
+    \end{pmatrix}
+    \theta/2}
+    \begin{pmatrix}
+        0 \\ -1
+    \end{pmatrix}\\
+    &=&\sqrt{2E}
+    \begin{pmatrix}
+        \cos(\th/2) & -\sin(\th/2)\\
+        \sin(\th/2) &  \cos(\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ -1
+    \end{pmatrix}\\
+    &=& \sqrt{2E}
+    \begin{pmatrix}
+        \sin(\th/2) \\ -\cos(\th/2)
+    \end{pmatrix}\label{eq.18_51}
+\end{eqnarray}
+
+{\bf hw18-9}: Please obtain the spinor wave function Eq.\ref{eq.18_51}, by yourself.
+
+Now, by inserting Eq.\ref{eq.18_51} and Eq.\ref{eq.18_47} into Eq.\ref{eq.18_42}, we find
+\begin{eqnarray}
+    &&M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)) \\ 
+    &=& -g_L^{Wnl} \eps_\mu(W^+,q,\lmd) u_L(\nu_l,p_2,-1/2)^\dagger \sigma_-^\mu v_L(l^+,p_1,+1/2) \\
+    &=& -g_L^{Wln} (2E) \eps_\mu(W^+,q,\lmd) 
+    \begin{pmatrix}
+        \cos(\th/2)&\sin(\th/2)
+    \end{pmatrix}
+    \sigma_-^\mu
+    \begin{pmatrix}
+        \sin(\th/2)\\ -\cos(\th/2)
+    \end{pmatrix}\\
+    &=& -g_L^{Wln} (2E)
+    \eps_\mu(W^+,q,\lmd)
+    ( 0, \cos^2(\th/2)-\sin^2(\th/2), -i, -2\sin(\th/2)\cos(\th/2) ) \\
+    &=&-g_L^{Wln} (2E)
+    \eps_\mu(W^+,q,\lmd)
+    ( 0, \cos(\theta), -i, -\sin(\theta) ) \label{eq.18_52}
+\end{eqnarray}
+
+{\bf hw18-10}: Obtain Eq.\ref{eq.18_52}. And then obtain all the $3$ amplitudes for $\lmd= +1, -1, 0$, by inserting the wave function Eqs.(\ref{eq.18_43a},\ref{eq.18_43b},\ref{eq.18_43c}) into Eq.\ref{eq.18_52}.
+
+We can instantly obtain the amplitudes by simply inserting the $W^+$
+polarization vectors of Eqs.(\ref{eq.18_43a},\ref{eq.18_43b},\ref{eq.18_43c}) into Eq.\ref{eq.18_52}.
+
+We achieved the first calculation of the transition amplitudes.
+Please make, however, the following very important observation:
+\begin{eqnarray}
+    &&{\overline u}(\nu_l,p_2,-1/2) \gamma^\mu P_L v(l^+,p_1,+1/2) 
+    =u_L(\nu_l,p_2,-1/2)^\dagger \sigma_-^\mu v_L(l^+,p_1,+1/2) \\ 
+    &=& 2E ( 0, \cos(\theta), -i, -\sin(\theta) ) = 2E( 0, \cos(\theta), +i, -\sin(\theta) )^* \\
+    &=& -(2E)\sqrt{2} ( 0, -\cos(\theta), -i, \sin(\theta) )^*/\sqrt{2}\\
+    &=&-(2E)\sqrt{2} R_y(\theta) \eps^\mu(J_z=+1)^* \label{eq.18_53}
+\end{eqnarray}
+
+{\bf hw18-11}: Obtain the next-to-the-bottom line of Eq.\ref{eq.18_53} from the bottom line. This is simply a review of polarization vector and the vector
+representation of the rotation matrix.
+
+The current of $l^+ \nu_l$ pair is proportional to the complex conjugate
+of the vector boson polarization vector whose polarization is along
+the $l^+$ momentum direction in the $W^+$ rest frame. This is a consequence
+of angular momentum conservation, since $l^+$ is purely right-handed and
+$\nu_l$ is purely left-handed, the total angular momentum is $+1$ along the
+$l^+$ momentum direction.
+
+We therefore found that the $W^+ \to l^+ \nu_l$ decay amplitudes are
+proportional to the products of $W^+$ polarization vectors, which is
+called the $d$-function:
+\begin{eqnarray}
+    \eps_\mu(J_z=\lmd) R_y(\theta) \eps^\mu(J_z=+1)^*
+= - d^{J=1}_{\lmd,+1}(\theta) \label{eq.18_54}
+\end{eqnarray}
+The minus sign is introduced for the four-vector polarization vectors
+to give the normalization of the $d$-functions to be $1$, when there is
+no rotation.
+
+In general, if the final state polarization is $\lmd'$, we denote
+\begin{eqnarray}
+    d^{J=1}_{\lmd,\lmd'}(\theta)
+= - \eps_\mu(J_z=\lmd) R_y(\theta) \eps^\mu(J_z=\lmd')^*\label{eq.18_55}
+\end{eqnarray}
+Here, $J=1$ stands for the spin $1$ particle. $d$-functions can be defined
+for a massive particle with arbitrary spin $J$ (in non-relativistic
+quantum mechanics), where $J_z=\lmd$ in the initial state, and $J_z=\lmd'$
+in the final state can take any values between $J$ and $-J$. You can find
+a table of $d$-functions in RPP, under the title Clebsh-Gordan
+coefficients and $d$-functions.
+
+In case of $J=1$, we find
+\begin{eqnarray}\label{eq.18_56}
+    &&d^{J=1}_{\pm1,\pm1} =  (1+\cos\theta)/2,~~
+    d^{J=1}_{\pm1,\mp1} =  (1-\cos\theta)/2,~~
+    d^{J=1}_{\pm1,   0} =  \mp \sin\theta/\sqrt2,~~\nonumber \\
+    &&d^{J=1}_{   0,\pm1} =  \pm \sin\theta/\sqrt2,~~
+    d^{J=1}_{   0,   0} =  \cos\theta
+\end{eqnarray}
+
+{\bf hw18-12}: Please confirm Eq.\ref{eq.18_56} by using our polarization
+vectors. When the $d$-function is $1$, we find that the two polarization
+vectors overlap perfectly, while when the $d$-function is zero, we say
+that they (the initial and final polarization vectors) are orthogonal.
+
+All the d-functions give the same value when their squared is integrated
+over $\cos\theta$.  In case of $J=1$, we find
+\begin{eqnarray}
+    \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\lmd,\lmd'}|^2 = 2/3 \label{eq.18_57}
+\end{eqnarray}
+
+{\bf hw18-13}: Confirm Eq.\ref{eq.18_57} explicitly for all $d$-functions Eq.\ref{eq.18_56}.
+
+By using the $d$-function, the $W^+$ decay amplitudes Eq.\ref{eq.18_52} can be expressed compactly as
+\begin{eqnarray}
+    &&M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)) \\
+    &=& -g_L^{Wnl} \eps_\mu(W^+,q,\lmd) u_L(\nu_l,p_2,-1/2)^\dagger \sigma_-^\mu v_L(l^+,p_1,+1/2) \\
+    &=& -g_L^{Wln} (2E) \eps_\mu(W^+,q,\lmd) ( 0, \cos\theta, -i, -\sin\theta ) \\
+    &=& g_L^{Wln} (2E) \sqrt{2} \eps_\mu(J_z=\lmd) R_y(\theta) \eps^\mu(J_z=+1)^* \\
+    &=&g_L^{Wln} (2E) \sqrt{2} d^{J=1}_{\lmd,+1}(\theta) \label{eq.18_58}
+\end{eqnarray}
+
+{\bf hw18-14}: Please compare the results of {\bf hw18-10} with the above expression Eq.\ref{eq.18_58} which uses the $d$-functions.
+
+Now, the physical meaning of the transition amplitudes, their explicit
+angular dependences are very clear, which simply shows the overlap of
+the initial $W^+$ polarization wave function (for $\lmd = +1, 0, -1$,
+respectively) and the final $W^+$ polarization wave function, which
+should have $\lmd' = +1$ along the $l^+$ momentum direction, since $l^+$ has
+$+1/2$ helicity along $l^+$ momentum direction, and $\nu_l$ has $-1/2$ helicity
+in the opposite direction in the $W^+$ rest frame (in the SM).
+
+Let us stop our hw18 here.\\
+
+Best regards,\\
+
+Kaoru
+
+\end{document}

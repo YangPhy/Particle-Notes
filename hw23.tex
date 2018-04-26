@@ -1,0 +1,633 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW23 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+Today, we obtain e+e- to f fbar amplitudes in the second order of
+  S-matrix expansion, with the Z-boson propagator.  I explain how the
+  cross section and the invariant flux factor are defined together with
+  our invariant phase space factor for our normalization of one-particle
+  state.  I also explain Schwinger-Dyson summation of one-particle
+  irreducible (1PI) two-point functions in the full (connected) Z-boson
+  propagator, and show how Unitarity determines the Z-boson decay width.
+
+  ==================================================
+  E: e+ e- -> f fbar (continued from eq.(53) of hw22
+  ==================================================
+
+  I retain a few useful formula from hw22 below.
+
+  1) D_\mu = \del_\mu
+            + i g_W/\sqrt{2} [T^+ W^+_\mu  + T^- W^-_\mu]
+            + i g_Z [ T^3 - Q \sin^2\theta_W ] Z_\mu
+            + i e Q A_\mu
+
+  2) L_\int = \Psibar i(D_\mu-\del_\mu) \gamma^\mu \Psi
+            = -gZ Z_\mu \Psibar \gamma^\mu (T^3 - Q \sw2) \Psi + ...
+
+  3a) u_L     gZ (T^3 - Q\sw2) = gZ( 1/2 - 2/3 \sw2) = gZuL
+  3b) u_R     gZ (T^3 - Q\sw2) = gZ( 0   - 2/3 \sw2) = gZuR
+  3c) d_L     gZ (T^3 - Q\sw2) = gZ(-1/2 + 1/3 \sw2) = gZdL
+  3d) d_R     gZ (T^3 - Q\sw2) = gZ( 0   + 1/3 \sw2) = gZdR
+  3e) v_L     gZ (T^3 - Q\sw2) = gZ( 1/2           ) = gZvL
+  3f) l_L     gZ (T^3 - Q\sw2) = gZ(-1/2 +     \sw2) = gZlL
+  3g) l_R     gZ (T^3 - Q\sw2) = gZ( 0   +     \sw2) = gZlR
+
+  21a) \eps^\mu(P,+1) = ( 0, -1, -i, 0 )/\rt2
+  21b) \eps^\mu(P, 0) = ( 0,  0,  0, 1 )
+  21c) \eps^\mu(P,-1) = ( 0, +1, -i, 0 )/\rt2
+
+  22a) uL(p,L) = \sqrt{2E} [ 0 ]
+                           [ 1 ]
+  22b) uR(p,R) = \sqrt{2E} [ 1 ]
+                           [ 0 ]
+  22c) vL(p,R) = uR(p,R)^c =  i\sigma^2 uR(p,R)^* = \rt{2E} [  0 ]
+                                                            [ -1 ]
+  22d) vR(p,L) = uL(p,L)^c = -i\sigma^2 uL(p,L)^* = \rt{2E} [ -1 ]
+                                                            [  0 ]
+
+  25a) uL(k1,L)^\dagger \sigma_-^\mu vL(k2,R)
+     = mZ[-s(th/2),c(th/2)] [1,-\sigma^1,-\sigma^2,-\sigma^3] [c(th/2)]
+                                                              [s(th/2)]
+     = mZ[ 0, -c(th),  -i,  s(th) ]
+
+  25b) uR(k1,R)^\dagger \sigma_+^\mu vR(k2,L)
+     = mZ[c(th/2),s(th/2)] [1, \sigma^1, \sigma^2, \sigma^3] [ s(th/2)]
+                                                             [-c(th/2)]
+     = mZ[ 0, -c(th),  i,  s(th) ]
+
+  26a) M(Z > fL fLbar)
+  =(-gZfL) \uL(k1,L)^\dagger \sigma_-^\mu \vL(k2,R) \eps_\mu(P,\lambda)
+  = -gZfL mZ [0,-c(th),-i,s(th)]*[0,-1,-i, 0]/\rt2  for \lambda=+1
+  = -gZfL mZ [0,-c(th),-i,s(th)]*[0, 0, 0, 1]/\rt2  for \lambda= 0
+  = -gZfL mZ [0,-c(th),-i,s(th)]*[0,+1,-i, 0]/\rt2  for \lambda=-1
+  = -gZfL mZ (0 -c(th) +1)/\rt2   for \lambda=+1
+  = -gZfL mZ (0 -0  -0 -s(th))    for \lambda= 0
+  = -gZfL mZ (0 +c(th) +1)/\rt2   for \lambda=-1
+
+  26b) M(Z > fR fRbar)
+  =(-gZfR) \uR(k1,R)^\dagger \sigma_+^\mu \vR(k2,L) \eps_\mu(P,\lambda)
+  = -gZfR mZ [0,-c(th),+i,s(th)]*[0,-1,-i, 0]/\rt2  for \lambda=+1
+  = -gZfR mZ [0,-c(th),+i,s(th)]*[0, 0, 0, 1]       for \lambda= 0
+  = -gZfR mZ [0,-c(th),+i,s(th)]*[0,+1,-i, 0]/\rt2  for \lambda=-1
+  = -gZfL mZ (0 -c(th) -1)/\rt2   for \lambda=+1
+  = -gZfL mZ (0 -0  -0 -s(th))    for \lambda= 0
+  = -gZfL mZ (0 +c(th) -1)/\rt2   for \lambda=-1
+
+  27a) \Gamma(Z > fL+fLbar)
+  = 1/2mZ \Int |M(Z>fL+fLbar;\lambda,\theta)|^2 d\PS_2(P=k1+k2)
+
+  27b) \Gamma(Z > fR+fRbar)
+  = 1/2mZ \Int |M(Z>fR+fRbar;\lambda,\theta)|^2 d\PS_2(P=k1+k2)
+
+  28) d\PS_2(P=k1+k2)
+  = (2pi)^4 \delta^4(P-k1-k2) \d^3k1/(2E1)(2pi)^3 d^3k2/(2E2)(2pi)^3
+
+  33) dPS_2 = (1/8pi) dcos(th)/2 d(phi)/2pi
+
+  39) -1 < \cos\theta < 1, 0 < \phi < 2pi
+
+  40) PS_2 = 1/8pi 2p^*/M -> 1/8pi (for m1=m2=0).
+
+  41) d\Gamma = 1/2M |M(\lambda,\theta)|^2 (1/8pi) dcos(th)/2
+
+  42) d\Gamma      1    |M(\lambda,\theta)|^2
+      -------- = -----  ---------------------
+      dcos(th)    16pi          2M
+
+  44a) \Gamma(Z > uL + uLbar)  (u=u,c;   sum over 3 colors)
+  44b) \Gamma(Z > uR + uRbar)  (u=u,c;   sum over 3 colors)
+  44c) \Gamma(Z > dL + dLbar)  (d=d,s,b; sum over 3 colors)
+  44d) \Gamma(Z > dR + dRbar)  (d=d,s,b; sum over 3 colors)
+  44e) \Gamma(Z > lL + lLbar)  (l=e,\mu,\tau)
+  44f) \Gamma(Z > lR + lRbar)  (l=e,\mu,\tau)
+  44g) \Gamma(Z > vL + vLbar)  (v=v_e,v_\mu,v_\tau or v=v_1,v_2,v_3)
+
+  45a) \Gamma(Z > u+ubar) = \Gamma(Z>uL+uLbar) + \Gamm(Z>uR+uRbar)
+  45b) \Gamma(Z > d+dbar) = \Gamma(Z>dL+dLbar) + \Gamm(Z>dR+dRbar)
+  45c) \Gamma(Z > l+lbar) = \Gamma(Z>lL+lLbar) + \Gamm(Z>lR+lRbar)
+  45d) \Gamma(Z > v+vbar) = \Gamma(Z>vL+vLbar)
+
+  46) \Gamma_Z = 2*\Gamma(Z>uubar)
+                +3*\Gamma(Z>ddbar)
+                +3*\Gamma(Z>llbar)
+                +3*\Gamma(Z>nunubar)
+
+              \Gamma(\cos(th)>0) - \Gamma(\cos(th)<0)
+  52) A_FB =  ---------------------------------------
+              \Gamma(\cos(th)>0) + \Gamma(\cos(th)<0)
+
+  53a) \Gamma(cos(th)>0) = \Int_0^1  dcos(th) d\Gamma/dcos(th)
+  53b) \Gamma(cos(th)<0) = \Int_-1^0 dcos(th) d\Gamma/dcos(th)
+
+                              *****
+
+  Let me finally show how to compute the differential cross section of
+  a 2 to 2 process
+
+  54) e-(k1,h1) + e+(k2,h2) -> f(k3,h3) + fbar(k4,h4)
+
+  in the covariant perturbation theory.  Here, kj and hj for j=1,2,3,4
+  are four-momenta and helicities.  We take the massless fermion limit,
+  m1=m2=m3=m4=0 for simplicity.  The square-root of
+
+  55) s = (k1+k2)^2 = (k3+k4)^2,
+
+  \sqrt{s} gives the total energy of the process in the colliding e+e-
+  rest frame (the laboratory frame of the symmetric collider experiments
+  like LEP/SLC).  The four momenta in this frame are parametrized as
+
+  56) k1 = (E,      0, 0,      E)
+      k2 = (E,      0, 0,     -E)
+      k3 = (E,  E\sth, 0,  E\cth)
+      k4 = (E, -E\sth, 0, -E\cth)
+
+  where \sth=\sin\theta, \cth=\cos\theta.  E=\sqrt{s}/2.
+
+  Cross section for a 2 particle to n particle scattering events
+
+  57a) a + b > c + d + ...
+
+  are calculated in general as
+
+  57b)       1
+  d\sigma = ----  \Sum-ave  |M(a+b > c+d+...)|^2  d\PS(c+d+...)
+             4F
+
+  where the flux factor is defined in a Lorentz invariant manner in
+  terms of the four-momenta (k1 and k2) of the incoming two particles
+  of masses m_a and m_b
+
+  58) 4F = 4 \sqrt{ (p_a*p_b)^2 - m_a^2 m_b^2 }
+
+  Unlike the case of the particle decay width, whose normalization can
+  be obtained directly from the unitarity of S-matrix elements, we need
+  several steps to arrive at the normalization of the cross section
+  formula (57b).  Since there should be many good textbooks explaining
+  this, please study them carefully to convince yourself, since my
+  explanation below is very sloppy.
+
+  I studied it when I was a student, but at a much later time, I
+  introduced the Lorentz invariant commutators between creation and
+  annihilation operators, with the factor (2E) multiplying the
+  \delta^3(pvec-pvec') factor, so that I can obtain the `invariant'
+  matrix elements directly from the S-matrix.  It is this process,
+  which allowed us to express the final state phase space, d^3p/(2pi)^3,
+  as d^3p/2E(2pi)^3, for each particle.  Since the phase space should
+  be V*d^3p/(2pi)^3, in the fixed frame with volume V that is used by
+  Fermi to obtain his Golden Rule (59) below,
+
+  59) |(2pi)^4 \delta^4(p_i - p_f)|^2
+    = \Int d^4x e^{-i(p_i-p_f)*x} (2pi)^4 \delta^4(p_i - p_f)
+    = \Int d^4x e^{-i 0*x}        (2pi)^4 \delta^4(p_i - p_f)
+    = \Int d^4x                   (2pi)^4 \delta^4(p_i - p_f)
+    = T * V                       (2pi)^4 \delta^4(p_i - p_f)
+
+  the relative difference between our Lorentz invariant normalization of
+  one-particle state and that of Fermi is \sqrt{2E*V} for each particle.
+  This factor gives
+
+  60) (1/\sqrt{2E*V})^2 V*d^3p/(2pi)^3 => d^3p/2E(2pi)^3
+
+  for all the final state particles, thereby making our Lorentz
+  invariant phase space factor by combining with the four-momentum
+  conservation in the r.h.s. of eq.(59).  But for the initial state,
+  this relative normalization difference gives
+
+  61) |(2pi)^4 \delta^4(p_i - p_f) M_{fi}|^2
+  = T*V (1/\sqrt{2E_a*V})^2 (1/\sqrt{2E_b*V})^2 |M_{fi}|^2 dPhi_{n_f}
+  = T/(V*2E_a*2E_b})                            |M_{fi}|^2 dPhi_{n_f}
+
+  where n_f is the number of final particles and dPhi_{n_f} is our
+  invariant phase space which I introduced in my lectures.  The cross
+  section is then defined as
+
+  62)      # of transitions a+b > 1 + 2 + ... + n_f per unit time
+  \sigma = ------------------------------------------------------
+           # of incoming particles  per unit square per unit time
+             |<1+2+...+n_f| S |a+b>|^2 / T
+         = ---------------------------------
+                        v_{ab}/V
+            T/(V*2E_a*2E_b}) |M_{fi}|^2 dPhi_{n_f} / T
+         = --------------------------------------------
+                        v_{ab}/V
+            |M_{fi}|^2 dPhi_{n_f}
+         = -----------------------
+             (2E_a)(2E_b)*v_{ab}
+
+hw23-1:  Although I hesitate to ask you to follow my heuristic arguments
+  above, please follow the steps from (59) to (62), perhaps consulting
+  a good textbook.  Although I haven't had more rigorous derivation of
+  the cross section formula than what I wrote above, this level of
+  understanding was still useful for my own research.
+
+  From the above argument, the invariant `flux' factor is defined as
+
+  63) 4F = (2E_a)*(2E_b)*v_{ab}
+
+  where v_{ab} is the relative velocity between the particles a and b.
+  The appearance of the factors (2E_a) and (2E_b) is a consequence
+  of our relativistic normalization, d^3p/(2E), of all the one-particle
+  states.  The invariant expression (58) should hence be regarded as
+  the Lorentz invariant expression of the relative velocity:
+
+  64) v_{ab} = \sqrt{ (p_a*p_b)^2 - m_a^2 m_b^2 } / (E_a*E_b)
+
+hw23-2:  Show that (64) gives the velocity of the particle a in the
+  particle b rest frame, and vice versa.  Please also show that, in the
+  a+b collision rest frame, it becomes
+
+  65) v_{ab} = 2\beta   (\beta = p_a/E_a = p_b/E_b)
+
+  when m_a=m_b.  Although we're sure we cannot call 2\beta as the
+  `relative velocity' between two incoming particles with the same mass
+  and the same momentum, it sounds fine in the non-relativistic limit.
+  That it is not right in the relativistic limit is clear because
+  2\beta can exceed 1.  I think that we can make sense of relative
+  `velocity' only in the rest frame of one of the two particles.
+  The massless limit,
+
+  66) v_{ab} = 2, or 4F = (2E)(2E)2 = 2s   (s=4E^2)
+
+  is obtained as a smooth limit of (64).  Although I think that there
+  should be a way to define massless particle scattering from the first
+  principle, I do not know how to do it.
+
+                                 *****
+
+  The symbol \Sum-ave in the definition of the cross section (57b) stands
+  for summation over all the final states with the same four-momenta
+  (which may differ by helicities, color degree of freedom, etc) and
+  average over the initial states (helicities if the colliding particle
+  has spin, color degree of freedom if the colliding quark and gluon
+  distributions are defined as the sum over all colors, which is the
+  case for all commonly used PDF's.
+
+  In our case, if the initial e+e- beams are un-polarized, and if we do
+  not measure the polarization of the final fermions (for f=\tau, it is
+  possible to measure its polarization through Parity violating \tau
+  decays),
+
+  67) \Sum-ave = (1/2)(1/2) \Sum_{h1,h2,h3,h4,i3,i4}
+
+  where (1/2) \Sum_{h1} is the average of e- helicities,
+  (1/2) \Sum_{h2} is the average of e+ helicities,
+  \Sum_{h3} is the sum over f helicities,
+  \Sum_{h4} is the sum over fbar helicities,
+  \Sum_{i3} is the sum over colors (i3=red,green,blue) if
+  f is a quark,
+  \Sum_{i4} is the sum over colors if fbar is an anti-quark.
+
+  Please note that in the massless limit, the chirality conservation of
+  the gauge interactions give the selection rule:
+
+  68a) h2=-h1, h4=-h3
+
+  and the quark-quark-Z vertex has the color factor of
+
+  68b) \delta_{i3,i4}
+
+  the contraction of 3 (quark) and 3^* (anti-quark) indices.
+
+  The amplitudes M(e- e+ > f fbar) thus depend on
+
+  69) M(e- e+ > f fbar) = M(s,\cth;h1,h3,i3)
+
+  in the colliding beam rest frame.  Now the initial and the
+  final states are
+
+  70a) |e- e+>  = a^\dagger_{k1,h1} b^\dagger_{k2,-h1} |0>
+  70b) |f fbar> = a^\dagger_{k3,h3} b^\dagger_{k4,-h3} |0>
+
+  and we have the first (tree-level) contribution from the
+  2'nd order expansion of the S=Te^{i\Int d^4x L_int(x)}:
+
+  71) iM = <f fbar| T e^{i\Int d^4x L_int} |e- e+>
+         = <f fbar| T e^{i\Int d^4x (L_eeZ + L_ffZ)} |e- e+>
+         = <f fbar| T (1/2!){i\Int d^4x (L_eeZ + L_ffZ)}^2 |e- e+>
+         = <f fbar| T {i\Int d^4x L_ffZ}{i\Int d^4y L_eeZ} |e- e+>
+
+hw23-3:  Please confirm the cancellation of 1/2! under the T-ordering,
+  and the appearance of the Z-boson propagator
+
+  72) <0| T Z^\mu(x) Z^\nu(y) |0>
+
+  whose Fourier transformation gives (by Feynman)
+
+  73) i(-g^\mu\nu + q^\mu q^\nu/mZ^2)/[q^2-mZ^2+i0]
+
+  by using the polarization vectors in the Z boson rest frame
+  q=(mZ,0,0,0) with s=q^2=mZ^2:
+
+  74) \Sum_{Jz=h=+1,0,-1} \epsilon^\mu(q,h) \epsilon^*\nu(q,h)
+    = (-g^\mu\nu + q^\mu q^\nu/mZ^2 + i0)
+
+hw23-4: Show that the amplitudes after removing the overall 4-momentum
+  conservation factor reads
+
+  75) M(h1,h3) = [ubar(k3,h3) \gamma_\mu v(k4,-h3)] (gZfh3)
+                 (-g^\mu\nu + q^\mu q^\nu)/[q^2-mZ^2+i0]
+                 [vbar(k2,-h1) \gamma_\nu u(k1,h1)] (gZeh1)
+
+  When f-fbar is a quark-antiquark pair, there is an additional
+  dependence on their color degree of freedom,
+
+  76) \delta_{i3,i4}
+
+  whose squared sum
+
+  77) \Sum_{i3,i4} |\delta_{i3,i4}|^2 = 3
+
+  is the color factor for q-qbar production from a color-singlet.  Now,
+  we recall that the first term, Z > f fbar current has already been
+  calculated n eq.(26):
+
+  78a) h3=-1/2(=L): [ubar(k3,h3) \gamma^\mu v(k4,-h3)] (gZfh3)
+                   =(gZfL) [uL^\dagger(k3) \sigma_-^\mu vL(k4) ]
+                   =(gZfL) mZ [ 0, -c(th),  -i,  s(th) ]
+
+  78b) h3=+1/2(=R): [ubar(k3,h3) \gamma^\mu v(k4,-h3)] (gZfh3)
+                   =(gZfR) [uR^\dagger(k3) \sigma_+^\mu vR(k4)
+                   =(gZfR) mZ [ 0, -c(th),  i,  s(th) ]
+
+  All we need is hence to compute the initial current, which
+  is much easier:
+
+  79a) h1=-1/2(=L): [vbar(k2,-h1) \gamma^\mu u(k1,h1)] (gZeh1)
+                  =(gZeL) [vL^\dagger(k2) \sigma_-^\mu uL(k1) ]
+                  =(gZeL) mZ [ 0,  1,  -i,  0 ]
+
+  79b) h1=+1/2(=R): [vbar(k2,-h1) \gamma^\mu u(k1,h1)] (gZeh1)
+                  =(gZeR) [vR^\dagger(k2) \sigma_+^\mu uR(k1) ]
+                  =(gZeR) mZ [ 0,  1,  i,  0 ]
+
+hw23-5: Confirm (79a,b), and check their overall signs.
+
+  As I already explained for the Z > f fbar amplitudes,
+  I could write the above expression from the angular
+  momentum conservation:
+
+  80a) [vL^\dagger(k2) \sigma_-^\mu uL(k1)] = cnst \eps^\mu(q,Jz=-1)
+
+  80b) [vR^\dagger(k2) \sigma_+^\mu uR(k1)] = cnst \eps^\mu(q,Jz=+1)
+
+hw23-6: Obtain the constant coefficients for (80a) and (80b).
+
+hw23-7: Please confirm the current conservation conditions for the
+  massless fermions (81) by using Dirac equations:
+
+  81) q_\mu vL^\dagger \sigma_-^\mu uL(k1)
+    = q_\mu vR^\dagger \sigma_+^\mu uR(k1)
+    = 0
+
+  The non-vanishing terms are proportional to the fermion mass,
+  and hence are extremely small for the e+e- annihilation currents.
+
+  If we denote the amplitude (75) as
+
+  82)  M(h1,h3) = J_\mu(h3)
+                  (-g^\mu\nu + q^\mu q^\nu/mZ^2)/[q^2-mZ^2+i0]
+                  J_\nu(h1)
+
+  the term q^\mu q^\nu/mZ^2 does not contribute (this is true even if
+  mf is very heavy, such as, e+ e- > t tbar).  Hence
+
+  83) M(h1,h3) = - J_\mu(h3) J^\mu(h1) / [q^2-mZ^2+i0]
+
+  Now, the amplitude diverges at q^2=mZ^2, which is a violation of
+  unitarity.  The unitarization of the amplitude is done as follows
+  in perturbative QFT.  We introduce two types of two-point functions
+  (the Z boson propagator), 1PI (one-particle irreducible) and full
+  (connected).  In the one-loop order, the 1PI two point function is
+  expressed as
+
+  84) \Pi^\mu\nu(q) = (-g^\mu\nu + q^\mu q^\nu/q^2) \Pi_T(q)
+                                 +(q^\mu q^\nu/q^2) \Pi_L(q)
+
+  If we denote the tensor in front of \Pi_T as PT^\mu\nu
+  and that in front of \Pi_L as PL^\mu\nu, the tensors PT
+  and PL make a set of projectors (just like PL and PR for
+  fermions make the chiral projectors).
+
+hw23-8: Show the projective properties of the two tensors:
+
+  85) PT + PL = -g^\mu\nu
+        PT*PL = 0
+       (PT)^2 = -PT
+       (PL)^2 =  PL
+
+  PT is a projection on to Transverse/vector/spin-1
+  PL is a projection on to Longitudinal/scalar/spin-0
+  components of vector-bosons in QFT.  On the mass-shell (q^2=mZ^2),
+  only the spin-1 component survives.  Away from the mass shell
+  (off-shell), the virtual vector bosons have both spin-1 and spin-0
+  components (in the Unitary gauge).  For instance, the pseudo-scalar
+  meson decays like
+
+  86) \pi^- > \mu \numubar, K^- > \mu \nubar
+
+  are mediated by the W-boson propagator, through its spin-0 components
+  at far off-shell, q^2 = m_\pi^2 << mW^2.
+
+  Now, the full (connected) propagator can also be decomposed also into
+  the spin-1 (vector/transverse) and spin-0 (scalar/longitudinal)
+  components:
+
+  87) G^\mu\nu(q) = (-g^\mu\nu + q^\mu q^\nu/q^2) G_T(q)
+                               +(q^\mu q^\nu/q^2) G_L(q)
+
+  We can now study the relationship between the 1PI propagator
+  \Pi_T(q) and the full/connected propagator G_T(q) for the spin-1
+  component, since \Pi_L or G_L do not contribute to e+e-
+  annihilation.  In the tree-level
+
+  88a) i G_T(q)   = i/(q^2-m^2+i0)   (m=mZ)
+  88b) i \Pi_T(q) = 0
+
+  In the one-loop level, we find
+
+  89a) iG_T(q) = i/(q^2-m^2)
+                +i/(q^2-m^2) [i\Pi_T(q) i/(q^2-m^2)]
+                +i/(q^2-m^2) [i\Pi_T(q) i/(q^2-m^2)]^2
+                +i/(q^2-m^2) [i\Pi_T(q) i/(q^2-m^2)]^3
+                + ...
+
+  89b) G_T(q) = 1/(q^2-m^2) {1 + [-\Pi_T(q)/(q^2-m^2)]
+                               + [-\Pi_T(q)/(q^2-m^2)]^2 + ...}
+              = 1/(q^2-m^2) {1 - [-\Pi_T(q)/(q^2-m^2)]}^{-1}
+              = 1/(q^2-m^2) {1 + \Pi_T(q)/(q^2-m^2)}^{-1}
+
+  89c) [G_T(q)]^{-1} = {1 + \Pi_T(q)/(q^2-m^2)} (q^2-m^2)
+                     = q^2 - m^2 + \Pi_T(q)
+
+hw23-9: Follow the steps in (89) by yourself.  It is called Schwinger-
+  Dyson summation, named, respectively, after the theorists who pioneered
+  perturbative QFT and who formulated it elegantly.
+
+  The above derivation is useful when there appear more than one
+  propagators in one channel (just like the neutral currents in the SM,
+  where both photon and Z propagators contribute, and they mix in the
+  one-loop order).  In such cases, the 1PI propagators \Pi_T,L become
+  a matrix, and the ordering of the multiplication become important.
+
+  In perturbative QFT, we define the pole of the full propagator as our
+  starting point (the `free' on-shell particle).  The condition is
+
+  90) [G_T(q)]^{-1} = 0 at q^2 = m_pole^2 = M^2 - iMG
+
+  In general, the pole is complex, and we parametrize its real part as
+  M^2 (the pole mass squared) and its imaginary part as iMG, where G is
+  the full width (which we calculated above for Z).
+
+  The pole condition (90) for the one-loop result (89c) reads:
+
+  91) (M^2-iMG) - m^2 + \Pi_T(M^2-iMG) = 0
+
+  Neglecting higher order terms, we find
+
+  92a) M^2 - m^2 + Re\Pi_T(M^2) = 0
+  92b)     -iMG + iIm\Pi_T(M^2) = 0
+
+  from the real and imaginary parts of the identity (91).  (92a) is called
+  the mass renormalization factor, and (92b) gives the normalization of
+  the full width G=\Gamma:
+
+  93) G = \Gamma = 1/M \Im\Pi_T(M^2)
+
+hw23-10: Derive (91)-(93) from the definition (90) pf the pole.
+
+  Now, please remember the unitarity relation (the optical theorem)
+
+  94) 2 Im T_ii = \Sum_f |T_fi|^2
+
+  By noting that the 1PI Z boson propagator is simply
+
+  95) \Pi_T = <Z| T |Z> = T_ZZ
+
+  we find
+
+  96) G = \Gamma = 1/M Im\Pi_T(q)
+                 = 1/M Im{ T_ZZ }
+                 = 1/M 1/2 \Sum_f |T(Z>f)|^2
+                 = 1/2M \Sum_f |T(Z>f)|^2
+
+  The origin of the normalization factor 1/2M in the definition of the
+  decay width is now clear (this is the only way that I can prove the
+  validity of this normalization, which is independent of our
+  `normalization' of our one-particle state).  In eq.(94), \Sum_f contains
+  not only all the channels but also the phase space integrals of each
+  channel.
+
+  When you learn how to compute the one-loop amplitudes, one of the very
+  first exercise that you do is to show that the imaginary part of the
+  1PI propagator gives the mass times the full width.  When I worked on
+  precision electroweak physics, I used the positivity of my 1PI
+  propagator functions as a test of the overall sign (the imaginary part
+  should be positive, if we define everything consistently).  My detailed
+  instructions on the sign and the overall phase of each amplitudes are
+  based on those experiences of mine.
+
+  Finally the helicity amplitudes (99) can be evaluated on the Z-boson
+  mass shell:
+
+  97) M(h1,h3) = - J_\mu(h3) J^\mu(h1) / [q^2-M^2+iMG]  at q^2=M^2
+               = i J_\mu(h3) J^\mu(h1) / MG
+
+  with M = m_Z (observed) and G = \Gamma_Z.  Please note that the tree
+  level (lowest order) amplitudes are pure-imaginary on top of the
+  resonance, simply because 1/(q^2-M^2+iMG) = -i/MG at q^2=M^2.
+
+  In order to obtain the results which satisfy the unitarity, one should
+  use the \Gamma_Z which is obtained by using the same coupling constants
+  and approximations for computing the helicity amplitudes (97).  If we
+  use the observed value of \Gamma_Z, we will find inconsistencies, since
+  the observed \Gamma_Z is typically a few % larger than our lowest order
+  result, mainly because of the large positive QCD corrections to
+  the Z > qqbar widths.
+
+hw23-11: Obtain the overall factors (A,B,C,D) for
+
+  98a) M(L,L) = A M/G gZeL gZfL (1+\cth)/2
+  98b) M(L,R) = B M/G gZeL gZfR (1-\cth)/2
+  98c) M(R,L) = C M/G gZeR gZfL (1-\cth)/2
+  98d) M(R,R) = D M/G gZeR gZfR (1+\cth)/2
+
+  From eq.(97), the factors A to D are all pure imaginary.  All the
+  angular dependences follow from the angular momentum conservation for
+  the s-channel spin-1 particle exchange, by the d-function
+
+  99)
+  d^{J=1}_{2h1,2h3}(\th) = - \eps^\mu(Jz=2h1) \eps_\mu(Jz'=2h3)^*
+
+  which measures the overlap between the initial polarization vector with
+  Jz=2h1 along the z-axis, and the final polarization vector with Jz'=2h3
+  along the z'-axis, where the opening angle between the two axis is
+  \theta.  Please note
+
+  When h1=+h3 (LL and RR), the overlap is perfect at \theta=0,
+  when h1=-h3 (LR and RL), the overlap is perfect at \theta=\pi.
+
+hw23-12: Obtain the differential cross sections
+
+  100) d\sigma
+  = 1/2s (1/2)^2 \Sum_{h1,h3} |M(h1,h3)|^2 1/8\pi d\cth/2
+
+  for un-polarized e+e- beams for general f by using the
+  couplings gZfL and gZfR.  Please note
+
+  101)
+  d\sigma/d\cth = 1/(128\pi M^2) \Sum_{h1,h3} |M(h1,h3)|^2
+
+  Next, please show the FB (forward-backward) asymmetries
+
+  102)   \Int_0^1 d\cth d\sig/d\cth - \Int_{-1}^0 d\cth d\sig/d\cth
+  A_FB = ----------------------------------------------------------
+         \Int_{-1}^1 d\cth d\sig/d\cth
+
+  for the process e- e+ > f fbar are expressed in terms of the
+  Zff couplings, gZfL and gZfR.
+
+hw23-13: Please express A_FB for f=e and f=b (f=d) as a function of
+  \sw2 = \sin^2\theta_W.
+
+  Please confirm that A_FB for f=b is more sensitive to \sw2
+  than A_FB for f=e, by comparing the magnitudes of
+
+  103) d A_FB / d\sw2 at \sw2 = 0.23
+
+  for the two processes.
+
+Although we can play a lot with the amplitudes which we calculated, 
+let me stop my hw23 here.  If ILC or CEPC/FCC_ee will be build, they 
+will perform precision Z boson physics on Z pole, probably after 
+obtaining enough information on the Higgs boson at \sqrt{s}=250GeV.
+
+Best regards,
+
+Kaoru
+
+
+
+
+\end{document}

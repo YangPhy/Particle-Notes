@@ -1,0 +1,321 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\begin{document}
+\title{Particle physics HW3}
+\author{Yang Ma}
+
+\maketitle
+
+
+\section{ }
+The $\Gamma/m$ ratio
+\begin{eqnarray}
+  &&{\rm top}:~ 8.15 \times 10^{-3}\\
+  &&{\rm Higgs}:~ 1.04 \times 10^{-4}\\
+  &&{\rm Z}: ~ 2.74 \times  10^{-2}\\
+  &&{\rm W}^\pm: ~ 2.60 \times 10^{-2}\\
+  &&{\tau}: ~ 1.28 \times 10^{-9}\\
+  &&{\mu}: ~ 2.85 \times 10^{-15}\\
+  &&{n}: ~ 7.96 \times  10^{-28} \\
+  &&{\pi}^+: ~ 1.81 \times  10^{-16} \\
+  &&{\pi}^0: ~ 5.73 \times  10^{-8} \\
+  &&{ p}: < 1.06 \times  10^{-61}\\
+  &&{e}: < 6.34 \times  10^{-58}
+\end{eqnarray}
+
+\section{ }
+In general, the smaller the $\Gamma/m$ ratio is, the more stable the given particle is.
+And, by comparing the $\Gamma/m$ ratio between different particle, e.g. $\tau$ and $\mu$, we notice that
+\begin{eqnarray}
+  \Gamma(l \to e \nu_e \nu_l) \propto G^2 m^5_l,
+\end{eqnarray}
+where $l$ stands for $\tau$ or $\mu$. It can be seen that (since both processes are weak interaction) $\Gamma/m \propto m_l^4$, which agrees with our numerical results
+\begin{eqnarray}
+  &&\frac{m_{\tau}^4}{m_{\mu}^4} = 8.2 \times 10^4, \\
+  &&\frac{(\Gamma/m)_{\tau}}{(\Gamma/m)_{\mu}} = 4.5 \times 10^5.
+\end{eqnarray}
+Note 
+\begin{eqnarray}
+  \frac{m_{\tau}^4}{m_{\mu}^4} \sim \frac{(\Gamma/m)_{\tau} B (\tau \to e \nu_e \nu_l )}{(\Gamma/m)_{\mu}},
+\end{eqnarray}
+where $B (\tau \to e \nu_e \nu_l ) \sim 0.2$ is the branching ratio.
+
+For the difference between $\pi^+$ and $\pi^0$ is quite larege, $(\Gamma/m)_{\pi^+} \ll (\Gamma/m)_{\pi^0}$, which is understandable that $\pi^0 \to \gamma \gamma$ is EW interaction and $\pi^+$ decay is weak interaction.
+
+\section{ }
+
+\begin{itemize}
+  \item Since
+  \begin{eqnarray}
+  Q
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix}
+  =(T^3+Y)
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix}
+  =(\frac{1}{2}+\frac{1}{6})
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix},
+  \end{eqnarray}
+  \begin{eqnarray}
+    Q
+    \begin{pmatrix}
+      0\\1
+    \end{pmatrix}
+    =(T^3+Y)
+    \begin{pmatrix}
+      0\\1
+    \end{pmatrix}
+    =(-\frac{1}{2}+\frac{1}{6})
+    \begin{pmatrix}
+      0\\1
+    \end{pmatrix},
+    \end{eqnarray}
+     we see
+      \begin{eqnarray}
+        Q u_{Li}
+        \begin{pmatrix}
+          1\\0
+        \end{pmatrix}
+        =\frac{2}{3} u_{Li}
+        \begin{pmatrix}
+          1\\0
+        \end{pmatrix},
+        \end{eqnarray}
+        \begin{eqnarray}
+          Q d_{Li}
+          \begin{pmatrix}
+            0\\1
+          \end{pmatrix}
+          =-\frac{1}{3} d_{Li}
+          \begin{pmatrix}
+            0\\1
+          \end{pmatrix}.
+          \end{eqnarray}
+  The results show that $Q=\frac{2}{3},~-\frac{1}{3}$.
+
+  \item Likewise, we can also write
+  \begin{eqnarray}
+    Q v_{Li}
+    \begin{pmatrix}
+      1\\0
+    \end{pmatrix}
+    =\frac{2}{3} v_{Li}
+    \begin{pmatrix}
+      1\\0
+    \end{pmatrix},
+    \end{eqnarray}
+    \begin{eqnarray}
+      Q l_{Li}
+      \begin{pmatrix}
+        0\\1
+      \end{pmatrix}
+      =-\frac{1}{3} l_{Li}
+      \begin{pmatrix}
+        0\\1
+      \end{pmatrix},
+      \end{eqnarray}
+      where $Y=-1/2$ and the results show that $Q=1,~0$.
+\end{itemize}
+
+\section{ }
+The Pauli matrix are
+\begin{eqnarray}
+  \sigma^1=
+  \begin{pmatrix}
+    0&1\\1&0
+  \end{pmatrix},~
+  \sigma^2=
+  \begin{pmatrix}
+    0&-i \\i&0
+  \end{pmatrix},~
+  \sigma^3=
+  \begin{pmatrix}
+    1&0\\0&-1
+  \end{pmatrix}.
+\end{eqnarray}
+Then we can write
+\begin{eqnarray}
+  (\sigma^1)^2&=&
+  \begin{pmatrix}
+    0&1\\1&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&1\\1&0
+  \end{pmatrix}=
+  \begin{pmatrix}
+    1&0\\0&1
+  \end{pmatrix} \nonumber \\
+  (\sigma^2)^2&=&
+  \begin{pmatrix}
+    0&-i \\i&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&-i \\i&0
+  \end{pmatrix}
+  =\begin{pmatrix}
+    1&0\\0&1
+  \end{pmatrix} \nonumber \\
+  (\sigma^3)^2&=&
+  \begin{pmatrix}
+    1&0\\0&-1
+  \end{pmatrix}
+  \begin{pmatrix}
+    1&0\\0&-1
+  \end{pmatrix}
+  =\begin{pmatrix}
+    1&0\\0&1
+  \end{pmatrix}.
+\end{eqnarray}
+    
+\section{ } \label{sec:udu}
+Since we know $(\sigma^k)^\dagger = \sigma^k$ and $T^k=\frac{1}{2}\sigma^k$, we see
+\begin{eqnarray}
+  (T^k)^\dagger=T^k,
+\end{eqnarray}
+and can then write
+\begin{eqnarray}
+  U (\theta_1,\theta_2,\theta_3)&=&e^{i\sum_k T^k \theta_k},\nonumber \\
+  U^\dagger (\theta_1,\theta_2,\theta_3)&=&e^{-i\sum_k (T^k)\dagger \theta_k}= e^{-i\sum_k T^k \theta_k}.
+\end{eqnarray}
+Note that $[i\sum_k T^k \theta_k,-i\sum_k T^k \theta_k]=0$, therefore
+\begin{eqnarray}
+  U^\dagger (\theta_1,\theta_2,\theta_3) U (\theta_1,\theta_2,\theta_3) = e^{i\sum_k T^k \theta_k -i\sum_k T^k \theta_k}=1.
+\end{eqnarray}
+
+\section{  }
+
+\begin{itemize}
+  \item U(1) transfromation:
+  \begin{eqnarray}
+    \phi \to \phi'= U(\theta_0) \phi= e^{i Y \theta_0} \phi, ~ Y=\frac{1}{2},
+  \end{eqnarray}
+ so we know
+ \begin{eqnarray}
+  \phi^* \to (\phi^*)' &=& (\phi')^*= (U(\theta_0) \phi)^*= e^{-i Y \theta_0} \phi^*\nonumber \\
+  &=& U(-\theta_0) \phi^*.
+ \end{eqnarray}
+  \item SU(2) transfromation:
+  \begin{eqnarray}
+    \phi \to \phi'=U(\theta_1,\theta_2,\theta_3)\phi =e^{i\sum_k T^k \theta_k} \phi,
+  \end{eqnarray}
+  we then write
+  \begin{eqnarray}
+    (\phi^*)'= (\phi^*)'=(U(\theta_1,\theta_2,\theta_3)\phi)^* =e^{-i\sum_k (T^k)^* \theta_k} \phi^*.
+  \end{eqnarray}
+Note that
+\begin{eqnarray}
+  (T^1)^*=T^1,~~(T^2)^*=T^2,~~(T^3)^*=T^3,
+\end{eqnarray}
+so 
+\begin{eqnarray}
+  (\phi^*)'=e^{-i\sum_k (T^k)^* \theta_k} \phi^*=U(-\theta_1,\theta_2,-\theta_3) \phi^*.
+\end{eqnarray}
+\end{itemize}
+
+\section{ }
+Under SU(2) transfromation,
+\begin{eqnarray}
+  (\phi^\dagger)' \phi = (U \phi)^\dagger U \phi= \phi\dagger U^\dagger U \phi.
+\end{eqnarray}
+With $U^\dagger U U =d$ proved in \ref{sec:udu}, we have
+\begin{eqnarray}
+  (\phi^\dagger)' \phi = \phi\dagger \phi.
+\end{eqnarray}
+
+\section{ } 
+Define $\phi^c=i\sigma^2 \phi^*$,
+then we have the SU(2) transfromation
+\begin{eqnarray}
+  \phi^c \to (\phi^c)' &=& (\phi')^c = i\sigma^2 (\phi')^* \nonumber \\
+  &=& i\sigma^2 U^* \phi^*\nonumber \\
+  &=& i\sigma^2 U^* (-i\sigma^2) i\sigma^2 \phi^*\nonumber \\
+  &=&i\sigma^2 U^* (-i\sigma^2) \phi^c,
+\end{eqnarray}
+where we used $-i\sigma^2 i\sigma^2=1$.
+Now we need to prove
+\begin{eqnarray}
+  i\sigma^2 U^* (-i\sigma^2)= \sigma^2 U^* \sigma^2=U.
+\end{eqnarray}
+Now we look at the infinitesimal transfromations
+\begin{eqnarray}
+  U &=& e^{ i(T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) }\\
+&=& 1 + i(T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) + {\cal O}( (T^k \theta_k)^2)\\
+U^* &=& e^{ -i (T^1* \theta_1 + T^2* \theta_2 + T^3* \theta_3) }\\
+&=& 1 - i(T^1* \theta_1 + T^2* \theta_2 + T^3* \theta_3) + {\cal O}( (T^{k*} \theta_k)^2),
+\end{eqnarray}
+and see we need only to prove
+\begin{eqnarray}
+  \sigma^2 T^{k*} \sigma^2=-T^k,
+\end{eqnarray}
+or
+\begin{eqnarray}
+  \sigma^2 \sigma^{k*} \sigma^2=-\sigma^k.
+\end{eqnarray}
+One can directly write out
+\begin{eqnarray}
+  \sigma^2 \sigma^{1*} \sigma^2=
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&1\\1&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    0&-1\\-1&0
+  \end{pmatrix}
+  =-\sigma^1,
+\end{eqnarray}
+\begin{eqnarray}
+  \sigma^2 \sigma^{2*} \sigma^2=
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    0&i\\-i&0
+  \end{pmatrix}
+  =-\sigma^2,
+\end{eqnarray}
+\begin{eqnarray}
+  \sigma^2 \sigma^{3*} \sigma^2=
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  \begin{pmatrix}
+    1&0\\0&-1
+  \end{pmatrix}
+  \begin{pmatrix}
+    0&-i\\i&0
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    -1&0\\0&1
+  \end{pmatrix}
+  =-\sigma^3.
+\end{eqnarray}
+As a summary, we now have
+\begin{eqnarray}
+  \phi^c \to (\phi^c)'=U(\theta_1,\theta_2,\theta_3) \phi^c.
+\end{eqnarray}
+
+
+\end{document}

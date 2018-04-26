@@ -1,0 +1,841 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW15 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+
+  This homework hw15 is rather long, since I retained exercises for
+  Lorentz transformation and charge conjugations of 4-spinors.
+  Please submit your report by next next Monday, Mar/12, since
+  I will be out of town between Mar/02(Fri) and Mar/12(Mon).
+
+
+PT1-2018: hw15 (2018.02.27)
+
+  Last week, we learned that Dirac fermion is a combination of two Weyl
+  fermions, $\psi_L$ and $\psi_R$, which couple with the Dirac mass term.
+  Because of this Lorentz invariant coupling mass term, the two Weyl
+  fermions transform together covariant under the Lorentz transformation.
+  Dirac fermion hence has four complex components.  We showed the Lorentz
+  transformation of $\psi_L$ and $\psi_R$, and showed the Lorentz invariance
+  of the Dirac Lagrangian.
+
+  I introduced QFT in which all fields are interpreted as operators
+  which create and annihilate particles and anti-particles, and obtained
+  free-field expansions for scalars and fermions.  We then obtained
+  explicit forms the spinors, $u_L(p,h)$ and $u_R(p,h)$, and their charge
+  conjugates, $v_R(p,h)$ and $v_L(p,h)$, respectively.
+
+  This week, I explain charge conjugation transformation carefully,
+  since it is very important for understanding the interactions of
+  fermions.
+
+  At the end of my lengthy introduction of spin $1/2$ particles, I review
+  all what we learned about Dirac/Majorana fermions by using the
+  four-spinor notation.
+
+  I then introduce Poincare algebra that dictates the space-time symmetry
+  of QFT, and derive its most important consequences, the conservation
+  of the invariant mass and the spin of a massive particle, and that of
+  the helicity of massless particles.
+
+  At the end of my lectures this week, I introduce free field expansions
+  for the vector bosons.
+
+  Let me re-introduce charge conjugation for spin $1/2$ particles, starting
+  from Weyl fermions, because all the SM fermions are Weyl fermions before
+  the symmetry breaking.  Let me write the SM Lagrangian for fermions as
+ \begin{eqnarray}
+  {\cal L}_{fermion} = (f_L)^\dagger iD_\mu \sigma_-^\mu (f_L)
+  + (f_R)^\dgr iD_\mu \sigma_+^\mu (f_R) \label{eq.15_59}
+ \end{eqnarray}
+  where $f_L$ can be $Q_i$ or $L_i$, while $f_R$ can be ${u_R}_i$, ${d_R}_i$, ${l_R}_i$, with $i=1,2,3$ for family replication indices. Last week, we learned that ${\cal L}_{Dirac}$ is invariant under Charge conjugation.  The essence of the proof, however, is simply that the Lagrangian is a singlet (a point) in the spinor space, and therefore it is the same as its transpose.
+
+  Well, our SM Lagrangian Eq.\ref{eq.15_59} is also a singlet in the spinor space, and hence its transpose is the same as itself. What do we learn?
+\begin{eqnarray}
+  {\cal L}_{fermion} &=& ( {\cal L}_{fermion} )^T
+  =   [ (f_L)^\dagger iD_\mu \sigma_-^\mu (f_L) ]^T
+    + [ (f_R)^\dagger iD_\mu \sigma_+^\mu (f_R) ]^T \nonumber \\
+  &=& - (f_L)^T [\sigma_-^\mu]^T  [iD_\mu]^T [(f_L)^\dagger]^T
+    - (f_R)^T [\sigma_+^\mu]^T  [iD_\mu]^T [(f_R)^\dagger]^T \nonumber \\
+  &=& - (f_L)^T [\sigma_-^\mu]^T  [iD_\mu]^T  (f_L)^*
+    - (f_R)^T [\sigma_+^\mu]^T  [iD_\mu]^T  (f_R)^* \label{eq.15_60}
+\end{eqnarray}
+  where
+\begin{eqnarray}
+  [iD_\mu]^T
+  =  i\overleftarrow{\del}_\mu -g(T^a)^T A^a_\mu
+  = -i\del_\mu             -g(T^a)^T A^a_\mu \label{eq.15_61}
+\end{eqnarray}
+  In Eq.\ref{eq.15_61}, $\overleftarrow{\del}$ means that the derivative operates in its left-hand-side (i.e., on $(f_L)^T$ and $(f_R)^T)$. When $f_L$ or $f_R$ are color-triplets (quarks) or weak-doublets ($Q$ or $L$), generators associated with gauge bosons should also be transposed.
+
+  By inserting $i\sigma^2$ (note $ (\sigma^2)^2 = (i\sigma^2) (-i\sigma^2)=1$)
+  in both sides of $[\sigma_\pm^\mu]^T$ and by using Eq.\ref{eq.15_55},
+\begin{eqnarray}
+  (\sigma^2) [\sigma_\pm^\mu]^T (\sigma^2) = \sigma_\mp^\mu \label{eq.15_55}
+\end{eqnarray}
+  and the ``definition'' of ``charge conjugate'' operations in Eq.({\ref{eq.15_30a},\ref{eq.15_30b}):
+\begin{eqnarray}
+  && (f_L)^c = -i\sigma^2 (f_L)^* \label{eq.15_30a} \\
+  && (f_R)^c =  i\sigma^2 (f_R)^* \label{eq.15_30b}
+\end{eqnarray}
+  the Lagrangian (Eq.\ref{eq.15_60}) can be re-written as
+\begin{eqnarray}
+  {\cal L}_{fermion} &=& ( {\cal L}_{fermion} )^T
+  = - (f_L)^T [\sigma_-^\mu]^T  [iD_\mu]^T  (f_L)^*
+    - (f_R)^T [\sigma_-^\mu]^T  [iD_\mu]^T  (f_R)^* \nonumber\\
+  &=&   ((f_L)^c)^\dagger \sigma_+^\mu [-iD_\mu]^T (f_L)^c
+    + ((f_R)^c)^\dagger \sigma_-^\mu [-iD_\mu]^T (f_R)^c\label{eq.15_63}
+\end{eqnarray}
+
+{\bf hw15-1}: Derive Eq.\ref{eq.15_63} from Eq.\ref{eq.15_59}.
+
+  By inserting Eq.\ref{eq.15_61} into Eq.\ref{eq.15_63} we find
+\begin{eqnarray}
+  {\cal L}_{fermion} &=& \sigma_+^\mu [-iD_\mu]^T (f_L)^c
+  + ((f_R)^c)^\dagger \sigma_-^\mu [-iD_\mu]^T (f_R)^c \nonumber \\
+  &=& ((f_L)^c)^\dagger \sigma_+^\mu [i\del_\mu +g(T^a)^TA^a_\mu] (f_L)^c
+  + ((f_R)^c)^\dagger \sigma_-^\mu [i\del_\mu +g(T^a)^TA^a_\mu] (f_R)^c \label{eq.15_64}
+\end{eqnarray}
+  Let us compare Eq.\ref{eq.15_64} with the original Lagrangian Eq.\ref{eq.15_592}:
+\begin{eqnarray}
+  {\cal L}_{fermion}
+  = (f_L)^\dagger \sigma_-^\mu [i\del_\mu -g T^a A^a_\mu] (f_L)
+  + (f_R)^\dagger \sigma_+^\mu [i\del_\mu -g T^a A^a_\mu] (f_R)\label{eq.15_592}
+\end{eqnarray}
+  We find that the SM ${\cal L}_{fermion}$ is invariant under the transformation:
+\begin{eqnarray}
+   &&f_L \to f_L' = (f_L)^c \label{eq.15_65a}\\
+    &&f_R \to f_R' = (f_R)^c \label{eq.15_65b}\\
+   &&\sigma_\pm^\mu T^a gA^a_\mu
+    \to (\sigma_\pm^\mu T^a gA^a_\mu)'
+    =  \sigma_\mp^\mu (T^a)^T (-gA^a_\mu)
+    =  \sigma_\mp^\mu (T^a)^* (-gA^a_\mu) \label{eq.15_65c}
+\end{eqnarray}
+
+  The transformation Eq.(\ref{eq.15_65a},\ref{eq.15_65b},\ref{eq.15_65c}) is called CP transformation, since the transformed states $f_L^c$ and $f_R^c$ have opposite helicities from the original states, $f_L$ and $f_R$, respectively.  The exchange of chiral sigma-vectors, $\sigma_-^\mu$ and $\sigma_+^\mu$, is mandatory in order to keep the Lorentz invariance.
+
+  The Yukawa interactions ${\cal L}_{Yukawa}$ are also invariant under CP, if
+  the couplings are all real. The CP transformation Eq.(\ref{eq.15_65a},\ref{eq.15_65b}) gives
+\begin{eqnarray}
+  &&(f_L)^\dagger (f_R)      + (f_R)^\dagger (f_L)
+   \to ( (f_L)^\dagger (f_R)     + (f_R)^\dagger (f_L) )'
+   =   (f_L^c)^\dagger (f_R^c) + (f_R^c)^\dagger (f_L^c) \nonumber \\
+   &=& ( (f_L^c)^\dagger (f_R^c) + (f_R^c)^\dagger (f_L^c) )^T 
+   = - (f_R^c)^T (f_L^c)^*  - (f_L^c)^T (f_R^c)^* 
+   =   (f_R)^\dagger (f_L)     + (f_L)^\dagger (f_R)  \label{eq.15_66}
+\end{eqnarray}
+
+{\bf hw15-2}: Show Eq.\ref{eq.15_66}.
+
+hint: $((f_R)^c)^T (f_L^c)^* = (i\sigma^2 f_R^*)^T (-i\sigma^2 fL^*)^*$
+
+  In the absence of non-removable complex phases in ${\cal L}_{Yukawa}$, the
+  CP transformation Eq.(\ref{eq.15_65a},\ref{eq.15_65b},\ref{eq.15_65c}) is a symmetry of ${\cal L}_{SM}$.
+
+  In QED and QCD, the interactions conserve Parity.  For instance,
+  \begin{eqnarray}
+    &&{\cal L}_{QCD}
+    = {\cal L}_{gauge} + f_L^\dagger iD_\mu \sigma_-^\mu f_L
+                + f_R^\dagger iD_\mu \sigma_+^\mu f_R
+                - m ( f_L^\dagger f_R + f_R^\dagger f_L ) \nonumber \\
+    &=& {\cal L}_{gauge} + ( f_L^\dagger iD_\mu \sigma_-^\mu f_L )^T
+                + ( f_R^\dagger iD_\mu \sigma_+^\mu f_R )^T
+                - m ( f_L^\dagger f_R + f_R^\dagger f_L )^T \nonumber \\
+    &=& {\cal L}_{gauge} + {f_L^c}^\dagger (-iD_\mu)^T \sigma_+^\mu f_L^c
+                + {f_R^c}^\dagger (-iD_\mu)^T \sigma_-^\mu f_R^c
+                + m ( {f_R^c}^T {f_L^c}^*  + {f_L^c}^T {f_R^c} ) \label{eq.15_67}
+\end{eqnarray}
+   By using Eq.\ref{eq.15_61} for $[D_\mu]^T$ and by using Eq.\ref{eq.15_66}, we can tell that ${\cal L}_{QCD}$ is invariant under the C transformation
+\begin{eqnarray}
+  && (f_L) \to (f_L)' = f_R^c \label{eq.15_68a} \\
+  && (f_R) \to (f_R)' = f_L^c \label{eq.15_68b} \\
+  && g T^a A^a_\mu \to (g T^a A^a_\mu)' = -g (T^a)^* A^a_\mu \label{eq.15_68c} 
+\end{eqnarray}
+  
+{\bf hw15-3}: Show that Eq.\ref{eq.15_67} is invariant under C operation Eq.(\ref{eq.15_68a},\ref{eq.15_68b},\ref{eq.15_68c}).
+
+  Please note that the C operation Eq.(\ref{eq.15_68a},\ref{eq.15_68b},\ref{eq.15_68c}) does not change the Lorentz transformation property of the original fields, $f_L$ and $f_R$, and the transformed field, $f_R^c$ and $f_L^c$, respectively.
+
+  I feel that the CP transformation Eq.(\ref{eq.15_65a},\ref{eq.15_65b},\ref{eq.15_65c}) is an appropriate definition of fermion to anti-fermion (matter to anti-matter) transformations.  In other words, anti-particle of left-handed (helicity $-1/2$) fermion is
+  right-handed (helicity $+1/2$). As explained before, the exchange of
+  $\sigma_\pm^\mu$ simply reflects this exchange of helicities between a
+  fermion and an anti-fermion. In this picture, Parity inversion is not
+  a symmetry under matter anti-matter exchange transformations. Only
+  when the interactions of $f_L$ and those of $f_R$ are identical (left-right
+  symmetric), Parity is conserved. This is what Dirac arranged by giving
+  exactly the same charge to $f_L$ and $f_R$. CP invariance plus P invariance
+  gives C invariance of QED and QCD (QCD on perturbative vacuum).
+
+  Before moving on, please let me summarize how Lorentz transformations
+  and Charge conjugations are treated in the Dirac four-spinor formalism.
+
+  First, the free field expansions %Eq.(\ref{eq.14_24a},\ref{eq.14_24b})
+  become one equation
+\begin{eqnarray}
+  \Psi(x)
+  = \sum_h \int \frac{d^3p}{(2E)(2\pi)^3}(a(p,h) e^{-ipx} u(p,h) + b^\dagger(p,h) e^{ipx} v(p,h)) \label{eq.15_69}
+\end{eqnarray}
+  with
+\begin{eqnarray}
+  u(p,h) =
+  \begin{pmatrix}
+    u_L(p,h) \\ u_R(p,h)
+  \end{pmatrix}
+  ,~~~~v(p,h) =
+  \begin{pmatrix}
+    v_L(p,h) \\ v_R(p,h)
+  \end{pmatrix} \label{eq.15_70}
+\end{eqnarray}
+
+{\bf hw15-4}: Show that the Dirac equations %Eq.\ref{eq.13_28}
+gives
+\begin{eqnarray}
+  && (  p\gamma -m ) u(p,h) = 0 \label{eq.15_71a} \\
+  && ( -p\gamma -m)  v(p,h) = 0 \label{eq.15_71b}
+\end{eqnarray}
+  and that Eq.(\ref{eq.15_71a},\ref{eq.15_71b}) reproduces Dirac equations %Eq.(\ref{eq.13_28},\ref{eq.13_29}) 
+  Very compact!
+
+  Now let us study the Lorentz transformation of $\Psi(x)$. All the $6$
+  generators of the Lorentz transformation is expressed as
+\begin{eqnarray}
+  \Sigma^{\mu\nu} = \frac{i}{4} [ \gamma^\mu, \gamma^\nu ] \label{eq.15_72}
+\end{eqnarray}
+  by using the $\gamma$ matrices. They may not look like generators of
+  rotations and boosts, but you may notice the anti-symmetric property
+\begin{eqnarray}
+  \Sigma^{ab} = -\Sigma^{ba}, \label{eq.15_73}
+\end{eqnarray}
+  and hence there are just 6 independent generators. They satisfy
+\begin{eqnarray}
+  [S^{ab}, S^{cd}] = i( g^{ad} S^{bc} + g^{bc} S^{ad} - g^{ac} S^{bd} - g^{bd} S^{ac}) \label{eq.15_74}
+\end{eqnarray}
+  where I used a shorthand, $S^{ab} = \Sigma^{ab}$, etc. Since the right-hand
+  side of Eq.\ref{eq.15_74} is a linear sum of all the generators, the transformation generated by them
+\begin{eqnarray}
+  S(\omega_{ab}) = e^{ -\frac{i}{2} \Sigma^{ab} \omega_{ab} } \label{eq.15_75}
+\end{eqnarray}
+  forms a group, for real $\omega _{ab}=-\omega_{ba}$.
+
+{\bf hw15-5}: Show the commutators in Eq.\ref{eq.15_74} by using Clifford algebra,
+\begin{eqnarray}
+  \{ \gamma^\mu, \gamma^\nu \} = 2g^{\mu\nu} \label{eq.15_76}
+\end{eqnarray}
+
+{\bf hw15-6}: Show that the commutation relations Eq.\ref{eq.15_74} is nothing but the commutation relations among the Lorentz transformation generators,
+with the identification:
+\begin{eqnarray}
+  && S^{ij} = \epsilon_{ijk} J_k \label{eq.15_77a}\\
+  && S^{0k} = K_k \label{eq.15_77b}
+\end{eqnarray}
+
+ That $\Sigma^{\mu\nu}$ in Eq.\ref{eq.15_72} satisfies the Lorentz algebra 
+ %in Eq.\ref{eq.15_74} 
+ suggests that there is a set of $4$ component field (4-spinor) which transforms covariant under Lorentz transformation.  This is what Dirac discovered.
+
+  In our chiral representation, the $4\times 4$ matrix representation of the
+  Lorentz transformations splits into two $2\times 2$ matrix transformations.
+
+{\bf hw15-7}: Starting from the Chiral representation of $\gamma$ matrices,
+%Eq.\ref{eq.13_26}, 
+show that Eq.\ref{eq.15_72} splits into two block diagonal pieces
+\begin{eqnarray}
+  S^{ab}=
+  \begin{pmatrix}
+    S_L^{ab} & 0 \\
+    0 & S_R^{ab}
+  \end{pmatrix} \label{eq.15_78}
+\end{eqnarray}
+  where $S_L$ and $S_R$ are $2\times 2$ matrices,
+\begin{eqnarray}
+ && S_L^{ab} = \frac{i}{4} ( \sigma_+^a \sigma_-^b - \sigma_+^b \sigma_-^a )\label{eq.15_79a} \\
+ && S_R^{ab} = \frac{i}{4} ( \sigma_-^a \sigma_+^b - \sigma_-^b \sigma_+^a )\label{eq.15_79b}
+\end{eqnarray}
+  Therefore, the upper 2-spinors $\psi_L$ and the lower 2-spinors $\psi_R$, transform independently as
+\begin{eqnarray}
+  && \psi_L \to \psi_L' = e^{ -\frac{i}{2} \omega_{ab} S_L^{ab} } \psi_L \label{eq.15_80a} \\ 
+  && \psi_R \to \psi_R' = e^{ -\frac{i}{2} \omega_{ab} S_R^{ab} } \psi_R \label{eq.15_80b}
+\end{eqnarray}
+  
+{\bf hw15-8}: Obtain Eqs.(\ref{eq.15_81a},\ref{eq.15_81b},\ref{eq.15_81c},\ref{eq.15_81d},\ref{eq.15_81e},\ref{eq.15_81f}) from Eqs.(\ref{eq.15_80a},\ref{eq.15_80b}):
+\begin{eqnarray}
+  &&S^{23} = J_1 =
+  \begin{pmatrix}
+    \sigma^1/2  &  0  \\ 
+    0   &    \sigma^1/2
+  \end{pmatrix}\label{eq.15_81a} \\
+  &&S^{31} = J_2 =
+  \begin{pmatrix}
+    \sigma^2/2  &  0  \\ 
+    0   &    \sigma^2/2
+  \end{pmatrix}\label{eq.15_81b} \\
+  &&S^{12} = J_3 =
+  \begin{pmatrix}
+    \sigma^3/2  &  0  \\ 
+    0   &    \sigma^3/2
+  \end{pmatrix}\label{eq.15_81c} \\
+  &&S^{01} = K_1 =
+  \begin{pmatrix}
+    -i \sigma^1/2  &  0  \\ 
+    0   &    i\sigma^1/2
+  \end{pmatrix}\label{eq.15_81d} \\
+  &&S^{02} = K_2 =
+  \begin{pmatrix}
+    -i\sigma^2/2  &  0  \\ 
+    0   &    i\sigma^2/2
+  \end{pmatrix}\label{eq.15_81e} \\
+  &&S^{03} = K_3 =
+  \begin{pmatrix}
+    -i\sigma^3/2  &  0  \\ 
+    0   &    i\sigma^3/2
+  \end{pmatrix}\label{eq.15_81f}
+\end{eqnarray}
+  as we already know.
+
+  Let us now re-introduce the charge conjugation in the 4-spinor notation.
+  Please note that I introduced charge conjugation as a symmetry of
+  free Dirac Lagrangian, which is expressed in the 4-spinor notation as
+\begin{eqnarray}
+  \Psi =
+  \begin{pmatrix}
+    \psi_L \\ \psi_R
+  \end{pmatrix}
+  \to \Psi^c = 
+  \begin{pmatrix}
+    \psi_R^c \\ \psi_L^c
+  \end{pmatrix} \label{eq.15_82}
+\end{eqnarray}
+ 
+  This time, let us start with the Lagrangian with gauge bosons
+\begin{eqnarray}
+  {\cal L} &=& {\overline \Psi} (i\del_\mu \gamma^\mu - m) \Psi \\
+        &=& {\overline \Psi} ([i\del_\mu - g T^a A^a_\mu] \gamma^\mu - m) \Psi \label{eq.15_83}
+\end{eqnarray}
+
+  Here again, I introduce the non-Abelian generator $T^a$, so that it is
+  useful for QCD. For QED, $gT^a A^a_\mu$ should be replaced by $eQ A_\mu$.
+  Because Eq.\ref{eq.15_83} is a singlet in the 4-spinor space, and because Fermi operators anti-commute,
+\begin{eqnarray}
+  {\cal L}&=&  {\cal L}^T
+  =  ({\overline \Psi} ([i\del_\mu - g T^a A^a_\mu] \gamma^\mu - m) \Psi)^T \\
+  &=& -(\Psi)^T (\gamma^\mu)^T ([i\del_\mu]^T -g(T^a)^T A^a_\mu) ({\overline \Psi})^T
+    +m (\Psi)^T  ({\overline \Psi})^T \\
+  &=& (\Psi)^T ([i\del_\mu +g(T^a)^TA^a_\mu](\gamma^\mu)^T +m) ({\overline \Psi})^T \label{eq.15_84}
+\end{eqnarray}
+  In the above, I inroduced a notation, $[\del_\mu]^T$ for the derivative
+  operator which act on its left-hand-side. Hence
+\begin{eqnarray}
+  [\del_\mu]^T = -\del_\mu \label{eq.15_85}
+\end{eqnarray}
+
+{\bf hw15-9}: Derive Eq.\ref{eq.15_84} from Eq.\ref{eq.15_83}.
+
+  Now we introduce a $4\times 4$ matrix C which gives
+\begin{eqnarray}
+  C (\gamma^\mu)^T C^{-1} = -\gamma^\mu \label{eq.15_86}
+\end{eqnarray}
+  and we define $\Psi^c$ as
+\begin{eqnarray}
+  \Psi^c = C ({\overline \Psi})^T \label{eq.15_87}
+\end{eqnarray}
+ then the Lagrangian in Eq.\ref{eq.15_84} is expressed as
+\begin{eqnarray}
+  {\cal L} &=& {\cal L}^T
+  = (\Psi)^T C^{-1} C
+  ([i\del_\mu +g(T^a)^TA^a_\mu](\gamma^\mu)^T +m) C^{-1} C ({\overline \Psi})^T \\
+  &=& (\Psi)^T C^{-1} ([i\del_\mu +g(T^a)^TA^a_\mu](-\gamma^\mu) +m)\Psi^c, \label{eq.15_88}
+\end{eqnarray}
+  Now, if our $4 \times 4$ matrix C, which satisfies Eq.\ref{eq.15_86} and Eq.\ref{eq.15_87}, gives
+\begin{eqnarray}
+  (\Psi)^T C^{-1} = -\overline{\Psi}^c \label{eq.15_89}
+\end{eqnarray}
+  we can express Eq.\ref{eq.15_88} as
+\begin{eqnarray}
+  {\cal L} = {\cal L}^T
+  = \overline{\Psi}^c ([i\del_\mu +g(T^a)^TA^a_\mu] \gamma^\mu -m)\Psi^c \label{eq.15_90}
+\end{eqnarray}
+  By comparing Eq.\ref{eq.15_83} and Eq.\ref{eq.15_90}, we find that ${\cal L}$ is invariant under the joint transformations (Charge conjugate transformations)
+\begin{eqnarray}
+  && \Psi  \to \Psi^c = C {\overline \Psi}^T \label{eq.15_91a}\\
+  && g T^a A^a_\mu \to -g (T^a)^T A^a_\mu = -g (T^a)^* A^a_\mu\label{eq.15_91b}
+\end{eqnarray}
+  
+{\bf hw15-10}: Show that Eq.\ref{eq.15_89} gives Eq.\ref{eq.15_90}.
+
+  Now let us find the $4\times 4$ matrix C which satisfy Eq.\ref{eq.15_86}, Eq.\ref{eq.15_87}, Eq.\ref{eq.15_89}.
+  We first note that Eq.\ref{eq.15_87}+Eq.\ref{eq.15_89} implies
+\begin{eqnarray}
+  {\overline \Psi}
+  &=& (\Psi^c)^\dagger \gamma^0
+  = (C {\overline \Psi}^T)^\dagger \gamma^0
+  = (C (\Psi^\dagger \gamma^0)^T)^\dagger \gamma^0
+  = (C (\gamma^0)^T (\Psi^\dagger)^T)^\dagger \gamma^0\nonumber \\
+  &=& (C (\gamma^0)^T \Psi^*)^\dagger \gamma^0
+  = (\Psi)^T (\gamma^0)^* C^\dagger \gamma^0
+  = (\Psi)^T (-C^{-1}) \label{eq.15_92}
+\end{eqnarray}
+  where the last step is our requirement Eq.\ref{eq.15_89}. In the chiral
+  representation, $(\gamma^0)^* = \gamma^0$, and Eq.\ref{eq.15_92} gives
+\begin{eqnarray}
+  \gamma^0 C^\dgr \gamma^0 = -C^{-1}\label{eq.15_93}
+\end{eqnarray}
+  Hence
+\begin{eqnarray}
+  && C \gamma^0 C^\dagger \gamma^0 = -1 \label{eq.15_94a}\\
+  && C \gamma^0 C^\dagger = -\gamma^0 \label{eq.15_94b}
+\end{eqnarray}
+  By comparing Eq.\ref{eq.15_94b} with Eq.\ref{eq.15_86}, because $(\gamma^0)^T = \gamma^0$, we find
+\begin{eqnarray}
+  C^\dgr = C^{-1},~or~C C^\dgr = 1. \label{eq.15_95}
+\end{eqnarray}
+
+  Therefore, if we find $C$ that satisfies Eq.\ref{eq.15_86} and Eq.\ref{eq.15_95} in the chiral representation of $\gamma$ matrix, we have the $C$ conjugation transformation Eq.(\ref{eq.15_91a},\ref{eq.15_91b}).
+
+  Because we already know the explicit form of Eq.(\ref{eq.15_91a},\ref{eq.15_91b}),
+\begin{eqnarray}
+  \Psi^c = C ( {\overline \Psi})^T
+  = C (\psi_R^\dgr, \psi_L^\dgr)^T
+  = C
+  \begin{pmatrix}
+  \psi_R^* \\ \psi_L^*
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  i\sigma^2 \psi_R^* \\ -i\sigma^2 \psi_L^*
+  \end{pmatrix}\label{eq.15_96}
+\end{eqnarray}
+  we find
+\begin{eqnarray}
+  C=
+  \begin{pmatrix}
+    i\sigma^2   &    0  \\
+    0   & -i\sigma^2 
+  \end{pmatrix}
+  = i \gamma^2 \gamma^0 \label{eq.15_97}
+\end{eqnarray}
+
+{\bf hw15-11}: Show Eq.\ref{eq.15_97} satisfies  Eq.\ref{eq.15_86}  and  Eq.\ref{eq.15_95} .
+
+  Although I'm not sure how important for you to be fluent in the
+  language of 4-spinors, I gave the above exercises in order for
+  you to be able to understand what are done in old textbooks.
+
+  We will find that Dirac 4-spinors are very convenient in calculating
+  transition amplitudes because it gives Dirac propagator which is a
+  $4\times 4$ matrix that automatically conserves fermion numbers.
+
+  Now, we are ready to introduce Poincare transformations which includes
+  both the Lorentz transformations and translations of the 4 space-time
+  coordinates.  Because the Lorentz transformations have 6 generators,
+  and there are 4 generators for the translation of the 4 coordinates,
+  Poincare transformations have 10 generators.  We can show that these
+  10 generators form a closed algebra (Poincare algebra), and hence the
+  Poincare transformations form a group (Poincare group). Invariance
+  of physics under the Poincare transformations dictates the basis of
+  our theory, Quantum Field Theory, which has been proven to
+  describe all particle phenomena observed so far.
+
+  First, please confirm that the coordinate representation of the four
+  momentum operator
+\begin{eqnarray}
+  P^\mu = i \del^\mu \label{eq.15_1}
+\end{eqnarray}
+  gives
+\begin{eqnarray}
+  E   =   i\frac{d}{dt}, ~~~
+  P_x = - i \frac{d}{dx},~~~
+  P_y = - i \frac{d}{dy},~~~
+  P_z = - i \frac{d}{dz} \label{eq.15_2}
+\end{eqnarray}
+  in a covariant manner.  Here,
+\begin{eqnarray}
+  &&P^\mu = (P^0, P^1, P^2, P^3) = (E, P_x, Py, P_z) \label{eq.15_3a} \\
+  &&x^\mu = (x^0, x^1, x^2, x^3) = (t,   x,   y,   z) \label{eq.15_3b}
+\end{eqnarray}
+ 
+{\bf hw15-12}: Show that Eq.\ref{eq.15_1} gives Eq.\ref{eq.15_2}.
+
+hint: can you obtain the second and the third steps in Eq.\ref{eq.15_4}?
+\begin{eqnarray}
+  P^\mu = i \del^\mu
+           = i g^{\mu\nu} \del/(\del x^\nu)
+           = i \del/(\del x_\mu) \label{eq.15_4}
+\end{eqnarray}
+  The fundamental commutation relation of quantum mechanics,
+\begin{eqnarray}
+  [ P^\mu, x^\nu ] = i g^{\mu \nu} \label{eq.15_5}
+\end{eqnarray}
+  can also be obtained by using the representation Eq.\ref{eq.15_1}:
+
+{\bf hw15-13}: Derive Eq.\ref{eq.15_5} from Eq.\ref{eq.15_1} by using Eq.\ref{eq.15_6} and Eq.\ref{eq.15_7} as hints.
+\begin{eqnarray}
+  && \del_\mu x^\nu = \del x^\nu / \del x^\mu
+  = \delta_\mu^\nu
+  = g_\mu^\nu         \label{eq.15_6}         \\
+&&\del^\mu x^\nu = g^{\mu\rho} \del_\rho x^\nu
+  = g^{\mu\rho} \delta_\rho^\nu   
+  = g^{\mu\nu} \label{eq.15_7}
+\end{eqnarray}
+  When I was a student, I often made a mistake of confusing the upper and
+  lower indices of derivative operators. I hope that you confirm the
+  rules clearly after doing the above two very simple homework.
+
+  The 4 operators, $p^\mu$, are translation generators, since they shift
+  the origin of the four coordinates:
+\begin{eqnarray}
+  x^\mu \to x'^\mu = e^{i c_a p^a} x^\mu
+                    = x^\mu + i c_a  P^a  x^\mu
+                    = x^\mu + i c_a [P^a, x^\mu]
+                    = x^\mu + i c_a i g^{a\mu}
+                    = x^\mu - c^\mu \label{eq.15_8}
+\end{eqnarray}
+
+{\bf hw15-14}: Show Eq.\ref{eq.15_8}, either by using the coordinate representation Eq.\ref{eq.15_1} or by using the commutation relation Eq.\ref{eq.15_5}.
+
+  The Poincare group is a group of transformations, including the above
+  4 translations and the 6 Lorentz transformations
+\begin{eqnarray}
+  x^\mu \to x'^\mu = {L^\mu}_\nu x^\nu
+  = {(e^{\frac{i}{2} \omega_{ab} M^{ab}})^\mu}_\nu x^\nu
+  = x^\mu +\frac{i}{2} (\omega_{ab} M^{ab})^\mu_\nu x^\nu + \cdots
+  = x^\mu - {\omega^\mu}_\nu x^\nu + {\cal O}(\omega^2) \label{eq.15_9}
+\end{eqnarray}
+  The 6 generators of the Lorentz transformations, $M^{ab}$ in Eq.\ref{eq.15_9}, can be expressed as
+  \begin{eqnarray}
+    M^{ab} = x^a p^b - x^b p^a \label{eq.15_10}
+  \end{eqnarray}
+
+{\bf hw15-15}: Show that the operators Eq.\ref{eq.15_10} generates the Lorentz
+  transformation Eq.\ref{eq.15_9}, by using the representation Eq.\ref{eq.15_1}, and also by using the commutation relations Eq.\ref{eq.15_5}.
+
+  hint: Following steps will be usefu:
+\begin{eqnarray}
+  [M^{ab}, x^\mu] = [x^a P^b - x^b P^a, x^\mu]
+                     = x^a [P^b, x^\mu] - x^b [P^a, x^\mu]
+                     = x^a (i g^{b\mu}) - x^b (i g^{a\mu}) \label{eq.15_11a}
+\end{eqnarray}
+  Because we study the transformation of coordinates, $x^\mu$,
+  the commutation relations Eq.\ref{eq.15_5} and the coordinate representation
+  of $P^\mu$ Eq.\ref{eq.15_1} give the same results.
+
+{\bf hw15-16}: Show that the Lorentz transformation Eq.\ref{eq.15_9} can be obtained by using the following ``vector'' representation of the generators;
+\begin{eqnarray}
+  (M^{ab})^\mu_\nu = i ( g^{a\mu} {g^b}_\nu - g^{b\mu} {g^a}_\nu )\label{eq.15_11b}
+\end{eqnarray}
+
+hint: The ``matrix'' representation Eq.\ref{eq.15_11b} is obtained from Eq.\ref{eq.15_11a} as
+\begin{eqnarray}
+  [M^{ab}, x^\mu] = i ( x^a g^{b\mu} - x^b g^{a\mu} )
+                     = i x^\nu ( g^a_\nu g^{b\mu} - g^b_\nu g^{a\mu} )
+                     = x^\nu {(M^{ab})_\nu}^\mu
+                     = -{(M^{ab})^\mu}_\nu x^\nu \label{eq.15_11c}
+\end{eqnarray}
+  where $x^\mu$ is transformed into $x^\nu$ by a ``matrix'' $(M^{ab})_\nu^\mu$,
+  because $x^\mu$ is annihilated by $M^{ab}$, while $x^\nu$ is created by $M^{ab}$. The relative minus sign between in the last line of Eq.\ref{eq.15_11c}, which fixes the sign of Eq.\ref{eq.15_11b} arises from this exchange of row and column.
+
+  That this relative minus sign is necessary can be confirmed by noting
+  that the commutation relations among the generators in the operator
+  basis, $M^{ab} = x^a p^b - x^b p^a$, and those among their matrix
+  representations should be the same.  (I couldn't find the origin of
+  the minus sign between Eq.\ref{eq.15_11c}, straightforward calculation, and Eq.\ref{eq.15_11b},
+  the correct matrix representations, for many years.)
+
+
+{\bf hw15-17}: Confirm that Eq.\ref{eq.15_11b} gives exactly the matrix representations of $J_1$, $J_2$, $J_3$ and $K_1$, $K_2$, $K_3$, that we obtained in the past homework.
+
+hint: Please remember that we defined $J$'s and $K$'s as
+\begin{eqnarray}
+  \frac{1}{2} M^{ab} \omega_{ab}
+  &=& M^{12}\omega_{12} +M^{23}\omega_{23} +M^{31}\omega_{31} +M^{01}\omega_{01} +M^{02}\omega_{02} +M^{03}\omega_{03} \\
+  &=& J_3 \theta_3 +J_1 \theta_1 +J_2 \theta_2 +K_1 \eta_1 +K_2 \eta_2 +K_3 \eta_3 \label{eq.15_12}
+\end{eqnarray}
+  in the matrix representation. Hence
+\begin{eqnarray}
+  {(\frac{i}{2} M^{ab} \omega_{ab})^\mu}_\nu x^\nu = - {\omega^\mu}_\nu x^\nu \label{eq.15_13}
+\end{eqnarray}
+  in Eq.\ref{eq.15_9} should first be expressed in the matrix form as
+\begin{eqnarray}
+  &&x'^\mu - x^\mu =
+  \begin{pmatrix}
+    0 &   -{\omega^0}_1 & -{\omega^0}_2 & -{\omega^0}_3 \\
+    -{\omega^1}_0 & 0 & -{\omega^1}_2 & -{\omega^1}_3 \\
+    -{\omega^2}_0 & -{\omega^2}_1 &  0 & -{\omega^2}_3 \\
+    -{\omega^3}_0 & -{\omega^3}_1 &  -{\omega^3}_2 &  0  
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^0 \\ x^1 \\ x^2 \\ x^3
+  \end{pmatrix} \\
+  &=&
+  \begin{pmatrix}
+    0 &  -\omega_{01} & -\omega_{02} & -\omega_{03} \\
+    -\omega_{01} & 0 & \omega_{12} & -\omega_{31} \\
+    -\omega_{02} & -\omega_{12} &  0 & \omega_{23} \\
+    -\omega_{03} & \omega_{31} &  -\omega_{23} &  0  
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^0 \\ x^1 \\ x^2 \\ x^3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 &  -\eta_{1} & -\eta_{2} & -\eta_{3} \\
+    -\eta_{1} & 0 & \theta_{3} & -\theta_{2} \\
+    -\eta_{2} & -\theta_{3} &  0 & \theta_{1} \\
+    -\eta_{3} & \theta_{2} &  -\theta_{1} &  0  
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^0 \\ x^1 \\ x^2 \\ x^3
+  \end{pmatrix} \label{eq.15_14}
+\end{eqnarray}
+  Now, the $4\times 4$ matrix above should agree with $i$ times the $4\times 4$ matrix representation of Eq.\ref{eq.15_12}. Since this identification is trivial, your homework is to check Eq.\ref{eq.15_14}.
+
+  The expressions like Eq.\ref{eq.15_8} and Eq.\ref{eq.15_9} where we distinguish upper and lower indices are called tensor representations, which are the same as our matrix representations when applied to a multiplet with single index (such as $x^\mu$, $p^\mu$, $A^\mu$, $\psi_L$, $\psi_R$).  The contraction of upper and lower indices in tensor representations is replaced by the matrix multiplication rule.
+
+  Tensor representation is more powerful, since it can give
+  transformations of states or multiplets which have more than one
+  indices (such as a tensor meson, a spin 3/2 fermion, or mesons and
+  baryon states in QCD).  It has another advantage that we don't need
+  to worry about the ordering between operators and the states.  In case
+  of matrix representations, we should always place a matrix eperator
+  in the left-hand-side of the state column vector.
+
+  Now, it is easy to show that the $4$ generators $P^a$ of the translations
+  and the $6$ generators $M^{ab}$ of the Lorentz transformations form the
+  Poincare algebra:
+\begin{eqnarray}
+  &&[ P^a, P^b ]   = 0 \label{eq.15_15a}\\
+  &&[ M^{ab}, P^c ]  = i( g^{bc} P^a - g^{ac} P^b  )\label{eq.15_15b}\\
+  &&[ M^{ab}, M^{cd} ] = i( g^{ad} M^{bc} +g^{bc} M^{ad} -g^{ac} M^{bd} -g^{bd} M^{ac} )\label{eq.15_15c}
+\end{eqnarray}
+ 
+{\bf hw15-18}: By using the representation Eq.\ref{eq.15_1}, or the commutation relations Eq.\ref{eq.15_5}, show Eq.(\ref{eq.15_15a},\ref{eq.15_15b},\ref{eq.15_15c}).
+
+  Since the 10 generators of Translation and Lorentz transformations form
+  a closed algebra, Poincare algebra Eq.(\ref{eq.15_15a},\ref{eq.15_15b},\ref{eq.15_15c}), an arbitrary combination of these ten transformations form a group, Poincare group, which dictates the space-time properties of all the fields and their interactions in QFT.  All fundamental fields and particles in QFT are, hence, irreducible representations of the Poincare group.  Those transforming as reducible representations are usually regarded as composite states.
+
+  Let us now confirm that there are two Casimir operators for the
+  Poincare group.  Casimir operator is an operator which are made from the
+  generators of a group that commutes with all of them.  They play
+  essential roles in identifying fields and particles, since the eigen
+  values of the Casimir operators are invariant under all Poincare
+  transformations.
+
+  There are two Casimir operators for the Poincare group.
+\begin{eqnarray}
+  P^2 \equiv P^\mu P_\mu \label{eq.15_16}
+\end{eqnarray}
+  Square-root of its eigenvalue $m^2 (\leq0)$, is called the invariant mass.
+
+{\bf hw15-19}: Prove Eqs.{\ref{eq.15_17a},\ref{eq.15_17b}) by using Poincare algebra Eq.(\ref{eq.15_15a},\ref{eq.15_15b},\ref{eq.15_15c}).
+\begin{eqnarray}
+  &&[ P^a,  P^\mu P_\mu ] = 0 \label{eq.15_17a} \\
+  && [ M^{ab}, P^\mu P_\mu ] = 0 \label{eq.15_17b} 
+\end{eqnarray}
+  The second Casimir is a bit more difficult to find.
+  First, the Pauli-Lubanski vector is defined as
+\begin{eqnarray}
+  W_\mu = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma} P^\nu M^{\rho\sigma} \label{eq.15_18}
+\end{eqnarray}
+
+{\bf hw15-20}: Show that $W_\mu$ Eq.\ref{eq.15_18} satisfies Eq.(\ref{eq.15_19a},\ref{eq.15_19b}).
+\begin{eqnarray}
+  && [ P^a,  W_\mu ] = 0 \label{eq.15_19a} \\
+  && [ M^{ab}, W_\mu ] = -i(g^a_\mu W^b - g^b_\mu W^a ) \label{eq.15_19b}
+\end{eqnarray}
+hint: Eq.\ref{eq.15_19a} is easy, but Eq.\ref{eq.15_19b} is tough.
+
+Eqs.(\ref{eq.15_19a},\ref{eq.15_19b}) tell that Pauli-Lubanski ``vector'' transform as a four-vector under the Lorentz transformation.
+Once Eqs.(\ref{eq.15_19a},\ref{eq.15_19b}) are shown, it is straightforward to show
+\begin{eqnarray}
+  [ P^a,  W^2 ] = 0, ~~~ [ M^{ab}, W^2 ] = 0 \label{eq.15_20}
+\end{eqnarray}
+ 
+{\bf hw15-21}: Show Eq.\ref{eq.15_20} from Eq.(\ref{eq.15_19a},\ref{eq.15_19b}).
+
+  The proof of Eqs.(\ref{eq.15_23a},\ref{eq.15_23b}) from Eqs.(\ref{eq.15_22a},\ref{eq.15_22b}) can be generalized to the Poincare
+  invariance of an arbitrary inner product of two four-vectors.
+
+{\bf hw15-22}: Let us do this exercise.  Let there be two four-vectors,
+  $A^\mu$ and $B^\mu$, which satisfy:
+\begin{eqnarray}
+  && [ P^a,  A^\mu ] = 0 \label{eq.15_21a} \\
+  && [ M^{ab}, A^\mu ] = -i (g^{a\mu} A^b - g^{b\mu} A^a) \label{eq.15_21b}
+\end{eqnarray}
+\begin{eqnarray}
+  && [ P^a,  B^\mu ] = 0 \label{eq.15_22a} \\
+  && [ M^{ab}, B^\mu ] = -i(g^{a\mu} B^b - g^{b\mu} B^a)  \label{eq.15_22b}
+\end{eqnarray}
+  By using the above ``definitions'' of four vectors, prove
+  the invariance of the dot-product $A\cdot B = A_\mu B^\mu$:
+\begin{eqnarray}
+  && [ P^a,  A_\mu B^\mu ] = 0 \label{eq.15_23a} \\
+  &&[ M^{ab}, A_\mu B^\mu ] = 0 \label{eq.15_23b} 
+\end{eqnarray}
+  Let us examine the physical meaning of $W^2$.
+  It is easy for a massive particle, an eigenstate $\ket{p}$ with
+\begin{eqnarray}
+   P^2 \ket{p} = m^2 \ket{p},~with~m^2 > 0 \label{eq.15_24}
+\end{eqnarray}
+  In this case, we can study $W^\mu$ in the rest frame,
+\begin{eqnarray}
+  p^\mu = ( m, 0, 0, 0 ), \label{eq.15_25}
+\end{eqnarray}
+  where
+\begin{eqnarray}
+  && W_\mu = m ( 0, -J_x, -J_y, -J_z ) \label{eq.15_25a} \\
+  && W^\mu = m ( 0,  J_x,  J_y,  J_z ) \label{eq.15_25b} \\
+  && W^2   = - m^2 ( J_x^2 + J_y^2 + J_z^2 ) \label{eq.15_25c}
+\end{eqnarray}
+
+{\bf hw15-23}: Show Eq.(\ref{eq.15_25a},\ref{eq.15_25b},\ref{eq.15_25c}).
+
+  Please note that in the above derivation, I used my convention
+\begin{eqnarray}
+  \epsilon_{0123} = 1 = -\epsilon^{0123} \label{eq.15_26}
+\end{eqnarray}
+  which differs by sign e.g. from Peskin's textbook.
+  Since $W^2$ commutes with all $10$ generators of Poicare group Eq.\ref{eq.15_20}, its eigen value in the rest frame is a Poincare invariant:
+\begin{eqnarray}
+  W^2 \ket{p,s} = W^2 \ket{m,s} = - m^2 s(s+1) \ket{m,s} \label{eq.15_27}
+\end{eqnarray}
+  This is the reason why we can use the mass and spin to label a particle.
+
+  Let us now identify the conserved quantity for massless particles,
+\begin{eqnarray}
+  P^2 \ket{p} = p^2 \ket{p} = 0. \label{eq.15_28}
+\end{eqnarray}
+
+  In this case, there is no rest frame of a particle. Instead, let us
+  choose the Lorentz frame where the 3-momentum is along the positive
+  $z$-axis:
+\begin{eqnarray}
+  p^\mu = ( E, 0, 0, E ) \label{eq.15_29}
+\end{eqnarray}
+
+{\bf hw15-24}: In this frame, please show Eq.\ref{eq.15_30} and  Eq.\ref{eq.15_31}.
+\begin{eqnarray}
+  W_0 =  E (   J_z       ),~~~W_1 =  E ( - J_x - K_y ),~~~W_2 =  E ( - J_y + K_x ),~~~W_3 =  E ( - J_z  ) \label{eq.15_30}
+\end{eqnarray}
+ \begin{eqnarray}
+  W^2 &=&  E^2 [ (J_z)^2 - (J_x+K_y)^2 - (J_y-K_x)^2 -(-J_z)^2 ] \nonumber \\
+  &=& -E^2 [ (J_x+K_y)^2 + (J_y-K_x)^2 ]\label{eq.15_31}
+ \end{eqnarray}
+  
+  The next step is rather difficult.  Please let me follow Steve Weinberg
+  [see discussions in pages 69--72 of Weinberg's Quantum Field Theory I]. We define two operators that appear in Eq.\ref{eq.15_30} as
+\begin{eqnarray}
+  &&A = J_x + K_y \label{eq.15_32a}\\
+  &&B = J_y - K_x \label{eq.15_32b}
+\end{eqnarray}
+
+{\bf hw15-25}: Show Eq.\ref{eq.15_33}.
+\begin{eqnarray}
+  [ J_z, A ] =  i B,~~~[ J_z, B ] = -i A,~~~[   A, B ] = 0 \label{eq.15_33}
+\end{eqnarray}
+  Since $A$ and $B$ commute, a massless particle state with the four-momentum
+  Eq.\ref{eq.15_29} can have simultaneous eigen values $(a,b)$
+\begin{eqnarray}
+  && A \ket{p;a,b} = a \ket{p;a,b} \label{eq.15_34a} \\
+  && B \ket{p;a,b} = b \ket{p;a,b} \label{eq.15_34b}
+\end{eqnarray}
+  It then follows that the states obtained by rotating the above state
+  $\ket{p;a,b}$ about the z-axis by an arbitrary azimuthal angle $\phi$,
+\begin{eqnarray}
+  \ket{p;a,b;\phi} = e^{ -iJ_z \phi } \ket{p;a,b} \label{eq.15_35}
+\end{eqnarray}
+  is also a simultaneous eigenstates of $A$ and $B$ with eigenvalues
+\begin{eqnarray}
+  && A \ket{p;a,b;\phi} = (a \cos\phi - b \sin\phi) \ket{p;a,b;\phi} \label{eq.15_36a}\\
+  && B \ket{p;a,b;\phi} = (a \sin\phi + b \sin\phi) \ket{p;a,b;\phi} \label{eq.15_36b}
+\end{eqnarray}
+ 
+{\bf hw15-26}: Show Eq.(\ref{eq.15_36a},\ref{eq.15_36b}) by using Eq.\ref{eq.15_33}.
+
+hint: Starting from Eq.\ref{eq.15_33}, we obtain $[(J_z)^2, A]$ and $[(J_z)^2,B]$. The rest should be straightforward by using the power expansion of the
+  rotation, $e^{-iJ_z \phi} = \sum_{n=0}^\infty (J_z)^n (-i\phi)^n$.
+
+  That the state Eq.\ref{eq.15_35} has simultaneous eigen values of Eq.(\ref{eq.15_36a},\ref{eq.15_36b}) implies that for all the massless particles there is a continuous degree of freedom, $\phi$. Now, please let me borrow what Weinberg says:
+  ``Massless particles are not observed to have any continuous degree of
+  freedom like $\phi$; to avoid such a continuum of states, we must require
+  that physical states are eigen-vectors of $A$ and $B$ with $a=b=0$.''
+\begin{eqnarray}
+  A \ket{p;m=0} = B \ket{p;m=0} = 0 \label{eq.15_37}
+\end{eqnarray}
+  For those physical massless states, the Pauli-Lubanski vector
+  Eq.\ref{eq.15_30} gives eigenvalues
+\begin{eqnarray}
+  &&W^0 \ket{p,\lambda} = E J_z \ket{p,\lambda} = E \lambda \ket{p,\lambda} \label{eq.15_38a} \\
+  &&W^1 \ket{p,\lambda} = E A   \ket{p,\lambda} = 0\label{eq.15_38b} \\
+  &&W^2  \ket{p,\lambda} = E B   \ket{p,\lambda} = 0 \label{eq.15_38c} \\
+  &&W^3 \ket{p,\lambda} = E J_z \ket{p,\lambda} = E \lambda \ket{p,\lambda} \label{eq.15_38d} 
+\end{eqnarray}
+  or simply,
+\begin{eqnarray}
+  W^\mu \ket{p,\lambda} = \lambda p^\mu \ket{p,\lambda}. \label{eq.15_39}
+\end{eqnarray}
+  Here $\lambda$ is the eigen value of $J_z$ in the frame where the massless
+  particle is moving along the $z$-axis, Eq.\ref{eq.15_29}. In general Lorentz
+  frame $J_z$ can be expressed as the helicity operator
+\begin{eqnarray}
+  h=\frac{{\vec p} \cdot {\vec J}}{|{\vec p}|} \label{eq.15_40}
+\end{eqnarray}
+  where ${\vec p}$ and $J$ are $3$-vectors. The
+  eigenvalue of the operator Eq.\ref{eq.15_40}, $\lambda$, is called helicity.
+
+  Although $W^\mu$ is not invariant, because both $W^\mu$ and $p^\mu$ transform
+  identically as a four-vector (we proved this, in Eq.\ref{eq.15_18} and Eq.(\ref{eq.15_22a},\ref{eq.15_22b}), the proportionality constant $\lambda$ in eq.(39) is always the same in an arbitrary Lorentz frame. It is called the helicity conservation.
+
+  It is only for the massless states the proportionality relationship
+  Eq.\ref{eq.15_39} holds. Therefore, the conservation of helicity is the
+  property only of massless particles.
+
+  Please convince yourself that if there is a mass, no matter how tiny it
+  may be, the helicity cannot be conserved under Lorentz transformation.
+  The easiest way to convince ourselves is to do the Lorentz boost along
+  the momentum direction of a massive particle. Once the boost velocity
+  is greater than the original velocity of a particle, the direction of
+  the three momentum is reversed, and the helicity changes sign.
+
+  When nonzero neutrino mass was discovered through neutrino oscillation
+  phenomena in 1998, we therefore concluded that there are not only
+  left-handed (helicity $-1/2$) neutrinos but also are right-handed
+  (helicity $+1/2$) neutrinos.  This is definite.
+
+  It is yet to be determined (experimentally) whether the $h = +1/2$ states
+  are new particles which did not exist in the SM, or if they are
+  anti-particles of the left-handed neutrinos of the SM. In the first
+  case, we need new particles (the right-handed neutrinos), and in the
+  latter case we need new interactions which mixes particles (left-
+  handed neutrinos) and anti-particles (right-handed anti-neutrinos).
+  In either way we need to have new physics beyond the SM.
+
+  Because of the above observation, the discovery of neutrino oscillation
+  has been declared as a discovery of physics beyond the SM.  Nobel
+  prize 2015 was awarded to those physicists who led this discovery.
+
+That's all for hw15.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

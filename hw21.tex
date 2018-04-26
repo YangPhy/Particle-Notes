@@ -1,0 +1,810 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW21 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+
+  Following the last homework, I plan to cover the following subject
+  in this homework.
+
+  A: \mu \to \numu e \nuebar
+
+  where the 3 body phase space is evaluated carefully, and
+  we compare its life-time with the prediction of the SM.
+
+  As a supplement, I mention the two processes:
+
+  A-1: \tau \to \nutau e \nuebar
+  A-2: n    \to p      e \nuebar
+
+  briefly.  A-1 shows the scaling law
+
+  \Gamma(\tau \to \nutau e \nuebar)   (m_\tau)^5
+  --------------------------------- = ----------
+  \Gamma(\mu  \to \numu  e \nuebar)    (m_\mu)^5
+
+  A-2 is to show the importance of phase space suppression
+  due to the very small mass difference
+
+  m(n) - m(p) = 1.29MeV
+
+  which is not much larger than m(e)=0.51MeV.
+
+  =======================================================
+  A: mu -> numu e nuebar (continued from eq.(40) in hw20)
+  =======================================================
+
+  40) M_{fi} = -g_W^2/(2m_W^2)
+                uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+                uL(num:p3)^\dagger \sigma_-_\mu uL(mu:p,h)
+
+  In order to evaluate the above amplitudes, we should first fix the
+  final state momenta,
+
+  41) p = p1 + p2 + p3
+
+  in the muon rest frame,
+
+  42) p^\mu = (m_\mu, 0, 0, 0)
+
+  Let us start with the definition of n-body phase space
+
+  43) dPSn(p=k1+k2+k3+...+kn) = (2pi)^4 \delta^4(p-k1-k2-k3-...-kn)
+                                \Pi_{j=1}^{j=n} [d^3 kj/2Ej/(2pi)^3]
+
+  The 3-body phase space (n=3) reads
+
+  44) dPS3(p=k1+k2+k3) = (2pi)^4 \delta^4(p-k1-k2-k3)
+                                \Pi_{j=1}^{j=3} [d^3 kj/2Ej/(2pi)^3]
+
+  Let us first show that the 3-body phase space can be expressed as a
+  convolution of two 2-body phase space.  The following identity
+
+  45) 1 = \Int d^4 k23 \delta^4(k23 -k2 -k3)
+          \Int ds \delta((k23)^2-s)
+        = \Int d^3 k23 \delta^4(k23 -k2 -k3)
+          \Int d(k23^0)
+          \Int ds \delta((k23-0)^2-(E23)^2)
+        = \Int d^3 k23 \delta^4(k23 -k2 -k3)
+          \Int ds
+          \Int d(k23^0) \delta((k23-0)^2-(E23)^2)
+        = \Int d^3 k23 \delta^4(k23 -k2 -k3)
+          \Int ds /(2E23)
+        = \Int ds
+          \Int d^3 k23/(2E23)
+          \delta^4(k23 -k2 -k3)
+        = \Int ds/(2pi)
+          \Int d^3 k23/(2E23)/(2pi)^3
+          (2pi)^4 \delta^4(k23 -k2 -k3)
+
+  is useful.  In the above, E23 is the energy
+
+  46) E23 = \sqrt{ s + (k23^1)^2 + (k23^2)^2 + (k23^3)^2 }
+
+  of the k23=k2+k3 system when its invariant mass-squared is s.
+
+hw21-1: Verify eqs.(45) and derive (48), (50).
+
+  By inserting (45) into the definition of PS3 (44) we find
+
+  47) dPS3(p=k1+k2+k3)
+  = (2pi)^4 \delta^4(p-k1-k23) d^3 k23/(2E23)/(2pi)^3 d^3 k1/(2E1)/(2pi)^3
+    d(s23)/(2pi)
+    (2pi)^4 \delta^4(k23-k2-k3) d^3 k2/(2E2)/(2pi)^3 d^3 k3/(2E3)/(2pi)^3
+
+  which can be expressed as
+
+  48) dPS3(p=k1+k2+k3) = dPS2(p=k1+k23) d(s23)/(2pi) dPS2(k23=k2+k3)
+
+  in terms of the 2-body phase space dPS2 factors.
+
+  Here, I denote s=s23 as the invariant mass-squared of the k2+k3 system,
+  so that we can easily generalize eq.(48) to the n-body phase space
+
+  49) dPSn(p=k1+k2+k3+...+kn)
+  = dPS2(p=k1+k_{23...n}) ds_{23...n}/(2pi)
+    dPS_{n-1}(k_{23...n}=k2+k3+...+kn)
+  = dPS2(p=k1+k_{23...n}) ds_{23...n}/(2pi)
+    dPS2(k_{23...n}=k2+k_{3...n}) ds_{3...n}/(2pi)
+    ...
+    dPS2(k_{n-1,n}=k_{n-1}+kn)
+
+  By using the above formula, we can obtain the phase space of arbitrary
+  number of particles by using the 2-body phase space.  The integration
+  region of the invariant masses is simply
+
+  50) (m2+m3)^2 < s23 < (\sqrt{s}-m1)^2
+
+  for the 3-body phase space case.  Generalization to the n-body phase
+  space case is straightforward:
+
+  51) (m2+m3+...+mn)^2 < s_{23...n} < (\sqrt{s}-m1)^2
+         (m3+...+mn)^2 < s_{3...n}  < (\sqrt{s_{23....n}}-m2)^2
+                         ...
+        (m_{n-1}+mn)^2 < s_{n-1,n} < (\sqrt{s_{n-2,n-1,n}-m_{n-2})^2
+
+  If all the particles are massless, the integration region is simply
+
+  52) 0 < s_{n-1,n} < s_{n-2,n-1,n} < s_{n-3,...n}
+                                    < ... < s_{23...n} < s
+
+  Please note the virtual mass ordering of the n-body phase space.
+  The first MC parton shower (Pythia by Torbjoern Shoestrand) made
+  use of this virtual mass ordering of the phase space.
+
+  The total n-body phase space of the massless particles is simply
+
+  53) PSn = (1/8pi) [(1/8pi)(1/2pi)]^{n-2}
+            \Int_0^s ds_{23...n} (1-s_{23...n}/s)
+            \Int_0^s_{23...n} ds_{3...n} (1-s_{3...n}/s_{23...n})
+            ...
+            \Int_0^s_{n-2,n-1,n} ds_{n-1,n} (1-s_{n-1,n}/s_{n-2,n-1,n})
+          = (1/8pi) (1/16pi^2)^{n-2}
+            \Int_0^s ds_{23...n} (1-s_{23...n}/s)
+            ...
+            \Int_0^s_{n-3...n} ds_{n-2...n} (1-s_{n-2...n}/s_{n-3...n})
+            s_{n-2,n-1,n} (1/2)
+          = (1/8pi) (1/16pi^2)^{n-2}
+            \Int_0^s ds_{23...n} (1-s_{23...n}/s)
+            ...
+            \Int_0^s_{n-4...n} ds_{n-3...n} (1-s_{n-3...n}/s_{n-4...n})
+            (s_{n-3...n})^2 \Int_0^1 dx x(1-x) (1/2)
+          = (1/8pi) (1/16pi^2)^{n-2}
+            \Int_0^s ds_{23...n} (1-s_{23...n}/s)
+            ...
+            \Int_0^s_{n-5...n} ds_{n-4...n} (1-s_{n-4...n}/s_{n-5...n})
+            (s_{n-4...n})^3 \Int_0^1 dx x^2(1-x) (1/6) (1/2)
+          = (1/8pi) (1/16pi^2)^{n-2} s^{n-2}
+            x 1/(1*2) * 1/(2*3) * 1/(3*4) *** 1/((n-2)*(n-1))
+
+  54) PS2 = 1/8pi
+      PS3 = 1/8pi (1/4pi)^2 s   (1/2)
+      PS4 = 1/8pi (1/4pi)^4 s^2 (1/2) (1/6)
+      PS5 = 1/8pi (1/4pi)^6 s^3 (1/2) (1/6) (1/12)
+      PS6 = 1/8pi (1/4pi)^8 s^4 (1/2) (1/6) (1/12) (1/20)
+
+  55) PSn = 1/8pi (s/16pi^2)^{n-2} 1/[(n-1)!(n-2)!]  (n>=2)
+
+hw21-2: Show (54), if possible (55).
+
+  I calculated the total n-body massless phase space (55) just for fun.
+  I have no idea if it is OK, even though it is trivial to test it
+  against numerical calculation.  Would you please check it ?
+  Since the above phase space for only massless particles is the
+  largest possible one, the overall factor of
+
+  56)  (2pi) (1/16pi^2)^{n-1}/(n-1)!/(n-2)!  (n>=1)
+
+  shows the suppression factor for multiple body phase space.
+
+  In our convention of using Lorentz invariant S-matrix elements
+  and the Lorentz invariant phase space volume, the transition
+  matrix elements for 1 or 2 to n particles have mass dimension
+  of s^{-(n-2)/2}, and hence the factor
+
+  57) \Int |M(1 or 2 > n particles)|^2 dPSn
+
+  is proportional to
+
+  58) s^{-(n-2)} PSn
+
+  canceling the s^{(n-2)} factor in PSn (56).  The coefficient of
+  the phase space factor (58)=(56) is proportional to the square
+  of the product of all the couplings that give rise to the transition
+  amplitudes.
+
+  Whenever you evaluate cross sections (2 to n) or decay widths (1 to n),
+  with whatever method, you should compare your results with the above
+  general estimate.  I often found error in my calculation this way.
+
+  In any case, please note an additional factor of 1/16pi^2 from the
+  phase space whenever we add one more particle in the final state.
+  It is just like the loop factor for virtual corrections.  Even if
+  the coupling factor g^2 is large, say g^2=1, the n-body rate is small
+  since it is proportional to (g^2/8pi) * (g^2/16pi^2)^{n-2}.
+
+  Before closing exercises for the phase space, let us give the 1-body
+  phase space (n=1), which is important for the 1-body production
+  processes like W/Z/Higgs production in hadron collisions.  From the
+  definition of the n-body phase space (43), we can write
+
+  59) dPS1(p=k1) = (2pi)^4 \delta^4(p-k1) [d^3 k1/2E1/(2pi)^3]
+
+  where E1=\sqrt{(k1)^2+m^2)}.  By introducing k1^0, we can re-write
+  the 3-dimensional phase space by the 4-dimensional one with the
+  on-shell condition:
+
+  60) [d^3 k1/2E1] = d^4 k1 \delta(k1^0-E1)/(2E1)
+                   = d^4 k1 \delta((k1^0)^2-(E1)^2) \Theta(k1^0)
+                   = d^4 k1 \delta((k1)^2-m^2) \Theta(k1^0)
+
+  In the last expression, (k1)^2=(k1*k1)=k1^\mu k1_\mu is the invariant
+  4-momentum square.  By inserting (60) back into (59), we find
+
+  61) dPS1(p=k1) = (2pi) \delta( p^2 - m^2 )
+
+hw21-3: Derive (61).
+
+  In other words, the 1-body phase space is a delta function which picks
+  up the initial 4-momentum when its invariant squared agrees with the
+  invariant mass squared of the produced particle.
+
+  If a particle X is produced in pp collisions by a collision
+
+  62) a + b > X
+
+  and if the momentum of a parton a and b are:
+
+  63) p_a = (\sqrt{s}/2) (xa, 0, 0,  xa)
+      p_b = (\sqrt{s}/2) (xb, 0, 0, -xb)
+
+  in the pp collision rest frame (the lab frame of the symmetric colliders
+  like the LHC) then, the total 4-momentum of the initial state is
+
+  64) p = p_a + p_b
+
+  and the final 4-momentum is pX.  The 1-body phase space is then
+
+  65) dPS1(p_a+p_b=pX) = (2pi) \delta( (p_a+p_b)^2 - mX^2 )
+                       = (2pi) \delta( s*xa*xb - mX^2 )
+
+  and the 4-momentum of X is
+
+  66) pX = p_a + p_b = (\sqrt{s}/2) (xa+xb, 0, 0, xa-xb)
+
+hw21-4:  Show (65) and (66).
+
+                          *****
+
+  Let us come back to the muon decay, and evaluate the amplitudes (40)
+
+  40) M_{fi} = -g_W^2/(2m_W^2)
+                uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+                uL(num:p3)^\dagger \sigma_-_\mu uL(mu:p,h)
+  67)        = -g_W^2/(2m_W^2)
+                ubar(e:p1)   \gamma_-^\mu P_L v(nue:p2)
+                ubar(num:p3) \gamma_-_\mu P_L u(mu:p,h)
+
+  In the second line above (67), I rewrite the amplitudes in terms of
+  Dirac four spinors, \gamma matrices, and projector P_L=(1-\gamma_5)/2.
+
+  We can compare the above SM amplitudes for the muon decay with the
+  the amplitudes of the Fermi operator
+
+  68) H = G_F/\sqrt{2}
+      * \overline{e}(x)     \gamma^\alpha (1-\gamma_5) \nue(x)
+      * \overline{\numu}(x) \gamma_\alpha (1-\gamma_5) \mu(x)
+
+  and find
+
+  69) G_F/\sqrt{2} = (1/4) (g_W/\rt2)^2/mW^2 = g_W^2/(8m_W^2)
+
+hw21-5: Show (69) by yourself, and calculate G_F from the observed
+  W boson mass and couplings:
+
+  70) mW = 80GeV, g_W^2 = 4pi \alpha_W = 4pi \alpha/\sin^2\theta_W
+
+  with \alpha = 1/128, \sin^2\theta_W = 0.233.  How well do we
+  reproduce the observed value of G_F?
+
+  The factor of 1/4 comes from the two chiral projectors (1-\gamma_5)/2
+  for the lepton doublets L, and the V-A currents used to define the
+  Fermi operator.  The factor of additional 1/\sqrt{2} is mysterious,
+  and has a historical origin.  When Fermi introduced the operator,
+  he assumed that the interactions are vector-vector type, like QED,
+  conserving Parity.
+
+  71) H_old = G_F
+            * \overline{e}(x)     \gamma^\alpha \nue(x)
+            * \overline{\numu}(x) \gamma_\alpha \mu(x)
+
+  The magnitude of G_F was then determined by comparing the muon life
+  time calculated with the above Hamiltonian (71).  After the parity
+  violation was discovered (in polarized nucleon beta decay distribution)
+  and after the V-A currents are established, the Fermi operator was
+  modified to the form (68).  With the modification from (71) to (68),
+  where the currents are changed from V*V to (V-A)*(V-A), and the
+  G_F is replaced by G_F/\sqrt{2}, the relationship between the muon
+  decay lifetime and the Fermi (or muon decay) constant G_F remains
+  the same.  Physicists could continue using the same value of G_F,
+  which is determined solely from the muon life time, even after the
+  theory changed from V*V to (V-A)*(V-A).
+
+  The proof goes as follows: We can express the V-A current product as
+
+  72) (V-A)*(V-A) = V*V + V*A + A*V + A*A
+
+  the contribution from (Parity violating) V*A and A*V terms vanish
+  when we integrate over the whole phase space to obtain the muon
+  life time.  When we neglect the electron mass, we can show that
+  A*A term gives exactly the same contribution to the total integral
+  of the V*V term.  This factor of two appears in the total decay rate,
+  which is proportional to the square of the amplitudes, and hence to
+  G_F^2.  Therefore, we obtain the same muon life time by multiplying
+  1/\sqrt{2} in the amplitude.
+
+  Now, let us compute the muon lifetime in the SM by using
+  the amplitudes (40)=(67).
+
+  Although it is easy to compute the total decay rate (or the muon
+  lifetime) starting from the above amplitudes, I would like to
+  introduce you to a well-known (and useful) technique called Fierz
+  transformation.  It makes the computation of the electron
+  energy/angular distribution with respect to the muon polarization
+  direction (the Parity violation !) very easy.
+
+  The basic idea behind Fierz transformation is to exchange the fermions
+  which couple to currents.  In our example, the amplitude (40)=(67)
+  obtained from the SM Feynman rule is a product of two charged currents,
+
+  73) mu-numu current and e-nue current
+
+  After Fierz transformation, we can express the same amplitude as
+  a product of two neutral currents,
+
+  74) mu-e current and numu-nue current
+
+  This is very convenient since the muon polarization information is
+  then directly transferred to the electron momentum, and the final
+  numu and nuebar made from the numu-nue current can be integrated out
+  without loss of information, since there is no way that individual
+  momentum of the two missing neutrinos are measured.
+
+                         *****
+
+  Let me start from the Fierz identity for the SU(n) generators
+  in the fundamental representation:
+
+  75) \Sum_a (T^a)_ij (T^a)_kl
+    = T_F {\delta_il \delta_kl -(1/n) \delta_ij \delta_kl}
+
+  where the sum is over all the generators, from a=1 to a=n^2-1.
+  T_F=1/2 is our standard normalization for the generators in the
+  fundamental (n) representation of SU(n).
+
+hw21-6: Prove (75).
+
+  hint 1: multiplying both sides by \delta_{il} \delta_{jk} and sum over
+  all the indices makes \Sum_a Tr(T^a T^a) = T_F (n^2-1).
+  hint 2: multiplying (T^b)_{jk} and sum over j,k should give
+  C_F T^b_{il}, with C_F = T_F (n^2-1)/n.
+
+  Applying (75) to SU(2), we find (by noting T_F = 2 for \sigma^i's)
+
+  76) \Sum_a (\sigma^a)_ij (\sigma^a)_kl
+      = 2 {\delta_il \delta_kj -(1/2) \delta_ij \delta_kl}
+      = 2 \delta_il \delta_kj - \delta_ij \delta_kl
+
+  Eq.(76) can be re-expressed as
+
+  77) (\sigma_-^\mu)_ij (\sigma_-_\mu)_kl
+  = \delta_ij \delta_kl - \Sum_a \sigma^a_ij \sigma^a_kl
+  = \delta_ij \delta_kl - 2\delta_il \delta_kj + \delta_ij \delta_kl
+  = 2 {\delta_ij \delta_kl - \delta_il \delta_kj}
+
+  Likewise, we find
+
+  78) (\sigma_-^\mu)_il (\sigma_-_\mu)_kj
+  = \delta_il \delta_kj - \Sum_a \sigma^a_il \sigma^a_kj
+  = \delta_il \delta_kj - 2\delta_ij \delta_kl + \delta_il \delta_kj
+  = 2 {\delta_il \delta_kj - \delta_ij \delta_kl}
+
+  From (77) and (78), we find
+
+  79) (\sigma_-^\mu)_ij (\sigma_-_\mu)_kl
+  = - (\sigma_-^\mu)_il (\sigma_-_\mu)_kj
+
+hw21-7: Derive (79) by yourself.
+
+  Therefore, the product of two V-A currents is identical (up to the
+  overall sign) to that of two swapped V-A currents.  By inserting (79)
+  into the amplitude (40)=(67), we find
+
+  80) M
+  = -g_W^2/(2m_W^2) uL(e:p1)^\dagger   \sigma_-^\mu vL(nue:p2)
+                    uL(num:p3)^\dagger \sigma_-_\mu uL(mu:p,h)
+  =  g_W^2/(2m_W^2) uL(e:p1)^\dagger   \sigma_-^\mu uL(mu:p,h)
+                    uL(num:p3)^\dagger \sigma_-_\mu vL(nue:p2)
+
+  In the latter expression above, the first current produces a
+  left-handed electron from a polarized massive muon, and the second
+  current produces a pair of numu and nuebar which are unobservable.
+
+  When performing QED radiative corrections to the muon decay, the above
+  Fierz transformation is very useful, since the photon is attached
+  only to the first current including the loop correction.  Such
+  computation was first done by Kinoshita and Sirlin, which eventually
+  led Toichiro Kinoshita to propose the Kinoshita's theorem, telling
+  that observables which sum over final states that have the same
+  energy (energy degenerate states) are free from the mass singularity,
+  such as log(Energy/m_electron).  The theorem helped us develop
+  perturbative QCD for inclusive observables which are free from
+  the mass singularity such as log(Energy/m_quark) or
+  log(Energy/m_gluon).
+
+  Although we can evaluate (80) in the muon rest frame right away,
+  there is another technique which helps us integrating out the
+  un-observed numu-nuebar currents.
+
+  In order to do this, we parametrize the 3-body phase space as
+
+  81) dPS3 = dPS2(p=p1+p23) d(p23)^2/(2pi) dPS2(p23=p2+p3)
+
+  Please note here that the four momentum p23=p2+p3 is not that of
+  the propagating W (q=p-p3=p1+p2).  This simplification works only
+  when we neglect the W propagator correction, which is proportional
+  to q^2/m_W^2 \sim 10^{-6}.
+
+  The differential decay width is now written as
+
+  82) d\Gamma(mu(h) > e numu nuebar)
+  = 1/2M |M(mu(p,h) > e(p1,L) + numu(p3,L) + nuebar(p2,R))|^2 dPS3
+  = 1/2M (g^2/(2mW^2))^2
+         | uL(p1)^\dagger \sigma_-^\mu uL(p,h)
+           uL(p3)^\dagger \sigma_-_\mu vL(p2) |^2  dPS3
+  = (g^4/8mW^4)/M
+   uL(k1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   uL(k3)^\dgr \sigma_-_\mu vL(p2)  (uL(p3)^\dgr \sigma_-_\nu vL(p2))~*
+    dPS3
+  = (g^4/8mW^4)/M
+   uL(k1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   uL(k3)^\dgr \sigma_-_\mu vL(p2)  (uL(p3)^\dgr \sigma_-_\nu vL(p2))~*
+    dPS2(p=p1+p23) d(p23)^2/(2pi) dPS2(p23=p2+p3)
+
+hw21-8: Derive (82) by yourself.
+
+  At this stage, we note that the numu-nuebar current component of
+  the decay rate depends only on their 4-momenta, p2 and p3, and
+  their contribution can be integrated out for a given (p23)^2.
+
+  Let us make the phase space integration of the term
+
+  83)
+  uL(p3)^\dgr \sigma_-_\mu vL(p2)  (uL(p3)^\dgr \sigma_-_\nu vL(p2))~*
+  dPS2(p23=p2+p3)
+
+  in the rest frame of p23, by denoting (p23)^2=m^2
+
+  84) p23 = (m, 0, 0, 0)
+      p2  = (m/2)(1,  \sinth\cosphi,  \sinth\sinphi,  \sinth)
+      p3  = (m/2)(1, -\sinth\cosphi, -\sinth\sinphi, -\sinth)
+
+  85) dPS2(p23=p2+p3) = (1/8pi) d\costh/2 d\phi/2pi
+
+  The numu and nuebar wave functions are:
+
+  86) uL(p3) = Rz(phi) Ry(-pi+theta) \rt{m} (0,1)^T
+      vL(p2) = Rz(phi)  Ry(theta)    \rt{m} (0,-1)^T
+
+hw21-9: Compute (86), and obtain the currents (87)
+
+  87a)  uL(p3)^\dgr \sigma_-_\mu vL(p2)
+  87b) (uL(p3)^\dgr \sigma_-_\nu vL(p2))~*
+
+hw21-10: Observe that the angular integration over the tensor (83)
+  vanishes for all the off-diagonal elements, and the diagonal
+  elements give (88) [tell me if 1/12pi factor is OK or not]
+
+  88) \Int { uL(p3)^\dgr \sigma_-_\mu vL(p2)
+            (uL(p3)^\dgr \sigma_-_\nu vL(p2))~* } dPS2(p23=p2+p3)
+   = m^2/(12pi) \diag{ 0, 1, 1, 1 }
+   = m^2/(12pi) { -g^\mu\nu + p23^\mu p23^\nu/(p23)^2 }
+
+  Note that the bottom line in (88) agrees with the second line in the
+  p23 rest frame.  The covariant expression in the bottom line is valid
+  in an arbitrary Lorentz frame since the current products transform as
+  a tensor when integrated over the invariant internal phase space.
+
+  We insert (88) into (82), and find
+
+  89) d\Gamma(mu(h) > e numu nuebar)
+  = 1/2M |M(mu(p,h) > e(p1,L) + numu(p3,L) + nuebar(p2,R))|^2 dPS3
+  = (g^4/8mW^4)/M
+   uL(p1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   uL(p3)^\dgr \sigma_-_\mu vL(p2)  (uL(p3)^\dgr \sigma_-_\nu vL(p2))~*
+    dPS2(p=p1+p23) d(p23)^2/(2pi) dPS2(p23=p2+p3)
+  = (g^4/8mW^4)/M
+   uL(p1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   m^2/(12pi) { -g^\mu\nu + p23^\mu p23^\nu/m^2 }
+   dm^2/(2pi) dPS2(p=p1+p23)
+
+  The invariant mass squared m^2=(p23)^2 can be expressed as
+
+  90a) m^2 = p23^2 = (p-p1)^2 = M^2 -2p*p1 = M^2 (1-x)
+  90b) x = 2p*p1/M^2 = 2E_e/M = 1-m^2/M^2
+
+  by using the electron energy E_e in the muon rest frame.  By noting
+
+  91a) dm^2 = M^2 dx
+  91b) dPS2(p=p1+p23) = 1/8pi (1-(p23)^2/p^2) d\costh/2
+                      = x/16pi d\costh
+
+  we arrive at the expression
+
+  92) d\Gamma / dx d\costh
+  = (g^4/8mW^4)/M m^2/(12pi) M^2/(2pi) x/16pi
+   uL(p1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   { -g^\mu\nu + p23^\mu p23^\nu/m^2 }
+  = (g^4/8mW^4) M^3/(384pi^3) x(1-x)
+   uL(p1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   { -g^\mu\nu + p23^\mu p23^\nu/m^2 }
+  = (G_F)^2 M^3/(96pi^3) x(1-x)
+   uL(p1)^\dgr \sigma_-^\mu uL(p,h) (uL(p1)^\dgr \sigma_-^\nu uL(p,h))^*
+   { -g^\mu\nu + p23^\mu p23^\nu/m^2 }
+
+  where in the last part I used
+
+  93) G_F^2 = (g^2/8mW^2*\rt{2})^2 = g^4/32mW^2
+
+hw21-11: Derive (92) by inserting (88) into (82).
+
+  Now the problem is reduced to compute the current
+
+  94) uL(p1)^\dgr \sigma_-^\mu uL(p,h)
+
+  in the muon rest frame, when the muon is polarized along the
+  z-axis (h=J_z=1/2),
+
+  95) uL(p,h=J_z=1/2) = \sqrt{M} (1,0)^T
+
+  and the electron momentum is
+
+  96) p1^\mu = (M/2) x(1, \sin\theta, 0, \cos\theta)
+
+  and its wave function reads
+
+  97) uL(k1) = Ry(\theta) \sqrt{Mx} (0,1)^T
+
+  Since the muon spin polarization axis (z-axis) is the symmetry axis of
+  the problem, I ignore (integrated out) the trivial azimuthal angle,
+  by setting \Int d\phi/2pi = 1.
+
+  Note also
+
+  98) p23^\mu = p^\mu - p1^\mu
+              = M/2 (2-x, -x\sin\theta, 0, -x\cos\theta)
+
+hw21-12: Calculate the electron wave function (97), and evaluate
+  the current (94), and obtain a compact expression for the
+  energy-angular distribution of the electron in the rest frame
+  of the polarized muon (99):
+
+  99)    d\Gamma
+      --------------
+      dx d\cos\theta
+
+hw21-13: Observe Parity violating asymmetry in the electron angular
+  distribution.  Does the electron prefer to be emitted along the muon
+  spin direction (\cos\theta>0) or in the backward direction
+  (\cos\theta<0) ?
+
+  This type of Parity violating asymmetry was predicted by T.D.Lee and
+  C.N.Yang in 1956 (as a possible solution of the K_L-K_S puzzle), and
+  was observed in the electron angular distribution in polarized nucleon
+  decay a year later by C.S.Wu.  Because the solution of the K_L-K_S
+  puzzle is NOT Parity violation but that they differ by their CP
+  parity (with small violation, discovered in 1964), we may regard
+  that it was a successful prediction based on the wrong assumption.
+
+hw21-14:  Integrate out the electron energy and angles, and obtain
+  the total decay width of the muon, or the muon lifetime.  How well
+  do we agree with the observed value of the muon lifetime?  Is the
+  agreement or disagreement consistent with our approximation?
+
+                         *****
+
+  Here, I give two comments.
+
+  First, about the ratio of the \mu life time and the \tau lifetime.
+
+  From the above calculation, we learned that
+
+  100) 2m\Gamma = |M|^2 PS3
+
+  where m=m_\mu.  The amplitudes scale as
+
+  101) M = G_F * m^2
+
+  since there are 4 external fermions, and all their energies are
+  scaled by \sqrt{m_\mu}.  3-body phase space is proportional to
+
+  102) PS3 = m^2
+
+  By combining (100)-(102), we observe
+
+  103) \Gamma = G_F^2 m^5
+
+  ignoring the numerical factors.  This scaling low should work for
+  \tau decays, since \tau mass is still negligibly small as compared
+  to the W mass.  We therefore expect the following:
+
+  104) \Gamma(\tau \to e \nuebar \nutau)     m_\tau
+       --------------------------------- = [ ------ ]^5
+       \Gamma(\mu  \to e \nuebar \numu )      m_\mu
+
+  whose numerical value should be (1.78/0.106)^5=1.33*10^6.
+
+  Please check this naive prediction against the data.  The partial
+  width can be obtained by multiplying the total width by the branching
+  fraction:
+
+  105) \Gamma(\tau \to e \nuebar \nutau)
+     = \Gamma_\tau * B(\tau \to e \nuebar \nutau)
+
+hw21-15: Please obtain \Gamma(\tau \to e \nuebar \nutau) from the PDG
+  table, and compare it with our prediction (104).  How well do we
+  reproduce the data?  Is it consistent with our approximations?
+
+                         *****
+
+  Another problem is why the neutron lifetime is so extremely long.  We
+  find that the weak transition amplitudes for the process
+
+  106) n(p) \to p(p1) + e(p2) + nuebar(p3)
+
+  is not too much different from the amplitudes for the muon decay.
+  In fact, since the overall mass scale of the neutron decay is the
+  neutron mass, which is about 9 times larger than the muon mass.
+  We could have predicted that the neutron decay width is 9^5 = 6*10^4
+  times larger than the muon decay width, by using the (m_n/m_\mu)^5
+  rule that worked for the tau lepton width.  The neutron width is
+  actually 10^{-10} times the muon width.  What is the origin of the
+  10^{-15} suppression?
+
+  Part of this huge suppression factor comes from the phase space,
+  because of the near degeneracy of the neutron and proton masses:
+
+  107) m(n) - m(p) = 1.29 MeV
+
+  which is only 2.5 times the electron mass
+
+  108) a = m(e)/(m(n) - m(p)) = 0.51/1.29 = 0.40
+
+  Since
+
+  109) M = m(n) = 940MeV
+
+  the 3-body phase space is
+
+  110) M^2 1/(256\pi^3) = 1.26*10^{-4) M^2
+
+  if all the decay particles are massless.  In case of the muon decay,
+  (110) is an excellent approximation, where M = m_\mu.  In case of
+  the neutron decay (106), the phase space suppression is extremely
+  strong.  Let us estimate it by using the exact formula
+
+  111) dPS3
+  = dPS2(p=p1+p23) d(m23)^2/(2pi) dPS2(p23=p2+p3)
+  = 1/(8pi) 2p1^*/M d(m23)^2/(2pi) 1/(8pi) (1-me^2/(m23)^2)
+  = 1/(128pi^3) d(m23)^2 2p1^*/M (1-me^2/(m23)^2)
+
+  The integration region of (m23) is
+
+  112) M-m(p) > m23 > me
+
+  I introduce an integration variable
+
+  113) x = m23/(M-m(p))
+
+  and the integration range is
+
+  114) 1 > x > a = 0.40  (see (98))
+
+  115) d(m23)^2 = (M-m(p))^2 dx^2 = 2(M-m(p))^2 x dx
+
+  116) 2p1^*/M
+  = 1/M^2 * 2Mp1^*
+  = 1/M^2 *[ (M+mp+m23)(M+mp-m23)(M-mp+m23)(m-mp-m23) ]^{1/2}
+  = 1/M^2 *(M+mp)*(M-mp)*[(1+x)(1-x)]^{1/2}
+  = 2(M-mp)/M * (1-x^2)^{1/2}
+
+  Inserting (115) and (116) into (111), I find
+
+  117) dPS3
+  = 1/(128pi^3) d(m23)^2 2p1^*/M (1-me^2/(m23)^2)
+  = 1/(128pi^3) 2(M-mp)^2 xdx 2(M-mp)/M (1-x^2)^{1/2} (1-a/x)
+  = 1/(32pi^3) (M-mp)^3/M dx (x-a) \sqrt{1-x^2}
+
+  So, all I need to do is the integral
+
+  118) \Int_a^1 dx (x-a) \sqrt{1-x^2}
+     = (1/2) \Int_{a^2}^1 d(x^2) \sqrt{1-x^2}
+          -a \Int_a^1 dx \sqrt{1-x^2}
+     = (1/2) (2/3) (1-y)^{3/2}|^{a^2}_1
+       -a \Int_0^{\arccos(a) d\theta \sin^2\theta
+     = (1/2) (2/3) (1-a^2)^{3/2}
+       -a \Int_0^{\arccos(a)} d\theta (1-\cos(2\theta))/2
+     = (1/3) (1-a^2)^{3/2}
+      -(a/2) {\arccos(a) - (1/2)\sin(2\theta)|^{arccos(a)}_0
+     = (1/3) (1-a^2)^{3/2}
+      -(a/2) {\arccos(a) - (1/2)\sin(2\arccos(a))}
+
+  I'm not sure if my integral (118) is right.  I guess that its numerical
+  value should be somewhere around (1-a)*0.2 \sim 0.1
+
+  Inserting this into (117) gives
+
+  119) PS3 = 1/(320pi^3) (M-mp)^3/M
+
+  Compared to the massless 3 body phase space (110) the suppression
+  factor is
+
+  120) PS3/PS3(massless decay products)
+     = ((M-mp)/M)^3
+     = (1.29/940)^3
+     = 3*10^{-9}
+
+hw21-16: Follow the above calculation of the 3 body phase space,
+  and check numerically if my estimate above (120) is fine.
+
+  This is still not enough to explain the smallness of the neutron width.
+  We should estimate the matrix elements.  I note that both the neutron
+  and proton wave functions are large, proportional to \sqrt{M}, since
+  they are non-relativistic.  On the other hand the electron and
+  neutrino wave functions are small because of the smallness of their
+  energy, bounded by (mn-mp).  The amplitude is hence suppressed by
+  this factor, as compared to the massless fermion case.  The width
+  should hence be suppressed by its squared.  Now, I find
+
+  121) \Gamma(n to penu)
+  = \Gamma(mp=0) * ((mn-mp)/mn)^2 * PS3/PS3(mp=0)
+  = \Gamma(mp=0) * (1.3/950)^2 * 3*10^{-9}
+  = \Gamma(mp=0) * 2*10^{-6}   * 3*10^{-9}
+  = \Gamma(mp=0) * 6*10^{-15}
+
+  Therefore, my naive prediction is
+
+  122) \Gamma(n to penu)
+  = \Gamma(mu to enunu) * (m_n/m_mu)^5 * 6*10^{-15}
+  = \Gamma(mu to enunu) * 5*10^5       * 6*10^{-15}
+  = \Gamma(mu to enunu) * 3*10^{-9}
+
+  and hence
+
+  123) \tau(n to penu) = 0.3 * 10^9 \tau(mu to enunu)
+                       = 0.3 * 10^9 * 2*10^{-6} s
+                       = 600 s
+                       = 10 min
+
+  Well, it's not that bad.  Please follow my estimates above, and you
+  may obtain more accurate comparison.
+
+  I do this type of rough order-of-magnitude estimates whenever it
+  is relevant.  As you may learn from reading my memo above, I don't
+  need a computer to make such estimates.  Very often, I find that
+  my estimates are quite well, and whenever they disagree significantly,
+  I learn something new in physics.  Fun in physics sometimes lies in
+  such details.
+
+  If you could follow and enjoy my discussion above, you really learned
+  well from my lectures.
+
+That's all for this long homework 21.
+
+Best regards,
+
+Kaoru
+
+
+
+\end{document}

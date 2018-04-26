@@ -1,0 +1,464 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW6 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students:\\
+
+  Today, I review a few fundamental properties of ``group'', which
+  I found useful throughout my research in particle physics.\\
+
+  Let me start from the definition of a group:\\
+
+  For arbitrary elements a and b of a group,
+  \begin{itemize}
+      \item $a\times b = c$ is also an element of the group.
+      \item $e$ is an element of the group such that $a \times e = e\times a = a$.
+      \item for an arbitrary element $a$ there is an element $a^{-1}$.
+      such that $a\times a^{-1} = a^{-1} \times a = e$.
+      \item $(a\times b) \times c = a \times (b \times c)$.
+  \end{itemize}
+
+  The element $e$ is called the unity element (no transformation),
+  and the element $a^{-1}$ is called the inverse element.
+
+  Linear representation:  For all the groups I introduce in
+  my lectures, we can find a matrix representation.  For instance,
+  we can represent an abstract relation $a \times b = c$ in terms of
+  $n \times n$ matrices $A$, $B$, $C$ such that $AB = C$.
+
+  The matrix representation for $e$ (the identity or unity) is $I$,
+  which is the diagonal matrix $I = {\rm diag} \{1,1,...,1 \}$.
+
+  When a matrix $A$ is a representation of a group element,
+  ${\rm det}{A} \neq 0$, in order for $A^{-1}$ to exist.
+  For the $SU(n)$ group, ${\rm det}{A}=1$.
+
+  If a matrix representation exisits, the last rule 4
+  (associativity) always holds.
+
+  In all matrix representations of a transformation group,
+  the state which is transformed is expressed as a column
+  vector.  Transformations are then expressed as matrix
+  multiplication from the left-hand-side, and the transformed
+  state is also a column vector.
+
+{\bf hw06-1}:  Please show that if $A \times B = C$ is a linear (matrix) representation of $a\times b = c$, then
+\begin{enumerate}
+    \item $A \times B = C$ \label{it.matrixrep}
+    \item $A^* \times B^* = C^*$ (complex representation) \label{it.matrixrepcom};
+    \item $(A^{-1})^T \times (B^{-1})^T = (C^{-1})^T$ (inverse-tranpose)\label{it.matrixrepinvtran};
+    \item $A^{-1})^\dagger \times (B^{-1})^\dagger = (C^{-1})^\dagger$
+    (complex inverse-tranpose, or inverse-dagger). \label{it.matrixrepinvdag}
+\end{enumerate}
+   are all representations of the same operation $a\times b = c$.
+  In general there are 4 linear representations as above.\\
+
+
+  When the matrix is real ($A^* = A$), \ref{it.matrixrepcom}=\ref{it.matrixrep} and \ref{it.matrixrepinvdag}=\ref{it.matrixrepinvtran}, and
+  hence there are just two representations, \ref{it.matrixrep} and \ref{it.matrixrepinvtran}.
+  (example: rotation, Lorentz transformation of co-ordinates
+  and four-vectors, etc)
+
+  If the representation \ref{it.matrixrep} is called `covariant', then
+  the representation \ref{it.matrixrepinvtran} may be called `contra-variant'.
+
+  In case of the vector representation of the rotation
+  group, covariant and contra-variant vectors are the
+  same.  In this case, the norm
+  $v^T v$
+  is conserved, because $O^T O = O^{-1} = 1$.
+
+  In the vector representation of the Lorentz group, if
+  a column vector $a^\mu = (a^0, a^1, a^2, a^3)^T$
+  transforms as 1 (covariant), then the column vector
+  $a_\mu = (a_0, a_1, a_2, a_3)^T = (a^0, -a^1, -a^2, -a^3)^T$
+  transforms as \ref{it.matrixrepinvtran} (contra-variant), and hence the product
+  $a_\mu a^\mu = (a_0, a_1, a_2, a_3)(a^0, a^1, a^2, a^3)^T$
+  is invariant under the transformation.
+
+{\bf hw06-2}:  When a four-vector $p^\mu = (E, p_x, p_y, p_z)^T$ transform as
+\begin{eqnarray}
+    p^\mu = (E, p_x, p_y, p_z)^T \to (p')^\mu = (E', p_x', p_y', p_z')^T
+\end{eqnarray}
+   we can express the transformation by a matrix representation,
+\begin{eqnarray}
+    (E', p_x', p_y', p_z')^T = L (E, p_x, p_y, p_z)^T
+\end{eqnarray}
+    with a real $4\times 4$ matrix $L$.  In this case, the contravariant
+  vector transform as
+  \begin{eqnarray}
+    p_\mu = (E, -p_x, -p_y, -p_z)^T \to p'_\mu = (E', -p_x', -p_y', -p_z')^T
+  \end{eqnarray}
+  where
+  \begin{eqnarray}
+    (E', -p_x', -p_y', -p_z')^T = L' (E, -p_x, -p_y, -p_z)^T
+  \end{eqnarray}
+   by using another real $4\times 4$ matrix $L'$.  Show,
+\begin{eqnarray}
+    L' = (L^{-1})^T
+\end{eqnarray}
+hint: Please use your knowledge that
+\begin{eqnarray}
+    p^\mu p_\mu = E^2 - p_x^2 - p_y^2 - p_z^2
+\end{eqnarray}
+  is invariant under Lorentz transformation.\\
+
+
+  When the matrix is unitary ($A^\dagger = A^{-1}$),
+  then \ref{it.matrixrepcom}=\ref{it.matrixrepinvtran}, and \ref{it.matrixrep}=\ref{it.matrixrepinvdag}.  Therefore, we usually consider
+  only two representations, \ref{it.matrixrep} (covariant) and \ref{it.matrixrepcom} (complex).
+  In other words, the complex representation (\ref{it.matrixrepcom}) is also
+  the inverse-transpose representation (\ref{it.matrixrepinvtran}).  Therefore,
+  the norm
+  $(v^*)^T v = v^\dagger v$
+  is conserved, because $U^\dagger = U^{-1} U = 1$.
+
+  In $SU(3)_{color}$, the state which transofrms as covariant
+  may be called quark, whereas the state which transforms
+  as its complex representation may be called anti-quark.
+\begin{eqnarray}
+  &&q   \to q'   = U   q \\
+  &&q^* \to  (q^*)' = U^* q^*
+\end{eqnarray}
+
+  For a Unitary group, because complex representation is the
+  same as the inverse-transpose representation,
+  $U^* = (U^{-1})^T$
+  we can introduce covariant-contravariant representations
+  for quark and anti-quark.
+
+  Let us denote a quark state as
+  $q = (q^1, q^1, q^3)^T$
+  which transforms as
+\begin{eqnarray}
+  q \to q' = ((q')^1, (q')^2, (q')^3)^T = U (q^1, q^1, q^3)^T
+\end{eqnarray}
+   We can now denote an anti-quark state as
+  $q^* = (q_1, q_2, q_3)^T$
+  by using the lower-indices (contravariant).  It transforms as
+\begin{eqnarray}
+  q^* \to  (q')^* &=& (q'_1, q'_2, 1'_3)^T \\
+  &=& U^* (q_1, q_2, q_3)^T\\
+  &=& (U^{-1})^T (q_1, q_2, q_3)^T
+\end{eqnarray}
+ 
+  Please note that we use upper $1,2,3$ indices for the triplet
+  or fundemental representation, and lower indices for its
+  complex-conjugate or anti-triplet or $3^*$ representation.
+
+  Let us now introduce a tensor representation of the $SU(3)$
+  transformations.
+  We express the components of the $3\times 3$ Unitary matrices
+  $U$ and $U^*$ by using upper and lower indices.
+\begin{eqnarray}
+  U^i_j = (U)_{ij}\\
+  U_i^j = (U^*)_{ij}
+\end{eqnarray}
+ 
+The transformations of $q^i$ and $q_i$ can be expressed as
+\begin{eqnarray}
+ && q^i \to (q')^i = U^i_j q^j~~({\rm quarks}= {\rm triplets}= 3)，\\
+ && q_i \to (q')_i = U_i^j q_j~~({\rm anti-quarks} = {\rm anti-triplets} = 3^*)
+\end{eqnarray}
+
+  The rule governing the upper and lower indices are very simple.
+  Please observe that under the $SU(3)$ transformations, quarks are
+  transformed into quarks, and hence both the initial state and
+  the transformed state should have upper indices.  In exactly
+  the same manner, anti-quarks are transformed into anti-quarks.
+  Therefore, both the starting and transformed states should have
+  lower indices.
+
+  The transformation matrix (tensor) should have upper and
+  lower indices, such that the repeated indices (the indices
+  of original state and one of the U tensor) which are summed
+  over should appear as a pair of up and down indices.
+
+  In the tensor representation, the invariance of the norm
+  is expressed simply as
+\begin{eqnarray}
+  q_i q^i \to  (q')_i (q')^i
+  = (U_i^j q_j) (U^i_k q^k)
+  =  U_i^j U^i_k  q_j q^k
+  =  \delta ^j_k   q_j q^k
+  =  q_k q^k
+\end{eqnarray}
+  Repeated pair of up and down indices should be summed over,
+  and if no indices remain, the product is $SU(3)$ invariant.
+  In this notation, the unitarity of the SU(3) transformation
+  is expressed as
+\begin{eqnarray}
+  U_i^j U^i_k  = \delta^j_k
+\end{eqnarray}
+ 
+
+{\bf hw06-3}: Please confirm the above statements for the following
+  three expressions which appear above:
+\begin{itemize}
+  \item $ q^i \to q'^i = U^i_j q^j$,
+  \item $ q_i \to q'_i = U_i^j q_j$,
+  \item $  q_i q^i \to q'_i q'^i =  U_i^j U^i_k  q_j q^k =  \delta^j_k  q_j q^k =  q_k q^k$.
+\end{itemize}
+ 
+  You may find the rules exactly the same as what we learned
+  from Albert Einstein for the Lorentz transformation properties
+  of arbitrary tensors.
+
+  This representation is called tensor representation, and
+  is useful (almost necessary) when studying the transformation
+  properties of composite representations, such as multiple-quark
+  states, like di-quarks and Baryons.\\
+
+
+ {\bf  Now let us move on to $SU(2)$.}
+
+  Although $2 \times 2$ matrix representation of $SU(2)$ is a special case of
+  $n \times n$ matrix representation of $SU(n)$, it is convenient to use all
+  4 representations in case of $SU(2)$.  When we adopt all 4
+  representations of $SU(2)$, we call them spinor representations.
+  It is an extention of the tensor representation I introduced
+  above, where we use upper and lower indices to distinguish
+  covariant and contra-variant indices.  We need 4 types of indices
+  to distinguish the 4 representations.  They are usually expressed
+  by upper and lower indices for the original (\ref{it.matrixrep}) and
+  inverse-transpose (\ref{it.matrixrepinvtran}), whereas by dotted-upper and dotted-lower
+  indices for complex (\ref{it.matrixrepcom}) and inverse-dagger (\ref{it.matrixrepinvdag}) representations.
+
+  We have shown in the homework 04, that for any doublet
+  $\phi$ of $SU(2)$, which transforms as a double (\ref{it.matrixrepcom}) representation,
+  \begin{eqnarray}
+    \phi \to \phi' = U \phi,
+  \end{eqnarray}
+  the state
+  $\phi^c = (i\sigma^2) \phi^*$
+  also transforms as a double (\ref{it.matrixrepcom})
+  \begin{eqnarray}
+  \phi^c \to (\phi^c)' = U \phi^c.
+  \end{eqnarray}
+
+  Therefore, we find that its complex conjugate
+  $(\phi^c)^* = (i\sigma^2) \phi$
+  transforms as $2^*$, which is a complex representation,
+  but it is also an inverse-transpose because of unitarity,
+  $U^* = (U^\dagger)^T = (U^{-1})^T$.
+  We can hence regard
+  $(\phi^c)^* = (i\sigma^2) \phi$
+  as a contra-variant representation of the original
+  representation, \ref{it.matrixrepcom}, of $SU(2)$. Therefore,
+  $[(i\sigma^2) \phi]^T L = \phi^T (-i\sigma^2) L$
+  is invariant under $SU(2)$.
+
+{\bf hw06-4}: Show the $SU(2)$ transformation of $\phi$, $\phi^c$,
+  $(\phi^c)^*$, $L$, and show the invariance of the two terms,
+  $(\phi^c)^\dagger L$, $[(-i\sigma^2) \phi]^T L = \phi^T (-i\sigma^2) L$
+  and confirm that they are in fact the same.
+
+{\bf hw06-5}:  For $\phi = (\phi^+, \phi^0)^T$ and $L = (\nu_L, l_L)^T$,
+  please express
+  $(\phi^c)^\dagger L =  \phi^T (-i\sigma^2) L$
+  in terms of the component fields, $\phi^+$, $\phi^0$,
+  $\nu_L$ and $l_L$.
+
+  The above exercises may be useful for you to learn that the same
+  $SU(2)$ invariant combination can have several expressions.
+  When an element of a group is labeled by continuous real numbers
+  (like $\theta$), it is called a continuous group.
+  For instance, for a real number $\theta$, we can define a complex number
+  $U(\theta) = e^{i\theta}$.
+  Then the standard complex algebra gives
+ \begin{itemize}
+   \item $U(a) \times U(b) = U(a+b)$
+   \item $U(0) = 1$
+   \item $U(a)^{-1} = U(-a)$
+   \item $(U(a)\times U(b))\times U(c) = U(a)\times (U(b)\times U(c)) = U(a+b+c)$.
+ \end{itemize}
+  for arbitrary real numbers $a$, $b$, $c$.  This is a complex-number
+  representation of the $U(1)$ group.
+
+  In quantum mechanics, the state $\psi$ is represented by a complex
+  function, and its phase can be changed as
+\begin{eqnarray}
+  \psi \to \psi' = U(\theta) \psi
+\end{eqnarray}
+  without changing the probability, $|\psi|^2$.  If the $U(1)$ transformation
+  does not change physics, the particle number (charge) is conserved.
+
+  Let us review Noether's theorem for a simple Lagrangian density:
+\begin{eqnarray}
+  {\cal L}  =  (\del^\mu \phi)^\dagger (\del_\mu \phi) -m^2 \phi^\dagger \phi
+\end{eqnarray}
+   which is clearly invariant under $U(1)$ transformation,
+\begin{eqnarray}
+  \phi \to \phi' = U \phi = e^{i\theta} \phi.
+\end{eqnarray}
+
+  The invariance of the Lagrangian can be expressed as
+  \begin{eqnarray}
+    {\cal L}(\phi, \del_\mu \phi) = {\cal L}(\phi', \del_\mu \phi')
+  \end{eqnarray}
+  or
+  \begin{eqnarray}
+    0 = \delta {\cal L} &=& {\cal L}(\phi', \del_\mu \phi') - {\cal L}(\phi, \del_\mu \phi)\\
+  &=&  [\delta {\cal L} / \delta{\phi}] \delta\phi +  [\delta {\cal L} / \delta{\del_\mu \phi}] \delta{\del_\mu \phi}
+  \end{eqnarray}
+  
+By using the equation of motion,
+\begin{eqnarray}
+  [\delta {\cal L} / \delta{\phi}]  =  \del_\mu [\delta {\cal L}/\delta{\del_\mu \phi}]
+\end{eqnarray}
+  we find
+\begin{eqnarray}
+  \delta L  =  (\del_\mu [\delta L/\delta{\del_\mu \phi}]) \delta\phi +  [\delta L / \delta{\del_\mu \phi}] (\del_\mu \delta\phi) = \del_\mu ([\delta L/\delta{\del_\mu \phi}] \delta\phi) =  \del_\mu j(x)^\mu = 0.
+\end{eqnarray}
+  We call
+  \begin{eqnarray}
+    j(x)^\mu =  [\delta L/\delta{\del_\mu \phi}] \delta\phi
+  \end{eqnarray}
+  as a current, and 
+  \begin{eqnarray}
+    \del_\mu j(x)^\mu = 0
+  \end{eqnarray}
+  as current conservation.  It can be written as
+  \begin{eqnarray}
+    \del_0 j(x)^0 = \sum_{k=1,2,3} \del_k j(x)^k
+  \end{eqnarray}
+   and its $d^3 x = dx dy dz$ integral gives
+  \begin{eqnarray}
+    \del_0 Q = \int d^3x \nabla \cdot {\vec j} (x) = {\rm surface~ integral} = 0
+  \end{eqnarray}
+    with $Q = \int d^3x j(x)^0$
+
+{\bf hw06-6}:  Please follow the above derivation of Noether's theorem,
+  and obtain $j^\mu(x)$ and $Q$ for our Lagrangian. Can you tell
+  that $Q$ represents the total probability of our field $\phi(x)$ ?\\
+
+  $SO(3)$ group has a real $3\times 3$ matrix representation.
+  The $3 \times 3$ real matrix representation $O$ of $SO(3)$ satisfies
+    ${\rm det}\{O\} = 1$, $O^* = O$, $O^T = O^{-1}$.
+
+{\bf hw06-7}: Please show that an arbitrary element of the $SO(3)$
+  group can be parametrized in terms of three real numbers $x$, $y$, $z$
+\begin{eqnarray}
+  O(x,y,z) = e^{ -i x J_x -i y J_y -i z J_z }
+\end{eqnarray}
+
+hint: $O^* = O$ gives $J_k^* = -J_k$, $O^T = O^{-1}$ gives $J_k^T = -J_k$.
+  How many independent parameters of a complex $3 \times 3$ matrix survives?
+
+{\bf hw06-8a}: Please obtain the generators $J_x$, $J_y$, $J_z$, as
+  $3 \times 3$ matrices, such that
+\begin{itemize}
+  \item $O(x,0,0)$ gives a rotation by an angle x about the x axis,
+  \item $O(0,y,0)$ gives a rotation by an angle y about the y axis,
+  \item $O(0,0,z)$ gives a rotation by an angle z about the z axis.
+\end{itemize}
+
+hint: Please note that the $2\times 2$ $SO(2)$ generator we obtained in the
+  previous homework can be regarded as a $2 \times 2$ component of the
+  operator $J_z$ in the $(x,y)$ plane. Likewise, it can be regarded
+  as $J_x$ in the $(y,z)$ plane, $J_y$ in the $(z,x)$ plane. Please respect
+  the cyclic properties when we obtain $J_x$, $J_y$, $J_z$ as $3 \times 3$
+  Hermetian anti-symmetric matrices.
+
+{\bf hw06-8b}: Please show 
+\begin{eqnarray}
+  &&[ J_x, J_y ] = i J_z \\
+  &&[ J_y, J_z ] = i J_x \\
+  &&[ J_z, J_x ] = i J_y
+\end{eqnarray}
+
+                                          
+{\bf hw06-8c}: Please obtain the normalization $T(A)$
+\begin{eqnarray}
+  Tr\{ J_k J_l \} = T(A) \delta_{kl}
+\end{eqnarray}
+   Here $A$ stands for Adjoint, since $SO(3)$, or the $3\times 3$ orthogonal matrix
+  representation of $SU(2)$ is called the adjoint representation. In
+  general, the generators of $SU(n)$ group in the adjoint representation
+  is $(n^2-1) \times (n^2-1)$ matrix, and it is normalized as
+\begin{eqnarray}
+  Tr\{ T^a T^b \} = T(A) \delta^{ab}
+\end{eqnarray}
+  with $T(A) = n$.  Do we find $T(A) = 2$ from our $J_x$, $J_y$, $J_z$ ?
+
+{\bf hw06-8d}:  Please obtain the matrices $O(x,0,0)$, $O(0,y,0)$, $O(0,0,z)$,
+  by summing over all the powers of $x$, $y$, $z$. \\
+
+  $SU(2)$ group also has $2\times 2$ complex matrix representation, which
+  is called fundamental representation.  The nxn (unitary) matrix
+  representation $U$ of $SU(n)$ satisfies
+\begin{eqnarray}
+  {\rm det}\{U\} = 1, U^\dagger = U^{-1}
+\end{eqnarray}
+ 
+
+{\bf hw06-9a}:  Please show that an arbitrary element of SU(2) can be
+  parametrized by $3$ real numbers, $x$, $y$, $z$, as
+\begin{eqnarray}
+  U(x,y,z) = e^{ -i x J_x -i y J_y -i z J_z },
+\end{eqnarray}
+  where $J_k$ are now $2\times 2$ complex matrices that satisfy
+\begin{eqnarray}
+  Tr\{J_k\} = 0, J_k^\dagger = J_k  (k=1,2,3).
+\end{eqnarray}
+ 
+{\bf hw06-9b}:  Please show that $J_k = \sigma_k/2$, gives the same
+  commutation relations as $SO(3)$:
+  \begin{eqnarray}
+    &&[ J_x, J_y ] = i J_z \\
+    &&[ J_y, J_z ] = i J_x \\
+    &&[ J_z, J_x ] = i J_y
+  \end{eqnarray}
+
+{\bf hw06-9c}:  Please obtain the matrices $U(x,0,0)$, $U(0,y,0)$
+  and $U(0,0,z)$, by summing over all order of $x$, $y$, $z$.
+
+  If an element of a continuous group can be parametrized
+  in terms of real numbers $x_k$ as  $A(x_k) = e^{ i \sum_k x_k T_k }$
+  and if $A(x_k)$ is a matrix representation of a group, then $A(x_k) \times A(x'_k) = A(x"_k)$
+  should follow, because the product of two transformations
+  should also be a transformation.
+
+{\bf hw06-10}: Please show that the above identity follows if all the
+  commutators of the generators are linear combinations of generators:
+\begin{eqnarray}
+  [ T_k, T_l ] = i \sum_m f^m_{kl} T_m
+\end{eqnarray}
+  This is called the algebra of a group, and the real constants
+  $f^{klm} = f^m_{kl}$ are called structure constants.
+
+{\bf hw06-11}: Please show
+\begin{eqnarray}
+  &&{\rm det}\{A\} = 1  \Rightarrow   Tr\{T_k\} = 0\\
+  &&A^\dagger = A^{-1} \Rightarrow T_k^\dagger = T_k.
+\end{eqnarray}
+
+{\bf hw06-12}: Please show that $n^2-1$ independent elements of an arbitrary
+  $n\times n$ complex matrix $M$ satisfy $M^\dagger=M$ and $Tr\{M\}$=0.  This counts
+  the number of generators of $SU(n)$ transformations.\\
+
+That's all for the homework PT1: hw06.\\
+
+Best regards,\\
+
+Kaoru
+
+\end{document}

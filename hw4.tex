@@ -1,0 +1,381 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\begin{document}
+
+\begin{center}
+{\large\bf HW4 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students:\\
+
+  Please let me repeat the rule for grading your reports.
+  As I explained to you at the beginning of the last lecture,
+  I will read and grade the report which reached my address
+  (kaoru.hagiwara@kek.jp) first.  All the other reports will
+  be read and graded by our grader, in the order of their
+  receipt.  Therefore those reports which reach me at a
+  later time may not be read.  Although this may be disappointing
+  to you, I would like to encourage you to do all the homework
+  and submit your report to me, since it will help you strongly
+  in the future, when you start doing research in particle physics.
+  All your reports will be kept in my file, even if they are not
+  read.  This rule applies from hw03.  I will read and give comments
+  to all your first two reports, those for hw01 and hw02, and
+  return to you after grading.\\
+
+
+  Today, I summarized the SU(3)xSU(2)xU(1) invariance of
+  the SM Lagrangian with matter fields (quarks and leptons)
+  and the Higgs boson (excluding the derivatives and gauge bosons).\\
+
+  We do not consider the space-time transformation of each
+  field, and simply assume that the Lagrangian terms as
+  written in the SM are Lorentz invariant.  We will study
+  the Lorentz transformations in the latter part of my
+  lectures.\\
+
+  We treat the $SU(3)\times SU(2)\times U(1)$ symmetry transformations
+  as global (space-time independent) transformations in
+  this homework. Space-time dependent transformations
+  (gauge transformations) are introduced next week.\\
+
+  The transformations are called ``global'' when the angular
+  variables, $\theta$'s
+\begin{itemize}
+    \item $\theta^a$ with $a=1~{\rm to}~8$ for SU(3)
+    \item $\theta^i$ with $i=1,2,3$  for SU(2)
+    \item $\theta$                for U(1)
+\end{itemize}
+  are the same everywhere in the spacetime.
+
+  Let us review step by step the invariance of the
+  SM Lagrangian (density):
+\begin{eqnarray}
+    L_{SM}   =   L_{gauge} + L_{fermion} + L_{Higgs} + L_{Yukawa}
+\end{eqnarray}
+
+  Let us set asside $L_{gauge}$ untill my next lecture,
+  since it appears only when the $SU(3)\times SU(2)\times U(1)$
+  phase transformations are local (when all the above 12
+  angular variables are space-time dependent).
+  $L_{fermion}$ looks like the following (I drop the
+  generation index (1,2,3) in this homework, since
+  the symmetry properties are identical for all
+  the three generations):
+\begin{eqnarray}
+    L_{fermion}
+   = Q^\dagger  iD_\mu \sigma_-^\mu Q
+   + u_R^\dagger iD_\mu \sigma_+^\mu u_R
+   + d_R^\dagger iD_\mu \sigma_+^\mu d_R
+   + L^\dagger  iD_\mu \sigma_-^\mu L
+   + l_R^\dagger iD_\mu \sigma_+^\mu l_R
+\end{eqnarray}
+   
+  Let us for the moment pretend that we know that
+  the above terms are Lorentz invariant and Hermetian
+  (which will be studied a few lectures later), and
+  just use the ``definition'' of the covariant derivative,
+\begin{eqnarray}
+    D_\mu \phi \to (D_\mu \phi)' = U (D_\mu \phi),
+\end{eqnarray}
+  when the field $\phi$ transforms as,
+ $\phi \to \phi' = U \phi$
+  In other words, $(D^\mu \phi)$ transform exactly
+  the same way as $\phi$ iteself.  This is called
+  ``covariant''.
+
+  In the above Lagrangian terms, since $\sigma_\pm^\mu$ are
+  just numbers in the guage quantum number space (they
+  are matrices in the spinor space, which will be studied
+  in later lectures when we consider Lorentz transformations),
+  we can write
+\begin{eqnarray}
+    &&Q \to Q' = UQ \\
+    &&iD_\mu \sigma_-^\mu Q \to U (iD_\mu \sigma_-^\mu Q)
+  \end{eqnarray}
+   and similarly for all the other terms.
+
+  Now, we note that all the above 5 terms in
+  $L_{fermion}$ have exactly the same form:
+\begin{eqnarray}
+    \phi^\dagger \phi
+\end{eqnarray}
+  for $\phi$ = Q, uR, dR, L, lR.  If $\phi$ transforms as
+\begin{eqnarray}
+    \phi \to \phi' = U \phi
+\end{eqnarray}
+   then $\phi^*$ transform as
+\begin{eqnarray}
+    \phi^* \to \phi'^* = U^* \phi^*
+\end{eqnarray}
+   and hence
+   \begin{eqnarray}
+    \phi^\dagger = (\phi-*)^T   \to
+    ({\phi'}^*)^T = ((U \phi)^*)^T
+    =
+    (U \phi)^\dagger
+    =
+    \phi^\dagger U^\dagger
+   \end{eqnarray}
+  
+
+  It is then clear that
+\begin{eqnarray}
+    \phi^\dagger \phi \to {\phi'}^\dagger \phi'
+                    \to \phi^\dagger U^\dagger U \phi
+                    = \phi^\dagger \phi
+\end{eqnarray}
+  for all Unitary transformations, that satisfy
+\begin{eqnarray}
+    U^\dagger U = 1.
+\end{eqnarray}
+   including $SU(3)_C$, $SU(2)_L$, $U(1)_Y$ and their arbitrary
+  combinations.
+
+{\bf hw04-1}:
+
+  The sextet Q has two indices (other than the irrelevant
+  generation index which we ignore, and the spinor indices
+  which can be fixed if we stay in a fixed Lorentz frame).
+  Let us denote those indieces as $i=1,2,3$ for $SU(3)_C$,
+  and $k=1,2$ for $SU(2)_L$.  Let us write them explicitly:
+  \begin{eqnarray}
+    Q_{ik}
+  \end{eqnarray}
+  
+
+  When we make $SU(3)_C$ transformation, the k index doesn't
+  change, and
+  $( Q_{1k}, Q_{2k}, Q_{3k} )^T$
+  transform as a triplet.  With this notation, please
+  show the $SU(3)_C$ transformation of Q
+\begin{eqnarray}
+    Q \to Q' = U Q
+\end{eqnarray}
+   with explicit components, i.e., from $Q_{ik}$ to $Q'_{jl}$.
+
+  hint: SU(3) transformation matrix U is a $3 \times 3$ matrix.
+
+  hint2: Matrix multiplication rule is
+  \begin{eqnarray}
+    ( {\rm Matrix} * {\rm vector} )_m = \sum_n ({\rm Matrix})_{mn} ({\rm vector})_n
+  \end{eqnarray}
+  when ``vector'' is a column vector.
+
+{\bf hw04-2}:
+
+  Let us examine the $SU(2)_L$ transformation of Q.
+  Under $SU(2)_L$, the second $k$ index changes but not
+  the first $i$ index.  So, the relevant vector is
+  a two vector (k=1 and k=2):
+  $( Q_{i1}, Q_{i2} )^T$
+  I often write it as
+  $( Q_{i1}, Q_{i2} )^T  = ( u_{Li}, d_{Li} )^T$
+
+  Here, the name uL for k=1 components of Q, and
+  dL for k=2 componets of Q, which are both color
+  triplets with i=1,2,3 indices.  Now, Under SU(2)
+  transformation, Q transforms as
+  $Q_{ik} \to Q'_{il} = U_{lk} Q_{ik}$
+ (Summation over repeated indices, k, which can be written as
+  $\sum_{k=1}^{2}$, is understood.)
+
+  Let us examine a specific SU(2) transformation,
+\begin{eqnarray}
+    U(\theta^1,\theta^2,\theta^3) = U(0,\pi,0),
+\end{eqnarray}
+    that is a rotation about the 2 axis by $\pi$.
+  Please obtain the transformation matrix
+  $U(0,\pi,0)$
+  and show what happens to our $Q_{ik}$ under
+  this transformation.  Please show your results
+  by using the $(uL, dL)^T$ notation as above.
+
+{\bf hw04-3}:
+
+  Under $U(1)_Y$, all 6 components of Q transform
+  exactly the same way with $Y=1/6$:
+\begin{eqnarray}
+    Q_{ik} \to Q'_{ik} = U Q_{ik}
+                   = e^{iY\theta} Q_{ik}
+                   = e^{i(1/6)\theta} Q_{ik}
+\end{eqnarray}
+    This can be expressed as
+\begin{eqnarray}
+    Q \to Q' = e^{i(1/6)\theta} Q
+\end{eqnarray}
+    for brevity.  Now, let us consider a special
+  $U(1)_Y$ transformation with $\theta=3\pi$.
+  Please show the transformation of all 5 fermions:
+\begin{eqnarray}
+    &&  Q \to Q'  = U_Y(3\pi) = ...\\
+    && u_R \to u_R' = U_Y(3\pi) = ...\\
+    && d_R \to d_R' = U_Y(3\pi) = ...\\
+    && L  \to L'  = U_Y(3\pi) = ...\\
+    && l_R \to l_R' = U_Y(3\pi) = ...
+\end{eqnarray}
+ Now, let us go on to the Higgs Lagrangian,
+\begin{eqnarray}
+    L_{\rm Higgs}
+  = (D^\mu \phi)^\dagger (D_\mu \phi) - V(\phi),
+\end{eqnarray}
+  where $V(\phi)$ is the Higgs potential
+\begin{eqnarray}
+    V(\phi)
+  =
+  \lambda/4 (\phi^\dagger \phi)^2 + \mu^2 (\phi^\dagger \phi)
+\end{eqnarray}
+  
+
+{\bf hw04-4}:
+
+  Show that $\phi^\dagger \phi$ is invariant under
+  $SU(3)_C$, $SU(2)_L$, and $U(1)_Y$.
+
+{\bf hw04-5}:
+
+  Prove the following identity:
+\begin{eqnarray}
+    \phi^\dagger \phi = (\phi^c)^\dagger (\phi^c)
+\end{eqnarray}
+   Once the above identity is proven, the Higgs potential $V(\phi)$
+  can now be written in terms of $\phi$ and $\phi^c$, through
+  the combination
+  \begin{eqnarray}
+    \phi^\dagger \phi
+    =
+    (1/2)[(\phi^\dagger \phi)+(\phi^c)^\dagger (\phi^c)]
+  \end{eqnarray}
+  This fact plays an extremely important role in the SM,
+  when compared to the data.
+
+{\bf hw04-6}:
+
+  Once the Higgs potential of the SM is expressed as above,
+  show that the potential is invariant under a new global
+  SU(2) transformation, which transform
+$ ( \phi, \phi^c )^T$
+  to
+  $( \phi', {\phi^c}' )^T
+  =
+  U ( \phi, \phi^c )^T$
+  This symmetry of the SM Higgs potential was identified
+  first by t'Hooft, whose meaning will be clear when I explain
+  the spontaneous breaking of the $SU(2)_L \times U(1)_Y$
+  symmetry in a later lecture.  This symmetry of the SM
+  Higgs potential has very important phenomenological
+  consequences, which have been proven to be true
+  by experiments.
+
+Now, let us move on to the Yukawa term:
+\begin{eqnarray}
+    L_{Yukawa}
+    = {y_u Q^\dagger u_R \phi^c + h.c.}
+    + {y_d Q^\dagger d_R \phi   + h.c.}
+    + {y_l L^\dagger l_R \phi   + h.c.}
+\end{eqnarray}
+ 
+
+{\bf hw04-7}:
+
+  Show the $SU(3)_C$ invariance of each term.
+
+{\bf hw04-8}:
+
+  Show the $SU(2)_L$ invariance of each term.
+
+{\bf hw04-9}:
+
+  Show the $U(1)_Y$ invariance of each term.
+
+{\bf hw04-10}:
+
+  Assume that the couplings, $y_u$, $y_d$, $y_l$ are all
+  complex numbers, please write down the hermetian
+  conjugate terms ( $+ h.c.$ terms) explicitly.\\
+
+  Finally, neutrinos.  Because the origin of the
+  neutrino masses are not yet known, let me give
+  my personal version of the SM Lagrangian which
+  does NOT introduce a 6'th multiplet (or the 16'th
+  fermion) of each generation, the right-handed neutrino,
+  which is usually written as $\nu_R$.  Instead, we
+  introduces higher dimensional interactions into
+  the SM Lagrangian.  (The meaning of interactions
+  whose mass dimension is greater than 4 can be
+  understood clearly only after you learn quantization
+  of our classical Lagrangian, how quantum corrections
+  are calculated, and how the corrected results can be
+  compared with data.  The key words for those matters
+  are `renormalization' and effective field theories.
+  Those subjects were covered in the advanced course
+  of my KEK lectures.)\\
+
+  It is written as follows:
+\begin{eqnarray}
+    L_{neutrino}
+  =
+  y_\nu ((\phi^c)^\dagger L) \cdot ((\phi^c)^\dagger L)/2\Lambda
+  + h.c.,
+\end{eqnarray}
+    where $\Lambda$ is a large mass as compared to the SM scale,
+  $v =$ 256 GeV.  The neutrino masses are inversely proportional
+  to this scale $\Lambda$.  The simbol ``$\cdot$'' is a secret
+  product that contracts the fermionic indices (of two L's)
+  to make the above term invariant under the Lorentz
+  transformation, which will be explained carefully in my
+  later lectures.
+
+{\bf hw04-11}:
+
+  Show that the term
+ $ (\phi^c)^\dagger L$
+  is invariant under $SU(3)_C$, $SU(2)_L$, and $U(1)_Y$.
+
+{\bf hw04-12}
+
+  Please write down $(\phi^c)^\dagger L$, in terms of the
+  component fields, by using
+\begin{eqnarray}
+    L &=& ( \nu_L, l_L)^T\\
+    \phi &=& ( \phi^+, \phi^0 )^T
+\end{eqnarray}
+  Please note that both $\phi^+$ and $\phi^0$ are complex fields,
+  and we may write
+\begin{eqnarray}
+    (\phi^+)^* &=& \phi^-\\
+  (\phi^0)^* &=& \phi^0*
+\end{eqnarray}
+  
+{\bf hw04-13}
+
+  Please write down all the terms which appear in $L_{neutrino}$
+  in terms of the component fields, by ignoring the $\cdot$
+  simbol which makes the two fermion product Lorentz invariant.
+  In other words, please write down the following expressions
+\begin{eqnarray}
+    L_{neutrino}
+  =
+  y_\nu [ (\phi^c)^\dagger L) ]^2/2\Lambda + h.c.
+\end{eqnarray}
+    in terms of the component fields.  Can you observe the term
+  which is proportional to
+  $(\nu_L)^2$ ?
+  It gives the neutrino Mayorana mass when the Higgs boson
+  aquires the vacuum expectation value.
+
+That's all for hw04.\\
+
+Best regards,\\
+
+Kaoru
+
+
+
+
+\end{document}

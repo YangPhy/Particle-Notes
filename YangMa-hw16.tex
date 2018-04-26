@@ -1,0 +1,993 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+
+\begin{document}
+\title{Particle physics HW16}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+For any gauge field $A_\mu$, we can write the Largrangian in terms of the field strength tensor $F^{\mu \nu} = \del^\mu A^\nu -\del^\nu A^\mu$ 
+\begin{eqnarray}
+    {\cal L}_{gauge}
+  &=& -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} = -\frac{1}{4}(\del_\mu A_\nu-\del_\nu A_\mu)F^{\mu\nu}\\ 
+  &=&-\frac{1}{4}(\del_\mu A_\nu F^{\mu\nu}-\del_\mu A_\nu F^{\nu\mu}) 
+  = -\frac{1}{2} (\del_\mu A_\nu)F^{\mu\nu} \\
+  &=& -\frac{1}{2} (\del_\mu A_\nu) (\del^\mu A^\nu -\del^\nu A^\mu)
+\end{eqnarray}
+For $W$ boson, the neutral $W^1$ and $W^2$ boson are combined to make complex fields $W^+$ and $W^-$
+\begin{eqnarray}
+    W^+=\frac{1}{\sqrt 2} (W^1+i W^2), ~~~W^-=\frac{1}{\sqrt 2} (W^1-i W^2)
+\end{eqnarray}
+and we see
+\begin{eqnarray}
+    -\frac{1}{2} W^+_{\mu\nu} W^{- \mu\nu}=-\frac{1}{2} \frac{1}{\sqrt 2}(W^1_{\mu\nu}+i W^2_{\mu\nu})\frac{1}{\sqrt 2}(W_1^{\mu\nu}-i W_2^{\mu\nu})=-\frac{1}{4} \sum_{i=1}^2 W^i_{\mu\nu} W_i^{ \mu\nu}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    {\cal L}_{gauge} &=& -\frac{1}{2} (\del_\mu A_\nu) (\del^\mu A^\nu -\del^\nu A^\mu) \\
+    &=& \frac{1}{2} (A_\nu\del_\mu\del^\mu A^\nu -A_\nu \del_\mu\del^\nu A^\mu) - \frac{1}{2}( \del_\mu(A_\nu\del^\mu A^\nu) -\del_\mu(A_\nu\del^\nu A^\mu))
+\end{eqnarray}
+We can then drop the total derivative terms and write the Largrangian as 
+\begin{eqnarray}
+    {\cal L}_{gauge}=\frac{1}{2} (A_\nu\del_\mu\del^\mu A^\nu -A_\nu \del_\mu\del^\nu A^\mu) = \frac{1}{2} A_\mu (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\nu
+\end{eqnarray}
+and have the E.O.M
+\begin{eqnarray}
+    \frac{\delta {\cal L}}{\delta(A_\mu)} -\frac{\del_\nu \delta {\cal L}}{\delta(\del_\nu A_\mu)}
+  =  \frac{\delta {\cal L}}{\delta(A_\mu)}
+  = (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\nu
+  = 0. 
+\end{eqnarray}
+
+
+\section{ }
+For $q^\mu = (E,0,0,E)$, we have 
+\begin{eqnarray}
+    A_\nu(x) = \epsilon_\nu(q) e^{-iqx} = \epsilon_\nu(q) e^{-iE(t-z)}
+\end{eqnarray}
+Write $(g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\nu$ in matrix representation, we see
+\begin{eqnarray}
+    \begin{pmatrix}
+        -E^2 & 0 & 0 & -E^2 \\
+        0 & -2E^2& 0 & 0 \\
+        0 & 0 & -2E^2& 0 \\
+        -E^2 & 0 & 0 & -E^2
+    \end{pmatrix}
+    \begin{pmatrix}
+        A_0 \\ A_1 \\ A_2 \\ A_3
+    \end{pmatrix}
+    =0
+\end{eqnarray}
+where we see the determinant
+\begin{eqnarray}
+    \begin{vmatrix}
+        -E^2 & 0 & 0 & -E^2 \\
+        0 & -2E^2& 0 & 0 \\
+        0 & 0 & -2E^2& 0 \\
+        -E^2 & 0 & 0 & -E^2
+    \end{vmatrix}
+    =0
+\end{eqnarray}
+
+\section{ }
+Insert
+\begin{eqnarray}
+    A(x) = A^{(0)}(x) + \int d^3x' G(x,x') J(x'),
+\end{eqnarray}
+back into the differential equation
+\begin{eqnarray}
+    {\cal D} A(x)= {\cal D} A^{(0)}(x) + \int d^3x' {\cal D} G(x,x') J(x') = J(x)
+\end{eqnarray}
+and we see it is the solution. If we have leading order approximation of $J(x)$ then we can use it to obtain the leading order solution for $A(x)$. Then we can use the leading order to correct the $J(x)$ and use the new $J(x)$ to have a higher order $A(x)$.
+
+\section{ }
+In Coulomb gauge $\del_a A^a(x) = 0$, we see
+\begin{eqnarray}
+    (g_{ab} \del_c \del^c -\del_a \del_b) A^b(x) = g_{ab} \del_c \del^c A^b(x) = \del_a \del^a A^b(x) = 0.
+\end{eqnarray}
+
+\section{ }
+Using Fourier transformation, we can write the E.O.M.
+\begin{eqnarray}
+    (g^{\mu\nu}\del_a\del^a -\del^\mu\del^\nu) A_\nu(x)= 0
+\end{eqnarray}
+as
+\begin{eqnarray}
+    (g^{\mu\nu}q^2 -q^\mu q^\nu )\eps_\nu = 0,
+\end{eqnarray}
+which can be written in matrix representation as
+\begin{eqnarray}
+  \begin{pmatrix}
+      E^2-q^2 & E q_x & E q_y & E q_z \\
+      E q_x & q^2 + q_x^2 & q_xq_y &q_xq_z \\
+      E q_y & q_xq_y & q^2+q_y^2 & q_yq_z \\
+      Eq_z  & q_xq_z & q_yq_z & q^2+q_z^2
+  \end{pmatrix}
+  \begin{pmatrix}
+      \eps_0\\ \eps_1\\\eps_2\\\eps_3
+  \end{pmatrix}
+  =0.
+\end{eqnarray}
+In covariant gauge, above equation turns into
+\begin{eqnarray}
+    \begin{pmatrix}
+        E^2-q^2 & 0 & 0 & 0 \\
+        0 & q^2 + q_x^2 & 0 & 0 \\
+        0 & 0 & q^2+q_y^2 & 0 \\
+        0 & 0 & 0 & q^2+q_z^2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \eps_0\\ \eps_1\\\eps_2\\\eps_3
+    \end{pmatrix}
+    =0. 
+\end{eqnarray}
+
+\section{ }
+In order to satisfy the covariant gauge fixing condition,  we have
+\begin{eqnarray}
+\del_\mu A^\mu&=&\sum_h \int \frac{d^3p}{2E(2\pi)^3}
+[a(p,h) e^{-ipx} (-ip_\mu) \epsilon^\mu (p,h) + a(p,h)^\dgr e^{ipx}(ip_\mu) \epsilon^\mu(p,h)^* ]\\
+&=& 0
+\end{eqnarray}
+one needs $p_\mu \epsilon^\mu(p,h) = 0$.
+
+\section{ }
+\begin{eqnarray}
+    {\cal L}_{W}
+    &=& -\frac{1}{2} W^+_{\mu\nu} W^{- \mu\nu} + m_W^2 W^+_\mu W^{- \mu}\\
+    &=& - (\del_\mu W^+_\nu) (\del^\mu W^{-\nu} -\del^\nu W^{-\mu})
+      + m_W^2 W^+_\mu W^{-\mu}\\ 
+    &=& W^+_\nu (\del_a \del^a {W^-}^\nu -\del_\mu\del^\nu {W^-}^\mu ) + m_W^2 W^+_\mu W^{-\mu} +\del_\mu[W^+_\nu(\del^\nu{W^-}^\mu-\del^\mu {W^-}^\nu)] \\
+    &=&W^+_\mu (g^{\mu\nu}\del_a\del^a -\del^\mu\del^\nu ){W^-}_\nu + m_W^2 W^+_\mu W^{-\mu} +\del_\mu[W^+_\nu(\del^\nu{W^-}^\mu-\del^\mu {W^-}^\nu)]
+\end{eqnarray}
+Now we have the E.O.M for ${W^-}^\nu$
+\begin{eqnarray}
+    \frac{\delta {\cal L}}{\delta(W^+_\mu)} -\frac{\del_\nu \delta {\cal L}}{\delta(\del_\nu W^+_\mu)}
+  =  \frac{\delta {\cal L}}{\delta(W^+_\mu)}
+  = (g^{\mu\nu}\del_a\del^a -\del^\mu\del^\nu ){W^-}_\nu+m_W^2 W^{-\mu}=0.
+\end{eqnarray}
+With the covariant gauge fixing condition
+\begin{eqnarray}
+    \del^b W^-_b(x) = 0,
+\end{eqnarray}
+we rewrite the E.O.M.
+\begin{eqnarray}
+    (g^{ab} [\del_a \del^a+m_W^2] -\del^a \del^b) W^-_b(x) = g^{ab} [\del_a \del^a+m_W^2] W^-_b(x)  =0,
+\end{eqnarray}
+which is
+\begin{eqnarray}
+    [ \del_a \del^a + m_W^2 ] W^-_b(x) = 0.
+\end{eqnarray}
+
+\section{ }
+Similar to {\bf hw16-7} covariant gauge fixing condition reads
+\begin{eqnarray}
+\del^\mu W_-^\mu&=& \sum_h \int \frac{d^3p}{2E(2\pi)^3}
+[ a(p,h) e^{-ipx} (-ip^\mu) \epsilon_a(p,h) + b(p,h)^\dgr e^{ipx} (ip^\mu) \epsilon_a(p,h)^* ] \\
+&=& 0,
+\end{eqnarray}
+which implies $p^\mu \epsilon_\mu(p,h) = p_\mu \epsilon^\mu(p,h)=0$.
+
+\section{ }
+Recall
+\begin{eqnarray}
+J_z=
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & -i & 0 \\
+0 & i & 0 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix},
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    J_z \epsilon^\mu(p,1)= 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+        \end{pmatrix}
+        \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ -1 \\ -i \\ 0
+    \end{pmatrix}
+    =\frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ -1 \\ -i \\ 0
+    \end{pmatrix}
+    =\epsilon^\mu(p,1)
+\end{eqnarray}
+\begin{eqnarray}
+    J_z \epsilon^\mu(p,0)= 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+        \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 1
+    \end{pmatrix}
+    =0=0
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 1
+    \end{pmatrix}
+    =0\epsilon^\mu(p,0)
+\end{eqnarray}
+\begin{eqnarray}
+    J_z \epsilon^\mu(p,-1)= 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -i & 0 \\
+        0 & i & 0 & 0 \\
+        0 & 0 & 0 & 0 
+        \end{pmatrix}
+        \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ 1 \\ -i \\ 0
+    \end{pmatrix}
+    =
+    -\frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ 1 \\ -i \\ 0
+    \end{pmatrix}
+    =-\epsilon^\mu(p,-1)
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item For 
+    \begin{eqnarray}
+    p^\mu = (m, 0, 0, 0),
+    \end{eqnarray}
+    we see
+    \begin{eqnarray}
+        \eps^\mu(p,1) p_\mu =0,~~\eps^\mu(p,0) p_\mu =0,~~\eps^\mu(p,-1) p_\mu =0
+    \end{eqnarray}
+    \item   
+    \begin{eqnarray}
+        \eps^\mu(p,1) \eps_\mu(p,1)^*=-1, ~~\eps^\mu(p,1) \eps_\mu(p,-1)^*=\eps^\mu(p,1) \eps_\mu(p,0)^*=0\\
+        \eps^\mu(p,0) \eps_\mu(p,0)^*=-1, ~~\eps^\mu(p,0) \eps_\mu(p,-1)^*=\eps^\mu(p,0) \eps_\mu(p,1)^*=0\\
+        \eps^\mu(p,-1) \eps_\mu(p,-1)^*=-1~~\eps^\mu(p,-1),~~ \eps_\mu(p,1)^*=\eps^\mu(p,-1) \eps_\mu(p,0)^*=0.
+    \end{eqnarray}
+\end{itemize}
+
+\section{ }
+Recall
+\begin{eqnarray}
+    J_x = 
+    \begin{pmatrix}
+      0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & -i \\
+      0 & 0 & i & 0
+    \end{pmatrix}
+    ,~~ J_y =
+    \begin{pmatrix}
+      0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & i \\
+      0 & 0 & 0 & 0 \\
+      0 & -i & 0 & 0 
+    \end{pmatrix}
+    ,~~J_z=
+    \begin{pmatrix}
+      0 & 0 & 0 & 0 \\
+      0 & 0 & -i & 0 \\
+      0 & i & 0 & 0 \\
+      0 & 0 & 0 & 0 
+    \end{pmatrix},
+  \end{eqnarray}
+we can write out
+\begin{eqnarray}
+  J_\pm =J_x\pm iJ_y=
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & \mp 1 \\
+    0 & 0 & 0 & -i \\
+    0 & \pm 1 & i & 0
+  \end{pmatrix}
+\end{eqnarray}
+and then have
+\begin{eqnarray}
+    J_- \eps^\mu(p,+1) = 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & -i \\
+        0 & - 1 & i & 0
+    \end{pmatrix}
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ -1 \\ -i \\ 0
+    \end{pmatrix}
+    =\frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 2
+    \end{pmatrix}
+    =\sqrt{2} \eps^\mu(p,0) 
+\end{eqnarray}
+\begin{eqnarray}
+    J_- \eps^\mu(p,0) = 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & -i \\
+        0 & - 1 & i & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 \\ 1 \\ -i \\ 0
+    \end{pmatrix}
+    =\sqrt{2} \eps^\mu(p,-1) 
+\end{eqnarray}
+\begin{eqnarray}
+    J_- \eps^\mu(p,-1) = 
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & -i \\
+        0 & - 1 & i & 0
+    \end{pmatrix}
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ 1 \\ -i \\ 0
+    \end{pmatrix}
+    =    
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 0
+    \end{pmatrix}
+    = 0
+\end{eqnarray}
+\begin{eqnarray}
+    J_+ \eps^\mu(p,+1) =
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 &  -1 \\
+        0 & 0 & 0 & -i \\
+        0 &  1 & i & 0
+    \end{pmatrix}
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ -1 \\ -i \\ 0
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+        0 \\ 0 \\ 0 \\ 0
+    \end{pmatrix}
+    =0
+\end{eqnarray}
+
+
+\section{ }
+\begin{itemize}
+    \item  $\eps^\mu(p',h)$, 
+    \begin{eqnarray}
+    \eps^\mu(p',h) = B_z(y) \eps^\mu(p,h)=
+        \begin{pmatrix}
+            \cosh y & 0 & 0 & \sinh y \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            \sinh y & 0 & 0 & \cosh y
+        \end{pmatrix}
+    \eps^\mu(p,h),
+    \end{eqnarray}
+    we have 
+    \begin{eqnarray}
+        \eps^\mu(p',1)
+        =\eps^\mu(p,1),~~
+        \eps^\mu(p',0)=
+        \begin{pmatrix}
+            \sinh y \\ 0 \\ 0 \\ \cosh y
+        \end{pmatrix},~~
+        \eps^\mu(p',-1)=\eps^\mu(p,-1)
+    \end{eqnarray}
+    \item $\eps^\mu(p{''},h)$
+    \begin{eqnarray}
+        \eps^\mu(p{''},h)  = R_y(\theta) \eps^\mu(p',h) =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 &\cos\theta & 0 &\sin\theta \\
+            0 & 0 & 1 & 0\\
+            0 &-\sin\theta & 0 & \cos\theta
+        \end{pmatrix}
+        \eps^\mu(p',h),
+    \end{eqnarray}
+    \begin{eqnarray}
+        \eps^\mu(p{''},\pm1)=
+        \frac{1}{\sqrt 2}
+        \begin{pmatrix}
+            0 \\ \mp \cos\theta \\ -i \\ \pm \sin\theta
+        \end{pmatrix},~~~
+        \eps^\mu(p{''},0)=
+        \begin{pmatrix}
+            \sinh y \\ \sin\theta\cosh y \\ 0 \\\cos\theta \cosh y
+        \end{pmatrix},
+    \end{eqnarray}
+    \item $\eps^\mu(p{'''},h)$
+    \begin{eqnarray}
+        \eps^\mu(p{'''},h) = R_z(\phi)   \eps^\mu(p{''},h)=
+        \begin{pmatrix}
+            1 & 0 & 0 & 0\\
+            0 & \cos\phi & -\sin\phi & 0 \\
+            0 & \sin\phi & \cos\phi & 0 \\
+            0 & 0 & 0 & 1
+           \end{pmatrix}
+           \eps^\mu(p{''},h),
+    \end{eqnarray}
+    \begin{eqnarray}
+        \eps^\mu(p{'''},1) = \frac{1}{\sqrt 2}
+        \begin{pmatrix}
+            0 \\ -\cos\phi\cos\theta+i\sin\phi \\ -\sin\phi\cos\theta-i\cos\phi \\ \sin\theta
+        \end{pmatrix}
+    \end{eqnarray}
+    \begin{eqnarray}
+        \eps^\mu(p{'''},0) =
+        \begin{pmatrix}
+            \sinh y \\ \cos\phi\sin\theta\cosh y \\ \sin\phi\sin\theta\cosh y \\ \cos\theta\cosh y
+        \end{pmatrix}
+    \end{eqnarray}
+    \begin{eqnarray}
+        \eps^\mu(p{'''},-1) = \frac{1}{\sqrt 2}
+        \begin{pmatrix}
+            0 \\ \cos\phi\cos\theta+i\sin\phi \\ \sin\phi\cos\theta-i\cos\phi \\ -\sin\theta
+        \end{pmatrix}
+    \end{eqnarray}
+\end{itemize}
+
+\section{ }
+Using $E = m\cosh y$, $p = m\sinh y$ we can write 
+\begin{eqnarray}
+    &&p^\mu
+    = (E, p\sin\theta\cos\phi, p\sin\theta\sin\phi, p\cos\theta) \\
+    &&\eps^\mu(p,h=0)
+    = \frac{1}{m}(p, E\sin\theta\cos\phi, E\sin\theta\sin\phi, E\cos\theta)  
+\end{eqnarray}
+as
+\begin{eqnarray}
+    \eps^\mu(p,h=0) - \frac{p^\mu}{m}
+  &=& -\frac{E-p}{m} (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta) \\
+  &=& -\frac{m}{E+p} (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta) \\
+  &=& -e^{-y}  (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta),
+\end{eqnarray}
+in the last step we used
+\begin{eqnarray}
+    \frac{m}{E+p}=\left(\frac{E+p}{m}\right)^{-1} = (\cosh y +\sinh y)^{-1}= e^{-y} .
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item A special case $n=(p,-\vec{p})$
+\end{itemize}
+\begin{eqnarray}
+    &&2 \eps^\mu(p,\pm1) \eps^\nu(p,\pm1)^* =
+    \begin{pmatrix}
+        0 \\ \mp\cos\phi\cos\theta+i\sin\phi \\ \mp\sin\phi\cos\theta-i\cos\phi \\ \pm \sin\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ \mp\cos\phi\cos\theta+i\sin\phi \\ \mp\sin\phi\cos\theta-i\cos\phi \\ \pm \sin\theta
+    \end{pmatrix}^\dgr \nonumber \\
+   &=& 
+   \begin{pmatrix}
+       0 & 0 & 0 & 0 \\
+       0 & \cos^2\theta\cos^2\phi+\sin^2\phi & -\sin^2\theta\sin\phi\cos\phi \mp i\cos\theta & -\sin\theta\cos\theta\cos\phi\pm i \sin\theta\sin\phi \\
+       0 & -\sin^2\theta\sin\phi\cos\phi \pm i\cos\theta & \cos^2\theta\sin^2\phi  + \cos^2\phi & -\sin\theta\cos\theta \sin\phi \mp i\sin\theta\sin\phi \\
+       0 &  -\sin\theta\cos\theta\cos\phi \mp i \sin\theta\sin\phi & -\sin\theta\cos\theta\sin\phi \pm i \sin\theta\cos\phi & \sin^2\theta
+   \end{pmatrix} \nonumber 
+\end{eqnarray}
+\begin{eqnarray}
+    &&\eps^\mu(p,0) \eps^\nu(p,0)^* = 
+    \begin{pmatrix}
+        \sinh y \\ \cos\phi\sin\theta\cosh y \\ \sin\phi\sin\theta\cosh y \\ \cos\theta\cosh y
+    \end{pmatrix}
+    \begin{pmatrix}
+        \sinh y \\ \cos\phi\sin\theta\cosh y \\ \sin\phi\sin\theta\cosh y \\ \cos\theta\cosh y
+    \end{pmatrix}^\dagger \nonumber \\
+    &=& \frac{1}{m^2}
+    \begin{pmatrix}
+        p^2 & pE\sin\theta\cos\phi & pE\sin\theta\sin\phi & pE\cos\theta \\
+        pE\sin\theta\cos\phi & E^2\sin^2\theta\cos^2\phi & E^2\sin^2\theta\sin\phi\cos\phi & E^2 \sin\theta\cos\theta\cos\phi \\
+        pE\sin\theta\sin\phi & E^2 \sin^2\theta\sin\phi\cos\phi & E^2 \sin^2\theta\sin^2\phi & E^2\sin\theta\cos\theta\sin\phi \\
+        pE \cos\theta & E^2 \sin\theta\cos\theta\cos\phi & E^2 \sin\theta\cos\theta\sin\phi & E^2\cos^2\theta 
+    \end{pmatrix} \nonumber 
+\end{eqnarray}
+Now we are ready to write
+\begin{eqnarray}
+    &&\sum_{h=\pm1,0} \eps^\mu(p,h) \eps^\nu(p,h)^* \nonumber \\&=&  \frac{1}{m^2}
+    \begin{pmatrix}
+        p^2 & pE\sin\theta\cos\phi & pE\sin\theta\sin\phi & pE\cos\theta \\
+        pE\sin\theta\cos\phi & p^2\sin^2\theta\cos^2\phi+m^2 & p^2 \sin^2\theta\sin\phi\cos\phi & p^2\sin\theta\cos\theta\cos\phi \\
+        pE\sin\theta\sin\phi & p^2 \sin^2\theta\sin\phi\cos\phi & p^2\sin^2\theta\sin^2\phi + m^2 & p^2 \sin\theta\cos\theta\sin\phi \\ 
+        pE \cos\theta & p^2\sin\theta\cos\theta\cos\phi & p^2\sin\theta\cos\theta\sin\phi & p^2\cos^2\theta+m^2
+        \end{pmatrix}\nonumber \\
+        &=& \frac{1}{m^2} 
+        \begin{pmatrix}
+            p^0p^0-m^2 & p^0p^1 & p^0p^2 & p^0p^3 \\
+            p^1p^0 & p^1p^1+m^2 & p^1p^2 & p^1p^3 \\
+            p^2p^0 & p^2p^1 & p^2p^2+m^2 & p^2p^3 \\
+            p^3p^0 & p^3p^1 & p^3p^2 & p^3p^3+m^2 
+        \end{pmatrix},
+\end{eqnarray}
+which is
+\begin{eqnarray}
+    \sum_{h=\pm1,0} \eps^\mu(p,h) \eps^\nu(p,h)^*
+  = [ -g^{\mu\nu} + \frac{p^\mu p^\nu}{m^2} ]
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item A special case ($n=(p,-\vec{p})$) inspired from the massive vector boson case.
+
+    One can apply Lorentz transformation on $\eps^\mu(p,\pm1)= (0,\mp1,-i,0)$ and get 
+    \begin{eqnarray}
+        &&\sum_{h=\pm 1} \eps^\mu(p,h) \eps^\nu(p,h)^*\nonumber \\&=&
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & \cos^2\theta\cos^2\phi+\sin^2\phi & -\sin^2\theta\sin\phi\cos\phi  & -\sin\theta\cos\theta\cos\phi \\
+            0 & -\sin^2\theta\sin\phi\cos\phi & \cos^2\theta\sin^2\phi  + \cos^2\phi & -\sin\theta\cos\theta \sin\phi  \\
+            0 &  -\sin\theta\cos\theta\cos\phi & -\sin\theta\cos\theta\sin\phi  & \sin^2\theta
+        \end{pmatrix}
+    \end{eqnarray}
+    and one will see it is
+    \begin{eqnarray}
+        \sum_{h=\pm 1} \eps^\mu(p,h) \eps^\nu(p,h)^*
+          = -g^{\mu\nu} + (n^\mu p^\nu + n^\nu p^\mu)/(n\cdot p) 
+    \end{eqnarray}
+    if one choose $n=(p,-\vec{p}$.
+    
+    \item General discussion
+    
+    First the conditions for the polarization vectors are the following:
+    
+    \begin{align}
+        n_\mu \epsilon^\mu & = 0\\
+        p_\mu \epsilon^\mu & = 0\\
+        p_\mu p^\mu & = n_\mu n^\mu = 0
+    \end{align}
+    
+    There are only two polarization vectors satisfying the above conditions, which are denoted by $\epsilon^\mu(p,h=\pm 1)$.\\
+    
+    So we can construct two more independent vectors to complete the 4-dimensional vector space:
+    
+    \begin{align}
+        \epsilon_3^\mu & = \frac{n^\mu + p^\mu}{\sqrt{2n\cdot p}}\\
+        \epsilon_4^\mu & = \frac{n^\mu - p^\mu}{\sqrt{2n\cdot p}}\\
+    \end{align}
+    
+    These two vectors automatically satisfy the requirements of being independent of other vectors and being normalized.\\
+    
+    So the sum of all 4 vectors give the metric tensor of the vector space:
+    
+    \begin{align*}
+        g^{\mu\nu} & = -\sum_{h=\pm 1} \epsilon^\mu(p,h)\epsilon^\nu(p,h)^* + \epsilon^\mu_3 \epsilon^{\nu*}_3 - \epsilon^\mu_4 \epsilon^{\nu*}_4 \\
+        \sum_{h=\pm 1} \epsilon^\mu(p,h)\epsilon^\nu(p,h)^* & = -g^{\mu\nu} + \frac{n^\mu n^{\nu} + n^\mu p^\nu + p^\mu n^{\nu} + p^\mu p^\nu}{2n\cdot p} - \frac{n^\mu n^{\nu} - n^\mu p^\nu - p^\mu n^{\nu} + p^\mu p^\nu}{2n\cdot p}\\
+        \sum_{h=\pm 1} \epsilon^\mu(p,h)\epsilon^\nu(p,h)^* & = -g^{\mu\nu} + \frac{n^\mu p^\nu + p^\mu n^{\nu}}{n\cdot p}
+    \end{align*}
+    
+    The minus signs are due to the normalization factor of $\epsilon^\mu(p,h)$ and $\epsilon^\mu_4$ being $-1$.
+    
+    
+\end{itemize}
+
+
+\section{ }
+For 
+\begin{eqnarray}
+    p^\mu = (|p|, 0, 0, |p|),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    &&\sum_{h=\pm 1} \eps^\mu(p,h) \eps^\nu(p,h)^*
+      = -g^{\mu\nu} + (n^\mu p^\nu + n^\nu p^\mu)/(n\cdot p) \\
+    &=&-
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1& 0 & 0 \\
+        0 & 0 & -1& 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix}
+    +\frac{1}{2|p|^2}
+    \begin{pmatrix}
+        2|p|^2 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -2|p|^2
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+For 
+\begin{eqnarray}
+    p^\mu = (E, 0, 0, E),~~~n^\mu = (1,\sin\theta, 0, \cos\theta),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    &&\sum_{h=\pm 1} \eps^\mu(p,h) \eps^\nu(p,h)^*
+      = -g^{\mu\nu} + (n^\mu p^\nu + n^\nu p^\mu)/(n\cdot p) \\
+    &=&-
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1& 0 & 0 \\
+        0 & 0 & -1& 0 \\
+        0 & 0 & 0 & -1
+    \end{pmatrix}
+    +\frac{1}{E(1-\cos\theta)}
+    \begin{pmatrix}
+        2E & E\sin\theta  & 0 & E(1+\cos\theta) \\
+        E\sin\theta & 0 & 0 & E\sin\theta \\
+        0 & 0 & 0 & 0 \\
+        E(1+\cos\theta) & E\sin\theta & 0 & 2E\cos\theta
+    \end{pmatrix} \\
+    &=&\frac{1}{1-\cos\theta}
+    \begin{pmatrix}
+        1+\cos\theta & \sin\theta & 0 & 1+\cos\theta \\
+        \sin\theta & 1-\cos\theta & 0 & \sin\theta \\
+        0 & 0 & 1-\cos\theta & 0 \\
+        1+\cos\theta & \sin\theta & 0 & 1+\cos\theta
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    &&A=J_x+K_y=
+    \begin{pmatrix}
+        0 & 0 & 0 & 0\\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix} \\
+    &&B=J_y-K_x=
+    \begin{pmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & i \\
+        0 & 0 & 0 & 0 \\
+        0 & -i & 0 & 0 
+      \end{pmatrix}
+    -
+    \begin{pmatrix}
+        0 & i & 0 & 0\\ 
+        i & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0 & i & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & 0 & 0 \\
+        0 & i & 0 & 0 
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+    && A \eps^\mu(p,h) = 
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix} 
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ \mp 1 \\ -i \\ 0
+    \end{pmatrix}
+    =
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        1 \\ 0 \\ 0 \\ 1
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+    && B \eps^\mu(p,h) = 
+    \begin{pmatrix}
+        0 & i & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & 0 & 0 \\
+        0 & i & 0 & 0 
+    \end{pmatrix}
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ \mp 1 \\ -i \\ 0
+    \end{pmatrix}
+    =
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        \mp i \\ 0 \\ 0 \\ \mp i
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    && A^2 \eps^\mu(p,h) = 
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix} 
+    \begin{pmatrix}
+        0 & 0 & i & 0\\ 
+        0 & 0 & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & i & 0
+    \end{pmatrix} 
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ \mp 1 \\ -i \\ 0
+    \end{pmatrix}
+    =0
+\end{eqnarray}
+\begin{eqnarray}
+    && B^2 \eps^\mu(p,h) = 
+    \begin{pmatrix}
+        0 & i & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & 0 & 0 \\
+        0 & i & 0 & 0 
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & i & 0 & 0 \\
+        i & 0 & 0 & -i \\
+        0 & 0 & 0 & 0 \\
+        0 & i & 0 & 0 
+    \end{pmatrix}
+    \frac{1}{\sqrt 2}
+    \begin{pmatrix}
+        0 \\ \mp 1 \\ -i \\ 0
+    \end{pmatrix}
+    =0
+\end{eqnarray}
+Since $A \eps^\mu(p,h)$ and $B \eps^\mu(p,h)$ a in the form of
+\begin{eqnarray}
+    \begin{pmatrix}
+        \eps & 0 & 0 & \eps 
+    \end{pmatrix}^T,
+\end{eqnarray}
+we see 
+\begin{eqnarray}
+    p^\mu A \eps^\mu(p,h) = p^\mu B \eps^\mu(p,h) = 0.
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    A&=& J_x+k_y = \frac{1}{2}[(J_x+iK_x+J_x-iK_x)-i(J_y+iK_y-J_y+iK_y)]\\
+    &=&A_x+B_x-i(A_y-B_y) \\
+    B&=& J_y-k_x = \frac{1}{2}[(J_y+iK_y+J_y-iK_y)+i(J_x+iK_x-J_x+iK_x)]\\
+    &=&A_y+B_y+i(A_x-B_x) 
+\end{eqnarray}
+Now we write
+\begin{eqnarray}
+    &&A_L=A_x-iA_y = 
+    \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix},~~~
+    A_R=B_x+iB_y = 
+    \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix},\\
+    &&B_L=A_y+iA_x = 
+    \begin{pmatrix}
+        0 & 0 \\
+        i & 0
+    \end{pmatrix},~~~
+    B_R=B_y-iB_x = 
+    \begin{pmatrix}
+        0 & -i \\
+        0 & 0
+    \end{pmatrix}.
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    &&A_L u_L (p,-\frac{1}{2}) = 
+    \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    =0 ,\\
+    &&B_L u_L (p,-\frac{1}{2}) = 
+    \begin{pmatrix}
+        0 & 0 \\
+        i & 0
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    =0 ,\\
+    &&A_R u_R (p,\frac{1}{2}) = 
+    \begin{pmatrix}
+        0 & 1 \\
+        0 & 0
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+    =0 ,\\
+    &&B_R u_R (p,\frac{1}{2}) = 
+    \begin{pmatrix}
+        0 & -i \\
+        0 & 0
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+    =0
+\end{eqnarray}
+
+\section{ }
+With
+\begin{eqnarray}
+    \Psi = 
+    \begin{pmatrix}
+        \psi_L\\ \psi_R
+    \end{pmatrix},
+\end{eqnarray}
+we write
+\begin{eqnarray}
+    \Psi {\overline \Psi} = \Psi \Psi^\dagger \gamma^0 =
+    \begin{pmatrix}
+        \psi_L\\ \psi_R
+    \end{pmatrix}
+    \begin{pmatrix}
+        \psi_R^\dagger & \psi_L^\dagger
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \psi_L \psi_R^\dagger & \psi_L\psi_L^\dagger \\
+        \psi_R\psi_R^\dagger  & \psi_R\psi_L^\dagger
+    \end{pmatrix}.
+\end{eqnarray}
+Now we insert the spinors in rest frame
+\begin{eqnarray}
+    &&u_L(p,\frac{1}{2})=u_R(p,\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        1 \\ 0 
+    \end{pmatrix}, ~~
+    u_L(p,-\frac{1}{2})=u_R(p,-\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        0 \\ 1 
+    \end{pmatrix},\\
+    &&v_L(p,\frac{1}{2})=i\sigma^2u_R^*(p,\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        0 \\ -1 
+    \end{pmatrix},~~
+    v_R(p,\frac{1}{2})=-i\sigma^2u_L^*(p,\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        0 \\ 1 
+    \end{pmatrix}, \\
+    &&v_L(p,-\frac{1}{2})=i\sigma^2u_R^*(p,-\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        1 \\ 0 
+    \end{pmatrix},\\
+    &&v_R(p,-\frac{1}{2})=-i\sigma^2u_L^*(p,-\frac{1}{2}) = \sqrt{m}
+    \begin{pmatrix}
+        -1 \\ 0 
+    \end{pmatrix}
+\end{eqnarray}
+and have
+\begin{eqnarray}
+    &&\sum_{h=\pm1/2} u(p,h) {\overline u}(p,h)=
+    \begin{pmatrix}
+        m & 0 & m & 0 \\
+        0 & m & 0 & m \\
+        m & 0 & m & 0 \\
+        0 & m & 0 & m 
+    \end{pmatrix}
+    = m + p^\mu \gamma_\mu \\
+    &&\sum_{h=\pm1/2} v(p,h) {\overline v}(p,h)=
+    \begin{pmatrix}
+        -m & 0 & m & 0 \\
+        0 & -m & 0 & m \\
+        m & 0 & -m & 0 \\
+        0 & m & 0 & -m 
+    \end{pmatrix}
+    = -m + p^\mu \gamma_\mu.
+\end{eqnarray}
+Note that in the last step we take
+\begin{eqnarray}
+    p^\mu \gamma_\mu = m \gamma^0 =
+    \begin{pmatrix}
+        0 & 1\\
+        1 & 0
+    \end{pmatrix}
+\end{eqnarray}
+in the rest frame.
+
+\section{ }
+In the massless case, note 
+\begin{eqnarray}
+    u_L(p.\frac{1}{2})=u_R(p,-\frac{1}{2})=0
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    \sum_{h=\pm1/2} \Psi(p,h) {\overline \Psi}(p,h) =
+    \begin{pmatrix}
+        0 & \psi_L\psi_L^\dagger \\
+        \psi_R\psi_R^\dagger  & 0
+    \end{pmatrix}, 
+\end{eqnarray}
+for $\Psi(p,h)=u(p,h)$ and $\Psi(p,h)=v(p,h)$, respectively.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

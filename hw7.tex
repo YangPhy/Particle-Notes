@@ -1,0 +1,575 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW7 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+  This week, I introduce the Higgs mechanism of the SM.
+  Before giving the homework for the Higgs mechanism, let
+  me give two comments regarding the past homeworks.
+  First, about the vector ($3 \times 3$ matrix) representation
+  of rotation, $SO(3)$.
+ \begin{eqnarray}
+  O(\theta_1,\theta_2,\theta_3) = e^{ i (\theta_1 J_1 + \theta_2 J_2 + \theta_3 J_3) }
+ \end{eqnarray}
+   The above oprators transform the coordinate system,
+\begin{eqnarray}
+  (x,y,z)^T \to (x',y',z')^T = O(\theta_1,\theta_2,\theta_3) (x,y,z)^T
+\end{eqnarray}
+  The object, $v = (v_x,v_y,v_z)^T$, then transform as
+\begin{eqnarray}
+  v \to v' = (v'_x,v'_y,v'_z)^T
+  = O(\theta_1,\theta_2,\theta_3)^{-1} v
+  = e^{ -i (\theta_1 J_1 + \theta_2 J_2 + \theta_3 J_3) } v
+\end{eqnarray}
+   Therefore, when you obtain the generators from the
+  transformations of the right-handed coordinates,
+  you should use
+\begin{eqnarray}
+  (x,y,z)^T \to (x',y',z')^T = O(\theta_1,\theta_2,\theta_3) (x,y,z)^T
+\end{eqnarray}
+   Also, please note that the right handed coordinate
+  rotate e.g. as
+\begin{eqnarray}
+  (x,y,z)^T \to (x',y',z)^T = O(0,0,\theta) (x,y,z)^T
+                          = e^{ i \theta J_3 } (x,y,z)^T
+\end{eqnarray}
+ with
+ \begin{eqnarray}
+   x' &=& \cos\theta x+ \sin \theta y \\
+   y' &=& -\sin \theta x + \cos \theta y  
+ \end{eqnarray}
+This determines $J_3$ as $(J_3)_{12} = -i$.
+Then, $J_1$ and $J_2$ are obtained by cyclic rotation,
+\begin{eqnarray}
+  (J_1)_{23} = (J_2)_{31} = (J_3)_{12} = -i
+\end{eqnarray}
+   $J_1$, $J_2$, $J_3$ are now fixed by their Hermiticity.
+
+  The correctness should be checked by the fundamental
+  commutation relation for the right-handed rotations:
+\begin{eqnarray}
+  [ J_i, J_j ] = i \epsilon_{ijk} J_k
+\end{eqnarray}
+   or
+\begin{eqnarray}
+  &&[{J_1},{J_2}]= i {J_3}\\
+  &&[{J_2},{J_3}]= i {J_1}\\
+  &&[{J_3},{J_1}]= i {J_2}
+\end{eqnarray}
+ 
+  Some of you made the sign errors e.g. for $J_1$ and $J_2$,
+  and then the first commutation relation holds, but not
+  the other two.
+
+  It is very very important to note that there is no
+  sign ambiguity for the rotation generators, because
+  of the fundamental commutation relations.
+
+  As for the relation between $U(1)$ and $SO(2)$, all what
+  I wanted you to recall is the well known relationship
+  between the rotation in the real $(x,y)$ coordinate and
+  the phase transformation of the complex number z=x+iy.
+
+  In short, $U(1)$ transformation of $z$,
+\begin{eqnarray}
+  z \to z' = e^{i\theta} z
+  = e^{i \theta} |z| e^{i\arg(z)}
+  = |z| e^{i(\arg(z)+\theta)}
+\end{eqnarray}
+  can be expressed as
+\begin{eqnarray}
+  x+iy \to  x'+iy' &=& e^{i\theta} (x+iy)
+              = (\cos\theta+i\sin\theta)(x+iy) \\
+              &=& (\cos\theta x -\sin\theta y)
+              +i(\sin\theta x +\cos\theta x)
+\end{eqnarray}
+  which is an $SO(2)$ rotation,
+\begin{eqnarray}
+  (x,y)^T \to (x',y')^T = O (x,y)^T.
+\end{eqnarray}
+
+  This is the right-handed rotation of an object
+  (rather than the coordinate), since it corresponds
+  to the rotation of a vector denoted by the complex
+  number, $z = x+iy$, in the $(x,y)$ plane.
+
+  This is the reason why we find
+\begin{eqnarray}
+  O(\theta) = e^{ -i \sigma^2 \theta}
+\end{eqnarray}
+   with the $-i$ factor in front of the $SO(2)$ generator $\sigma^2$,
+  which is just the $2 \times 2$ ($x$ and $y$) component of the $SO(3)$
+  generator $J_3$.
+
+
+
+{\bf Now, let me give the homework 07 for the Higgs mechanism.}
+
+  I introduced the SM Lagrangian as
+  \begin{eqnarray}
+    L_{SM} = L_{gauge} + L_{fermion} + L_{Higgs} + L_{Yukawa} \label{eq.7SM}
+  \end{eqnarray}
+    and explained how $L_{gauge}$, $L_{fermion}$, $L_{Higgs}$ and $L_{Yukawa}$
+  are invariant under the SM gauge group,
+\begin{eqnarray}
+  SU(3)_{color} \times SU(2)_L \times U(1)_Y \label{eq.7G}
+\end{eqnarray}
+  
+  In this hw 07, we review $L_{Higgs}$, and
+  obtain the mass-eigenstate weak bosons (the charged weak
+  boson $W^+$ and $W^-$, the neutral weak boson $Z$, and the photon $A$
+  We will then come back to $L_{fermion}$, and find its expressions
+  in terms of physical gauge bosons, $W$, $Z$, $A$ and gluons ($A^a$).
+
+  First, let us review how $SU(2)_L \times U(1)_Y$ gauge
+  symmetry can be broken spontaneously down to $U(1)_{EM}$
+  by a very simple $L_{Higgs}$ of the MSM.
+
+  $L_{Higgs}$ consists of just one Higgs doublet in the
+  minimal SM (MSM), which Weinberg introduced in 1967
+  as a theory of leptons.  Its extention to quarks
+  was achieved in 1971 by Glasho-Illiopoulos-Maiani (GIM)
+  by postulating the 4'th quark, the charm.  Weinberg's
+  MSM was not able to explain the smallness of
+  flavor-changing (strangeness-changing) neutral current,
+  or the extreme smallness of the $K^0-\overline{K^0}$ mixing.
+  Weinberg therefore proposed his model as a model for
+  leptonic weak interactions, since he recognized the problem
+  of applying his model to hadrons.  GIM showed that
+  if there is a 4'th quark in addition to the 3 known
+  ones (up, down, and strange), the observed smallness
+  of the FCNC can be explained within Weinberg's MSM.
+  You should understand all these details during the
+  course of my lectures.  To understand them is to
+  understand the SM, or the world as we see it now.
+
+  The Higgs doublet of the SM has the
+  $SU(3)_{color} \times SU(2)_L \times U(1)_Y$ quantum numbers
+  $(1, 2, +1/2)$:
+  \begin{eqnarray}
+    \phi= 
+    \begin{pmatrix}
+      \phi^+ \\ \phi^0
+    \end{pmatrix} \label{eq.7Higgs}
+  \end{eqnarray}
+   where the charge assignment follows the {\bf Gell-Mann Nishijima
+  relation} 
+\begin{eqnarray}
+  Q = T_3 + Y \label{eq.7charge}
+\end{eqnarray}
+  The gauge invariant Lagrangian $L_{Higgs}$ of the doublet Eq.\ref{eq.7Higgs} is
+  \begin{eqnarray}
+    L_{Higgs} = (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi)
+  \end{eqnarray}
+   The invariance of the kinetic part under the gague
+  transformation
+\begin{eqnarray}
+  \phi(x) \to U(x) \phi(x)
+\end{eqnarray}
+  should be clear by now from the transformation property of
+  the covariant derivative
+\begin{eqnarray}
+  D_\mu \to D'_\mu = U(x) D_\mu U(x)^{-1}
+\end{eqnarray}
+  The potential $V(\phi)$ is a function of $\phi$, without
+  derivatives.  It should be invariant under the SM gauge
+  transformation
+\begin{eqnarray}
+  V(\phi) \to V(\phi') = V(\phi)
+\end{eqnarray}
+ for all $SU(2)_L \times U(1)_Y$ transformations,
+ \begin{eqnarray}
+  \phi \to \phi' = U(\theta^1,\theta^2,\theta^3,\theta^0) \phi
+ \end{eqnarray}
+  with
+\begin{eqnarray}
+  U = e^{i(T^1\theta^2 +T^2\theta^2 +T^3\theta^3 +Y\theta^0)}
+\end{eqnarray}
+  We can easily find the solution by noting that $\phi^\dagger \phi$
+  is invariant under all the transformations. We can now make
+  the gauge invariant potential as follows:
+\begin{eqnarray}
+  V(\phi) = \frac{\lambda}{4} (\phi^\dagger \phi)^2
+  + \mu^2 (\phi^\dagger \phi)
+\end{eqnarray}
+ Note that this potential has a minimum when $\lambda > 0$
+
+  Let us denote the location of the minimum (vacuum) as
+\begin{eqnarray}
+  <\phi> = ( <\phi_u>, <\phi_d> )^T \label{eq.7vacuum}
+\end{eqnarray}
+ Here, I wrote
+\begin{eqnarray}
+  \phi = 
+  \begin{pmatrix}
+    \phi_u \\ \phi_d
+  \end{pmatrix}
+\end{eqnarray}
+  instead of Eq.\ref{eq.7Higgs}, in order to show that the definition
+  of the electric charge, Eq.\ref{eq.7charge}, follows from Eq.\ref{eq.7vacuum} by an $SU(2)_L \times U(1)_Y$ rotation:
+  \begin{eqnarray}
+    \phi \to \phi' = U(\theta_2) U(\theta_3) U(\theta_0) \phi \label{eq.721ro}
+  \end{eqnarray}
+   where $U(\theta_2) = U(0,\theta_2,0,0)$, $U(\theta_3) = U(0,0,\theta_3,0)$, $U(\theta_0) = U(0,0,0,\theta_0)$, with the notation
+\begin{eqnarray}
+  U(\theta_1,\theta_2,\theta_3,\theta_0)
+  = e^{ i \sum_k \theta_k T^k }
+\end{eqnarray}
+ where $T^k = \sigma^k/2 (k=1,2,3)$ and $T^0 = {\rm diag}\{1,1\}/2$.
+
+  For instance, if
+\begin{eqnarray}
+  <\phi_u> &=& \frac{v}{\sqrt 2} \sin\theta e^{i\alpha} \nonumber \\
+  <\phi_d> &=& \frac{v}{\sqrt 2} \cos\theta e^{i\beta} \label{eq.7egcon}
+\end{eqnarray}
+   with $v>0$, then the transformation Eq.\ref{eq.721ro} with
+\begin{eqnarray}
+  \theta_0 &=& -(\alpha+\beta)\\
+  \theta_3 &=& -(\alpha-\beta)\\
+  \theta_2 &=& -2\theta
+\end{eqnarray}
+  gives
+\begin{eqnarray}
+  <\phi> \to <\phi'>
+    &=& U(\theta_2) U(\theta_3) U(\theta_0)
+    \begin{pmatrix}
+      <\phi_u> \\ <\phi_d>
+    \end{pmatrix} \\
+    &=& U(\theta_2) U(\theta_3) 
+    \begin{pmatrix}
+      v \sin\theta e^{i(\alpha-\beta)/2} /\sqrt 2 \\
+      v \cos\theta e^{i(\beta-\alpha)/2} /\sqrt 2
+    \end{pmatrix}
+     = U(\theta_2) 
+     \begin{pmatrix}
+       \frac{\sin\theta v}{\sqrt 2} \\
+       \frac{\cos\theta v}{\sqrt 2}
+     \end{pmatrix} \\
+    &=&
+    \begin{pmatrix}
+      0 \\ \frac{v}{\sqrt 2}
+    \end{pmatrix} \label{eq.7eg}
+\end{eqnarray}
+
+
+{\bf hw07-1}: Show the above derivation, from Eq.\ref{eq.7egcon} to Eq.\ref{eq.7eg}.
+
+  This exercise is important for you to understand that the
+  preservation of electromagnetic gauge invariance is automatic
+  in MSM.
+
+  Because the Lagrangian is $SU(2)_L \times U(1)_Y$ invariant,
+  we can always perform the transformation (Eq.\ref{eq.7eg}) to arrive at
+  the definition of the $T^3$ axis, such that the v.e.v. exists
+  only in the lower ($T^3 = -1/2$) component of the $Y=1/2$ Higgs
+  doublet, where the Nishijima-GellMann relation (Eq.\ref{eq.7charge}) tells
+  that only the $Q_{EM}=0$ component of the Higgs doublet has
+  the v.e.v..  This ensures that the $U(1)_{EM}$ invariance holds
+  even after the symmetry breaking.  We express this fact as
+\begin{eqnarray}
+  SU(2)_L \times U(1)_Y  \to  U(1)_{EM}
+\end{eqnarray}
+    Now, if the Higgs potential is minimized at Eq.\ref{eq.7egcon} or Eq.\ref{eq.7eg}, then the potential should have zero derivative there:
+\begin{eqnarray}
+\left (\frac{\del V(\phi)}{\del \phi} \right )_{ \phi = <\phi>} = 0 \label{eq.7pd}
+\end{eqnarray}
+  From the MSM potential (Eq.\ref{eq.7vacuum}), we find
+\begin{eqnarray}
+  [\frac{\lambda}{2} (<\phi>^\dagger <\phi>) + \mu^2] <\phi>^\dagger = 0
+\end{eqnarray}
+  Because $<\psi>^\dagger <\psi>$ is positive semi-definite,
+  we find
+  \begin{enumerate}
+    \item If $\mu^2 > 0$, then $<\phi>^\dagger = <\phi> = 0$
+    is the only solution. \label{it.7s1}
+    \item If $\mu^2 < 0$, then in addition to $<\phi> = 0$,
+    $<\phi>^\dagger <\phi> = -2\mu^2/\lambda$ also is a solution. \label{it.7s2}
+  \end{enumerate}
+
+
+{\bf hw07-2}: Show above \ref{it.7s1} and \ref{it.7s2}.  Especially, when \ref{it.7s2} holds, please compare the energy of the two solutions and find the true vacuum (the lowest energy state of the potential).
+
+  When \ref{it.7s1} holds, the potential is minimized at the symmetric
+  point $<\phi> = ( 0, 0 )^T$, and there is no breakdown of the
+  symmetry.  The Higgs doublet (the charged boson and the complex
+  neutral boson) has a common mass of $\mu$, all the weak bosons
+  are massless, and all the quarks and leptons are massless.
+
+  When \ref{it.7s2} holds, we find the solution
+\begin{eqnarray}
+  <\phi>^\dagger <\phi> = |<\phi_u>|^2 + |<\phi_d>|^2
+                            = \frac{-2\mu^2}{\lambda}
+                            = \frac{v^2}{2} \label{eq.7so}
+\end{eqnarray}
+  gives the lowest energy state, and hence the vacuum.
+  The meaning of the factor of 1/2 in the definition of v in
+  Eq.\ref{eq.7so} will become clear later.
+
+  From the potential parameters, only the sum of the absolute
+  value squareds of the upper and lower components of the v.e.v.
+  of the Higgs doublet $\phi$ is determined.  The most general
+  parametrization of the v.e.v. should hence be as in Eq.\ref{eq.7vacuum}
+  and Eq.\ref{eq.7egcon}.  As shown in Eq.\ref{eq.7eg}, the new $T^3$ axis can be chosen along the direction of the v.e.v., such that the v.e.v. resides
+  solely in the $T^3 = -1/2$ component,
+\begin{eqnarray}
+  <\phi> = 
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+      \end{pmatrix}
+\end{eqnarray}
+  Most importantly, with this choice of isospin axis,
+  the Gell-Mann Nishijima relation
+\begin{eqnarray}
+  Q <\phi> = (T^3 + Y) <\phi> = 0 \label{eq.7charge0}
+\end{eqnarray}
+  or equivalently,
+\begin{eqnarray}
+  U_{EM}(\theta) <\phi> = e^{iQ\theta} <\phi> = <\phi>. \label{eq.7charge0e}
+\end{eqnarray}
+
+
+{\bf hw07-3}: Show Eq.\ref{eq.7charge0} and Eq.\ref{eq.7charge0e}.
+
+  When the generator of a symmetry ($Q$ in case of EM $U(1)$ symmetry)
+  vanishes the vacuum Eq.\ref{eq.7charge0}, the vacuum does not change (symmetric) under the symmetry transformation.
+
+  All the other 3 generators of the $SU(2)\times U(1)$ do not vanish
+  the vacuum,
+  $T^1$,$T^2$, $T^3-Y$
+  and the symmetry associated with the above 3 generators are
+  broken by the vacuum (spontaneously broken).
+
+  Let us first obtain the mass-eigen states of the massive
+  weak bosons by inserting Eq.\ref{eq.7pd} into $L_{Higgs}$
+\begin{eqnarray}
+  L_{Higgs}(\phi=<\phi>)
+  = (D_\mu \phi)^\dagger (D^\mu \phi)|_{\phi=<\phi>} \label{eq.7LHiggs}
+\end{eqnarray}
+  up to cnstants, since $V(\phi=<\phi>)$ is just a constant.
+  (In QFT, the minimum/vacuum energy is set to zero,
+  $V(<\phi>)=0$, by adding/subtracting the constant.)
+\begin{eqnarray}
+  D_\mu <\phi>
+  &=& D_\mu
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix}
+  =(\del_\mu + i g T^k W^k_\mu + i g' Y B_\mu)
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\ 
+  &=&i( g T^k W^k_\mu + g' Y B_\mu)
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=&i[g(T^1W^1_\mu+T^2W^2_\mu) + (gT^3W^3_\mu+g'YB_\mu)]
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=&i[(g/\sqrt2)(T^+W^+_\mu+T^-W^-_\mu)+(1/2)(gW^3_\mu \sigma^3+g'B_\mu)]
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=&\frac{v}{\sqrt 2}
+  \begin{pmatrix}
+    \frac{g}{\sqrt 2} W^+_\mu \\ (-gW^3_\mu+g'B_\mu)/2
+  \end{pmatrix} 
+   =\frac{iv}{\sqrt 2} 
+   \begin{pmatrix}
+    \frac{g}{\sqrt 2} W^+_\mu \\ -(g_z/2) Z_\mu
+  \end{pmatrix}\\
+   &=& i
+   \begin{pmatrix}
+    \frac{gv}{2} W^+_\mu \\ -\frac{g_zv}{2\sqrt2} Z_\mu
+   \end{pmatrix} \label{eq.7ppsi}
+\end{eqnarray}
+
+{\bf hw07-4}: Show Eq.\ref{eq.7ppsi}, by using Eq.(\ref{eq.7use1},\ref{eq.7use2},\ref{eq.7use3},\ref{eq.7use4},\ref{eq.7use5}).
+
+  In the above, I used
+  \begin{eqnarray}
+    T^1 W^1_\mu + T^2 W^2_\mu
+    &=& (T^1+iT^2)(W^1_\mu-iW^2_\mu)/2 + (T^1-iT^2)(W^1_\mu+iW^2_\mu)/2 \nonumber \\
+    &=& T^+(W^1_\mu-iW^2_\mu)/2 + T^-(W^1_\mu+iW^2_\mu)/2  \nonumber \\
+    &=& (T^+ W^+_\mu)/\sqrt2 + (T^- W^-_\mu)/\sqrt2 \label{eq.7use1}
+  \end{eqnarray}
+  where
+\begin{eqnarray}
+  W^+_\mu &=& (W^1_\mu - iW^2_\mu)/\sqrt2 \\ \label{eq.7use2}
+  W^-_\mu &=& (W^1_\mu + iW^2_\mu)/\sqrt2 \label{eq.7use3}
+\end{eqnarray}
+
+  Please note the sign in the r.h.s..  In QFT, the operator $W^+_\mu$
+  annihilates the $W^+$ boson, and creates the $W^-$ boson.  The factor
+  of $1/\sqrt2$ appears since $W^1$ and $W^2$ (together with $W^3$) are real
+  fields, while $W^+$ and $W^-$ are complex fields.
+
+  As for the neutral weak boson, I introduce the definition
+\begin{eqnarray}
+  Z_\mu = (g W^3_\mu - g' B_\mu)/\sqrt{ g^2 + g'^2 } \label{eq.7use4}
+\end{eqnarray}
+  and also introduced the coupling
+\begin{eqnarray}
+  g_z = \sqrt{ g^2 + g'^2 } \label{eq.7use5}
+\end{eqnarray} 
+
+  Now, we find
+\begin{eqnarray}
+  L_{Higgs}(\phi=<\phi>)
+  &=& (gv/2)^2 W^-_\mu W^{+ \mu} + (g_z v/2\sqrt2)^2 Z_\mu Z^\mu \nonumber \\
+  &=& (gv/2)^2 W^-_\mu W^{+ \mu} + (g_z v/2)^2 Z_\mu Z^\mu/2 \nonumber \\
+  &=& m_W^2 W^-_\mu W^{+ \mu} + m_Z^2 Z_\mu Z^\mu/2 \label{eq.7LH}
+\end{eqnarray}
+
+
+{\bf hw07-5}: Show Eq.\ref{eq.7LH}.
+  Please note the $1/2$ factor for the $Z$ boson mass term, which
+  appears because the $Z$ boson is a real field. From Eq.\ref{eq.7so}, we find
+\begin{eqnarray}
+  m_W = g v/2 \\
+  m_Z = g_z v/2
+\end{eqnarray}
+  Now, we introduce the Weinberg rotation of the neautral weak
+  bosons:
+\begin{eqnarray}
+  \begin{pmatrix}
+    W^3_\mu \\  B_\mu
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\theta_W & \sin\theta_W \\
+    -\sin\theta_W & \cos\theta_W
+  \end{pmatrix}
+  \begin{pmatrix}
+    Z_\mu \\ A_\mu
+  \end{pmatrix}
+\end{eqnarray}
+ or its inverse,
+ \begin{eqnarray}
+  \begin{pmatrix}
+    Z_\mu \\  A_\mu
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\theta_W & -\sin\theta_W \\
+    \sin\theta_W & \cos\theta_W
+  \end{pmatrix}
+  \begin{pmatrix}
+    W^3_\mu \\ B_\mu
+  \end{pmatrix}
+\end{eqnarray}
+
+  By comparing Eq.\ref{eq.7LHiggs} with Eq.\ref{eq.7use4}, we find
+\begin{eqnarray}
+  \cos\theta_W =  g/g_z\\
+  \sin\theta_W = g'/g_z
+\end{eqnarray}
+
+  Finally, let us obtain the explicit form of the EW covariant
+  derivative in terms of the $W$, $Z$, $A$ bosons:
+\begin{eqnarray}
+  D_\mu
+  &=&\del_\mu +i g T^k W^k_\mu + i g' Y B_\mu
+  =\del_\mu +ig(T^1W^1_\mu+T^2W^2_\mu+T^3W^3_\mu) +ig'YB_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +igT^3 W^3_\mu
+            +ig'Y  B_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +igT^3 ( \cos\theta_W Z_\mu + \sin\theta_W A_\mu) \nonumber \\
+           &&+ig'Y  (-\sin\theta_W Z_\mu + \cos\theta_W A_\mu)\nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +i(g\cos\theta_W T^3 -g'\sin\theta_W Y) Z_\mu\nonumber \\
+            &&+i(g\sin\theta_W T^3 +g'\cos\theta_W Y) A_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +ig_Z(\cos^2\theta_W T^3 -\sin^2\theta_W Y) Z_\mu
+            \nonumber \\ &&+ie(T^3 + Y) A_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +ig_Z(T^3 -\sin^2\theta_W Q) Z_\mu
+            +ieQ A_\mu \label{eq.7del}
+\end{eqnarray}
+
+{\bf hw07-6}: Reproduce the above derivation Eq.\ref{eq.7del}.
+  In the last two steps, I introduced the new coupling
+\begin{eqnarray}
+  e = g\sin\theta_W = g'\cos\theta_W \label{eq.7e}
+\end{eqnarray}
+  and used the Nishijima-GellMann relation
+  \begin{eqnarray}
+    Q = T^3 + Y \label{eq.7charge3}
+  \end{eqnarray}
+   to replace $Y$ with $Q$. The last form of the covariant derivative
+  is most convenient for computing the weak interaction amplitudes
+  in the SM.  It shows that the massless gauge boson $A_\mu$ couples
+  to the matter with the coupling strength e of Eq.\ref{eq.7use5} and the
+  charge $Q$ according to Eq.\ref{eq.7charge3}.
+
+  Since we know the magnitude of $e$, which is $\sqrt{4\pi\alpha}$,
+\begin{eqnarray}
+  e = \sqrt{ 4\pi \alpha }
+        = \sqrt{ 4\pi /137 }
+        = \sqrt{ 0.092 }
+        = 0.30
+\end{eqnarray}
+  it is useful to note
+\begin{eqnarray}
+  g   &=& e/\sin\theta_W \\
+  g'  &=& e/\cos\theta_W \\
+  g_Z &=& g/\cos\theta_W = e/(\sin\theta_W \cos\theta_W) 
+\end{eqnarray}
+  For $\sin^2\theta_W = 0.233$, the coupling strengths are:
+\begin{eqnarray}
+  g   = 0.62\\
+  g'  = 0.34 \\
+  g_Z = 0.71
+\end{eqnarray}
+  I memorize Eq.\ref{eq.7e} as one set of equations:
+\begin{eqnarray}
+  e = g \sin\theta_W
+    = g' \cos\theta_W
+    = g_Z \sin\theta_W \cos\theta_W
+\end{eqnarray}
+
+  With the above knowledge of the electroweak coupling strengths
+  and the last expression of the covariant derivative Eq.\ref{eq.7del},
+  which I copy below:
+\begin{eqnarray}
+  D_\mu =\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+                         +ig_Z(T^3 -\sin^2\theta_W Q) Z_\mu
+                         +ieQ A_\mu
+\end{eqnarray}
+
+  we can express all the gauge interactions of the quarks
+  and leptons in $L_{fermion}$ and also in $L_{gauge}$.
+
+  I will come back to them after showing the custodial $SU(2)$
+  invariance of the MSM Higgs potential and its violation
+  by the Hypercharge gauge interactions and the Yukawa
+  interactions in the next lectures.
+
+  That's all for hw07.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

@@ -1,0 +1,291 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\begin{document}
+\title{Particle physics HW4}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+Write $Q\to Q'= UQ$ as
+\begin{eqnarray}
+  \begin{pmatrix}
+    Q_{1k}\\ Q_{2k} \\ Q_{3k}
+  \end{pmatrix}
+    \to 
+  \begin{pmatrix}
+    U_{11} & U_{12} & U_{13} \\
+    U_{21} & U_{32} & U_{23} \\
+    U_{31} & U_{32} & U_{33}
+  \end{pmatrix}
+  \begin{pmatrix}
+    Q_{1k}\\ Q_{2k} \\ Q_{3k}
+  \end{pmatrix},
+\end{eqnarray}
+we then have 
+\begin{eqnarray}
+  \begin{pmatrix}
+    Q'_{1k}\\ Q'_{2k} \\ Q'_{3k}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    U_{11} Q_{1k}+ U_{12} Q_{2k} +U_{13} Q_{3k} \\
+    U_{21} Q_{1k}+ U_{22} Q_{2k} +U_{23} Q_{3k} \\
+    U_{31} Q_{1k}+ U_{32} Q_{2k} +U_{13} Q_{3k} 
+  \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+For $SU(2)$
+\begin{eqnarray}
+  U(\theta_1,\theta_2,\theta_3) = \exp{ i \sum_{k=1}^3 T^k \theta^k},
+\end{eqnarray}
+where $T^k= \sigma^k/2$. 
+Since we roved 
+\begin{eqnarray}
+  e^{i \sigma^2 \theta}=
+  \begin{pmatrix}
+    \cos \theta & -\sin \theta\\
+    \sin \theta & \cos \theta
+  \end{pmatrix},
+\end{eqnarray}
+ we can write
+\begin{eqnarray}
+  U(0,\pi,0)&=&e^{i \pi \sigma_2 /2} \\
+  &=&
+  \begin{pmatrix}
+    \cos \pi/2 & -\sin \pi/2\\
+    \sin \pi/2 & \cos \pi/2
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    0 & -1\\
+    1 & 0
+  \end{pmatrix},
+\end{eqnarray}
+and
+\begin{eqnarray}
+  U(0,\pi,0) Q =
+  \begin{pmatrix}
+    0 & -1\\
+    1 & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    u_L\\
+    d_L
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    -d_L\\
+    u_L
+  \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+Under $U(1)_Y$, all 6 components of Q transform exactly the same way with $Y=1/6$, 
+\begin{eqnarray}
+  Q_{ik} \to Q'_{ik} = U Q_{ik}
+                 = e^{iY\theta} Q_{ik}
+                 = e^{i(1/6)\theta} Q_{ik}.
+\end{eqnarray}
+Then we have $U(3\pi)=e^{i\pi/2}=i$ and can write out
+\begin{eqnarray}
+  &&  Q \to Q'  = U_Y(3\pi) Q = iQ\\
+  && u_R \to u_R' = U_Y(3\pi) u_R = i u_R\\
+  && d_R \to d_R' = U_Y(3\pi) d_R = i d_R\\
+  && L  \to L'  = U_Y(3\pi) L= iL\\
+  && l_R \to l_R' = U_Y(3\pi) =  il_R.
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+  \item Since $\phi$ is singlet under $SU(3)$ transformation, i.e., $U \phi \to \phi$, it is obvious that $\phi^\dagger \phi$ in invariatn under this transformation.
+  \item For $SU(2)$, where $ U^\dagger U=1$ we see
+  \begin{eqnarray}
+    \phi & \to & \phi'=U \phi \\
+    \phi^\dagger & \to & {\phi^\dagger}'= \phi^\dagger U^\dagger,
+  \end{eqnarray}
+  so
+  \begin{eqnarray}
+    {\phi^\dagger}' \phi' = \phi^\dagger U^\dagger U \phi = \phi^\dagger \phi.
+  \end{eqnarray}
+  \item For $U(1)$,
+  \begin{eqnarray}
+    \phi \to \phi' = U \phi = e^{i \theta Y} \phi, \\
+    \phi^* \to {\phi^*}' = U^* \phi^* = e^{-i \theta Y} \phi^*,
+  \end{eqnarray}
+  where $Y=1/2$. It is not hard to see
+  \begin{eqnarray}
+    {\phi^\dagger}' \phi' ={\phi^*}' \phi' = e^{-i \theta Y} \phi^* e^{i \theta Y} \phi = \phi^* \phi= {\phi^\dagger}\phi
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+For
+\begin{eqnarray}
+  \phi^c &=& i \sigma^2 \phi^* \\
+  {\phi^c}^\dagger &=& - i  \phi^T {\sigma^2} ^\dagger,
+\end{eqnarray}
+we write
+\begin{eqnarray}
+  {\phi^c}^\dagger \phi^c &=&  - i  \phi^T {\sigma^2} ^\dagger i \sigma^2 \phi^* \\
+  &=& \phi^T \phi^*= \phi^\dagger \phi.
+\end{eqnarray}
+In the last step I used the relation $\sigma^2 \sigma^2 =1$.
+
+\section{ }
+Under a new global $SU(2)$ transformation
+\begin{eqnarray}
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix}
+  \to U
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix},
+\end{eqnarray}
+one has 
+\begin{eqnarray}
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix} ^\dagger U^\dagger U 
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix} ^\dagger
+  \begin{pmatrix}
+    \phi \\ \phi^c
+  \end{pmatrix},
+\end{eqnarray}
+where $U^\dagger U=1$.
+
+\section{ }
+The $SU(3)$ transformation satisfies $U^\dagger U=1$.
+\begin{itemize}
+  \item $y_u Q^\dagger u_R \phi^c$:
+  \begin{eqnarray}
+    y_u Q^\dagger u_R \phi^c \to y_u Q^\dagger U^\dagger U u_R \phi^c = y_u Q^\dagger u_R \phi^c.
+  \end{eqnarray}
+  \item $y_d Q^\dagger d_R \phi$:
+  \begin{eqnarray}
+    y_d Q^\dagger d_R \phi \to y_d Q^\dagger U^\dagger U d_R \phi = y_d Q^\dagger d_R \phi.
+  \end{eqnarray}
+  \item $y_l L^\dagger l_R \phi$:
+  \begin{eqnarray}
+    y_l L^\dagger l_R \phi \to y_l L^\dagger U^\dagger U l_R \phi = y_l L^\dagger l_R \phi.
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+The $SU(2)$ transformation satisfies $U^\dagger U=1$.
+\begin{itemize}
+  \item $y_u Q^\dagger u_R \phi^c$:
+  \begin{eqnarray}
+    y_u Q^\dagger u_R \phi^c \to y_u Q^\dagger U^\dagger u_R U \phi^c = y_u Q^\dagger u_R \phi^c.
+  \end{eqnarray}
+  \item $y_d Q^\dagger d_R \phi$:
+  \begin{eqnarray}
+    y_d Q^\dagger d_R \phi \to y_d Q^\dagger U^\dagger d_R U \phi = y_d Q^\dagger d_R \phi.
+  \end{eqnarray}
+  \item $y_l L^\dagger l_R \phi$:
+  \begin{eqnarray}
+    y_l L^\dagger l_R \phi \to y_l L^\dagger U^\dagger l_R U \phi = y_l L^\dagger l_R \phi.
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+The $U(1)$ transformation $U=e^{i Y \theta}$satisfies $U^* U=1$.
+\begin{itemize}
+  \item $y_u Q^\dagger u_R \phi^c$:
+  \begin{eqnarray}
+    y_u Q^\dagger u_R \phi^c \to y_u e^{-i \theta/6} Q^\dagger e^{2i \theta/3} u_R e^{-i \theta/2}\phi^c = y_u Q^\dagger u_R \phi^c.
+  \end{eqnarray}
+  \item $y_d Q^\dagger d_R \phi$:
+  \begin{eqnarray}
+    y_d Q^\dagger d_R \phi \to y_d e^{-i \theta/6} Q^\dagger e^{-i \theta/3} d_R e^{i \theta/2} \phi = y_d Q^\dagger d_R \phi.
+  \end{eqnarray}
+  \item $y_l L^\dagger l_R \phi$:
+  \begin{eqnarray}
+    y_l L^\dagger l_R \phi \to y_l e^{i \theta/2} L^\dagger e^{-i \theta} l_R e^{i \theta/2}\phi = y_l L^\dagger l_R \phi.
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+  (y_u Q^\dagger u_R \phi^c )^\dagger &=& y_u^*  u_R^* {\phi^c}^\dagger Q \\
+  (y_d Q^\dagger d_R \phi )^\dagger &=& y_d^*  d_R^* {\phi}^\dagger Q \\
+  (y_l L^\dagger l_R \phi )^\dagger &=& y_l^*  l_R^* {\phi}^\dagger L.
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+  \item Since both $\phi$ and $L$ are singlet under $SU(3)$ transformation, ${\phi^c}^\dagger L$ is invariant.
+  \item For $SU(2)$,
+  \begin{eqnarray}
+    {{\phi^c}^\dagger}' L'= {\phi^c}^\dagger U^\dagger U L={\phi^c}^\dagger L.
+  \end{eqnarray}
+  \item For $U(1)$,
+  \begin{eqnarray}
+    {{\phi^c}^\dagger}' L'= {\phi^c}^\dagger e^{i\theta/2} e^{-i\theta/2} L={\phi^c}^\dagger L.
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+By definition
+\begin{eqnarray}
+  \phi^c=i \sigma^2 \phi^* = i 
+  \begin{pmatrix}
+    0 & -i \\ i & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    \phi^- \\ {\phi^0}^*
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    {\phi^0}^* \\ -\phi^- 
+  \end{pmatrix},
+\end{eqnarray}
+then we wcan write
+\begin{eqnarray}
+  {\phi^c}^\dagger = 
+  \begin{pmatrix}
+    \phi^0 & -(\phi^-)^*
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \phi^0 & -\phi^+
+  \end{pmatrix},
+\end{eqnarray}
+and
+\begin{eqnarray}
+  {\phi^c}^\dagger L 
+  =
+  \begin{pmatrix}
+    \phi^0 & -\phi^+
+  \end{pmatrix}
+  \begin{pmatrix}
+    \nu_L \\ l_L
+  \end{pmatrix}
+  = \phi^0 \nu_L - \phi^\dagger l_L.
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  y_\nu [ (\phi^c)^\dagger L) ]^2/2\Lambda &=& y_\nu (\phi^0 \nu_L - \phi^\dagger l_L)^2/2\Lambda\\
+  &=& y_\nu((\phi^0)^2 \nu_L^2+ (\phi^\dagger)^2 l_L^2 -2 \phi^0\phi^\dagger\nu_L\l_L)/2\Lambda.
+\end{eqnarray}
+
+
+
+
+\end{document}

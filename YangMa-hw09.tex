@@ -1,0 +1,340 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW9}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+To show that ${M^\nu}$ is symmetric, we can write out ${M^\nu}^T$
+\begin{eqnarray}
+    {M^\nu}^T &=& ((U^\nu_L)^* {\rm diag}\{m_1, m_2,  m_3 \} (U^\nu_L)^\dagger)^T \\ 
+    &=& (U^\nu_L)^* {\rm diag}\{m_1, m_2,  m_3  \} (U^\nu_L)^\dagger = {M^\nu},
+\end{eqnarray}
+where we used ${\rm diag}\{m_1, m_2,  m_3  \} ^T ={\rm diag}\{m_1, m_2,  m_3  \} $ in the last step.
+
+\section{ }
+Now we write out $M^u {M^u}^\dagger$ and ${M^u}^\dagger M^u $ respectively
+\begin{eqnarray}
+    M^u {M^u}^\dagger  &=& (U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger ((U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger )^\dagger\\
+    &=& (U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger (U^u_R) {\rm diag}\{m_u, m_c,m_t\} (U^u_L)^\dagger \\
+    &=&(U^u_L) ({\rm diag}\{m_u, m_c,m_t\})^2 (U^u_L)^\dagger \\
+    {M^u}^\dagger M^u &=& ((U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger )^\dagger (U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger \\
+    &=& (U^u_R) {\rm diag}\{m_u, m_c,m_t\} (U^u_L)^\dagger (U^u_L) {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger \\
+    &=& (U^u_R) ({\rm diag}\{m_u, m_c,m_t\})^2 (U^u_R)^\dagger,
+\end{eqnarray}
+where we see the unitary matrix $U^u_L$ diagonalizes the 
+Hermetian matrix ${M^u}^\dagger M^u$, and the unitary matrix $U^u_R$ 
+diagonalizes $M^u {M^u}^\dagger$.
+
+\section{ }
+By expressing the diagonal matrix as
+ \begin{eqnarray}
+  {\rm diag}\{ \lambda_1, \lambda_2, \lambda_3 \}
+  = P {\rm diag}\{ m_1,        m_2,        m_3        \} P,
+ \end{eqnarray}
+ one can write out 
+ \begin{eqnarray}
+    M^\nu &=& {{U^\nu_L}'}^*  {\rm diag}\{\lambda_1, \lambda_2, \lambda_3\}  {{U^\nu_L}'}^\dagger,
+\end{eqnarray}
+  where P is the diagonal phase matrix
+\begin{eqnarray}
+    P =  {\rm diag}\{ e^{i\alpha_1/2}, e^{i\alpha_2/2}, e^{i\alpha_3/2}\}.
+\end{eqnarray}
+In order to obtain the mass matrix, we define
+\begin{eqnarray}
+    U^\nu_L = {U^\nu_L}' P^*, 
+\end{eqnarray}
+and then have 
+\begin{eqnarray}
+    {U^\nu_L}^*     {\rm diag}\{m_1, m_2, m_3\}  {U^\nu_L}^\dagger &=& {{U^\nu_L}'}^* P {\rm diag}\{m_1, m_2, m_3\} P {{U^\nu_L}'}^\dagger \\
+    &=& {{U^\nu_L}'}^*  {\rm diag}\{\lambda_1, \lambda_2, \lambda_3\}  {{U^\nu_L}'}^\dagger =  M^\nu, 
+\end{eqnarray}
+the unitary matrix $U^\nu_L$ diagonalize the (Majorana) neutrino mass matrix, $M^\nu$.
+
+\section{ }
+With the unitary mastrixes
+\begin{eqnarray}
+   && \vec{u}_L=({u_L}_1, {u_L}_2, {u_L}_3)^T = U^u_L (u_L, c_L, t_L)^T \\
+   && \vec{u}_R= ({u_R}_1, {u_R}_2, {u_R}_3)^T = U^u_R (u_R, c_R, t_R)^T \\
+   &&  \vec{d}_L=({d_L}_1, {d_L}_2, {d_L}_3)^T = U^d_L (d_L, s_L, b_L)^T \\
+   && \vec{d}_R=({d_R}_1, {d_R}_2, {d_R}_3)^T = U^d_R (d_R, s_R, b_R)^T  \\
+   && \vec{L}_L=({l_L}_1, {l_L}_2, {l_L}_3)^T = U^l_L (e_L, \mu_L, \tau_L)^T \\
+   && \vec{l}_R=({l_R}_1, {l_R}_2, {l_R}_3)^T = U^l_R (e_R, \mu_R, \tau_R)^T \\
+   && \vec{\nu}_L=({\nu_L}_1, {\nu_L}_2, {\nu_L}_3)^T = U^n_L ({\nu_1}_L, {\nu_2}_L, {\nu_3}_L)^T 
+  \end{eqnarray}
+we can write the current fermions in terms of mass eigenstates by inserting them into the Lagrangian
+\begin{eqnarray}
+  {cal L}_{fermions} =  Q_i^\dagger iD_\mu \sigma_-^\mu Q_i
+  + {u_R}_i^\dagger iD_\mu \sigma_+^\mu {u_R}_i
+  + {d_R}_i^\dagger iD_\mu \sigma_+^\mu {d_R}_i
+  +  L_i^\dagger iD_\mu \sigma_-^\mu L_i
+  + {l_R}_i^\dagger iD_\mu \sigma_+^\mu {l_R}_i,
+\end{eqnarray}
+where $i=1,2,3$ are generation indices. Recall the covariant derivative for $Z$, $\gamma$ and gluons
+\begin{eqnarray}
+  iD_\mu = i\del_\mu -g_Z (T^3-Q \sin^2\theta_W ) Z_\mu -e Q A_\mu -g_S T^a A^a_\mu,
+\end{eqnarray}
+we have following discussions:
+\begin{itemize}
+    \item There is no color for all leptons, i.e. $T^a=0$ for $L$ and $l_R$.
+    \item $eQA_\mu$ is a number.
+    \item $T^3-Q \sin^2\theta_W $ is diagnal.
+    \begin{eqnarray}
+        T^3-Q \sin^2\theta_W &=&
+        \begin{pmatrix}
+            1/2-Q \sin^2\theta_W &0 \\ 
+            0 & -1/2-Q \sin^2\theta_W 
+        \end{pmatrix},~~~{\rm for}~Q_i~{\text and}~L_i , \\ 
+        T^3-Q \sin^2\theta_W &=& -Q \sin^2\theta_W, ~~~{\rm for}~{u_R}_i,~{d_R}_i~ {l_R}_i.
+    \end{eqnarray}
+\end{itemize}
+So we introduce $x=u_L$, $u_R$, $d_L$, $d_R$, $l_L$, $l_R$, $\nu_L$ and write out the $\gamma (A_\mu)$, $Z_\mu$, and gluon ($A^a_\mu$) interactions in the form of 
+\begin{eqnarray}
+    \vec{u}^\dagger_L O_\mu \sigma_-^\mu \vec{u}_L + \vec{u}^\dagger_R O_\mu \sigma_+^\mu \vec{u}_R  + \vec{d_R}_i^\dagger O_\mu \sigma_+^\mu \vec{d_R}_i
+    +  \vec{L}_i^\dagger iD_\mu \sigma_-^\mu \vec{L}_i
+    + \vec{l_R}_i^\dagger iD_\mu \sigma_+^\mu \vec{l_R}_i,
+\end{eqnarray}
+where $O_\mu$ is a diagnal matrix. 
+
+\section{ }
+Insert the neutral currents' covariant derivative
+\begin{eqnarray}
+  iD_\mu = i\del_\mu -g_Z (T^3-Q\sin^2\theta_W) Z_\mu -e Q A_\mu -g_S T^a A^a_\mu,
+\end{eqnarray}
+into the 1967 Lagrangian
+\begin{eqnarray}
+    L =  Q^\dagger  iD_\mu \sigma_-^\mu Q
+    + {s_L'}^\dagger iD_\mu \sigma_-^\mu s_L'
+    + u_R^\dagger  iD_\mu \sigma_+^\mu u_R
+    + d_R^\dagger  iD_\mu \sigma_+^\mu d_R
+    + s_R^\dagger  iD_\mu \sigma_+^\mu s_R,
+\end{eqnarray}
+where
+\begin{eqnarray}
+    Q=
+    \begin{pmatrix}
+        u_L \\ \cos\theta_C d_L + \sin\theta_C s_L
+    \end{pmatrix}, ~~
+    s_L' = -\sin\theta_C d_L + \cos\theta_C s_L.
+\end{eqnarray}
+\begin{itemize}
+    \item $\gamma$ interaction: The term $e Q A_\mu$ can be treated as a number, so we have 
+    \begin{eqnarray}
+        &&-\frac{2}{3}eA_\mu(u_L^\dagger u_L+u_R^\dagger u_R)+\frac{1}{3}eA_\mu({d'}_L^\dagger d'_L+d_R^\dagger d_R +{s'}_L^\dagger s'_L+s_R^\dagger s_R) \\ 
+        &=&-\frac{2}{3}eA_\mu(u_L^\dagger u_L+u_R^\dagger u_R)+\frac{1}{3}eA_\mu(d_L^\dagger d_L+d_R^\dagger d_R +s_L^\dagger s_L+s_R^\dagger s_R)
+    \end{eqnarray}
+    \item Gluon interaction: This is similar to the $\gamma$ interaction
+    \begin{eqnarray}
+        &&-g_ST^a A^a_\mu(u_L^\dagger u_L+u_R^\dagger u_R+{d'}_L^\dagger d'_L+d_R^\dagger d_R +{s'}_L^\dagger s'_L+s_R^\dagger s_R) \\ 
+        &=&-g_ST^a A^a_\mu(u_L^\dagger u_L+u_R^\dagger u_R+d_L^\dagger d_L+d_R^\dagger d_R +s_L^\dagger s_L+s_R^\dagger s_R)
+    \end{eqnarray}
+    \item Z interaction: 
+    \begin{eqnarray}
+        &&Q^\dagger  iD_\mu \sigma_-^\mu Q  : -g_Z
+        \begin{pmatrix}
+            u_L^\dagger  & {d'}_L^\dagger 
+        \end{pmatrix}
+        \begin{pmatrix}
+            \frac{1}{2}-\frac{2}{3} \sin^2\theta_W &0 \\ 
+            0 & -\frac{1}{2}+\frac{1}{3} \sin^2\theta_W 
+        \end{pmatrix}
+        \begin{pmatrix}
+            u_L \\ d'_L
+        \end{pmatrix}
+        Z_\mu\\
+        &&=-g_Z (\frac{1}{2}-\frac{2}{3} \sin^2\theta_W ) u_L^\dagger u_L Z_\mu + g_Z(\frac{1}{2}-\frac{1}{3} \sin^2\theta_W){d'}_L^\dagger d'_L
+    \end{eqnarray}
+    \begin{eqnarray}
+        && {s_L'}^\dagger iD_\mu \sigma_-^\mu s_L' : \frac{1}{3} g_Z \sin^2\theta_W {s'}_L^\dagger s'_L Z_\mu  \\
+        && {u_R}^\dagger iD_\mu \sigma_+^\mu u_R : -\frac{2}{3} g_Z \sin^2\theta_W {u}_R^\dagger u_R Z_\mu \\
+        && {d_R}^\dagger iD_\mu \sigma_+^\mu d_R : \frac{1}{3} g_Z \sin^2\theta_W {d}_R^\dagger d_R Z_\mu \\
+        && {s_R}^\dagger iD_\mu \sigma_+^\mu s_R : \frac{1}{3} g_Z \sin^2\theta_W {s}_R^\dagger s_R Z_\mu \\
+    \end{eqnarray}
+    Now we go back and write $d_L'$, $s_L'$ in terms of $d_L$, $s_L$ 
+    \begin{eqnarray}
+        &&g_Z(\frac{1}{2}-\frac{1}{3} \sin^2\theta_W){d'}_L^\dagger d'_L + \frac{1}{3} g_Z \sin^2\theta_W {s'}_L^\dagger s'_L Z_\mu \\ &=& g_Z  [(\frac{1}{2}-\frac{1}{3} \sin^2\theta_W) (\cos\theta_C d_L^\dagger + \sin\theta_C s_L^\dagger)(\cos\theta_C d_L + \sin\theta_C s_L) \nonumber \\ &&+\frac{1}{3}\sin^2\theta_W (-\sin\theta_C d_L^\dagger + \cos\theta_C s_L^\dagger) (-\sin\theta_C d_L + \cos\theta_C s_L)] Z_\mu,
+    \end{eqnarray}
+    where we see cross terms can be simplied to
+    \begin{eqnarray}
+        g_Z(\cos\theta_C \sin\theta_C)[(\frac{1}{2}-\frac{2}{3} \sin^2\theta_W)(s_L^\dagger d_L+d_L^\dagger s_L) ,
+    \end{eqnarray}
+    which is proportional to $\sin\theta_C$.
+\end{itemize}
+
+\section{ }
+By checking PDG, we have
+\begin{eqnarray}
+    &&m(K^+)=493.677 {\rm MeV}, \\
+    &&m(K_L)-m(K_S)= 3.484\times 10^{-12} {\rm MeV}, \\
+    &&m(K^0)=\frac{1}{2}(m(K_L)+m(K_S))=497.611 {\rm MeV},
+\end{eqnarray}
+and can then obtain the ratio
+\begin{eqnarray}
+    R=\frac{m(K_L)-m(K_S)}{m(K_L)+m(K_S)} \approx 3.5\times 10^{-15}.
+\end{eqnarray}
+Also we have
+\begin{eqnarray}
+    R &=& ((g_Z  \sin\theta_C)^2/m_Z^2)^2 (m_K)^4 \\
+    &=&(2 \sin\theta /v)^4\approx 6.7 \times 10^{-13},
+\end{eqnarray}
+where we have used $m_Z=v g_Z/2$ in the last step.
+
+\section{ }
+Insert
+\begin{eqnarray}
+    iD_\mu =i\del_\mu - g_s T^a A^a_\mu
+                          - g/\sqrt2 ( T^+ W^+_\mu + T^- W^-_\mu )
+                          - g_Z (T^3 -Q\sin^2\theta_W) Z_\mu
+                          - e Q A_\mu,
+\end{eqnarray}
+into the quark interaction
+\begin{eqnarray}
+    Q^\dagger iD_\mu \sigma_-^\mu Q,
+\end{eqnarray}
+we have the charged current parts
+\begin{eqnarray}
+    {\cal L} _{CC}
+    &=& 
+    \begin{pmatrix}
+      u_L^\dagger & d_L^\dagger
+    \end{pmatrix} 
+    \frac{-g}{\sqrt2} \sigma_-^\mu
+    \begin{pmatrix}
+      0 & W^+_\mu\\
+      W^-_\mu & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      u_L \\ d_L
+    \end{pmatrix}\\ 
+    &=& \frac{-g}{\sqrt2} ( u_L^\dagger \sigma_-^\mu W^+_\mu d_L
+    + d_L^\dagger \sigma_-^\mu W^-_\mu u_L ) \\
+    &=& \frac{-g}{\sqrt2}
+    \begin{pmatrix}
+        u_L^\dagger & c_L^\dagger & t_L^\dagger
+    \end{pmatrix}
+    {U^u_L}^\dagger \sigma_-^\mu W^+_\mu U^d_L 
+    \begin{pmatrix}
+        d_L \\ s_L \\ b_L 
+    \end{pmatrix}
+    + h.c. \\
+    &=& \frac{-g}{\sqrt2} 
+    \begin{pmatrix}
+        u_L^\dagger & c_L^\dagger & t_L^\dagger
+    \end{pmatrix}
+    \sigma_-^\mu W^+_\mu V_{CKM} 
+    \begin{pmatrix}
+    d_L \\ s_L \\ b_L 
+    \end{pmatrix}
+    + h.c.,
+  \end{eqnarray}
+where $V_{CKM} = {U^u_L}^\dagger (U^d_L)$. In the last step, we can treat $\sigma_-^\mu$ and $W_\mu^+$ as numbers so they commute with ${U^u_L}^\dagger $.
+
+\section{}
+$V_{CKM}$ is a $2 \times 2$ matrix, where we have $2\times 2\times 2=8$ real parameters. The unitary condition $V^\dagger V=1$ gives 2 real constraints by requiring $V_i^* V_i=1$ and 1 complex constraint that $V_i^* V_j=0$ ($i \neq j$), so we have 4 real constraints in total.
+
+\section{ }
+Since $V_{CKM} = {U^u_L}^\dagger (U^d_L)$, we see an overall phase $\phi$ for all quarks will provide a factor $e^{i \phi} e^{-i \phi}=1$ on all elements of $V_{CKM}$, which does not really change $V$.
+
+\section{ }
+Write the charged current interaction in terms of $c_L'$, $d_L'$, $s_L'$
+\begin{eqnarray}
+    {\cal L}_{CC}
+    &=&
+    \frac{-g}{\sqrt2}  W^+_\mu 
+    \begin{pmatrix}
+      u_L^\dagger & c_L^\dagger
+    \end{pmatrix}
+    \sigma_-^\mu V 
+    \begin{pmatrix}
+      d_L \\s_L
+    \end{pmatrix}+ h.c.,\\
+    &=&
+    \frac{-g}{\sqrt2}  W^+_\mu 
+    \begin{pmatrix}
+      u_L^\dagger & c_L^\dagger
+    \end{pmatrix}
+    \sigma_-^\mu 
+    \begin{pmatrix}
+        1 & e^{i\phi_{cL}}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \cos\theta_C & \sin\theta_C \\
+        -\sin\theta_C & \cos\theta_C 
+       \end{pmatrix}
+       \begin{pmatrix}
+        e^{-i \phi_{dL}} \\ e^{-i \phi_{sL}}
+       \end{pmatrix} 
+    \begin{pmatrix}
+      d_L \\s_L
+    \end{pmatrix}+ h.c. \\
+    &=&
+    \frac{-g}{\sqrt2}  W^+_\mu 
+    \begin{pmatrix}
+      {u'}_L^\dagger & {c'}_L^\dagger
+    \end{pmatrix}
+    \sigma_-^\mu 
+      \begin{pmatrix}
+        \cos\theta_C & \sin\theta_C \\
+        -\sin\theta_C & \cos\theta_C 
+       \end{pmatrix} 
+    \begin{pmatrix}
+      d'_L \\s'_L
+    \end{pmatrix}+ h.c.,
+  \end{eqnarray}
+where we see the Cabibbo angles are not affected by shifting the phase. The neutral current interaction and the Yukawa interaction terms are in the following form
+\begin{eqnarray}
+    \begin{pmatrix}
+        u_L^\dagger & c_L^\dagger
+    \end{pmatrix}
+    O
+    \begin{pmatrix}
+        d_L \\s_L
+    \end{pmatrix}+ h.c.,
+\end{eqnarray}
+where $O$ is a diagonal matrix. This diagnonality leads to the invariance of the interactions under this phase shiftting, since there is always a $e^{-i \phi}$ terms to cancel the $e^{i \phi}$ term.
+
+\section{ }
+For 6 quarks, the $V_{CKM}$ is a $3 \times 3$ matrix so we have $3\times 3 \times 2=18$ real parameters.  The unitary condition $V^\dagger V=1$ gives 3 real constraints by requiring $V_i^* V_i=1$ and 3 complex constraint that $V_i^* V_j=0$ ($i \neq j$), so we have $3+3\times 2= 9$ real constraints in total. In addition to 3 rotation angles, we can write 6 phases (each for a quark). One of the 6 phases is the overall phase, and the other phases can be absorbed by redifing the quark fields. As a summary, we have 3 rotation angles and 1 phase in total.
+
+
+\section{ }
+\begin{eqnarray}
+    {\cal L}_{CC} &=&  \frac{-g}{\sqrt2}
+    \begin{pmatrix}
+      e_L^\dagger &\mu_L^\dagger & \tau_L^\dagger
+    \end{pmatrix}
+    {U^l_L}^\dagger \sigma_-^\mu W^-_\mu U^n_L
+    \begin{pmatrix}
+      {\nu_1}_L \\ {\nu_2}_L \\ {\nu_3}_L
+    \end{pmatrix}
+      + h.c. \\ 
+    &=& \frac{-g}{\sqrt2} 
+    \begin{pmatrix}
+      e_L^\dagger & \mu_L^\dagger & \tau_L^\dagger
+    \end{pmatrix}
+    \sigma_-^\mu W^-_\mu V_{MNS} + h.c.,
+  \end{eqnarray}
+in the last step we can treat $\sigma_-^\mu$ and $W^+_\mu$ as numbers and move them to have 
+\begin{eqnarray}
+    V_{MNS} = (U^l_L)^\dagger (U^n_L),
+\end{eqnarray}
+as we have done to the quark interactions in {\bf hw09-6}.
+
+
+
+
+
+
+
+\end{document}

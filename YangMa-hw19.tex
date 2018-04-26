@@ -1,0 +1,185 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+%temp def
+\def\PS{\rm PS}
+\begin{document}
+\title{Particle physics HW19}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+\begin{eqnarray}
+    d\PS_2(q=p_1+p_2)
+  &=& \frac{1}{(2\pi)^2} \delta(m_W-E-E) E^2dE d\cos\theta \frac{d\phi}{(2E)^2} \\
+  &=& \frac{1}{(2\pi)^2} \frac{1}{2} \delta(\frac{m_W}{2}-E) E^2dE d\cos\theta \frac{d\phi}{(2E)^2} \\
+  &=& \frac{1}{(2\pi)^2}\frac{1}{2} \frac{E^2}{(2E)^2} d\cos\theta d\phi \\
+  &=& \frac{1}{32\pi^2} d\cos\theta d\phi
+\end{eqnarray}
+
+\section{ }
+For two massive particles with 4 momentum
+\begin{eqnarray}
+  &&p_1^\mu = (E_1, p^* \sin\theta\cos\phi, p^* \sin\theta\sin\phi, p^* \cos\theta), \nonumber \\
+  &&p_2^\mu = (E_2,-p^* \sin\theta\cos\phi, -p^* \sin\theta\sin\phi, -p^* \cos\theta),
+\end{eqnarray}
+we write
+\begin{eqnarray}
+  d\PS_2(q=p_1+p_2)
+&=& (2\pi)^4 \delta^4(q-p_1-p_2)
+  \frac{ d^3p_1}{(2E_1)(2\pi)^3 }\frac{ d^3p_2}{(2E_2)(2\pi)^3 } \\
+&=& \frac{1}{(2\pi)^2} \delta (M-E_1-E_2)\frac{ d^3p_1}{4E_1 E_2 } \\
+&=& \frac{1}{(2\pi)^2} \delta (M-E_1-E_2)\frac{ {p^*}^2dp^*}{E_1 E_2 } \frac{d\cos\th d\phi}{4}\\
+&=& \frac{1}{(2\pi)^2} \delta (M-E_1-E_2)\frac{ {p^*}^2dp^*}{\sqrt{ (p^*)^2 + m_1^2 } \sqrt{ (p^*)^2 + m_2^2 } } \frac{d\cos\th d\phi}{4}
+\end{eqnarray}
+Now we move to
+\begin{eqnarray}
+  M=E_1+E_2=\sqrt{ (p^*)^2 + m_1^2 } + \sqrt{ (p^*)^2 + m_2^2 },
+\end{eqnarray}
+and see
+\begin{eqnarray}
+  \frac{dM}{dp^*}=p^*\left(\frac{1}{\sqrt{ (p^*)^2 + m_1^2 }}+\frac{1}{\sqrt{ (p^*)^2 + m_2^2 }}\right)=\frac{p^*dM}{E_1E_2}.
+\end{eqnarray}
+Above equation indicates that
+\begin{eqnarray}
+  \frac{{p^*}^2dp^*}{E_1E_2}=\frac{p^*dM}{E_1E_2},
+\end{eqnarray}
+for which we can write
+\begin{eqnarray}
+  d\PS_2(q=p_1+p_2) =\frac{1}{(2\pi)^2}\frac{p^*}{M}\frac{d\cos\th d\phi}{4}=\frac{1}{8\pi} \frac{2p^*}{M} \frac{ d\cos\theta}{2} \frac{d\phi}{2\pi}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  2Mp^* &=& M^2\sqrt{1+(\frac{m_1}{M})^4+(\frac{m_2}{M})^4-2(\frac{m_1}{M})^2-2(\frac{m_2}{M})^2-2(\frac{m_1m_2}{M^2})^2}\\
+  &=& \sqrt{M^4+m_1^4+m_2^4-2(m_1 M)^2-2(m_2M)^2-2(m_1m_2)^2}\\
+  &=& \sqrt{M^4-2M^2(m_1^2+m_2^2)+(m_1^2-m_2^2)^2}\\
+  &=& \sqrt{(M^2-m_1)^2-m_2^2)^2-(m_1^2+m_2^2)^2+(m_1^2-m_2^2)^2} \\
+  &=& \sqrt{[M^2-m_1^2-m_2^2]^2-4m_1^2m_2^2} \\
+  &=& \sqrt{(M^2-m_1^2-m_2^2+2m_1m_2)(M^2-m_1^2-m_2^2-2m_1m_2)}\\
+  &=& \sqrt{[M^2-(m_1-m_2)^2][M^2-(m_1+m_2)^2]} \\
+  &=& \sqrt{(M-m_1+m_2)(M+m_1-m_2)(M+m_1+m_2)(M-m_1-m_2)} \label{eq.19_72}
+\end{eqnarray}
+
+\section{ }
+With
+\begin{eqnarray}
+  \frac{d\Gamma}{d\cos\theta}=\frac{1}{2M}\frac{1}{16\pi} |M(\lambda,\theta)|^2,
+\end{eqnarray}
+and
+\begin{eqnarray}
+  &&M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2))
+= g_L^{Wln} (2E) \sqrt{2}  d^{J=1}_{\lmd,+1}(\theta)\\
+&=& g/\sqrt{2} (2E) \sqrt{2} d^{J=1}_{\lmd,+1}(\theta)
+= g (2E)                   d^{J=1}_{\lmd,+1}(\theta) 
+= g m_W                    d^{J=1}_{\lmd,+1}(\theta),
+\end{eqnarray}
+we have
+\begin{itemize}
+  \item $\lambda = +1$
+  \begin{eqnarray}
+    \frac{d\Gamma}{d\cos\theta}=\frac{1}{2m_W}\frac{1}{16\pi} |g m_W d^{J=1}_{+1,+1}(\theta)|^2 =\frac{m_W g^2(1+\cos\th)^2}{128\pi}
+  \end{eqnarray}
+  \item $\lambda = 0$
+  \begin{eqnarray}
+    \frac{d\Gamma}{d\cos\theta}=\frac{1}{2m_W}\frac{1}{16\pi} |g m_W d^{J=1}_{0,+1}(\theta)|^2 =\frac{m_Wg^2\sin^2\th}{64\pi}
+  \end{eqnarray}
+  \item $\lambda = +1$
+  \begin{eqnarray}
+    \frac{d\Gamma}{d\cos\theta}=\frac{1}{2m_W}\frac{1}{16\pi} |g m_W d^{J=1}_{-1,+1}(\theta)|^2 =\frac{m_W g^2(1-\cos\th)^2}{128\pi}
+  \end{eqnarray}
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+  \Gamma(W^+ \to l^+ \nu_l)
+&=& \frac{1}{2M} \frac{1}{16\pi} \int_{-1}^{+1} d\cos\theta |M(\lambda,\theta)|^2\\
+&=& \frac{1}{2M} \frac{1}{16\pi} |g_L^{Wnl}|^2 2M^2
+    \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\lmd,+1}(\theta)^2 \\
+&=& M \frac{|g_L^{Wnl}|^2}{16\pi} \frac{2}{3} =M |\frac{g_W}{\sqrt 2}|^2 \frac{1}{24\pi} = M \frac{g_W^2}{48\pi}
+\end{eqnarray}
+Here we used
+\begin{eqnarray}
+  g_L^{Wnl}=\frac{g_W}{\sqrt 2}
+\end{eqnarray}
+
+\section{ }
+With the coupling
+\begin{eqnarray}
+  \alpha_W = \alpha/\sin^2\theta_W
+                            = 1/(128\times 0.233)
+                            =0.0335\approx 1/30,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+  \Gamma(W^+ \to l^+ \nu_l)
+= M \frac{g_W^2}{48\pi} =\frac{1}{30}\frac{M}{12} = 0.223 GeV.
+\end{eqnarray}
+In PDG, W full decay width is $2.085\pm 0.042$GeV and we have
+\begin{eqnarray}
+  &&\Gamma(W^+ \to e^+ \nu_e)=B (W^+ \to e^+ \nu_e) \Gamma_W= 10.71\% \times 2.085 \approx 0.223 GeV, \\
+  &&\Gamma(W^+ \to \mu^+ \nu_\mu)= B (W^+ \to \mu^+ \nu_\mu) \Gamma_W= 10.63\% \times 2.085 \approx 0.222 GeV, \\ 
+  &&\Gamma(W^+ \to \tau^+ \nu_\tau) =B(W^+ \to \tau^+ \nu_\tau)\Gamma_W= 11.38\% \times 2.085 \approx 0.237 GeV.
+\end{eqnarray}
+These experimental results agree with our calculation.
+
+\section{ }
+In PDG, we see
+\begin{eqnarray}
+  &&B (W^+ \to e^+ \nu_e) = 10.71\pm0.16\%,\\ &&B (W^+ \to \mu^+ \nu_\mu) = 10.63\pm0.15\%,\\&&B(W^+ \to \tau^+ \nu_\tau)= 11.38\pm0.21\%,
+\end{eqnarray}
+which agrees with
+\begin{eqnarray}
+  B(W^+ \to e^+ \nu_e) = B(W^+ \to \mu^+ \nu_\mu)
+                        = B(W^+ \to \tau^+ \nu_\tau) = \frac{1}{9} = 11.11\%
+\end{eqnarray}
+The $B(B\to hadrons)= 67.41\pm 0.27\%$ is a little bit different from our result $B(B\to hadrons)= 2/3=66.67\%$.
+
+
+\section{ }
+\begin{eqnarray}
+  2 m_W \Gamma(W^+ \to l^+ \nu_l)
+&=& \frac{1}{3} \int \sum_{\lambda} |M(W(\lmd)\to l^+ \nu_l)|^2  d\Phi \\
+&=& \frac{g^2m_W^2}{3} \int \sum_{\lambda} |d_{\lmd,+1}^{J=1}(\th)|^2  d\Phi \\
+&=& \frac{g^2m_W^2}{3} \int (| \frac{1 + \cos\theta}{2}   |^2
++ | \frac{1 - \cos\theta}{2}   |^2
++ | \frac{\sin\theta}{\sqrt{2}} |^2)  d\Phi \\
+&=&\frac{g^2m_W^2}{3} \int d\Phi.
+\end{eqnarray}
+We note that the dependence on $\cos\th$ vanishes.
+
+\section{ }
+\begin{eqnarray}
+  M(W^-(\lmd) \to l^- {\overline \nu_l}) &=& -\frac{g_W}{\sqrt 2} u^\dgr_L(p_l) \sigma^\mu_- v_L(p_{\overline \nu}) \eps_\mu (p_W,\lmd) \\
+  &=&2 g_W m_W d^{J=1}_{-1,\lmd}(\th)
+\end{eqnarray}
+So we have
+\begin{itemize}
+  \item $\lmd=+1$: $M(W^-(-1) \to l^- {\overline \nu_l})=g_W d^{J=1}_{-1,-1}=g_W d^{J=1}_{+1,+1}=M(W^+ (+1) \to l^+ \nu_l)$
+  \item $\lmd=-1$: $M(W^-(+1) \to l^- {\overline \nu_l})=g_W d^{J=1}_{-1,+1}=M(W^+ (-1) \to l^+ \nu_l)$
+  \item $\lmd=0$: $M(W^-(0) \to l^- {\overline \nu_l})=g_W d^{J=1}_{-1,0}=g_W d^{J=1}_{0,+1}=M(W^+ (0) \to l^+ \nu_l)$.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\end{document}

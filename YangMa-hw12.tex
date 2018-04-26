@@ -1,0 +1,465 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW12}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+With
+\begin{eqnarray}
+    &&A_k = (J_k + i K_k)/2, \\
+    &&B_k = (J_k - i K_k)/2, 
+\end{eqnarray}
+and the combination relations
+\begin{eqnarray}
+    &&[ J_i, J_j ] =  i \epsilon_{ijk} J_k, \\
+    &&[ J_i, K_j ] =  i \epsilon_{ijk} K_k, \\
+    && [ K_i, K_j ] = -i \epsilon_{ijk} J_k, 
+\end{eqnarray}
+we see
+\begin{eqnarray}
+    [ A_i, A_j ] &=& \frac{1}{4} [J_i + i K_i,J_j + i K_j] \\
+    &=&\frac{1}{4}([J_i,J_j]+i[J_i,K_j]+i[K_i,J_j]-[K_i,K_j])\\
+    &=&\frac{1}{4}(2i \epsilon_{ijk} J_k-2\epsilon_{ijk} K_k) \\
+    &=&\frac{i}{2} \epsilon_{ijk} (J_k + i K_k) = i \epsilon_{ijk} A_k,
+\end{eqnarray}
+\begin{eqnarray}
+    [ B_i, B_j ] &=& \frac{1}{4} [J_i - i K_i,J_j - i K_j] \\
+    &=&\frac{1}{4}\{[J_i,J_j]-i[J_i,K_j]-i[K_i,J_j]-[K_i,K_j]\} \\
+    &=&\frac{1}{4}(2i \epsilon_{ijk} J_k+2\epsilon_{ijk} K_k) \\
+    &=&\frac{i}{2} \epsilon_{ijk} (J_k - i K_k) = i \epsilon_{ijk} B_k,
+\end{eqnarray}
+\begin{eqnarray}
+    [ A_i, B_j ] &=& \frac{1}{4} [J_i + i K_i,J_j - i K_j] \\
+    &=&\frac{1}{4}([J_i,J_j]-i[J_i,K_j]+i[K_i,J_j]+[K_i,K_j]) \\
+    &=&0
+\end{eqnarray}
+
+\section{ }
+By pluging in
+\begin{eqnarray}
+    && J_k = (A_k + B_k) \\
+    && K_k = (A_k - B_k)/i
+\end{eqnarray}
+to the Lorentz transformation operator, we have
+\begin{eqnarray}
+    &&L(\theta_1, \theta_2, \theta_3, \eta_1, \eta_2, \eta_3)
+  =  e^{-i[ J_1\theta_1 +J_2\theta_2 +J_3\theta_3 +K_1\eta_1 +K_2\eta_2 +K_3\eta_3 ]} \\
+  &=&e^{\sum_k(A_k+B_k)\theta_k -i\sum_k(A_k-B_k)\eta_k} \\
+  &=& e^{-i[ A_1(\theta_1-i\eta_1) +A_2(\theta_2-i\eta_2) +A_3(\theta_3-i\eta_3)
+          +B_1(\theta_1+i\eta_1) +B_2(\theta_2+i\eta_2) +B_3(\theta_3+i\eta_3) ]} 
+\end{eqnarray}
+
+\section{ }
+Do the boost along $z$-axis
+\begin{eqnarray}
+   && L_A(0,0,0,0,0,\eta_3) u_L
+    e^{ A_3       (-\eta_3) } u_L
+    = e^{ \frac{\sigma^3}{2} (-\eta_3) }u_L \\
+    &=&
+    \begin{pmatrix}
+      e^{-\eta_3/2} & 0 \\
+      0 & e^{\eta_3/2}
+    \end{pmatrix} 
+    \sqrt{2E}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    =\sqrt{2E e^{\eta_3}}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    =\sqrt{2E'}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix},
+\end{eqnarray}
+we see that
+\begin{eqnarray}
+    E' = e^{\eta_3} E = (\cosh\eta_3 + \sinh\eta_3) E = \gamma(1+\beta) E 
+\end{eqnarray}
+
+\section{ }
+With
+\begin{eqnarray}
+    p^\mu = (E, 0, 0, E)^T 
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    h=\frac{\vec{J} \cdot {\vec p}}{|\vec{p}|}=\frac{\sigma^3}{2}.
+\end{eqnarray}
+Apply the helicity operator to $u_L$, we have
+\begin{eqnarray}
+    h u_L=\frac{\sigma^3}{2} u_L.
+\end{eqnarray}
+
+\section{ }
+For
+\begin{eqnarray}
+    p^\mu = (E, 0, 0, E)^T,
+\end{eqnarray}
+we have known the corresponding wavefunction
+\begin{eqnarray}
+    u_L=\sqrt{2E} (0,1)^T.
+\end{eqnarray}
+Under Lorentz transformation, the 4 momentum turns into
+\begin{eqnarray}
+    p^\mu \to {p'}^\mu
+    = E' (1, \sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)^T, 
+\end{eqnarray}
+and we now need to obtain its wavefunction.
+\begin{eqnarray}
+    B_z(\eta)u_L=e^{-\frac{\sigma^3}{2} \eta}=
+    \begin{pmatrix}
+      e^{-\eta/2} & 0 \\
+      0 & e^{\eta/2}
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    =\sqrt{2E'}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+   R_y(\theta)B_z(\eta)u_L&=& e^{-\frac{i \sigma^2}{2} \theta}\sqrt{2E'}
+   \begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix}\\
+    &=& \sqrt{2E'}
+    \begin{pmatrix}
+        \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+        \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}\\
+    &=&\sqrt{2E'}
+    \begin{pmatrix}
+        -\sin \frac{\theta}{2} \\ \cos \frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+    R_z(\phi)  R_y(\theta)B_z(\eta)u_L &=& e^{-\frac{i \sigma^3}{2} \theta}\sqrt{2E'}
+    \begin{pmatrix}
+    -\sin \frac{\theta}{2} \\ \cos \frac{\theta}{2}
+    \end{pmatrix}\\
+    &=& \sqrt{2E'}
+    \begin{pmatrix}
+        -e^{-\frac{i \phi}{2}}\sin \frac{\theta}{2} \\ e^{\frac{i \phi}{2}}\cos \frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+With
+\begin{eqnarray}
+    &&\frac{\vec p}{|\vec p|}
+    = (\sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)^T, \\ 
+    &&\vec{J} = (\frac{\sigma^1}{2}, \frac{\sigma^2}{2}, \frac{\sigma^3}{2})^T ,
+\end{eqnarray}
+we have the helicity
+\begin{eqnarray}
+    h&=&\frac{\vec{J} \cdot {\vec p}}{|\vec{p}|}=\frac{\sigma^1}{2}\sin\theta\cos\phi +\frac{\sigma^2}{2}\sin\theta\sin\phi +\frac{\sigma^3}{2} \cos\theta, \\
+    &=& \frac{1}{2}
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix},
+\end{eqnarray}
+and then can have
+\begin{eqnarray}
+    h u_L&=&\frac{1}{2} 
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+    \sqrt{2E'}
+    \begin{pmatrix}
+        -e^{-\frac{i \phi}{2}}\sin \frac{\theta}{2} \\ e^{\frac{i \phi}{2}}\cos \frac{\theta}{2}
+    \end{pmatrix} \\
+    &=& \frac{\sqrt{2E'}}{2}
+    \begin{pmatrix}
+        -e^{-\frac{i \phi}{2}}(\sin\frac{\theta}{2}\cos\theta- \cos\frac{\theta}{2}\sin\theta)\\ -e^{\frac{i \phi}{2}}(\sin\frac{\theta}{2}\sin\theta+\cos\frac{\theta}{2}\cos\theta)
+    \end{pmatrix}\\ 
+    &=& \frac{\sqrt{2E'}}{2}
+    \begin{pmatrix}
+        e^{-\frac{i \phi}{2}}\sin \frac{\theta}{2} \\ -e^{\frac{i \phi}{2}}\cos \frac{\theta}{2}
+    \end{pmatrix}
+    =-\frac{1}{2}u_L
+\end{eqnarray}
+
+\section{ }
+For
+\begin{eqnarray}
+   && \sigma_-^\mu = (1, -\sigma_1, -\sigma_2, -\sigma_3) \\
+   &&p^\mu
+  = |\vec {p}| (1, \sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)^T
+\end{eqnarray}
+we can write out
+\begin{eqnarray}
+    p_\mu\sigma_-^\mu = |{\vec p}| (1+ \sigma^1 \sin\theta\cos\phi +\sigma^2\sin\theta\sin\phi + \sigma^3 \cos\theta).
+\end{eqnarray}
+Applying $p_\mu\sigma_-^\mu$ to $u_L$, and note
+\begin{eqnarray}
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+    u_L=-u_L,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    p_\mu\sigma_-^\mu u_L = |{\vec p}| \left[ 1+
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+        \right] u_L =(1-1)u_L=0.
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    hu_L^c=\frac{1}{2} 
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        1 \\ 0 
+    \end{pmatrix}
+    = \frac{\sqrt{2E}}{2}
+        \begin{pmatrix}
+            1 \\ 0 
+        \end{pmatrix}
+    =\frac{1}{2}u_L
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    && L_A(0,0,0,0,0,\eta_3) u_L^c
+     e^{ A_3       (-\eta_3) } u_L
+     = e^{ \frac{\sigma^3}{2} (-\eta_3) }u_L \\
+     &=&
+     \begin{pmatrix}
+       e^{-\eta_3/2} & 0 \\
+       0 & e^{\eta_3/2}
+     \end{pmatrix} 
+     \sqrt{2E}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+     =\sqrt{2E e^{-\eta_3}}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+     =\sqrt{2E'}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+ \end{eqnarray}
+
+ \section{ }
+ \begin{eqnarray}
+    && L_B(0,0,0,0,0,\eta_3) u_L^c
+     e^{ B_3       (\eta_3) } u_L
+     = e^{ \frac{\sigma^3}{2} \eta_3 }u_L \\
+     &=&
+     \begin{pmatrix}
+       e^{\eta_3/2} & 0 \\
+       0 & e^{-\eta_3/2}
+     \end{pmatrix} 
+     \sqrt{2E}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+     =\sqrt{2E e^{\eta_3}}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+     =\sqrt{2E'}
+     \begin{pmatrix}
+         1 \\ 0
+     \end{pmatrix}
+ \end{eqnarray}
+
+
+\section{ }
+For
+\begin{eqnarray}
+    p^\mu = (E, 0, 0, E)^T,
+\end{eqnarray}
+we have known the corresponding wavefunction
+\begin{eqnarray}
+    u_L^c=\sqrt{2E} (1,0)^T.
+\end{eqnarray}
+For a generic 4 momentum turns into
+\begin{eqnarray}
+    {p'}^\mu
+    = E' (1, \sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)^T, 
+\end{eqnarray}
+we can obtain its wavefunction using Lorentz transformation on $u_L^c$
+\begin{eqnarray}
+    B_z(\eta)u_L^c=e^{-\frac{\sigma^3}{2} \eta}=
+    \begin{pmatrix}
+      e^{\eta/2} & 0 \\
+      0 & e^{-\eta/2}
+    \end{pmatrix}
+    \sqrt{2E}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+    =\sqrt{2E'}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+   R_y(\theta)B_z(\eta)u_L^c&=& e^{-\frac{i \sigma^2}{2} \theta}\sqrt{2E'}
+   \begin{pmatrix}
+    1 \\ 0
+    \end{pmatrix}\\
+    &=& \sqrt{2E'}
+    \begin{pmatrix}
+        \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+        \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}\\
+    &=&\sqrt{2E'}
+    \begin{pmatrix}
+        \cos\frac{\theta}{2} \\ \sin\frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+    R_z(\phi)  R_y(\theta)B_z(\eta)u_L^c &=& e^{-\frac{i \sigma^3}{2} \theta}\sqrt{2E'}
+    \begin{pmatrix}
+        \cos\frac{\theta}{2} \\ \sin\frac{\theta}{2}
+    \end{pmatrix}\\
+    &=& \sqrt{2E'}
+    \begin{pmatrix}
+        -e^{\frac{i \phi}{2}}\cos\frac{\theta}{2} \\ e^{\frac{i \phi}{2}}\sin\frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    h u_L^c&=&\frac{1}{2} 
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+    \sqrt{2E'}
+    \begin{pmatrix}
+        -e^{\frac{i \phi}{2}}\cos\frac{\theta}{2} \\ e^{\frac{i \phi}{2}}\sin\frac{\theta}{2}
+    \end{pmatrix} \\
+    &=& \frac{\sqrt{2E'}}{2}
+    \begin{pmatrix}
+        e^{-\frac{i \phi}{2}}(\sin\frac{\theta}{2}\sin\theta+\cos\frac{\theta}{2}\cos\theta)\\ -e^{\frac{i \phi}{2}}(\sin\frac{\theta}{2}\cos\theta- \cos\frac{\theta}{2}\sin\theta)
+    \end{pmatrix}\\ 
+    &=& \frac{\sqrt{2E'}}{2}
+    \begin{pmatrix}
+        e^{-\frac{i \phi}{2}}\cos \frac{\theta}{2} \\ -e^{\frac{i \phi}{2}}\sin \frac{\theta}{2}
+    \end{pmatrix}
+    =-\frac{1}{2}u_L^c
+\end{eqnarray}
+
+For
+\begin{eqnarray}
+   \sigma_+^\mu = (1, \sigma_1, \sigma_2, \sigma_3)
+\end{eqnarray}
+we write
+\begin{eqnarray}
+    p_\mu\sigma_+^\mu = |{\vec p}| (1- \sigma^1 \sin\theta\cos\phi -\sigma^2\sin\theta\sin\phi - \sigma^3 \cos\theta).
+\end{eqnarray}
+Applying $p_\mu\sigma_+^\mu$ to $u_L^c$, and note
+\begin{eqnarray}
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+    u_L^c=-u_L^c,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    p_\mu\sigma_+^\mu u_L^c = |{\vec p}| \left[ 1+
+    \begin{pmatrix}
+        \cos\theta & \sin\theta e^{-i\phi} \\ 
+        \sin\theta e^{i\phi} & -\cos\theta
+    \end{pmatrix}
+        \right] u_L^c =(1-1)u_L^c=0.
+\end{eqnarray}
+
+\section{ }
+Consider Lorentz transformation
+\begin{eqnarray}
+    L(\theta_1, \theta_2, \theta_3, \eta_1, \eta_2, \eta_3)
+   = L_A(\theta_1, \theta_2, \theta_3, \eta_1, \eta_2, \eta_3)
+   \times L_B(\theta_1, \theta_2, \theta_3, \eta_1, \eta_2, \eta_3),
+\end{eqnarray}
+the rotation parts ($\theta_1,\theta_2,\theta_3$) are exactly same for $L_A$ and $L_B$, while the boost part ($\eta_1,\eta_2,\eta_3$) are real and opposite
+between $L_A$ and $L_B$ (so it vanish). This transformation can be rewrite as
+\begin{eqnarray}
+    R_z(2\phi)R_y(2\theta),
+\end{eqnarray}
+and it leads
+\begin{eqnarray}
+    && p^\mu=(E,0,0,E)^T \to {p'}^\mu =E (1, \sin2\theta\cos2\phi, \sin2\theta\sin2\phi, \cos2\theta)^T \\
+    && u_L=(0,1)^T\to u_L= \sqrt{2E}
+      \begin{pmatrix}
+        -e^{-i \phi}\sin \theta \\ e^{i \phi}\cos \theta.
+    \end{pmatrix}
+\end{eqnarray}
+Also we can write the helicity
+\begin{eqnarray}
+    \frac{1}{2} 
+    \begin{pmatrix}
+        \cos2\theta & \sin2\theta e^{-2i\phi} \\ 
+        \sin2\theta e^{2i\phi} & -\cos2\theta
+    \end{pmatrix},
+\end{eqnarray} 
+which is actually in the same form with what we have done in {\bf hw12-6} with $\theta \to 2\theta$, $\phi \to 2 \phi$, so it is obvious that
+\begin{eqnarray}
+    h u_L=-\frac{1}{2}u_L
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

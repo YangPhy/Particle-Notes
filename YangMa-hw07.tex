@@ -1,0 +1,306 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW7}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+For an $SU(2)_L \times U(1)_Y$ rotation:
+  \begin{eqnarray}
+    \phi \to \phi' = U(\theta_2) U(\theta_3) U(\theta_0) \phi \label{eq.721ro}
+  \end{eqnarray}
+   where $U(\theta_2) = U(0,\theta_2,0,0)$, $U(\theta_3) = U(0,0,\theta_3,0)$, $U(\theta_0) = U(0,0,0,\theta_0)$, with the notation
+\begin{eqnarray}
+  U(\theta_1,\theta_2,\theta_3,\theta_0)
+  = e^{ i \sum_k \theta_k T^k }
+\end{eqnarray}
+ where $T^k = \sigma^k/2 (k=1,2,3)$ and $T^0 = {\rm diag}\{1,1\}/2$, we can calculate it step by step.
+ Now we take
+ \begin{eqnarray}
+    <\phi_u> &=& \frac{v}{\sqrt 2} \sin\theta e^{i\alpha}, \\
+    <\phi_d> &=& \frac{v}{\sqrt 2} \cos\theta e^{i\beta} 
+  \end{eqnarray}
+     and 
+  \begin{eqnarray}
+    \theta_0 &=& -(\alpha+\beta), \\
+    \theta_3 &=& -(\alpha-\beta), \\
+    \theta_2 &=& -2\theta,
+  \end{eqnarray}
+  with $v>0$, and then have 
+\begin{eqnarray}
+    U(\theta_0)
+    \begin{pmatrix}
+      <\phi_u> \\ <\phi_d>
+    \end{pmatrix}&=&
+    \begin{pmatrix}
+      e^{-i(\alpha+\beta)/2} & 0 \\0 &   e^{-i(\alpha+\beta)/2} 
+    \end{pmatrix}
+    \begin{pmatrix}
+        \sin\theta v e^{i \alpha}/\sqrt 2 \\ \cos\theta v e^{i \beta}/\sqrt 2 
+    \end{pmatrix} \\
+      &=&
+      \begin{pmatrix}
+        v \sin\theta e^{i(\alpha-\beta)/2} /\sqrt 2 \\
+        v \cos\theta e^{i(\beta-\alpha)/2} /\sqrt 2
+      \end{pmatrix}
+\end{eqnarray}
+
+\begin{eqnarray}
+    U(\theta_3)U(\theta_0)
+    \begin{pmatrix}
+      <\phi_u> \\ <\phi_d>
+    \end{pmatrix}&=&
+    \begin{pmatrix}
+        e^{-i(\alpha-\beta)/2} & 0 \\0 &   e^{i(\alpha-\beta)/2} 
+    \end{pmatrix}         
+    \begin{pmatrix}
+        v \sin\theta e^{i(\alpha-\beta)/2} /\sqrt 2 \\
+        v \cos\theta e^{i(\beta-\alpha)/2} /\sqrt 2
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        \frac{\sin\theta v}{\sqrt 2} \\
+        \frac{\cos\theta v}{\sqrt 2}
+    \end{pmatrix}
+\end{eqnarray}
+
+\begin{eqnarray}
+    U(\theta_2) U(\theta_3)U(\theta_0)
+    \begin{pmatrix}
+      <\phi_u> \\ <\phi_d>
+    \end{pmatrix}
+    &=&
+    \begin{pmatrix}
+        \cos \theta & -\sin \theta \\ \sin \theta  & \cos \theta  
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{\sin\theta v}{\sqrt 2} \\
+        \frac{\cos\theta v}{\sqrt 2}
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+      0 \\ \frac{v}{\sqrt 2}
+    \end{pmatrix}.
+\end{eqnarray}
+
+\section{ }
+For the Higgs potential
+\begin{eqnarray}
+  V(\phi) = \frac{\lambda}{4} (\phi^\dagger \phi)^2
+  + \mu^2 (\phi^\dagger \phi),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+  \frac{\del V(\phi)}{\del \phi} = \frac{\lambda}{2}(\phi^\dagger \phi) \phi^\dagger + \mu^2 \phi^\dagger = 0
+\end{eqnarray}
+when $\phi=<\phi>$. Then we see $<\psi>$ should satisfy
+\begin{eqnarray}
+  [\frac{\lambda}{2} (<\phi>^\dagger <\phi>) + \mu^2] <\phi>^\dagger = 0,
+\end{eqnarray}
+which implies
+\begin{enumerate}
+  \item If $\mu^2 > 0$, i.e. $\frac{\lambda}{2} (<\phi>^\dagger <\phi>) + \mu^2>0$, we have to let $<\phi>^\dagger = <\phi> = 0$.
+  \item If $\mu^2 < 0$, then apart from the solution $<\phi> = 0$, we can let
+  $\frac{\lambda}{2} (<\phi>^\dagger <\phi>) + \mu^2=0$, i.e. $<\phi>^\dagger <\phi> = -2\mu^2/\lambda$ be another solution.
+\end{enumerate}
+
+\section{ }
+Since we know that
+\begin{eqnarray}
+  Y \psi = Y
+  \begin{pmatrix}
+    \psi_u \psi_d
+  \end{pmatrix}
+  = \frac{1}{2}
+  \begin{pmatrix}
+    \psi_u \psi_d
+  \end{pmatrix},
+\end{eqnarray}
+and
+\begin{eqnarray}
+  T^3 
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix}
+  &=& \frac{1}{2}
+  \begin{pmatrix}
+    1 & 0\\0 &-1
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=& - \frac{1}{2}
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix},
+\end{eqnarray}
+we obtain
+\begin{eqnarray}
+  Q <\psi> = (T^3+Y) <\psi> = (\frac{1}{2}-\frac{1}{2})<\psi>=0.
+\end{eqnarray}
+As a result,
+\begin{eqnarray}
+  U_{EM}(\theta) <\psi> = e^{iQ\theta}<\psi> = <\psi>,
+\end{eqnarray}
+where we used $e^{A}\psi=a \psi$ if $a$ is the eigenvalue of operator $A$ acting on $\psi$.
+
+\section{ }
+By definition, it is straightforward to write out that
+\begin{eqnarray}
+  D_\mu <\phi>
+  &=& D_\mu
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix}
+  =(\del_\mu + i g T^k W^k_\mu + i g' Y B_\mu)
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\ 
+  &=&i( g T^k W^k_\mu + g' Y B_\mu)
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2},
+  \end{pmatrix} 
+\end{eqnarray}
+where we used $\del_\mu <\psi> =0$ since $v$ is a constant.
+Then we continue to write
+\begin{eqnarray}
+  D_\mu <\phi>
+    &=&i[g(T^1W^1_\mu+T^2W^2_\mu) + (gT^3W^3_\mu+g'YB_\mu)]
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=&i[(g/\sqrt2)(T^+W^+_\mu+T^-W^-_\mu)+(1/2)(gW^3_\mu \sigma^3 +g'B_\mu)]
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}，
+  \end{pmatrix}
+\end{eqnarray}
+by setting
+\begin{eqnarray}
+  T^+&=&T^1+iT^2, \\
+  T^-&=&T^1-iT^2,\\
+  W^+_\mu &=& (W^1_\mu - iW^2_\mu)/\sqrt2, \\ 
+  W^-_\mu &=& (W^1_\mu + iW^2_\mu)/\sqrt2,
+\end{eqnarray}
+and writting $T^1 W^1_\mu + T^2 W^2_\mu$ in terms of $T^+$, $T^-$, $W^+_\mu$ and $W^-_\mu$,
+\begin{eqnarray}
+  T^1 W^1_\mu + T^2 W^2_\mu
+  &=& (T^1+iT^2)(W^1_\mu-iW^2_\mu)/2 + (T^1-iT^2)(W^1_\mu+iW^2_\mu)/2 \nonumber \\
+  &=& T^+(W^1_\mu-iW^2_\mu)/2 + T^-(W^1_\mu+iW^2_\mu)/2  \nonumber \\
+  &=& (T^+ W^+_\mu)/\sqrt2 + (T^- W^-_\mu)/\sqrt2.
+\end{eqnarray}
+Finally, we have
+\begin{eqnarray}
+  D_\mu <\phi>
+  &=&i[(g/\sqrt2)(T^+W^+_\mu+T^-W^-_\mu)+(1/2)(gW^3_\mu \sigma^3+g'B_\mu)]
+  \begin{pmatrix}
+    0 \\ \frac{v}{\sqrt 2}
+  \end{pmatrix} \\
+  &=&\frac{v}{\sqrt 2}
+  \begin{pmatrix}
+    \frac{g}{\sqrt 2} W^+_\mu \\ (-gW^3_\mu+g'B_\mu)/2
+  \end{pmatrix} 
+   =\frac{iv}{\sqrt 2} 
+   \begin{pmatrix}
+    \frac{g}{\sqrt 2} W^+_\mu \\ -(g_z/2) Z_\mu
+  \end{pmatrix}\\
+   &=& i
+   \begin{pmatrix}
+    \frac{gv}{2} W^+_\mu \\ -\frac{g_zv}{2\sqrt2} Z_\mu
+   \end{pmatrix},
+\end{eqnarray}
+where
+\begin{eqnarray}
+  Z_\mu &=& (g W^3_\mu - g' B_\mu)/\sqrt{ g^2 + g'^2 } \\
+  g_z &=& \sqrt{ g^2 + g'^2 }.
+\end{eqnarray}
+
+\section{ }
+With above expression for $D_\mu <\psi>$, we write
+\begin{eqnarray}
+  {\cal L}_{Higgs}&=&(D_\mu <\psi>)^\dagger (D^\mu <\psi>) \\
+  &=& (-i)
+  \begin{pmatrix}
+    \frac{gv}{2}W^-_\mu & -\frac{g_z v}{2 \sqrt 2}Z_\mu
+  \end{pmatrix}
+  (i)
+  \begin{pmatrix}
+    \frac{gv}{2}W^{+\mu} \\ -\frac{g_z v}{2 \sqrt 2}Z^\mu
+  \end{pmatrix} \\
+  &=&(\frac{gv}{2})^2 W^-_\mu W^{+\mu}+ (\frac{g_zv}{2})^2Z_\mu Z^\mu/2 \\
+  &=&m_W^2 W^-_\mu W^{+ \mu} + m_Z^2 Z_\mu Z^\mu/2,
+\end{eqnarray}
+by introducing
+\begin{eqnarray}
+  m_W = g v/2 \\
+  m_Z = g_z v/2.
+\end{eqnarray}
+
+\section{ }
+First we write out $D_\mu$ as
+\begin{eqnarray}
+  D_\mu
+  &=&\del_\mu +i g T^k W^k_\mu + i g' Y B_\mu
+  =\del_\mu +ig(T^1W^1_\mu+T^2W^2_\mu+T^3W^3_\mu) +ig'YB_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +igT^3 W^3_\mu +ig'Y  B_\mu.
+\end{eqnarray}
+Then we need to consider the Weinberg rotation
+\begin{eqnarray}
+  \begin{pmatrix}
+    W^3_\mu \\  B_\mu
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \cos\theta_W & \sin\theta_W \\
+    -\sin\theta_W & \cos\theta_W
+  \end{pmatrix}
+  \begin{pmatrix}
+    Z_\mu \\ A_\mu
+  \end{pmatrix},
+\end{eqnarray}
+and have $D_\mu$ as
+\begin{eqnarray}
+  D_\mu
+   &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +igT^3 ( \cos\theta_W Z_\mu + \sin\theta_W A_\mu) \nonumber \\
+           &&+ig'Y  (-\sin\theta_W Z_\mu + \cos\theta_W A_\mu)\nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +i(g\cos\theta_W T^3 -g'\sin\theta_W Y) Z_\mu\nonumber \\
+            &&+i(g\sin\theta_W T^3 +g'\cos\theta_W Y) A_\mu.
+\end{eqnarray}
+
+Now we introduce
+\begin{eqnarray}
+  e &=& g\sin\theta_W = g'\cos\theta_W \\
+  g_Z&=&g/\cos\theta_W= g'\sin\theta_W 
+\end{eqnarray}
+and hence have
+\begin{eqnarray}
+  D_\mu
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +ig_Z(\cos^2\theta_W T^3 -\sin^2\theta_W Y) Z_\mu
+            \nonumber \\ &&+ie(T^3 + Y) A_\mu \nonumber \\
+  &=&\del_\mu +i(g/\sqrt2)(T^+W^+_\mu + T^-W^-_\mu)
+            +ig_Z(T^3 -\sin^2\theta_W Q) Z_\mu
+            +ieQ A_\mu,
+\end{eqnarray}
+where we used 
+\begin{eqnarray}
+  Q = T^3 + Y,
+\end{eqnarray}
+in the last step.
+
+
+
+\end{document}

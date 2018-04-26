@@ -1,0 +1,461 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW13 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students, \\
+
+  This week, I introduce the Dirac fermion and its equation of motion
+  the Dirac equation.  We reconstruct Dirac equations by combining two
+  Weyl fermions, $\psi_L$ transforming under $S_L$, and $\psi_R$ transforming
+  under $S_R$,
+\begin{eqnarray} 
+    \psi_L \to \psi_L' = S_L \psi_L \label{eq.13_1a}  \\
+    \psi_R \to  \psi_R' = S_R \psi_R \label{eq.13_1b}
+\end{eqnarray}
+  where
+\begin{eqnarray}
+    S_L(\theta_k,\eta_k)
+  = e^{\sum_k \sigma^k (-i\theta_k -\eta_k)/2}\label{eq.13_2a} \\ 
+  S_R(\theta_k,\eta_k)
+  = e^{\sum_k \sigma^k (-i\theta_k +\eta_k)/2} \label{eq.13_2b}
+\end{eqnarray}
+
+{\bf hw13-1}: Please confirm that the operators in Eq.\ref{eq.13_2a} and Eq.\ref{eq.13_2b} are the
+  Lorentz transformations $L_A$ and $L_B$, respectively, which we
+  introduced in the last lectures. Because
+\begin{eqnarray}
+  (S_L)^\dagger (S_R) = (S_R)^\dagger (S_L) = 1 \label{eq.13_2}
+\end{eqnarray}
+
+{\bf hw13-2}: Show Eq.\ref{eq.13_2}, or just explain by words if it is obvious to you.
+
+  We can form an invariant mass term (the coupling between two Weyl
+  fermions, $\psi_L$ and $\psi_R$)
+\begin{eqnarray}
+  {\cal L}_{Dirac~mass}
+  = -m (\psi_L^\dagger \psi_R + \psi_R^\dagger \psi_L) \label{eq.13_3}
+\end{eqnarray}
+
+  Because $\psi_L$ and $\psi_R$ in Eq.(\ref{eq.13_1a}, \ref{eq.13_1b}) are intrdouced as independent fields,
+  we can assign them the same charge for any phase transformations,
+  including the $U(1)_{EM}$ transformation:
+\begin{eqnarray}
+  &&\psi_L \to \psi_L' = e^{iQ\theta} \psi_L  \label{eq.13_4a} \\
+  &&\psi_R \to  \psi_R' = e^{iQ\theta} \psi_R \label{eq.13_4b}
+\end{eqnarray}
+  Here, we assign the same charge, $Q$, for both $\psi_L$ and $\psi_R$ fields.
+
+{\bf hw13-3}: Show that the mass term in Eq.\ref{eq.13_3} is invariant under the $U(1)_{EM}$
+  phase transformations Eq.(\ref{eq.13_4a}, \ref{eq.13_4b}).
+  In case of Majorana mass term,
+\begin{eqnarray}
+  {\cal L}_{Majorana~mass}
+  = -\frac{m}{2} ({\psi_L^c}^\dagger \psi_L + \psi_L^\dagger \psi_L^c) \label{eq.13_5}
+\end{eqnarray}
+  with
+\begin{eqnarray}
+  \psi_L^c = (i\sigma_2) \psi_L^* \label{eq.13_6}
+\end{eqnarray}
+  although the mass term in Eq.\ref{eq.13_5} is Lorentz invariant because of
+\begin{eqnarray}
+  &&\psi_L   \to \psi_L'   = S_L \psi_L  \label{eq.13_7a} \\
+  && \psi_L^c \to {\psi_L^c}' = S_R \psi_L^c \label{eq.13_7b}
+\end{eqnarray}
+ 
+{\bf hw13-3b}: Although we showed Eq.\ref{eq.13_7b} before, if you cannot reproduce the proof
+  in your mind, please prove it again.
+  It cannot be made invariant under the phase transformation.
+\begin{eqnarray}
+  && \psi_L   \to \psi_L'   = e^{ iQ\theta} \psi_L  \label{eq.13_8a} \\
+  && \psi_L^c \to {\psi_L^c}' = e^{-iQ\theta} \psi_L^c \label{eq.13_8b}
+\end{eqnarray}
+  simply because $\psi_L^c$ is proportional to $\psi_L^*$.
+
+  In case of neutrino's (which has zero electromagnetic charge), the
+  non-conserved ``charge'' may be called ``neutrino number'', or the
+  ``lepton number'', or even the ``fermion number''.
+
+{\bf hw13-4}: Please show that the first term in the Majorana mass term in Eq.\ref{eq.13_5}
+  has the lepton number $2$, while the latter term has the lepton number
+  $-2$, when we choose $Q$=Lepton number in Eq.(\ref{eq.13_8a}, \ref{eq.13_8b})
+
+  Now, let us come back to the Dirac fermion.  The free Lagrangian of
+  the Dirac fermion system (a system of $\psi_L$ and $\psi_R$ with the
+  same charge) is written as
+\begin{eqnarray}
+  {\cal L}_{Dirac} = {\cal L}_{kin} + {\cal L}_{Dirac~mass} \label{eq.13_9}
+\end{eqnarray}
+  with
+\begin{eqnarray}
+  {\cal L}_{kin}
+  = \psi_L^\dagger i\del_\mu \sigma_-^\mu \psi_L
+  + \psi_R^\dagger i\del_\mu \sigma_+^\mu \psi_R  \label{eq.13_10}
+\end{eqnarray}
+  and Eq.\ref{eq.13_3} for ${\cal L}_{Dirac mass}$.  The e.o.m. from Eq.\ref{eq.13_9} reads
+\begin{eqnarray}
+  &&i\del_\mu \sigma_-^\mu \psi_L = m \psi_R   \label{eq.13_11a} \\
+  && i\del_\mu \sigma_+^\mu \psi_R = m \psi_L \label{eq.13_11b}
+\end{eqnarray}
+  
+{\bf hw13-5}: Derive the Dirac equations Eq.(\ref{eq.13_11a}, \ref{eq.13_11b}) from ${\cal L}_{Dirac}$.
+
+{\bf hw13-6}: Show that the kinetic term ${\cal L}_{kin}$ is also invariant
+  under the phase transformation Eq.(\ref{eq.13_4a}, \ref{eq.13_4b}).
+
+  The only remaining task is to show that the kinetic term, ${\cal L}_{kin}$ Eq.\ref{eq.13_10}
+  is Lorentz invariant.  In other words, we should yet to show that
+\begin{eqnarray}
+  && \psi_L^\dagger \sigma_-^\mu \psi_L = J_L^\mu \label{eq.13_6a} \\
+  && \psi_R^\dagger \sigma_+^\mu \psi_R = J_R^\mu \label{eq.13_6b}
+\end{eqnarray}
+  transform as four-vectors. We show this by using infinitesimal
+  transformations.
+
+  Let us first remember the (infinitesimal) Lorentz tranformation of
+  vectors.
+\begin{eqnarray}
+  V^\mu \to V'^\mu = L(\theta_k,\eta_k) V^\mu \label{eq.13_7}
+\end{eqnarray}
+  by using the $4 \times 4$ matrix representation:
+\begin{eqnarray}
+  L(\theta_k,\eta_k)
+  &=& e^{-i( J_1 \theta_1 + J_2 \theta_2 + J_3 \theta_3
+          +K_1 \eta_1   + K_2 \eta_2   + K_3 \eta_3  )} \\
+  &=& 1  -i( J_1 \theta_1 + J_2 \theta_2 + J_3 \theta_3
+          +K_1 \eta_1   + K_2 \eta_2   + K_3 \eta_3 ) + h.o. \label{eq.13_8}
+\end{eqnarray}
+  (note the minus sign before the generators, since we are transforming
+  the object ``vector'' or ``current'', rather than the coordinates).
+
+{\bf hw13-7}: Please obtain the transformation Eq.\ref{eq.13_8} as a $4 \times 4$ matrix up to
+  the first order (in $\theta_k$ and $\eta_k$), by using the $4 \times 4$ matrix
+  representations of all the $6$ generators.  Please give your answer
+  as Eq.\ref{eq.13_9_2}:
+\begin{eqnarray}
+  L=
+  \begin{pmatrix}
+    1 & \eta_1 & \cdots & \cdots \\ 
+    \cdots & 1 &-\theta_3 & \cdots \\
+    \cdots & \cdots & 1 & \cdots \\
+    \cdots & \cdots & \cdots & 1
+  \end{pmatrix} \label{eq.13_9_2}
+\end{eqnarray}
+  Our task is hence simply to show that $J_L^\mu$ and $J_R^\mu$ in Eq.(\ref{eq.13_6a}, \ref{eq.13_6b}), 
+  respectively, transform exactly the same way as Eq.\ref{eq.13_9_2}.
+
+  Let us start with $J_L^\mu$
+\begin{eqnarray}
+  J_L^\mu
+  &=& \psi_L^\dagger \sigma_-^\mu \psi_L
+  \to J_L'^\mu
+  = \psi_L'^\dagger \sigma_-^\mu \psi_L'
+  = (S_L \psi_L)^\dagger \sigma_-^\mu (S_L \psi_L)
+  = \psi_L^\dagger (S_L)^\dagger \sigma_-^\mu (S_L) \psi_L \label{eq.13_10_2}
+\end{eqnarray}
+  Therefore, all we should study is the transformation
+\begin{eqnarray}
+  \sigma_-^\mu \to (S_L)^\dagger \sigma_-^\mu (S_L) \label{eq.13_11}
+\end{eqnarray}
+  in the infinitesimal transformation
+\begin{eqnarray}
+  S_L(\theta_k,\eta_k)
+  &=& e^{ \sum_k \sigma^k (-i\theta_k -\eta_k)/2}
+  = 1 + \sum_k \sigma^k (-i\theta_k -\eta_k)/2 + h.o. \label{eq.13_12a} \\
+  S_L^\dagger(\theta_k,\eta_k)
+  &=& e^{ \sum_k \sigma^k (+i\theta_k -\eta_k)/2}
+  = 1 + \sum_k \sigma^k (+i\theta_k -\eta_k)/2 + h.o. \label{eq.13_12b}
+\end{eqnarray}
+  By inserting Eq.(\ref{eq.13_12a},\ref{eq.13_12b}) into Eq.\ref{eq.13_11}, we find
+\begin{eqnarray}
+  \sigma_-^\mu
+    \to {\sigma_-^\mu}'
+    &=& (S_L)^\dagger \sigma_-^\mu (S_L) \\
+    &=& (1 + \sum_k \sigma^k (+i\theta_k -\eta_k)/2 )
+      \sigma_-^\mu
+      (1 + \sum_k \sigma^k (-i\theta_k -\eta_k)/2 ) \\ 
+    &=& \sigma_-^\mu
+     +\sum_k \frac{i\theta_k}{2} [\sigma^k,\sigma_-^\mu]
+     -\sum_k \frac{\eta_k}{2}  \{ \sigma^k,\sigma_-^\mu \} + h.l. \label{eq.13_13}
+\end{eqnarray}
+  where $[A,B] = AB-BA$, $\{A,B\}=AB+BA$.
+
+{\bf hw13-8}: Please calculate the commutator and anti-commutator in Eq.\ref{eq.13_13} for $\mu=0, 1, 2, 3$, separately, by using the properties of the
+  $\sigma$ matrices.  Show that the result agrees exactly with Eq.\ref{eq.13_9_2}.
+
+{\bf hw13-9}: Repeat the above proof for $J_R^\mu$, by noting that the only
+  difference between $J_L^\mu$ and $J_R^\mu$ are the difference between
+  $\sigma_-^\mu$ and $\sigma_+^\mu$, i.e., they are the same for $\mu=0$,
+  but the sign is opposite for $\mu=1,2,3$, whereas ($S_L$) and ($S_R$) differ
+  only in the sign of $\eta_k$.  Show that the result agree exactly
+  with Eq.\ref{eq.13_9_2} again.
+
+{\bf hw13-10}: After proving (in {\bf hw13-8,9}) that the combinations Eq.(\ref{eq.13_6a},\ref{eq.13_6b}) transform as four vectors, confirm that none of the combinations below
+\begin{itemize}
+  \item $\psi_L^\dagger \sigma_+^\mu \psi_L$,
+  \item $\psi_R^\dagger \sigma_-^\mu \psi_R$,
+  \item $\psi_L^\dagger \sigma_+^\mu \psi_R$ and its hermetian conjugate
+  \item $\psi_L^\dagger \sigma_-^\mu \psi_R$ and its hermetian conjugate
+\end{itemize}
+  transforms as a vector. Please don't waste your time by explicitly
+  calculating the transformations of the above objects, but try to
+  explain the reason by words.  I think that it is possible to explain.
+
+  This homework, {\bf hw13-8} and {\bf hw13-9}, completes the proof that the Dirac
+  Lagrangian Eq.\ref{eq.13_10}+Eq.\ref{eq.13_3}
+\begin{eqnarray}
+  {\cal L}_{Dirac}
+  &=& {\cal L}_{kin} + {\cal L}_{Dirac~mass} \\
+  &=& \psi_L^\dagger i\del_\mu \sigma_-^\mu \psi_L 
+  + \psi_R^\dagger i\del_\mu \sigma_+^\mu \psi_R
+  -m (\psi_L^\dagger \psi_R + \psi_R^\dagger \psi_L) \label{eq.13_15}
+\end{eqnarray}
+  is invariant under the Lorentz transformation, from which we find
+  the Lorentz covariant equation of motion,
+\begin{eqnarray}
+  &&i\del^\mu \sigma_-^\mu \psi_L = m \psi_R \label{eq.13_16a}\\
+  && i\del^\mu \sigma_+^\mu \psi_R = m \psi_L\label{eq.13_16b}
+\end{eqnarray}
+the Dirac equation.  We reproduced what Dirac found in 1928!
+
+It is not difficult now to show that the Dirac equations, Eq.(\ref{eq.13_16a}, \ref{eq.13_16b}), are Lorentz covariant, i.e., the left-hand-side and the
+  right-hand-side of the equations transform the same way under an
+  arbitrary Lorentz transformation.
+
+  We showed in {\bf hw13-8,9} that the following combinations are Lorentz
+  invariant:
+\begin{eqnarray}
+&& (\psi_L)^\dagger V_\mu \sigma_-^\mu (\psi_L) \label{eq.13_17a}\\ 
+&&(\psi_R)^\dagger V_\mu \sigma_+^\mu (\psi_R)  \label{eq.13_17b}
+\end{eqnarray}
+  For instance, the Lorentz invariance of Eq.\ref{eq.13_17a} can be expressed as
+\begin{eqnarray}
+  (\psi_L)^\dagger V_\mu  \sigma_-^\mu  (\psi_L)
+  \to (\psi_L')^\dagger V_\mu' \sigma_-^\mu (\psi_L')
+  = (\psi_L)^\dagger (S_L)^\dagger V_\mu' \sigma_-^\mu (S_L) (\psi_L)
+  = (\psi_L)^\dagger V_\mu  \sigma_-^\mu   (\psi_L) \label{eq.13_18}
+\end{eqnarray}
+  The above transformation rule can be read as the product
+\begin{eqnarray}
+  (\psi_L)^\dagger B \label{eq.13_19}
+\end{eqnarray}
+  is Lorentz invariant, when we regard the combination
+\begin{eqnarray}
+  B = \{V_\mu  \sigma_-^\mu  (\psi_L)\} \label{eq.13_20}
+\end{eqnarray}
+  as a two-spinor (complex two component column vector).  The invariance
+  Eq.\ref{eq.13_18} can now be expressed as
+\begin{eqnarray}
+  (\psi_L)^\dagger B \to (\psi_L')^\dagger  B'
+    = (\psi_L)^\dagger (S_L)^\dagger B'
+    = (\psi_L)^\dagger B \label{eq.13_21}
+\end{eqnarray}
+  This tells that $B$ should transform as
+\begin{eqnarray}
+  B \to B' = \{(S_L)^\dagger\}^{-1} B = (S_R) B \label{eq.13_22}
+\end{eqnarray}
+  because $(S_L)^\dagger (S_R) = 1$ (Eq.\ref{eq.13_2}). Now we showed that both the left-hand-side and the right-hand-side of the Dirac equation Eq.\ref{eq.13_16a} transform by $(S_R)$.
+
+{\bf hw13-11}: Show that the l.h.s. of the Dirac Eq.\ref{eq.13_16b} is trsnformed by $(S_L)$, just like $\psi_L$ in the r.h.s. of the equation.
+
+  This completes the proof of the Lorentz invariance of the Dirac
+  Lagrangian and the covariance of the Dirac equations.  When I was a
+  student, I had hard time following the proof given in the textbooks.
+
+  We could do this so easily simply because we learned from his successors
+  like Weyl and Majorana, who found very simple (two component)
+  representations of the Lorentz group, which allows us to describe all
+  Lorentz transformations in the $2 \times 2$ matrix basis.
+
+  Please appreciate the fact that the Dirac Lagrangian Eq.\ref{eq.13_15} and hence the Dirac equation Eq.(\ref{eq.13_16a}, \ref{eq.13_16b}) describe a system of two Weyl fermions, one transforming under $S_L$, and the other transforming under $S_R$, which are coupled by the invariant mass term (Eq.\ref{eq.13_3}).
+
+  Because this is exactly how we understand the nature now in the SM
+  of particle physics, I believe that this is the right way to understand
+  Dirac fermions and the Dirac equations.
+
+  Let us show here how the Dirac four-spinor is related to our two-spinor
+  in the so-called Weyl or Chiral representation of the $\gamma$ matrices.
+
+  Let us first introduce a Dirac four-spinor fermion field:
+\begin{eqnarray}
+  \Psi(x) = ( \psi_L(x), \psi_R(x) )^T = 
+  \begin{pmatrix}
+    \psi_L(x) \\ \psi_R(x)
+  \end{pmatrix} \label{eq.13_23}
+\end{eqnarray}
+  where I use $\Psi$ for 4-spinor, $\psi_L$ and $\psi_R$ for 2-spinors.  The
+  Dirac Lagrangian is written as
+\begin{eqnarray}
+  {\cal L}_{Dirac} = {\overline \Psi} i\del \gamma \Psi - m {\overline \Psi} \Psi \label{eq.13_24}
+\end{eqnarray}
+  where I introduce a notation for Lorentz invariant contraction
+\begin{eqnarray}
+  \del \gamma = \del_\mu \gamma^\mu \label{eq.13_25}
+\end{eqnarray}
+  with
+\begin{eqnarray}
+  \gamma^\mu =
+  \begin{pmatrix}
+    0 & \sigma_+^\mu \\
+    \sigma_-^\mu & 0
+  \end{pmatrix} \label{eq.13_26}
+\end{eqnarray}
+  and
+\begin{eqnarray}
+  {\overline \Psi} &=& \Psi^\dagger \gamma_0
+              = ( \psi_L^\dagger, \psi_R^\dagger )
+              \begin{pmatrix}
+                0 & 1 \\
+                1 & 0
+              \end{pmatrix}  \\
+        &=& ( \psi_R^\dagger, \psi_L^\dagger ) \label{eq.13_27}
+\end{eqnarray}
+  is called Dirac conjugate.
+
+{\bf hw13-12}: Please show that the Lagrangian in Eq.\ref{eq.13_24} is exactly the same as ${\cal L}_{Dirac}$ in Eq.\ref{eq.13_15} which we studied above.  Please observe the importance of Dirac conjugate Eq.\ref{eq.13_27}, which exchange the ordering of $\psi_L^\dagger$ and $\psi_R^\dagger$. We already learned that this replacement ensures the Lorentz invariance of both terms in
+  ${\cal L}_{Dirac}$ (Eq.\ref{eq.13_24}) expressed in terms of the 4-spinor Eq.\ref{eq.13_23}.
+
+  The equation of motion (the Dirac equation) is then
+\begin{eqnarray}
+  ( i\del \gamma - m ) \Psi(x) = 0 \label{eq.13_28}
+\end{eqnarray}
+
+{\bf hw13-13}: Please show that the Dirac equation Eq.\ref{eq.13_28} is the same as the Dirac equation Eq.(\ref{eq.13_16a}, \ref{eq.13_16b}), we obtained above.
+
+  We can show by multiplying $i\del \gamma + m $ from the left on Eq.\ref{eq.13_28}
+\begin{eqnarray}
+  [ i\del \gamma + m ] [ i\del \gamma - m ] \Psi(x)
+  = [ \del_\mu \del^\mu + m^2 ] \Psi(x) = 0. \label{eq.13_29}
+\end{eqnarray}
+  That is, all four components of $\Psi(x)$ satisfy the Klein-Gordon eq.
+
+{\bf hw13-14}: Show that the necessary condition for Eq.\ref{eq.13_29} to hold is the
+  anti-commutation relation among $\gamma^\mu$:
+\begin{eqnarray}
+  \{ \gamma^\mu, \gamma^\nu \} = 2 g^{\mu\nu}. \label{eq.13_30}
+\end{eqnarray}
+
+{\bf hw13-15}: Show that the anti-commutator Eq.\ref{eq.13_30} holds for our representation
+  Eq.\ref{eq.13_26} of the $\gamma$ matrices (called Chiral or Weyl representation).
+
+  You should prove the following two identities:
+\begin{eqnarray}
+  && \sigma_+^a \sigma_-^b + \sigma_+^b \sigma_-^a = 2 g^{ab} \label{eq.13_31a}\\
+  && \sigma_-^a \sigma_+^b + \sigma_-^b \sigma_+^a = 2 g^{ab} \label{eq.13_31b}
+\end{eqnarray}
+ 
+{\bf hw13-16}: Please show
+\begin{eqnarray}
+  {\gamma^0}^\dagger =  \gamma^0 , ~~~
+      {\gamma^i}^\dagger = -\gamma^i (i=1,2,3) \label{eq.13_32}
+\end{eqnarray}
+  in Chiral representation Eq.\ref{eq.13_26}.  $\gamma^0$ is Hermetian and $\gamma^i$ are
+  anti-Hermetian.
+
+  Let us introduce the $\gamma^5 = \gamma_5$ matrix as follows.
+\begin{eqnarray}
+  \gamma^5 = i \gamma^0 \gamma^1 \gamma^2 \gamma^3 \label{eq.13_33}
+\end{eqnarray}
+
+
+{\bf hw13-17}: Please show
+\begin{eqnarray}
+  && \{ \gamma^5, \gamma^\mu \} = 0~~   for~\mu=0,1,2,3 \label{eq.13_34a} \\
+  &&             (\gamma^5)^2 = 1 \label{eq.13_34b}
+\end{eqnarray}
+  hold for arbitrary representations of $\gamma$ matrices which satisfy the
+  anti-commutation relations Eq.\ref{eq.13_30}.
+
+In the Chiral Representation Eq.\ref{eq.13_26}, $\gamma^5$ is diagonal
+\begin{eqnarray}
+  \gamma^5=
+  \begin{pmatrix}
+    -1 & 0\\ 
+    0 & 1
+  \end{pmatrix} \label{eq.13_35}
+\end{eqnarray}
+  where $1$ is unit $2 \times 2$ matrix. Let us now introduce chiarl projectors:
+\begin{eqnarray}
+ &&P_L = ( 1 - \gamma^5 )/2 = 
+ \begin{pmatrix}
+   1 & 0 \\ 
+   0 & 0
+ \end{pmatrix} \label{eq.13_36a} \\
+ && P_R = ( 1 + \gamma^5 )/2 =
+ \begin{pmatrix}
+   0 & 0 \\
+   0 & 1
+ \end{pmatrix} \label{eq.13_36b}
+\end{eqnarray}
+ 
+{\bf hw13-18}: Derive Eq.\ref{eq.13_35}, and observe the projective properties Eq.(\ref{eq.13_37a}, \ref{eq.13_37b}, \ref{eq.13_37c}, \ref{eq.13_37d}):
+\begin{eqnarray}
+  &&(P_L)^2 = P_L \label{eq.13_37a}\\
+  &&(P_R)^2 = P_R,\label{eq.13_37b} \\
+  &&(P_L)(P_R) = 0, \label{eq.13_37c} \\
+  &&P_L + P_R = 1 \label{eq.13_37d}
+\end{eqnarray}
+  The property Eq.(\ref{eq.13_37a},\ref{eq.13_37b}) is called projective, Eq.\ref{eq.13_37c} tells that the two
+  projections are orthogonal, Eq.\ref{eq.13_37d} tells that the two projections are
+  complete (no more projections).
+
+  By using the completeness condition Eq.\ref{eq.13_37d}, we can express all 4-spinors
+  $\Psi$ as a summation over two states (projections)
+\begin{eqnarray}
+  &&\Psi = (P_L + P_R) \Psi = \Psi_L + \Psi_R \label{eq.13_38a} \\ 
+  && P_L \Psi = \Psi_L = 
+  \begin{pmatrix}
+    \psi_L \\ 0
+  \end{pmatrix} \label{eq.13_38b} \\ 
+  &&P_R \Psi = \Psi_R =
+  \begin{pmatrix}
+    0 \\ \psi_R
+  \end{pmatrix}\label{eq.13_38c}
+\end{eqnarray}
+ Here 0's in Eq.(\ref{eq.13_38b}, \ref{eq.13_38c}) are 2-component column vectors $(0,0)^T$.
+
+  In this notation, $\Psi_L$ and $\Psi_R$ are still $4$-spinors, containing
+  one Weyl $2$-spinors $\psi_L$ and $\psi_R$, respectively, together with
+  $2$-component nul spinors, $(0,0)^T$.  Because two-spinors $\psi_L$ and
+  $\psi_R$ transform differently under the Lorentz transformation, as
+  we showed in Eq.(\ref{eq.13_1a},\ref{eq.13_1b}), upper and lower halves of a Dirac four-spinor
+  transform differently under Lorentz transformation.  This is the
+  reason why it was hard for me (and many students) to understand the
+  property of the Dirac fermions.
+
+  When I studied Dirac fermions in 1985 (6 years after I got my PhD),
+  chiral representation was treated as just one of many representations
+  of the Dirac fields and $\gamma$ matrices.  I chose it simply because
+  it is the only representation which makes massless neutrino wave
+  function simple.  We can now tell that only in the chiral representation
+  the origin of the Dirac fermions in the SM is manifest.  It is only
+  in the chiral representation that the Lorentz transformation is
+  factorized into upper and lower two-spinor components.  The SM tells
+  us that those two components were independent (massless spin $1/2$)
+  particles before the symmetry breakdown.
+
+That's all for hw13.
+
+Best regards,
+
+Kaoru
+
+
+\end{document}

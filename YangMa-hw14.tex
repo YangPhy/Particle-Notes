@@ -1,0 +1,626 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW14}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+Multiply $-i\del_\nu \sigma_+^\nu$ to Dirac equation
+\begin{eqnarray}
+    -i\del_\nu \sigma_+^\nu( i\del_\mu \sigma_-^\mu \psi_L - m \psi_R) = 0,
+\end{eqnarray}
+and we see
+\begin{eqnarray}
+    \del_\nu \del_\mu \sigma_+^\nu \sigma_-^\mu \psi_L
+  +i\del_\nu \sigma_+^\nu m \psi_R= [\del_\nu \del_\mu \sigma_+^\nu \sigma_-^\mu + m^2] \psi_L = 0.
+\end{eqnarray}
+Since
+\begin{eqnarray}
+    \del_\nu \del_\mu \sigma_+^\mu \sigma_-^\nu
+    = \frac{1}{2} \del_\nu \del_\mu
+      (\sigma_+^\mu \sigma_-^\nu + \sigma_+^\nu \sigma_-^\mu)
+    = \frac{1}{2} \del_\nu \del_\mu { 2 g^{\mu\nu} }
+    = \del_\nu \del_\mu g^{\mu\nu}
+    = \del_\mu \del^\mu,
+  \end{eqnarray}
+we can simplify the Dirac equation to
+\begin{eqnarray}
+    [ \del_\mu \del^\mu + m^2 ] \psi_L = 0.
+\end{eqnarray}
+
+\section{ }
+Similar to {\bf hw14-1}
+\begin{eqnarray}
+    -i\del_\nu \sigma_-^\nu( i\del_\mu \sigma_+^\mu \psi_R - m \psi_L) =\del_\nu \del_\mu \sigma_-^\nu \sigma_+^\mu \psi_R
+    +i\del_\nu \sigma_-^\nu m \psi_R = 0,
+\end{eqnarray}
+above equation can be simplified to
+\begin{eqnarray}
+    [ \del_\mu \del^\mu + m^2 ] \psi_R = 0.
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    (\del_\mu\del^\mu+m^2) e^{ipx}=(-E^2+p_x^2+p_y^2+p_z^2+m^2)e^{ipx}=0
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    &&i\frac{d}{dt} e^{-ipx} = E e^{-ipx}=He^{-ipx},~~~H=E \\
+    &&i\frac{d}{dt} e^{ipx} = -E e^{ipx}=He^{ipx},~~~~H=-E
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    \bra{0} \phi(x) \ket{particle,~{\vec k}}&=&   \int \frac{d^3p}{2E(2\pi)^3} \bra{0}(a(p) e^{-ipx} + b(p)^\dagger e^{ipx}) a^\dagger(k) \ket{0} \nonumber \\ &=& \bra{0}a(k)a^\dagger(k) \ket{0}e^{-ikx} =e^{-ikx}
+\end{eqnarray}
+
+\section{ }
+Under Lorentz transformation, $d^4p$ and $E$ are invariant, since
+\begin{eqnarray}
+    &&d^4 p \to d^4 p' = det(L) d^4 p = d^4 p,\\
+    &&E^2 =p^2 - m^2 \to p'^2 - m^2 = p^2 - m^2.
+\end{eqnarray}
+Then we can write $d^3p/2E$ in terms of $d^4p$
+\begin{eqnarray}
+    d^4 p \delta( p^2 - m^2 ) \Theta(p^0)
+    &=&dp^0dp^1dp^2dp^3 \delta((p^0)^2-(p^1)^2-(p^2)^2-(p^3)^2-m^2) \Theta(p^0) \nonumber \\
+    &=&dp^0dp^1dp^2dp^3 \delta( (p^0)^2 -E^2 ) \Theta(p^0) \nonumber\\
+    &=&dp^0dp^1dp^2dp^3 \delta( (p^0-E) (p^0+E) ) \Theta(p^0)\nonumber\\
+    &=&dp^0dp^1dp^2dp^3 \delta( (p^0-E) (2E) ) \Theta(p^0) \nonumber\\
+    &=&    dp^1dp^2dp^3/2E
+    =    d^3 p/2E 
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    \bra{0} \phi^*(x) \ket{anti-particle,~{\vec k}}&=&   \int \frac{d^3p}{2E(2\pi)^3} \bra{0}(a^\dagger (p) e^{ipx} + b(p)^\dagger e^{-ipx}) b^\dagger(k) \ket{0} \nonumber \\ &=& \bra{0}b(k)b^\dagger(k) \ket{0}e^{-ikx} =e^{-ikx}
+\end{eqnarray}
+
+\section{ }
+Insert $\psi_L=e^{-ikx} u_L(k,h)$ and $\psi_R=e^{-ikx} u_R(k,h)$ into the Dirac equation
+\begin{eqnarray}
+    && i\del_\mu \sigma_-^\mu \psi_L - m \psi_R = 0, \\
+    && i\del_\mu \sigma_+^\mu \psi_R - m \psi_L = 0, 
+\end{eqnarray}
+and we have
+\begin{eqnarray}
+    &&k_\mu \sigma_-^\mu u_L(k,h) = m u_R(k,h) \\
+    && k_\mu \sigma_+^\mu u_R(k,h) = m u_L(k,h).
+\end{eqnarray}
+We can also insert $\psi_L=e^{-ikx} v_L(k,h)$ and $\psi_R=e^{-ikx} v_R(k,h)$ and have
+\begin{eqnarray}
+    && -k_\mu v_L(k,h)^\dagger \sigma_-^\mu = m v_R(k,h)^\dagger  \\
+    && -k_\mu v_R(k,h)^\dagger \sigma_-^\mu = m v_L(k,h)^\dagger
+\end{eqnarray}
+
+\section{ }
+By applying charge conjugation transformations
+\begin{eqnarray}
+    && \psi_L(x) \to \psi_L(x)^c = (-i\sigma^2) \psi_L(x)^* \\
+    && \psi_R(x) \to \psi_R(x)^c = (+i\sigma^2) \psi_R(x)^* 
+\end{eqnarray}
+we see the only we to satisfy ${\psi_{L/R}(x)^c}^c = \psi_{L/R}(x)$ is to require $\psi_{L/R}^c$ transforms as $\psi_{R/L}$
+\begin{eqnarray}
+    &&{\psi_L^c}^c=i\sigma^2 (-i\psi_L^*)^*=(i\sigma^2)(-i\sigma^2)\psi_L=\psi_L\\
+    &&{\psi_R^c}^c=-i\sigma^2 (i\psi_R^*)^*=(-i\sigma^2)(i\sigma^2)\psi_R=\psi_R
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    \psi_L^c(x) &=& -i\sigma^2 \psi_L(x)^*\\
+    &=& -\sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a^\dagger ({\vec p},h) e^{ipx} (i\sigma^2)u_L({\vec p},h) +b({\vec p},h) e^{-ipx} (i\sigma^2)v_L({\vec p},h)] \\ 
+    &=&\sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a^\dagger({\vec p},h) e^{ipx} u_L^c({\vec p},h) +b({\vec p},h) e^{-ipx} v_L^c({\vec p},h)]\\
+    \psi_R^c(x)&=& i\sigma^2 \psi_R(x)^* \\
+    &=& \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a^\dagger ({\vec p},h) e^{ipx} (i\sigma^2)u_R({\vec p},h) +b({\vec p},h) e^{-ipx}(i\sigma^2)v_R({\vec p},h)]\\
+    &=& \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a^\dagger({\vec p},h) e^{ipx} u_R^c({\vec p},h) +b({\vec p},h) e^{-ipx} v_R^c({\vec p},h)]
+\end{eqnarray}
+
+\section{ }
+The requirement
+\begin{eqnarray}
+    && \psi_L^c(x) = \psi_R(x) \\
+    && \psi_R^c(x) = \psi_L(x) 
+\end{eqnarray}
+can be written out explicitly as 
+\begin{eqnarray}
+    \psi_{L/R}^c(x)&=&\psi_{R/L}(x) \\
+    &=& \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a ({\vec p},h) e^{-ipx} u_{R/L}({\vec p},h) +b^\dagger ({\vec p},h) e^{ipx}v_{R/L}({\vec p},h)]
+\end{eqnarray}
+Compare above equation with
+\begin{eqnarray}
+    \psi_{L/R}^c(x)&=& \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+    [a^\dagger({\vec p},h) e^{ipx} u_{L/R}^c({\vec p},h) +b({\vec p},h) e^{-ipx} v_{L/R}^c({\vec p},h)]
+\end{eqnarray}
+and we see
+$v_{R/L}({\vec p},h) = u_{L/R}(p,h)^c$.
+
+\section{ }
+In the rest frame ($p=(m,0,0,0)$), the Dirac equation
+\begin{eqnarray}
+    k_\mu \sigma_-^\mu u_L(k,h) = m u_R(k,h),
+\end{eqnarray}
+turns into
+\begin{eqnarray}
+    m u_L(k,h)=m u_R(k,h),
+\end{eqnarray}
+which tells us $u_L(k,h)=u_R(k,h)$.
+
+\section{ }
+As we have shown in {\bf hw14-12}, in the rest frame, Dirac equation is satisfied if $U_L=U_R$.
+\begin{eqnarray}
+   && hu_{L/R}(p,\frac{1}{2})=\frac{1}{2}\sqrt{m}
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 \\ 0
+    \end{pmatrix}
+    = \frac{1}{2} u_{L/R}(p,\frac{1}{2}) \\ 
+    && hu_{L/R}(p,-\frac{1}{2})=\frac{1}{2}\sqrt{m}
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}
+    = -\frac{1}{2} u_{L/R}(p,-\frac{1}{2})
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item For $p^\mu$, we need to write $L(y_3=y)$ in matrix
+    \begin{eqnarray}
+        &&L(y_3 = y)
+        = e^{ i K_3 y }= \exp
+        {\begin{pmatrix}
+            0 & 0 & 0 & -y \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            -y & 0 & 0 & 0 
+        \end{pmatrix}}\\
+        &=&
+        1+
+        \begin{pmatrix}
+            0 & 0 & 0 & -y \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            -y & 0 & 0 & 0 
+        \end{pmatrix}
+        +\frac{1}{2!}\begin{pmatrix}
+            0 & 0 & 0 & -y \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            -y & 0 & 0 & 0 
+        \end{pmatrix}^2
+        +\cdots \\
+        &=&
+        \begin{pmatrix}
+            \cosh y & 0 & 0 & -\sinh y \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            -\sinh y & 0 & 0 & \cosh y
+        \end{pmatrix}
+      \end{eqnarray}
+    then we have
+    \begin{eqnarray}
+        {p'}^\mu = L(y_3 = y) p^\mu =
+        \begin{pmatrix}
+            \cosh y & 0 & 0 & -\sinh y \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            -\sinh y & 0 & 0 & \cosh y
+        \end{pmatrix}
+        \begin{pmatrix}
+            m \\ 0 \\ 0 \\ 0
+          \end{pmatrix}
+        =
+        \begin{pmatrix}
+          m \cosh y \\ 0 \\ 0 \\ m \sinh y 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+         E \\ 0 \\ 0 \\ p
+        \end{pmatrix},
+      \end{eqnarray}
+    where $E=m\gamma$, $p=m \gamma \beta$.
+    \item For the spinors, one can write
+    \begin{eqnarray}
+        u_L'(p',+1/2)
+        &=& S_L(\eta_3=y) u_L(p,+1/2) \\
+        &=& e^{ \frac{\sigma^3}{2} (-y) } \sqrt{m}
+        \begin{pmatrix}
+            1\\0
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            e^{-y/2} & 0\\
+            0 & e^{y/2}
+        \end{pmatrix}
+        \sqrt{m}
+        \begin{pmatrix}
+            1\\0
+        \end{pmatrix}\\
+        &=&\sqrt{E-p}   
+        \begin{pmatrix}
+          1\\0
+        \end{pmatrix}\\
+        u_L'(p',-1/2)
+        &=& S_L(\eta_3=y) u_L(p,-1/2) \\
+        &=& e^{ \frac{\sigma^3}{2} (-y) } \sqrt{m}
+        \begin{pmatrix}
+            0\\1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            e^{-y/2} & 0\\
+            0 & e^{y/2}
+        \end{pmatrix}
+        \sqrt{m}
+        \begin{pmatrix}
+            0\\1
+        \end{pmatrix}\\
+        &=&\sqrt{E+p}   
+        \begin{pmatrix}
+          0\\1
+        \end{pmatrix}
+    \end{eqnarray}
+    \begin{eqnarray}
+        u_R'(p',+1/2)
+        &=& S_R(\eta_3=y) u_R(p,+1/2) \\
+        &=& e^{ \frac{\sigma^3}{2} (+y) } \sqrt{m}
+        \begin{pmatrix}
+            1\\0
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            e^{y/2} & 0\\
+            0 & e^{-y/2}
+        \end{pmatrix}
+        \sqrt{m}
+        \begin{pmatrix}
+            1\\0
+        \end{pmatrix}\\
+        &=&\sqrt{E+p}   
+        \begin{pmatrix}
+          1\\0
+        \end{pmatrix}\\
+        u_R'(p',-1/2)
+        &=& S_LR(\eta_3=y) u_R(p,-1/2) \\
+        &=& e^{ \frac{\sigma^3}{2} (+y) } \sqrt{m}
+        \begin{pmatrix}
+            0\\1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            e^{y/2} & 0\\
+            0 & e^{-y/2}
+        \end{pmatrix}
+        \sqrt{m}
+        \begin{pmatrix}
+            0\\1
+        \end{pmatrix}\\
+        &=&\sqrt{E-p}   
+        \begin{pmatrix}
+          0\\1
+        \end{pmatrix}
+    \end{eqnarray}
+\end{itemize}
+
+\section{ }
+\begin{itemize}
+    \item As we have obtained in {\bf hw14-14}
+    \begin{eqnarray}
+        B_z(y)=
+        \begin{pmatrix}
+            \cosh y & 0 & 0 & -\sinh y \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            -\sinh y & 0 & 0 & \cosh y
+        \end{pmatrix}
+    \end{eqnarray}
+    Now we can write out
+    \begin{eqnarray}
+        R_y(\theta)&=&L(\theta_2=\theta)=e^{-iJ_2\theta}\\ 
+        &=&1+
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & i \\
+            0 & 0 & 0 & 0 \\
+            0 & -i & 0 & 0 
+        \end{pmatrix}
+        +\frac{1}{2!}
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & i \\
+            0 & 0 & 0 & 0 \\
+            0 & -i & 0 & 0 
+        \end{pmatrix}^2
+          +\cdots \\
+        &=&
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & \cos\theta & 0 & \sin\theta \\
+            0 & 0 & 1 & 0 \\
+            0 & -\sin\theta & 0 & \cos\theta 
+        \end{pmatrix}
+    \end{eqnarray}
+    \begin{eqnarray}
+        R_z(\phi)&=&L(\theta_3=\phi)=e^{-iJ_3\phi} \\ 
+        &=& 1+
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -i & 0 \\
+            0 & i & 0 & 0 \\
+            0 & 0 & 0 & 0 
+        \end{pmatrix}
+        +\frac{1}{2!}
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -i & 0 \\
+            0 & i & 0 & 0 \\
+            0 & 0 & 0 & 0 
+        \end{pmatrix}^2
+        +\cdots \\
+        &=&
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & \cos\phi & -\sin\phi & 0 \\
+            0 & \sin\phi & \cos\phi & 0 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix}
+    \end{eqnarray}
+    With those $B_z$, $R_y$, $R_z$, we have
+    \begin{eqnarray}
+        {p'}^\mu = B_z(y) p^\mu =
+        \begin{pmatrix}
+            \cosh y & 0 & 0 & -\sinh y \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            -\sinh y & 0 & 0 & \cosh y
+        \end{pmatrix}
+        \begin{pmatrix}
+            m \\ 0 \\ 0 \\ 0
+          \end{pmatrix}
+        =
+        \begin{pmatrix}
+          m \cosh y \\ 0 \\ 0 \\ m \sinh y 
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+         E \\ 0 \\ 0 \\ p
+        \end{pmatrix},
+      \end{eqnarray}
+    
+    \begin{eqnarray}
+        {p{''}}^\mu = R_y(\theta)B_z(y) p^\mu =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 &\cos\theta & 0 &\sin\theta \\
+            0 & 0 & 1 & 0\\
+            0 &sin\theta & 0 & \cos\theta
+        \end{pmatrix}
+        \begin{pmatrix}
+            E \\ 0 \\ 0 \\ p
+        \end{pmatrix} 
+        =
+        \begin{pmatrix}
+          E \\ p \sin\theta \\ 0 \\ p\cos\theta
+        \end{pmatrix} 
+    \end{eqnarray}
+    \begin{eqnarray}
+        {p{'''}}^\mu = R_z(\phi)R_y(\theta)B_z(y) p^\mu =
+        \begin{pmatrix}
+         1 & 0 & 0 & 0\\
+         0 & \cos\phi & -\sin\phi & 0 \\
+         0 & \sin\phi & \cos\phi & 0 \\
+         0 & 0 & 0 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            E \\ p \sin\theta \\ 0 \\ p\cos\theta
+          \end{pmatrix} 
+          =
+        \begin{pmatrix}
+          E \\ p\sin\theta\cos\phi \\ p\sin\theta\sin\phi \\ p\cos\theta
+        \end{pmatrix}
+    \end{eqnarray}
+    \item Spinors
+    \begin{eqnarray}
+        B_z^{L/R}(y)&=&S_{L/R}(\eta_3=y)=e^{\frac{\sigma^3}{2}(\mp y)}=
+        \begin{pmatrix}
+            e^{\mp y/2} & 0\\
+            0 & e^{\pm y/2}
+        \end{pmatrix} \\
+        R_y^{L/R}(\theta)&=&S_{L/R}(\theta_2=\theta)=e^{\frac{\sigma^2}{2}(\theta)}=
+        \begin{pmatrix}
+            \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+            \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+        \end{pmatrix}\\
+        R_z^{L/R}(\phi)&=&S_{L/R}(\theta_3=\phi)=e^{\frac{\sigma^3}{2}(\phi)}=
+        \begin{pmatrix}
+            e^{-\frac{i\phi}{2}} & 0 \\
+            0 & e^{\frac{i\phi}{2}}
+        \end{pmatrix}
+    \end{eqnarray}
+   So we have
+   \begin{eqnarray}
+        u^{'''}_{L/R}(p^{'''},+1/2)&=&R_z^{L/R} R_y^{L/R} B_z^{L/R} u_{L/R}(p,h=1/2) \\
+        &=&
+        \begin{pmatrix}
+            e^{-\frac{i\phi}{2}} & 0 \\
+            0 & e^{\frac{i\phi}{2}}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+            \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+        \end{pmatrix}
+        \begin{pmatrix}
+            e^{\mp y/2} & 0\\
+            0 & e^{\pm y/2}
+        \end{pmatrix}
+        \sqrt{m}
+        \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix}\\
+        &=& \sqrt{E\mp p}
+        \begin{pmatrix}
+            e^{-\frac{i\phi}{2}} \cos \frac{\theta}{2}   &  - e^{-\frac{i\phi}{2}} \sin \frac{\theta}{2} \\
+            e^{\frac{i\phi}{2}} \sin \frac{\theta}{2} & e^{\frac{i\phi}{2}} \cos \frac{\theta}{2}
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix} \\
+        &=& \sqrt{E\mp p}
+        \begin{pmatrix}
+            e^{-\frac{i\phi}{2}} \cos \frac{\theta}{2} \\
+            e^{\frac{i\phi}{2}} \sin \frac{\theta}{2}
+        \end{pmatrix}
+   \end{eqnarray}
+   \begin{eqnarray}
+    u^{'''}_{L/R}(p^{'''},-1/2)&=&R_z^{L/R} R_y^{L/R} B_z^{L/R} u_{L/R}(p,h=-1/2) \\
+    &=&
+    \begin{pmatrix}
+        e^{-\frac{i\phi}{2}} & 0 \\
+        0 & e^{\frac{i\phi}{2}}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+        \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        e^{\mp y/2} & 0\\
+        0 & e^{\pm y/2}
+    \end{pmatrix}
+    \sqrt{m}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}\\
+    &=& \sqrt{E\pm p}
+    \begin{pmatrix}
+        e^{-\frac{i\phi}{2}} \cos \frac{\theta}{2}   &  - e^{-\frac{i\phi}{2}} \sin \frac{\theta}{2} \\
+        e^{\frac{i\phi}{2}} \sin \frac{\theta}{2} & e^{\frac{i\phi}{2}} \cos \frac{\theta}{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\
+    &=& \sqrt{E\pm p}
+    \begin{pmatrix}
+        -e^{-\frac{i\phi}{2}} \sin \frac{\theta}{2} \\
+        e^{\frac{i\phi}{2}} \cos \frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+    v_{L/R}(p,+1/2)&=&(\pm i\sigma^2)u_{R/L}^*(p,1/2) \\
+    &=& \sqrt{E\mp p}
+    \begin{pmatrix}
+        0 & \pm 1 \\
+        \mp 1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        e^{-\frac{i\phi}{2}} \cos \frac{\theta}{2} \\
+        e^{\frac{i\phi}{2}} \sin \frac{\theta}{2}
+    \end{pmatrix}\\
+    &=& \pm \sqrt{E\mp p}
+    \begin{pmatrix}
+        e^{-\frac{i\phi}{2}} \sin \frac{\theta}{2} \\
+        -e^{\frac{i\phi}{2}} \cos \frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+    v_{L/R}(p,-1/2)&=&(\pm i\sigma^2)u_{R/L}^*(p,-1/2) \\
+    &=& \sqrt{E\mp p}
+    \begin{pmatrix}
+        0 & \pm 1 \\
+        \mp 1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        -e^{-\frac{i\phi}{2}} \sin \frac{\theta}{2} \\
+        e^{\frac{i\phi}{2}} \cos \frac{\theta}{2}
+    \end{pmatrix}\\
+    &=& \pm \sqrt{E\mp p}
+    \begin{pmatrix}
+        e^{-\frac{i\phi}{2}} \cos \frac{\theta}{2} \\
+        e^{\frac{i\phi}{2}} \sin \frac{\theta}{2}
+    \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    {\cal L}_{Dirac} &=& (  {\cal L}_{Dirac} )^T
+    = ( \psi_L^\dagger i\del_\mu \sigma_-^\mu \psi_L )^T
+    + ( \psi_R^\dagger i\del_\mu \sigma_+^\mu \psi_R )^T
+    - m ( \psi_L^\dagger \psi_R + \psi_R^\dagger \psi_L )^T\\ 
+    &=& - i\del_\mu \psi_L^T{\sigma_-^\mu}^T {\psi_L^\dagger}^T - i\del_\mu \psi_R^T{\sigma_+^\mu}^T {\psi_R^\dagger}^T
+    + m( \psi_R^T {\psi_L^\dagger}^T + \psi_L^T {\psi_R^\dagger}^T )\\
+    &=& - i\del_\mu \psi_L^T{\sigma_-^\mu}^T \psi_L^*
+    - i\del_\mu \psi_R^T {\sigma_+^\mu}^T \psi_R^*
+    + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* )
+\end{eqnarray}
+
+\section{ }
+
+\begin{eqnarray}
+    {\cal L}_{Dirac} &=& - i\del_\mu \psi_L^T{\sigma_-^\mu}^T \psi_L^*
+    - i\del_\mu \psi_R^T {\sigma_+^\mu}^T \psi_R^*
+    + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* )  \\
+    &=& \psi_L^T{\sigma_-^\mu}^T( i\del_\mu \psi_L^*) - i\del_\mu (\psi_L^T{\sigma_-^\mu}^T \psi_L^*)+  \psi_R^T {\sigma_+^\mu}^T(i\del_\mu \psi_R^*)\nonumber \\ &&- i\del_\mu (\psi_R^T {\sigma_+^\mu}^T \psi_R^*) 
+    + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* )     
+\end{eqnarray}
+If we ignore the total derivative terms in ${\cal L}$, we have 
+\begin{eqnarray}
+    {\cal L}_{Dirac}= \psi_L^T{\sigma_-^\mu}^T( i\del_\mu \psi_L^*)+\psi_R^T {\sigma_+^\mu}^T(i\del_\mu \psi_R^*) + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* ) 
+\end{eqnarray}
+
+\section{ }
+Insert $(\sigma^2)^2 = (-i\sigma^2)(i\sigma^2) = 1$ between $\psi$'s and $\sigma_\pm^\mu$ and note $\psi_{L/R}^c=\mp i\sigma^2 \psi_{L/R}^*$, we have
+\begin{eqnarray}
+    {\cal L}_{Dirac}&=& \psi_L^T(i\sigma^2)(-i\sigma^2){\sigma_-^\mu}^T( i\del_\mu (i\sigma^2)(-i\sigma^2)\psi_L^*)+\psi_R^T (-i\sigma^2)(i\sigma^2) {\sigma_+^\mu}^T(i\del_\mu (-i\sigma^2)(i\sigma^2) \psi_R^*) \nonumber \\ &&- m( \psi_R^T (-i\sigma^2)(-i\sigma^2)\psi_L^* + \psi_L^T (-i\sigma^2)(-i\sigma^2) \psi_R^* ) \\
+    &=& {\psi_L^c}^\dagger \sigma^2 {\sigma_-^\mu}^T \sigma^2 ( i\del_\mu {\psi_L^c})+{\psi_R^c}^\dagger \sigma^2 {\sigma_+^\mu}^T \sigma^2(i\del_\mu {\psi_R^c}) - m( {\psi_R^c}^\dagger{\psi_L^c} + {\psi_L^c}^\dagger {\psi_R^c}) 
+\end{eqnarray}
+
+\section{ }
+Note 
+\begin{eqnarray}
+    &&\sigma_+^\mu =(I,\sigma^1,\sigma^2,\sigma^3) \\
+    &&\sigma_-^\mu =(I,-\sigma^1,-\sigma^2,-\sigma^3)
+\end{eqnarray}
+and
+\begin{eqnarray}
+    \sigma^2 I^T \sigma^2 = I,~~~\sigma^2 {\sigma^1}^T \sigma^2= \sigma^2 {\sigma^1}^T \sigma^2= -\sigma^1,\\
+    \sigma^2 {\sigma^2}^T \sigma^2=-\sigma^2 \sigma^2 \sigma^2=-\sigma^2,~~~\sigma^2 {\sigma^3}^T \sigma^2=\sigma^2 \sigma^3 \sigma^2=-\sigma^3,
+\end{eqnarray}
+we see
+\begin{eqnarray}
+    &&(\sigma^2) {\sigma_-^\mu}^T (\sigma^2) = \sigma_+^\mu  \\
+    && (\sigma^2) {\sigma_+^\mu}^T (\sigma^2) = \sigma_-^\mu 
+\end{eqnarray}
+  
+\section{ }
+With the result in {\bf hw14-20}, $(\sigma^2) {\sigma_\mp^\mu}^T (\sigma^2) = \sigma_\pm^\mu $, we see
+\begin{eqnarray}
+    {\cal L}_{Dirac}&=& {\psi_L^c}^\dagger \sigma^2 {\sigma_-^\mu}^T \sigma^2 ( i\del_\mu {\psi_L^c})+{\psi_R^c}^\dagger \sigma^2 {\sigma_+^\mu}^T \sigma^2(i\del_\mu {\psi_R^c}) - m( {\psi_R^c}^\dagger{\psi_L^c} + {\psi_L^c}^\dagger {\psi_R^c}) \\
+    &=& {\psi_L^c}^\dagger i\del_\mu {\sigma_+^\mu} {\psi_L^c}+{\psi_R^c}^\dagger i\del_\mu  {\sigma_+^\mu} {\psi_R^c} - m( {\psi_R^c}^\dagger{\psi_L^c} + {\psi_L^c}^\dagger {\psi_R^c})
+\end{eqnarray}
+
+\end{document}

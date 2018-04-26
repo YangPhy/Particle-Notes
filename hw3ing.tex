@@ -1,0 +1,472 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\begin{document}
+
+\begin{center}
+{\large\bf HW3 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students, \\
+
+{\bf hw03-1}:
+
+  In hw01, I asked you to give the invariant mass (rest mass)
+  and the total decay width of several particles both in
+  units of GeV.  In this way, we can tell the ratio,
+  \begin{eqnarray}
+    \Gamma/m = ({\rm total~decay~width})/({\rm invariant~ mass})
+  \end{eqnarray}  
+  as a dimensionless numerical value.  This ratio tells us a lot
+  about the particle properties and their interactions.\\
+
+  Please obtain the ratio for the following particles
+  with two digit accuracy.  If the ratio is smaller
+  than 0.0010, say, 0.00033, then quote the result as
+  $3.3 x 10^{-4}$.
+ 
+  top\\
+  Higgs\\
+  Z\\
+  W\\
+  tau\\ 
+  mu\\
+  n\\
+  pi+\\
+  pi0\\
+  p (upper bound)\\
+  e (upper bound)\\
+
+{\bf hw03-2}:
+
+  If you can explain the relative sizes of the above
+  ratios, please explain them briefly.  Examples are:\\
+
+  The difference between top and W/Z and Higgs\\
+  The difference between top and tau\\
+  The difference between tau and mu\\
+  The difference between mu  and n\\
+  The difference between pi+ and pi0\\
+  The reason why the ratio is extremely small (upper
+  bounds) for p and e.\\
+
+                                *****
+
+  Today, I introduced fundamental particles of the SM in
+  a slightly more mathmatical way, by using their transformation
+  properties under the SM symmetry, $SU(3)_{color} \times SU(2)_L \times U(1)_Y$.\\
+  
+  In this homework, I would like you to learn how the fundamental
+  matter (fermion) multiplets and the Higgs multiplets transform
+  under the SM gauge transformations. \\
+
+  In order to write down the SM Lagrangian (which describes the
+  interactions of all the fundamental particles) in a compact form,
+  we introduce several short-hand notations. \\
+
+  Matter (fermion) fields:\\
+
+  We have 5 multiplets of matter fields, which transform under
+  SU(3)xSU(2)xU(1) as\\
+
+  Qi  with i = 1,2,3, which transform as (3, 2,  1/6)\\
+  uRi with i = 1,2,3, which transform as (3, 1,  2/3)\\
+  dRi with i = 1,2,3, which transform as (3, 1, -1/3)\\
+  Li  with i = 1,2,3, which transform as (1, 2, -1/2)\\
+  lRi with i = 1,2,3, which transform as (1, 1, -1  )\\
+
+  The numbers in the right-hand-side parentheses are
+  (SU(3) multiplet, SU(2) multiplet, $U(1)_Y$ charge).\\
+
+  Each multiplet replicates 3 times, and I labeled them with an
+  index i, which takes 3 values, 1, 2, 3.  The replication index
+  i is referred to as `generation' or `family'.  We do not know
+  why there are replications, and why there are 3 replications.\\
+
+  Please note that Qi's are sextets, uRi's and dRi's are triplets,
+  Li's are doublets, and lRi's are singlets.  Therefore, in
+  each generation, there are 15 (=6+3+3+2+1) matter fields.\\
+
+  All the 15 (times 3 by including 3 generations) matter fields
+  transform as spin 1/2 particles under the Lorentz transformation.
+  Among the 15 fermions in each generation, 8 (Q abd K) transform
+  as left-handed fermions, while the remaining 7 (uR, dR, lR)
+  transform as right-handed fermions.\\
+
+  We will later learn that both left-handed and right-handed
+  fermions transform as doublets (two-component spinors) under
+  the Lorentz transformation.  We suppress the spinor indices
+  untill we study Lorentz transformations.\\
+
+  Gauge fields:\\
+
+  There are 3 types of gauge fields.\\
+
+  $A^a$ with a = 1,2,...,8 transform as (8, 1, 0)\\
+  $W^k$ with k = 1,2,3     transform as (1, 3, 0)\\
+  B                      transform as (1, 1, 0)\\
+
+  In total, there are 12 (=8+3+1) gauge bosons in the SM.\\
+
+  Please observe that the B boson transforms as a singlet
+  under the SM gauge transformations, and it has zero hypercharge.
+  We express this fact in various wqys which have exactly the
+  same meaning:\\
+
+   the B boson is a SM singlet.\\
+   the B boson does not have a SM charge (quantum number).\\
+   the B boson does not transform under the SM gauge group.\\
+   the B boson is invariant under the SM gauge transformations.\\
+
+  We will study the gauge transformation properties of the above
+  12 gauge bosons in the next lectures.\\
+
+  All the 12 gauge bosons transform as a spin 1 (vector) particles
+  under the Lorentz transformations.  They are all massless vector
+  bosons before the $SU(2)_L \times U(1)_Y$ local phase transformation
+  symmetry (gauge symmetry) breaks down spontaneously into
+  $U(1)_EM$ (the Electro-Magnetic gauge symmetry).\\
+
+  The massless vector bosons have only two physical components
+  (the so-called transversely polarized waves), and hence
+  the description in terms of the 4-component vector bosons
+  have two redundant degrees of freedom (the so-called longitudinal
+  and scalar-like polarizations).  That physics does not depend
+  on these two redundant degrees of freedom can be expressed as
+  local phase transformation invariance, or the gauge symmetry.\\
+
+  Higgs bosons:\\
+
+  There is just one Higgs doublet in the SM:\\
+
+  $\phi$ transforms as (1, 2, +1/2)
+
+  The Higgs doublet transforms as scalar (singlet) under the
+  Lorentz transformation.  The following expressions have
+  exactly the same meaning:\\
+
+   the Higgs boson is a scalar boson\\
+   the Higgs boson transform as a singlet under Lorentz transformations\\
+   the Higgs boson does not transform under Lorentz transformations\\
+   the Higgs boson is invariant under Lorentz transformations\\
+
+  It is often useful to introduce its charge conjugate field
+  $\phi^c = i \sigma^2 \phi^*$ which transforms as (1, 2, -1/2)
+  when we write down the SM Lagrangian in a compact form.\\
+
+  Please observe that the Higgs field $(\phi^c)$ has identical
+  SM quantum numbers as the left-handed leptons (Li with
+  i = 1,2,3).  This fact may be a hint of new physics.\\
+
+  Now, let me give the homework.\\
+
+{\bf hw03-3}:
+
+  The sextet Qi can be expressed as
+  \begin{eqnarray}
+  Qi = (uLi, dLi)^T =
+  \begin{pmatrix}
+    u_{Li} \\ d_{Li}
+  \end{pmatrix} 
+  \end{eqnarray}
+  by showing its doublet-ness under $SU(2)_L$ explicit.
+  Here T stands for the transpose.  I will often use the middle
+  notation, (a,b)^T for column vectors, since it saves text lines.\\
+
+  The so-called Gelmann-Nishijima relation,
+\begin{eqnarray}
+  Q = T^3 + Y
+\end{eqnarray}
+  gives the electric charge of $u_Li$ and $d_Li$.  Here $T^3$ is the
+  diagonal member of the three SU(2) generators,
+  \begin{eqnarray}
+  T^3 = \sigma^3 /2
+  \end{eqnarray}
+  and Y=1/6 is the hypercharge of Qi's
+  \begin{eqnarray}
+  Y Qi = (1/6) Qi .
+  \end{eqnarray}
+  Mathematically, we may write
+  \begin{eqnarray}
+  Qi &=& (uLi,dLi)^T \\
+     = u_{Li} (1,0)^T + d_{Li} (0,1)^T
+  \end{eqnarray}
+  Please obtain the electric charges of uLi and dLi's
+  by using
+  \begin{eqnarray}
+  Q (1,0)^T &=& (T^3 + Y) (1,0)^T = ( 1/2 + Y) (1,0)^T\\
+  Q (0,1)^T &=& (T^3 + Y) (0,1)^T = (-1/2 + Y) (1,0)^T
+  \end{eqnarray}
+hint: uLi can be written as $u_{Li} (1,0)^T$, i.e., the upper
+  component of the SU(2) doublet, Qi.\\
+
+  Likewise, the doublets Li can be written as
+  \begin{eqnarray}
+  L_i = (v_{Li}, l_{Li})^T .
+  \end{eqnarray}
+  Please obtain the electric charge of vLi and lLi by using
+  \begin{eqnarray}
+  Y Li = (-1/2) Li
+  \end{eqnarray}
+  and the Nishijima-Gellmann relation.\\
+
+  *****
+  Please observe that the two-vectors, Qi and Li, are NOT the
+  eigen vectors of the 2x2 matrix operator Q.  Rather, their
+  upper and lower components have different eigen values of the
+  $U(1)_EM$ charge operator (generator) Q.  The electromagnetic
+  interactions, or the $U(1)_EM$ gauge interactions break the
+  $SU(2)_L$ symmetry explicitly.  The meaning of the word `explicitly'
+  will be made clear in latter lectures.\\
+  *****
+
+  Under SU(2), the doublet fields transform as
+  \begin{eqnarray}
+  phi \to phi' &=& U(\theta_1, \theta_2, \theta_3) \phi \\
+              &=& \exp{ i (T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) } \phi
+  \end{eqnarray}
+  where $\theta_k$ (k=1,2,3) are real parameters that specify a
+  particular SU(2) transformation, and
+  $T^k = \sigma^k/2 (k=1,2,3)$
+  are the SU(2) generators in the doublet (fundamental) representation. \\
+
+  All the elements of the SU(2) transformations, the U matrices,
+  are obtained by using its 3 generators and 3 real parameters.
+  \begin{eqnarray}
+  U(\theta_1, \theta_2, \theta_3)  &=&\exp{ i (T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) }
+  \end{eqnarray}
+  Here $\sigma^k (k=1,2,3)$ are Pauli matrices:
+  \begin{eqnarray}
+  \sigma^1 &=& 
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}\\
+  \sigma^2 &=&
+  \begin{pmatrix}
+    0 & -i \\
+    i & 0
+  \end{pmatrix}\\ 
+  \sigma^3 &=&
+  \begin{pmatrix}
+    1 & 0 \\
+    0&-1
+  \end{pmatrix}
+  \end{eqnarray}
+
+
+{\bf hw03-4}:
+
+  Show 
+  \begin{eqnarray}
+    (\sigma^k)^2=1=
+    \begin{pmatrix}
+      1 & 0\\
+      0 & 1
+    \end{pmatrix}
+  \end{eqnarray}
+  for all k=1, 2, 3.
+
+{\bf hw03-5}:
+
+  Show
+  \begin{eqnarray}
+    (T^k)^\dagger = T^k   (k = 1,2,3)
+  \end{eqnarray}
+  and
+  \begin{eqnarray}
+  U(\theta_1, \theta_2, \theta_3)^\dagger U(\theta_1, \theta_2, \theta_3)
+  = 1.
+  \end{eqnarray}
+hint: $e^A e^B = e^(A+B)$ if and only if $[A,B] = 0$.
+
+  The SU(2) transformation matrix U is `unitary', $U^\dagger U = 1$,
+  and its three generators, $T^k (k = 1,2,3)$ are Hermite matrices.
+
+{\bf hw03-6}:
+
+  Show the $SU(2)_L$ and $U(1)_Y$ transformation properties of
+  $\phi^*$ .
+  Since this homework is a little bit tough for some students,
+  please let me guide you step by step.
+  We may start from the $U(1)_Y$ transformation of phi:
+  \begin{eqnarray}
+  phi \to phi' = U(\theta_0) \phi
+              = \exp{ i Y \theta_0 } \phi
+  \end{eqnarray}
+  with Y = +1/2 for $\phi$.  It then follows
+  \begin{eqnarray}
+  \phi^* \to \phi^*' &=& (\phi')^*\\
+                  &=& U(\theta_0)^* \phi^*\\
+                  &=& \exp{ -i Y \theta_0 } \phi^*\\
+                  &=& \exp{ i (-Y) \theta_0 } \phi^*
+  \end{eqnarray}
+  From this, we can tell that if the hypercharge (the eigenvalue of
+  the operator Y) of $\phi$ is +1/2, then the hypercharge of $\phi^*$ is
+  -1/2.
+
+  Very generally, the complex conjugate of any field has an opposite
+  U(1) charge of the original field.
+  In QFT (Quantum Field Theory), the complex conjugate fields
+  annihilate and create particles with opposite charges, as
+  we will learn later in my lectures.\\
+
+  Now, let us go on studying the SU(2) transformation of $\phi^*$
+\begin{eqnarray}
+  \phi^* \to (\phi^*)'
+         = (\phi')^*
+         = ( U \phi )^*
+         = U^* \phi^*
+         = \exp{ -i (T^1* \theta_1 + T^2* \theta_2 + T^3* \theta_3) } \phi^*
+\end{eqnarray}
+  
+
+  Here, I denote $U(\theta_1,\theta_2,\theta_3)$ simply as U for brevity.
+  $T^k*$ is a shorthand for $(T^k)^*$ (k = 1,2,3).
+
+  Since $U^*$ is not the same as U, the SU(2) transformation of $\phi^*$
+  is different from that of phi.  We say that phi transform as 2,
+  whereas $\phi^*$ transform as $2^*$.\\
+\begin{eqnarray}
+  &&2:    \phi   \to \phi'   = U   \phi\\
+  &&2^*:  \phi^* \to \phi^*' = U^* \phi^*
+\end{eqnarray}
+
+
+  Please note that
+\begin{eqnarray}
+  T^1* = T^1, T^2* = -T^2, T^3* = T^3
+\end{eqnarray}
+  and hence
+\begin{eqnarray}
+  \phi^* \to \phi^*'
+         = \exp{ iT^1(-\theta_1) +iT^2(\theta_2) +iT^3(-\theta_3) } \phi^*
+\end{eqnarray}
+  or
+\begin{eqnarray}
+  U(\theta_1,\theta_2,\theta_3)^* = U(-\theta_1,\theta_2,-\theta_3).
+\end{eqnarray}
+
+  $U^*$ and $U$ are clearly DIFFERENT from each others, unless both
+  $\theta_1$ and $\theta_3$ vanish.  (They transform the same way along
+  the $\theta_2$ direction, or for the rotation about the axis 2,
+  which infact was used to define G-parity for pions).
+
+  We express the answer of this homework (which I solved
+  explicitly above, rather than giving its hints) as follows:\\
+
+   $\phi$   transforms as (1, 2,    1/2)\\
+   $\phi^*$ transforms as (1, $2^*$, -1/2)
+
+  under $SU(3)_C$, $SU(2)_L$, $U(1)_Y$.
+
+{\bf hw03-6}:
+
+  Please show that the product
+\begin{eqnarray}
+  (\phi^*)^T \phi = \phi^\dagger \phi
+\end{eqnarray}
+   is invariant under SU(2).  This is a common property of all unitary
+  transformations, since it follows from the unitarity condition
+  of the transformation matrix,  $U^\dagger U = 1$ or
+  $U^* = ( U^{-1} )^T$
+  We refer to the above identity as; the complex representation
+  of the unitary group transforms as the transpose of the inverse
+  representation.
+
+{\bf hw03-7}:
+
+  Please show that
+\begin{eqnarray}
+  \phi^c = (i\sigma^2) \phi^*
+\end{eqnarray}
+  transforms as a doublet 2, not as an anti-doublet ($2^*$).
+  In other words, phi and phi^c transform exactly the same way under
+  $SU(2)_L$, even though they transform with opposite charge for
+  $U(1)_Y$.
+
+  This is significantly more difficult than the previous homework.
+  Please follow the steps given below.
+\begin{eqnarray}
+  \phi^c \to (\phi^c)'
+  = (\phi')^c
+  = (i\sigma^2) (\phi')^*
+  = (i\sigma^2) (U \phi)^*
+  = (i\sigma^2) U^* \phi^*
+\end{eqnarray}
+   where we already obtained U^* in hw03-3.  Please show
+\begin{eqnarray}
+  (-i\sigma^2) (i\sigma^2) = 1
+\end{eqnarray}
+  and insert the above identity betweek $U^*$ and $\phi^*$,
+  and observe
+\begin{eqnarray}
+  \phi^c \to (\phi^c)'
+  = (\phi')^c
+  = (i\sigma^2) (\phi')^*
+  = (i\sigma^2) U^* \phi^*
+  = (i\sigma^2) U^* (-i\sigma^2) (i\sigma_2) \phi^*
+  = (i\sigma^2) U^* (-i\sigma^2) \phi^c
+\end{eqnarray}
+ 
+  Now the assignment is to show
+\begin{eqnarray}
+  (i\sigma^2) U^* (-i\sigma^2) = U
+\end{eqnarray}
+or equivalently
+\begin{eqnarray}
+   \sigma^2 U^* \sigma^2 = U
+\end{eqnarray}
+  for arbitrary $(\theta_1,\theta_2,\theta_3)$.
+
+  If this is the first time that you show this, I suggest that
+  you show the identity for infinitesimal transformations:
+  \begin{eqnarray}
+  U = \exp{ i(T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) }
+    = 1 + i(T^1 \theta_1 + T^2 \theta_2 + T^3 \theta_3) + higher~orders\\
+
+  U^* = \exp{ -i (T^1* \theta_1 + T^2* \theta_2 + T^3* \theta_3) }
+    = 1 - i(T^1* \theta_1 + T^2* \theta_2 + T^3* \theta_3) + higher~orders
+  \end{eqnarray}
+
+  You will find it convenient if you prove the following identity
+  among the $\sigma$-matrices first:
+
+  $(\sigma^2) (\sigma^k)^* (\sigma^2) = -(\sigma^k)$  for k=1,2,3.
+
+  Please show the above identity many times until it becomes one
+  of your favorite vocabulary.  For advanced students, I suggest
+  that you show the identity for finite transformations.\\
+
+  Let us summarize our findings here:\\
+
+   $\phi$   transforms as (1, 2,    1/2)\\
+   $\phi^*$ transforms as (1, $2^*$, -1/2)\\
+   $phi^c$ transforms as (1, 2,   -1/2)\\
+
+  Now that we showed that $\phi^c$ transforms as the same as $\phi$,
+  under $SU(2)_L$, but has the same Y charge as L, $\phi^c$ and L
+  transform exactly the same way under the SM gauge transformation.\\
+
+Let me stop here, and I will review the usefulness of obtaining 
+an SU(2) soublet $\phi^c$ from an SU(2) doublet $\phi$ in my next 
+lecture.  Because the excercises with $\sigma$ matrices need 
+patient excercises, please do this homework before my next 
+lecture.
+
+Best regards,\\
+
+Kaoru
+
+\end{document}

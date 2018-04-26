@@ -1,0 +1,493 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\begin{document}
+\title{Particle physics HW15}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+Since ${\cal L}_{fermion}$ is singlet in spinor space, we have
+\begin{eqnarray}
+    &&{\cal L}_{fermion}= ( {\cal L}_{fermion} )^T
+    =   ( {f_L}^\dagger iD_\mu \sigma_-^\mu {f_L} )^T
+      + ( {f_R}^\dagger iD_\mu \sigma_+^\mu {f_R} )^T \nonumber \\
+    &=& - {f_L}^T {\sigma_-^\mu}^T  {iD_\mu}^T {{f_L}^\dagger}^T
+      - {f_R}^T {\sigma_+^\mu}^T  {iD_\mu}^T {{f_R}^\dagger}^T \nonumber \\
+    &=& - {f_L}^T {\sigma_-^\mu}^T  {iD_\mu}^T  {f_L}^*
+      - {f_R}^T {\sigma_+^\mu}^T  {iD_\mu}^T  {f_R}^* \nonumber \\
+    &=& - {f_L}^T (i\sigma^2)(-i\sigma^2) {\sigma_-^\mu}^T  {iD_\mu}^T (i\sigma^2) (-i\sigma^2) f_L^*
+      - {f_R}^T (-i\sigma^2)(i\sigma^2) {\sigma_+^\mu}^T  {iD_\mu}^T  (-i\sigma^2)(i\sigma^2)f_R^*  \nonumber \\
+      &=& {f_L^c}^T {\sigma_+^\mu}^T  {-iD_\mu}^T  {f_L^c}^*
+       {f_R^c}^T {\sigma_c^\mu}^T  {-iD_\mu}^T  {f_R^c}^* ,
+\end{eqnarray}
+where we used the relation
+\begin{eqnarray}
+    \sigma^2 {\sigma_-^\mu}^T\sigma^2=\sigma_+^\mu,~~~
+    \sigma^2 {\sigma_+^\mu}^T\sigma^2=\sigma_-^\mu,
+\end{eqnarray}
+ and the definition of ``charge conjugate''
+ \begin{eqnarray}
+    && (f_L)^c = -i\sigma^2 (f_L)^* \\
+    && (f_R)^c =  i\sigma^2 (f_R)^*
+  \end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+   &&f_L^\dagger f_R      + f_R^\dagger f_L
+   \to  {f_L^c}^\dagger f_R^c + {f_R^c}^\dagger f_L^c 
+   = ( {f_L^c}^\dagger f_R^c + {f_R^c}^\dagger f_L^c )^T 
+   = - {f_R^c}^T {f_L^c}^*  - {f_L^c}^T {f_R^c}^*  \nonumber \\
+   &=& - (i\sigma^2 f_R^*)^T (-i\sigma^2 f_L^*)^*  - (-i\sigma^2 f_L^*)^T (i\sigma^2 f_R^*)^* 
+   =   f_R^\dagger f_L + f_L^\dagger f_R
+\end{eqnarray}
+
+\section{ }
+We can write 
+\begin{eqnarray}
+    &&{\cal L}_{QCD}
+    = {\cal L}_{gauge} + f_L^\dagger iD_\mu \sigma_-^\mu f_L
+                + f_R^\dagger iD_\mu \sigma_+^\mu f_R
+                - m ( f_L^\dagger f_R + f_R^\dagger f_L ) \nonumber \\
+    &=& {\cal L}_{gauge} + f_L^\dagger (i\del_\mu-g T^a A_\mu^a) \sigma_-^\mu f_L + f_R^\dagger (i\del_\mu-g T^a A_\mu^a) \sigma_+^\mu f_R
+    - m ( f_L^\dagger f_R + f_R^\dagger f_L )
+\end{eqnarray}
+and
+\begin{eqnarray}
+    {\cal L}_{QCD}
+    &=& {\cal L}_{gauge} + ( f_L^\dagger iD_\mu \sigma_-^\mu f_L )^T
+    + ( f_R^\dagger iD_\mu \sigma_+^\mu f_R )^T
+    - m ( f_L^\dagger f_R + f_R^\dagger f_L )^T \nonumber \\
+    &=& {\cal L}_{gauge} + ( f_L^\dagger iD_\mu \sigma_-^\mu f_L )^T
+                + ( f_R^\dagger iD_\mu \sigma_+^\mu f_R )^T
+                - m ( f_L^\dagger f_R + f_R^\dagger f_L )^T \nonumber \\
+    &=& {\cal L}_{gauge} + {f_L^c}^\dagger (-iD_\mu)^T \sigma_+^\mu f_L^c
+                + {f_R^c}^\dagger (-iD_\mu)^T \sigma_-^\mu f_R^c
+                + m ( {f_R^c}^T {f_L^c}^*  + {f_L^c}^T {f_R^c} ) \nonumber \\
+    &=& {\cal L}_{gauge} + {f_L^c}^\dagger (i\del_\mu-g {T^a}^T A_\mu^a) \sigma_+^\mu f_L^c
+    + {f_R^c}^\dagger (i\del_\mu-g {T^a}^T A_\mu^a) \sigma_-^\mu f_R^c \nonumber \\
+    &&- m [ {f_R^c}^T (-i\sigma^2) (-i\sigma^2) {f_L^c}^*  + {f_L^c}^T (i\sigma^2) (i\sigma^2) {f_R^c} ] \nonumber \\
+    &=& {\cal L}_{gauge} + {f_L^c}^\dagger (i\del_\mu-g {T^a}^T A_\mu^a) \sigma_+^\mu f_L^c
+    + {f_R^c}^\dagger (i\del_\mu-g {T^a}^T A_\mu^a) \sigma_-^\mu f_R^c  \nonumber \\ &&-m({f_R^c}^\dagger f_L^c+{f_L^c}^\dagger f_R^c).
+\end{eqnarray}
+Compare these two equations and note ${T^a}^T={T^a}^*$, we see that ${\cal L}_{QCD}$ is invariant under
+\begin{eqnarray}
+    && (f_L) \to (f_L)' = f_R^c  \\
+    && (f_R) \to (f_R)' = f_L^c  \\
+    && g T^a A^a_\mu \to (g T^a A^a_\mu)' = -g (T^a)^* A^a_\mu 
+\end{eqnarray}
+
+\section{ }
+Insert
+\begin{eqnarray}
+  \Psi(x)
+  = \sum_h \int \frac{d^3p}{(2E)(2\pi)^3}(a(p,h) e^{-ipx} u(p,h) + b^\dagger(p,h) e^{ipx} v(p,h)) 
+\end{eqnarray}
+into Dirac equation
+\begin{eqnarray}
+  (i\del_\mu \gamma^\mu -m) \Psi(x) =,
+\end{eqnarray}
+we have 
+\begin{eqnarray}
+  &&\sum_h \int \frac{d^3p}{(2E)(2\pi)^3}(a(p,h)(p_\mu \gamma^\mu-m)  e^{-ipx} u(p,h) \nonumber \\ &&+ b^\dagger(p,h) (-p_\mu \gamma^\mu-m)e^{ipx} v(p,h)) = 0,
+\end{eqnarray}
+which indicates
+\begin{eqnarray}
+  && (  p\gamma -m ) u(p,h) = 0  \\
+  && ( -p\gamma -m)  v(p,h) = 0 
+\end{eqnarray}
+
+\section{ }
+We first study the commutation $[\gamma^\mu, S^{\rho \sigma}]$
+\begin{eqnarray}
+  &&[\gamma^\mu, S^{\rho \sigma}] = \frac{i}{4}[\gamma^\mu, [\gamma^\rho,\gamma^\sigma]] \nonumber \\
+  &=&\frac{i}{4}( \gamma^\mu \gamma^\rho \gamma^\sigma - \gamma^\mu \gamma^\sigma \gamma^\rho -\gamma^\rho \gamma^\sigma \gamma^\mu  +  \gamma^\sigma \gamma^\rho \gamma^\mu ) \nonumber\\
+  &=& \frac{i}{4}( \gamma^\mu \gamma^\rho \gamma^\sigma - \gamma^\mu \gamma^\sigma \gamma^\rho -\gamma^\rho (2g^{\sigma \mu} -\gamma^\mu \gamma^\sigma ) +  \gamma^\sigma (2g^{\rho \mu} - \gamma^\mu \gamma^\rho) \nonumber\\
+  &=& \frac{i}{4} ( \gamma^\mu \gamma^\rho \gamma^\sigma - \gamma^\mu \gamma^\sigma \gamma^\rho -2g^{\sigma \mu}\gamma^\rho + 2g^{\rho \mu} \gamma^\sigma +\gamma^\rho \gamma^\mu \gamma^\sigma -\gamma^\sigma \gamma^\mu \gamma^\rho)\nonumber\\
+  &=& \frac{i}{4} ( \gamma^\mu \gamma^\rho \gamma^\sigma - \gamma^\mu \gamma^\sigma \gamma^\rho -2g^{\sigma \mu}\gamma^\rho + 2g^{\rho \mu} \gamma^\sigma +(2g^{\rho\mu}- \gamma^\mu \gamma^\rho) \gamma^\sigma -(2g^{\sigma\mu} -\gamma^\mu \gamma^\sigma )\gamma^\rho)\nonumber\\
+  &=& \frac{i}{4} ( \gamma^\mu \gamma^\rho \gamma^\sigma - \gamma^\mu \gamma^\sigma \gamma^\rho -2g^{\sigma \mu}\gamma^\rho + 2g^{\rho \mu} \gamma^\sigma +2g^{\rho\mu}\gamma^\sigma- \gamma^\mu \gamma^\rho \gamma^\sigma -2g^{\sigma\mu} \gamma^\rho -\gamma^\mu \gamma^\sigma \gamma^\rho)\nonumber\\
+  &=& \frac{i}{4} (4g^{\rho\mu}\gamma^\sigma-4g^{\sigma\mu}\gamma^\rho)=i (g^{\rho\mu}\gamma^\sigma-g^{\sigma\mu}\gamma^\rho),
+\end{eqnarray}
+and then we have
+\begin{eqnarray}
+  [S^{ab},S^{cd}]&=&\frac{i}{4} [[\gamma^a,\gamma^b],S^{cd}]=\frac{i}{4}[\gamma^a\gamma^b,S^{cd}]-\frac{i}{4}[\gamma^b\gamma^a,S^{cd}] \\
+  &=&\frac{i}{4} [\gamma^a,S^{cd}]\gamma^b+\frac{i}{4}\gamma^a[\gamma^b,S^{cd}]-\frac{i}{4} [\gamma^b,S^{cd}]\gamma^a-\frac{i}{4}\gamma^b[\gamma^a,S^{cd}] \\
+  &=& \frac{i}{4}(ig^{ca}\gamma^d\gamma^b-ig^{da}\gamma^c\gamma^b+i\gamma^ag^{cb}\gamma^d-i\gamma^ag^{db}\gamma^c-ig^{cb}\gamma^d\gamma^a+ig^{db}\gamma^c\gamma^a\nonumber\\&&-i\gamma^bg^{ca}\gamma^d+i\gamma^bg^{da}\gamma^c) \\
+  &=&i(\frac{i}{4}g^{ac}[\gamma^d,\gamma^b]+\frac{i}{4}g^{ad}[\gamma^b,\gamma^c]+\frac{i}{4}g^{bc}[\gamma^a,\gamma^d]+\frac{i}{4}g^{bd}[\gamma^c,\gamma^a]) \\
+  &=&i( g^{ad} S^{bc} + g^{bc} S^{ad} - g^{ac} S^{bd} - g^{bd} S^{ac})
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+  \item $[S^{0i},S^{0j}]$, where $i, j\in \{ 1,2,3\}$
+  \begin{eqnarray}
+    [S^{0i},S^{0j}]=[K_i,K_j]=-i(g^{00}S^{ij}+g^{ij}S^{00})=-iS^{ij}=-i\epsilon_{ijk}J_k
+  \end{eqnarray}
+  \item $[S^{ij},S^{lm}]$, where $i, j, l, m \in \{ 1,2,3\}$
+  \begin{eqnarray}
+    &&[S^{12},S^{23}]=[J_3,J_1]=iS^{13}=-iJ_2 \\
+    &&[S^{23},S^{31}]=[J_1,J_2]=-iS^{21}=iJ_3 \\
+    &&[S^{31},S^{12}]=[J_2,J_3]=-iS^{32}=iJ_1
+  \end{eqnarray}
+  We summarize $[K_i,K_j]=-i\epsilon_{ijk}J_k$.
+  \item $[S^{0i},S^{lm}]$, where $i, l, m \in \{ 1,2,3\}$
+  \begin{eqnarray}
+    &&[S^{01},S^{12}]=[K_1,J_3]=-iS^{02}=-iK_2 \\
+    &&[S^{01},S^{13}]=-[K_1,J_2]=-iS^{03}=iK_3 \\
+    &&[S^{02},S^{21}]=-[K_2,J_3]=-iS^{-1}=iK_1
+  \end{eqnarray}
+  We can summarize $[J_i,K_j]=i\epsilon_{ijk}K_k$.
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+S^{ab}&=&\frac{i}{4}[\gamma^a,\gamma^b]\\ &=&\frac{i}{4}
+  \begin{pmatrix}
+    0 & \sigma_+^a \\
+    \sigma_-^a & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & \sigma_+^b \\
+    \sigma_-^b & 0
+  \end{pmatrix}
+  -\frac{i}{4}
+  \begin{pmatrix}
+    0 & \sigma_+^b \\
+    \sigma_-^b & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & \sigma_+^a \\
+    \sigma_-^a & 0
+  \end{pmatrix}\\
+  &=& 
+  \begin{pmatrix}
+    S_L^{ab} & 0 \\
+    0 & S_R^{ab}
+  \end{pmatrix},
+\end{eqnarray}
+where $2\times 2$ matrices $S_L$ and $S_R$ are written as
+\begin{eqnarray}
+ && S_L^{ab} = \frac{i}{4} ( \sigma_+^a \sigma_-^b - \sigma_+^b \sigma_-^a )\\
+ && S_R^{ab} = \frac{i}{4} ( \sigma_-^a \sigma_+^b - \sigma_-^b \sigma_+^a )
+\end{eqnarray}
+
+\section{ }
+For $i, j, k\in \{ 1,2,3\}$, we have
+\begin{eqnarray}
+  S^{ij}=\epsilon_{ijk}J_K=\frac{i}{4}
+  \begin{pmatrix}
+    [\sigma_+^i,\sigma_-^j] & 0 \\
+    0 & [\sigma_-^i,\sigma_+^j]
+  \end{pmatrix}
+  =\frac{i}{4}
+  \begin{pmatrix}
+    -[\sigma^i,\sigma^j] & 0 \\
+    0 & -[\sigma^i,\sigma^j]
+  \end{pmatrix}
+  =\epsilon_{ijk}
+  \begin{pmatrix}
+    \sigma^k/2 & 0\\
+    0 & \sigma/2
+  \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+  S^{0i}=K_i=\frac{i}{4}
+  \begin{pmatrix}
+    -2\sigma^i & 0 \\
+    0 & 2\sigma^i
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    -i\sigma^i/2 & 0 \\
+    0 & i\sigma^i/2
+  \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+In 4-spinor space, ${\cal L}$ is singlet, so
+\begin{eqnarray}
+  {\cal L}&=&  {\cal L}^T
+  =  ({\overline \Psi} ([i\del_\mu - g T^a A^a_\mu] \gamma^\mu - m) \Psi)^T \\
+  &=& -(\Psi)^T (\gamma^\mu)^T ([i\del_\mu]^T -g(T^a)^T A^a_\mu) ({\overline \Psi})^T
+    +m (\Psi)^T  ({\overline \Psi})^T \\
+  &=& (\Psi)^T ([i\del_\mu +g(T^a)^TA^a_\mu](\gamma^\mu)^T +m) ({\overline \Psi})^T 
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  {\cal L} &=& {\cal L}^T
+  = (\Psi)^T C^{-1} C
+  ([i\del_\mu +g(T^a)^TA^a_\mu](\gamma^\mu)^T +m) C^{-1} C ({\overline \Psi})^T \\
+  &=& (\Psi)^T C^{-1} ([i\del_\mu +g(T^a)^TA^a_\mu](-\gamma^\mu) +m)\Psi^c \\
+  &=& \overline{\Psi}^c ([i\del_\mu +g(T^a)^TA^a_\mu] \gamma^\mu -m)\Psi^c,
+\end{eqnarray}
+where we used $\Psi^T C^{-1} = -\overline{\Psi}^c$ and $C (\gamma^\mu)^T C^{-1} = -\gamma^\mu$.
+
+\section{ }
+\begin{eqnarray}
+  C C^\dagger = 
+  \begin{pmatrix}
+    i \sigma^2 & 0 \\
+    0 & -i\sigma^2
+  \end{pmatrix}
+  \begin{pmatrix}
+    -i {\sigma^2}^\dagger & 0 \\
+    0 & i{\sigma^2}^\dagger
+  \end{pmatrix}
+  =  \begin{pmatrix}
+    {\sigma^2}^2 & 0 \\
+    0 & {\sigma^2}^2
+  \end{pmatrix}
+  =1 
+\end{eqnarray}
+where we used ${\sigma^2}^\dagger=\sigma^2$ and ${\sigma^2}^2=1$.
+
+\section{ }
+Since
+\begin{eqnarray}
+  P^\mu = i\del^\mu=i\frac{\del}{\del x_\mu}=ig^{\mu \nu} \frac{\del}{\del x^\nu},
+\end{eqnarray}
+we see 
+\begin{eqnarray}
+  E   =   i\frac{d}{dt}, ~~~
+  P_x = - i \frac{d}{dx},~~~
+  P_y = - i \frac{d}{dy},~~~
+  P_z = - i \frac{d}{dz} 
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  [P^\mu, x^\nu]f&=&i\del^\mu x^\nu f-i x^\nu \del^\mu f= i(\del^\mu x^\nu) f+i x^\nu \del^\mu f-i x^\nu \del^\mu f = i(\del^\mu x^\nu) f \\ &=& i \frac{\del x^\nu}{x^\mu} f = i g^{\mu \nu} f
+\end{eqnarray}
+where we used
+\begin{eqnarray}
+  \del^\mu x^\nu = g^{\mu\rho} \del_\rho x^\nu
+  = g^{\mu\rho} \delta_\rho^\nu   
+  = g^{\mu\nu}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  &&x^\mu \to x'^\mu = e^{i c_a P^a} x^\mu 
+                    = x^\mu + i c_a  P^a  x^\mu\\ 
+                    &=& x^\mu + i c_a  i{\del^\mu}^a  x^\mu
+                    = x^\mu + i c_a  (i{\del^\mu}^a  x^\mu)  + i c_a x^\mu i{\del^\mu}^a   - i c_a x^\mu i{\del^\mu}^a  \\
+                    &=&x^\mu + i c_a [i{\del^\mu}^a, x^\mu]= x^\mu + i c_a [p^a, x^\mu]
+                    = x^\mu + i c_a i g^{a\mu}
+                    = x^\mu - c^\mu 
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  x^\mu \to x'^\mu 
+  &=& e^{\frac{i}{2} \omega_{ab} M^{ab}} x^\nu = x^\mu + \frac{i}{2} \omega_{ab} [M^{ab}, x^\mu ]+ {\cal O}(\omega^2) \\
+  &=&  x^\mu + \frac{i}{2} \omega_{ab} (x^a[P^b, x^\mu ] -x^b [P^a, x^\mu ])+ {\cal O}(\omega^2) \\
+  &=&  x^\mu +\frac{i}{2} \omega_{ab} (x^a ig^{b\mu} -x^b ig^{a\mu })+ {\cal O}(\omega^2) \\
+  &=&  x^\mu +\frac{i}{2} (i {\omega_a}^\mu x^a -  i {\omega^\mu}_b x^b )+ {\cal O}(\omega^2) \\
+  &=&  x^\mu -\frac{1}{2} ( {\omega_\nu}^\mu -  {\omega^\mu}_\nu x^\nu )x^\nu + {\cal O}(\omega^2)= x^\mu + {\omega^\mu}_\nu x^\nu+ {\cal O}(\omega^2)
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  [M^{ab}, x^\mu]  &=& x^a [P^b, x^\mu] - x^b [P^a, x^\mu]
+  = x^a (i g^{b\mu}) - x^b (i g^{a\mu})=i ( x^a g^{b\mu} - x^b g^{a\mu} ) \\ 
+  &=& i x^\nu ( g^a_\nu g^{b\mu} - g^b_\nu g^{a\mu} )
+  = x^\nu {(M^{ab})_\nu}^\mu
+  = -{(M^{ab})^\mu}_\nu x^\nu
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  \frac{i}{2}{(M^{ab})^\mu}_\nu\omega_{ab}=-\frac{1}{2}( g^{a\mu} {g^b}_\nu - g^{b\mu} {g^a}_\nu ) \omega_{ab} = -\frac{1}{2}({\omega^\mu}_\nu-{\omega_\nu}^\mu)
+  =-{\omega^\mu}_\nu
+\end{eqnarray}
+In matrix form, this can be written as
+\begin{eqnarray}
+  \frac{i}{2}{(M^{ab})^\mu}_\nu\omega_{ab}&=&
+  \begin{pmatrix}
+    0 &   -{\omega^0}_1 & -{\omega^0}_2 & -{\omega^0}_3 \\
+    -{\omega^1}_0 & 0 & -{\omega^1}_2 & -{\omega^1}_3 \\
+    -{\omega^2}_0 & -{\omega^2}_1 &  0 & -{\omega^2}_3 \\
+    -{\omega^3}_0 & -{\omega^3}_1 &  -{\omega^3}_2 &  0  
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 &  -\omega_{01} & -\omega_{02} & -\omega_{03} \\
+    -\omega_{01} & 0 & \omega_{12} & -\omega_{31} \\
+    -\omega_{02} & -\omega_{12} &  0 & \omega_{23} \\
+    -\omega_{03} & \omega_{31} &  -\omega_{23} &  0  
+  \end{pmatrix}\\
+  &=&
+  \begin{pmatrix}
+    0 &  -\eta_{1} & -\eta_{2} & -\eta_{3} \\
+    -\eta_{1} & 0 & \theta_{3} & -\theta_{2} \\
+    -\eta_{2} & -\theta_{3} &  0 & \theta_{1} \\
+    -\eta_{3} & \theta_{2} &  -\theta_{1} &  0  
+  \end{pmatrix}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  [P^a,P^b]=[i\del^a,i\del^b]=-[\del^a,\del^b]=0
+\end{eqnarray}
+\begin{eqnarray}
+  [M^{ab},P^c]&=&[x^a,P^c]P^b-[x^b,P^c]P^a=(-ig^{ca}P^b)-(-ig^{cb}P^a) \\ 
+  &=&i( g^{bc} P^a - g^{ac} P^b  )
+\end{eqnarray}
+\begin{eqnarray}
+  &&[M^{ab},M^{cd}]=[(x^aP^b-x^bP^a),(x^cP^d-x^dP^c)]\\ 
+  &=&[x^aP^b,x^cP^d]-[x^aP^b,x^dP^c]-[x^bP^a,x^cP^d]+[x^bP^a,x^dP^c]\\
+  &=&i(g^{ad}(x^bP^c-x^cP^b)+g^{bc}(x^aP^d-x^dP^a)-g^{ac}(x^bP^d-x^dP^b)-g^{bd}(x^aP^c-x^cP^a))\\
+  &=&i( g^{ad} M^{bc} +g^{bc} M^{ad} -g^{ac} M^{bd} -g^{bd} M^{ac} )
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  [ P^a,  P^\mu P_\mu ] = [P^a,P^\mu] p_\mu+P^\mu g_{\mu\alpha} [P^a,P^\alpha]=0
+\end{eqnarray}
+\begin{eqnarray}
+ &&[ M^{ab}, P^\mu P_\mu ] =[ M^{ab}, P^\mu]P_\mu+P^\mu g_{\mu\alpha}[ M^{ab}, P^\alpha] \\
+  &=& i(g^{b\mu}P^a-g^{a\mu}P^b)P_\mu +iP^\mu g_{\mu\alpha}(g^{b\alpha}P^a-g^{a\alpha}P^b)  \\
+  &=&i(P^aP_b-P^bP_a+P_bP^a-P_aP^b)= 0
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+  \item $[P^a,W_\mu]$
+  \begin{eqnarray}
+    &&[P^a,W_\mu]=\frac{1}{2} \epsilon_{\mu\nu\rho\sigma} [P^a, P^\nu M^{\rho\sigma}]= \frac{1}{2} \epsilon_{\mu\nu\rho\sigma} P^\nu [P^a, M^{\rho\sigma}] \\
+    &=&\frac{i}{2} \epsilon_{\mu\nu\rho\sigma} P^\nu(g^{\rho a}P^\sigma -g^{\sigma a} P^\rho ) = \frac{i}{2} (\epsilon_{\mu\nu a \sigma} P^\nu P^\sigma - \epsilon_{\mu\nu \rho a} P^\nu P^\rho) \\
+    &=& \frac{i}{4} (\epsilon_{\mu\nu a \sigma} P^\nu P^\sigma + \epsilon_{\mu\sigma a \nu}  P^\sigma P^\nu - \epsilon_{\mu\nu \rho a} P^\nu P^\rho- \epsilon_{\mu \rho \nu a}  P^\rho P^\nu) \\
+    &=&\frac{i}{4} (\epsilon_{\mu\nu a \sigma} P^\nu P^\sigma - \epsilon_{\mu\nu a \sigma} P^\nu P^\sigma - \epsilon_{\mu\nu \rho a} P^\nu P^\rho+\epsilon_{\mu\nu \rho a} P^\nu P^\rho)=0
+  \end{eqnarray}
+  \item 
+  Define 
+  \begin{eqnarray}
+    {\tilde M}_{\mu \nu} =\frac{1}{2}\epsilon_{\mu\nu\rho\sigma} M^{\rho \sigma}
+  \end{eqnarray}
+and we have 
+\begin{eqnarray}
+  \epsilon^{\alpha\beta\mu\nu} {\tilde M}_{\mu \nu}=-({\delta^\alpha}_\rho{\delta^\beta}_\sigma-{\delta^\alpha}_\sigma{\delta^\beta}_\rho)M^{\rho \sigma}=-2M^{\alpha \beta},
+\end{eqnarray}
+and can express
+\begin{eqnarray}
+  M^{\alpha \beta}=-\frac{1}{2}\epsilon^{\alpha\beta\mu\nu} {\tilde M}_{\mu \nu}
+\end{eqnarray}
+Now we can calculate
+\begin{eqnarray}
+  &&[M^{ab},{\tilde M}_{\mu \nu}]=\frac{1}{2}\epsilon_{\mu\nu\rho\sigma}[M^{ab},M^{\rho \sigma}]\\
+  &=&\frac{i}{2}\epsilon_{\mu\nu\rho\sigma} (g^{a\sigma}M^{b\rho}+g^{b\rho}M^{a\sigma}-g^{a\rho}M^{b\sigma}-g^{b\sigma}M^{a\rho}) \\
+  &=&\frac{i}{2} (\epsilon_{\mu\nu\rho a} M^{b\rho}+\epsilon_{\mu\nu b \sigma}M^{a\sigma}-\epsilon_{\mu\nu a \sigma}M^{b\sigma}-\epsilon_{\mu\nu\rho b }M^{a\rho}) \\
+  &=&i(\epsilon_{\mu\nu\rho a} M^{b\rho}-\epsilon_{\mu\nu\rho b }M^{a\rho}) \\
+  &=& i(\epsilon_{\mu\nu\rho a} (-\frac{1}{2}) \epsilon^{b \rho \tau \kappa} {\tilde M}_{\tau \kappa}-\epsilon_{\mu\nu\rho b }(-\frac{1}{2}) \epsilon^{a \rho \tau \kappa} {\tilde M}_{\tau \kappa}) \\
+  &=& \frac{i}{2} {\tilde M}_{\tau \kappa}(\epsilon_{\mu\nu a \rho}\epsilon^{b \tau \kappa \rho }-\epsilon_{\mu\nu b \rho}\epsilon^{a \tau \kappa \rho }) \\
+  &=&\frac{i}{2} {\tilde M}_{\tau \kappa}[g_\mu^b(g_\nu^\tau g_a^\kappa-g_\nu^\kappa g_a^\tau )-g_\mu^\tau(g_\nu^\kappa g_a^b-g_\nu^b g_a^\kappa )+g_\mu^\kappa(g_\nu^b g_a^\tau-g_\nu^\tau g_a^b)-(a \leftrightarrow b)] \\
+  &=&i(2 g_\mu^b {\tilde M}_{\nu a}-g_a^b {\tilde M}_{\mu \nu}+g_\nu^b{\tilde M}_{\mu a}+g_\nu^b{\tilde M}_{ a\mu }-g_a^b{\tilde M}_{ \nu\mu}-(a \leftrightarrow b) )\\
+  &=&i(g_\mu^b {\tilde M}_{\nu a}-g_\mu^a {\tilde M}_{\nu b})
+\end{eqnarray}
+With this result, we will have
+\begin{eqnarray}
+&&[M^{ab},W_\mu]=[M^{ab},P^\nu {\tilde M}_{\mu \nu}]=P^\nu [M^{ab}, {\tilde M}_{\mu \nu}]+[M^{ab},P^\nu ]{\tilde M}_{\mu \nu} \\
+&=&i(g_\mu^b {\tilde M}_{\nu a}-g_\mu^a {\tilde M}_{\nu b}) P^\nu+i( g^{b\nu} P^a - g^{a\nu} P^b  ){\tilde M}_{\mu \nu}\\
+&=& -ig_\mu^b W_a+ig_\mu^aW_b
+\end{eqnarray}
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+  &&[P^a,W^2]=[P^a,W_\mu]W^\mu+ W_\mu g_{\mu\alpha}[p^a, W_\alpha] =0 \\
+  &&[M^{ab},W^2]=[M^{ab},W_\mu]W^\mu+ W_\mu g_{\mu\alpha}[M^{ab}, W_\alpha] =0
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+  &&[P^a,A_\mu B^\mu]=[P^a,A_\mu]B^\mu+ A_\mu g_{\mu\alpha}[p^a, B_\alpha] =0 \\
+  &&[M^{ab},A_\mu B^\mu]=[M^{ab},A_\mu]B^\mu+ A_\mu g_{\mu\alpha}[M^{ab}, B_\alpha] =0
+\end{eqnarray}
+
+\section{ }
+For 
+\begin{eqnarray}
+  P^\mu=(m,0,0,0)
+\end{eqnarray}
+we see
+\begin{eqnarray}
+W_\mu = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma} P^\nu M^{\rho\sigma} =\frac{m}{2}\epsilon_{\mu 0 \rho\sigma} M^{\rho\sigma}=-\frac{m}{2}\epsilon_{\mu  \rho\sigma} M^{\rho\sigma}=- m J_\mu
+\end{eqnarray}
+hence we can write
+\begin{eqnarray}
+  && W_\mu = m ( 0, -J_x, -J_y, -J_z )  \\
+  && W^\mu = m ( 0,  J_x,  J_y,  J_z )  \\
+  && W^2   = W_\mu W^\mu=- m^2 ( J_x^2 + J_y^2 + J_z^2 )
+\end{eqnarray}
+
+\section{ }
+For 
+\begin{eqnarray}
+  P^\mu=(E,0,0,E),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+  W_\mu = \frac{1}{2} \epsilon_{\mu\nu\rho\sigma} P^\nu M^{\rho\sigma} =\frac{E}{2}(\epsilon_{\mu 0 \rho\sigma} M^{\rho\sigma}+\epsilon_{\mu 3 \rho\sigma} M^{\rho\sigma})
+\end{eqnarray}
+which leads
+\begin{eqnarray}
+  && W_0=\frac{E}{2}\epsilon_{\mu 3 \rho\sigma} M^{\rho\sigma}=\frac{E}{2}\epsilon_{\mu \rho\sigma 3} M^{\rho\sigma} = EJ_z \\
+  && W_1= \frac{E}{2}(-\epsilon_{ 0 \rho\sigma 1} M^{\rho\sigma}-\epsilon_{ \rho 1 \sigma3} M^{\rho\sigma})=-E(J_x+K_y)\\
+  &&W_2=\frac{E}{2}(-\epsilon_{ 0 \rho\sigma 2} M^{\rho\sigma}+\epsilon_{ \rho 2 \sigma 3} M^{\rho\sigma}) =E(-J_y+K_x)\\
+  &&W_3=-\frac{E}{2}\epsilon_{0 \rho\sigma 3} M^{\rho\sigma} -EJ_z 
+\end{eqnarray}
+As a further step,
+we have 
+\begin{eqnarray}
+  W^2 &=&  E^2 [ (J_z)^2 - (J_x+K_y)^2 - (J_y-K_x)^2 -(-J_z)^2 ] \nonumber \\
+  &=& -E^2 [ (J_x+K_y)^2 + (J_y-K_x)^2 ]
+ \end{eqnarray}
+
+\section{ }
+Recall the commutation relations
+\begin{eqnarray}
+  &&[ J_i, J_j ] =  i \epsilon_{ijk} J_k, \\
+  &&[ J_i, K_j ] =  i \epsilon_{ijk} K_k, \\
+  &&[ K_i, K_j ] = -i \epsilon_{ijk} J_k, 
+\end{eqnarray}
+we have
+\begin{eqnarray}
+  &&[J_z,A]=[J_z, J_x]+[J_z,K_y]=i (J_y-K_x)=iB\\
+  &&[J_z,B]=[J_z, J_y]-[J_z,K_x]=-i (J_x+K_y)=-iA \\
+  &&[A,B]=[J_x,J_y]+[K_y,J_y]-[J_x,K_x]-[K_y,K_x]=iJ_z-iJ_z=0
+\end{eqnarray}
+
+\section{ }
+I introduce a $C_\pm =A\pm iB$ operator and we have the eigenvalues of $C_\pm$
+\begin{eqnarray}
+  C_\pm \ket{p;a,b} = a\pm ib \ket{p;a,b}
+\end{eqnarray}
+and the commutation relations
+\begin{eqnarray}
+  [ J_z ,C_\pm ] = \pm C_\pm,~~~[ C_\pm , A ]=[ C_\pm , B ] = 0 
+\end{eqnarray}
+Now we can make the proof a little bit simpler
+\begin{eqnarray}
+  C_\pm \ket{p;a,b;\phi} &=& C_\pm e^{iJ_z\phi} \ket{p;a,b}= e^{iJ_z\phi}e^{-iJ_z\phi}C_\pm e^{iJ_z\phi} \ket{p;a,b}\\
+  &=& e^{iJ_z\phi} (C_\pm+[iJ_z\phi,C_\pm]+\frac{1}{2!}[iJ_z\phi,[iJ_z\phi,C_\pm]+\cdots]\ket{p;a,b}\\
+  &=& e^{iJ_z\phi} C_\pm (1+i\phi+\frac{(\pm i\phi)^2}{2!}+\cdots) \ket{p;a,b}=e^{iJ_z\phi} C_\pm e^{\pm i\phi} \ket{p;a,b}\\
+  &=&{iJ_z\phi} (a\pm ib)e^{\pm i\phi}\ket{p;a,b} = (a\pm ib)e^{\pm i\phi} \ket{p;a,b;\phi}
+\end{eqnarray}
+This result is equivalent to
+\begin{eqnarray}
+  && A \ket{p;a,b;\phi} = (a \cos\phi - b \sin\phi) \ket{p;a,b;\phi} \\
+  && B \ket{p;a,b;\phi} = (a \sin\phi + b \sin\phi) \ket{p;a,b;\phi} 
+\end{eqnarray}
+
+
+
+\end{document}

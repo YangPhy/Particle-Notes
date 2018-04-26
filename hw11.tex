@@ -1,0 +1,516 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW11 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+  The last lecture concluded my introduction to the Standard Model
+  (SM) of particle physics. I believe that all the most fundamental
+  aspects of the SM gauge symmetry and its spontaneous breakdown
+  have been explained.  Whenever you become unsure about the subject,
+  you may come back to my homework, and I hope that they will be
+  useful for you, as they have been for myself.
+
+  Throughout my past lectures, I assumed that the Lagrangian
+  density we have been studying is Lorentz invariant.  You might
+  be able to fool yourself to believe that it is Lorentz invariant,
+  by noting Einstein's tensor notations (which gives Lorentz
+  invariants when the upper and lower Lorentz indices are
+  contracted), may wonder what it means for $\sigma_\pm^\mu
+  = (1, \pm \sigma^k)$, and for Majorana and Dirac mass terms.
+
+  This is the subject of my lecture today, and the following two.
+
+
+
+  Lorentz transformations express change of reference coordinate
+  system, parametrized by space-time 4 vectors,
+\begin{eqnarray}
+    x^\mu = (x^0, x^1, x^2, x^3)^T = (t, x, y, z)^T \label{eq.11xmu1}
+\end{eqnarray}
+  as
+\begin{eqnarray}
+    x^\mu \to {x'}^\mu = L^\mu_\nu x^\nu
+                  = (e^{ i \omega_{ab} M^{ab}/2 })^\mu_\nu x^\nu
+                  = x^\mu - \omega^\mu_\nu x^\nu + {\cal O}(\omega_{ab}^2) \label{eq.11LT1}
+\end{eqnarray}
+
+  Unfortunately, thanks to Einstein, the Lorentz transformation is
+  usually expressed as above, in the tensor notation. Once you
+  understand the tensor notation well, it is very convenient (since
+  we can avoid errors), but I find it rather difficult to explain it
+  clearly to most of the starting graduate students.
+
+  I therefore, introduce Matrix representations for the Lorentz
+  transformation, whenever possible. I start with connecting the
+  above tensor representation and the matrix representation.
+
+  In the matrix representation, $x^\mu$ is expressed as a column vector
+  as above Eq.\ref{eq.11xmu1}, and $x_\mu$ is expressed as another column vector
+\begin{eqnarray}
+    x_\mu = (x_0, x_1, x_2, x_3)^T = (t, -x, -y, -z)^T \label{eq.11xmu2}
+\end{eqnarray}
+  The Lorentz transformation of $x^\mu$ in Eq.\ref{eq.11LT1} is expressed as
+\begin{eqnarray}
+    (x^0, x^1, x^2, x^3)^T \to ({x'}^0, {x'}^1, {x'}^2, {x'}^3)^T
+                            = L (x^0, x^1, x^2, x^3)^T, \label{eq.11LT1m}
+\end{eqnarray}
+  where $L$ is the $4\times 4$ matrix representation of $L^\mu_\nu$.  On the other
+  hand, the Lorentz transformation of $x_\mu$ (Eq.\ref{eq.11xmu2}) may be expressed as
+\begin{eqnarray}
+    (x_0, x_1, x_2, x_3)^T \to  (x_0', x_1', x_2', x_3')^T
+                            = L' (x_0, x_1, x_2, x_3)^T, \label{eq.11LT2m}
+\end{eqnarray}
+  where
+\begin{eqnarray}
+    L' = (L^{-1})^T \label{eq.11Lp}
+\end{eqnarray}
+
+  In the Tensor representation, Eq.\ref{eq.11LT2m} is written simply as
+\begin{eqnarray}
+    x_\mu \to x'_\mu = L_\mu^\nu x_\nu \label{eq.11LT2}
+\end{eqnarray}
+  and you may not notice the difference between Eq.\ref{eq.11LT1} and Eq.\ref{eq.11LT2}.  When we
+  compare the matrix representation Eq.\ref{eq.11LT1m} and Eq.(\ref{eq.11LT2m},\ref{eq.11Lp}), we find
+\begin{eqnarray}
+    L^\mu_\nu &=& { L          }_{\mu,\nu}\\
+    L_\mu^\nu &=& { (L^{-1})^T }_{\mu,\nu}
+\end{eqnarray}
+  The Lorentz invariance,
+\begin{eqnarray}
+    a_\mu b^\mu \to a'_\mu b'^\mu
+               = L_\mu^\alpha L^\mu_\beta a_\alpha b^\beta
+               = \delta^\alpha_\beta    a_\alpha b^\beta
+               = a_\alpha b^\alpha
+\end{eqnarray}
+  tells
+\begin{eqnarray}
+    L_\mu^\alpha L^\mu_\beta = \delta^\alpha_\beta \label{eq.11Ldt}
+\end{eqnarray}
+  corresponding to
+\begin{eqnarray}
+    ((L^{-1})^T)^T L = L^{-1} L = 1. \label{eq.11LLp}
+\end{eqnarray}
+
+{\bf hw11-1}: Show Eq.\ref{eq.11LLp}, when we write the 4-component column vector
+  representations of $a_\mu$ and $b^\mu$ as ($a_\mu$) and ($b^\mu$):
+\begin{eqnarray}
+  (a_\mu) &=& (a_0, a_1, a_2, a_3)^T = (a^0, -a^1, -a^2, -a^3)^T \\
+  (b^\mu) &=& (b^0, b^1, b^2, b^3)^T
+\end{eqnarray}
+  and express the Lorentz transformation as
+\begin{eqnarray}
+  (b^\mu) \to ({b'}^\mu) &=&      L     (b^\mu) \\
+  (a_\mu) \to ({a'}_\mu) &=& (L^{-1})^T (a_\mu)
+\end{eqnarray}
+   The identity Eq.\ref{eq.11LLp} should then follow from the invariance
+\begin{eqnarray}
+  (a'_\mu)^T (b'^\mu) = (a_\mu)^T (b^\mu)
+\end{eqnarray}
+  Although this may be trivial, it is useful for you to know the
+  relationship between the Matrix representation and the tensor
+  representation, since unlike $L^{-1} L = 1$ in the Matrix representation,
+  the Tensor representation condition Eq.\ref{eq.11Ldt} is not so trivial. It is the identity behind the Einstein's convention of contracting repeated
+  upper and lower indices to reduce the rank (the number of Lorentz
+  indices) of a tensor, while keeping Lorentz covariance/invariance.
+
+
+  In the above, $L^\mu _\nu$ or its matrix representation $L_{\mu,\nu}$ gives
+  the Lorentz transformation, $\omega_{ab}$ ($a,b=0,1,2,3$) are real
+  numbers which measure the magnitude of the transformations,
+  $M^{ab}$ denote the generators of the transformation. In the last step
+  of Eq.\ref{eq.11LT1}, infinitesimal transformations are given.  Most importantly,
+  the generators $M^{ab}$ are anti-symmetric in the exchange of their
+  Lorentz indices
+\begin{eqnarray}
+  M^{ba} = - M^{ab} \label{eq.11Mantis}
+\end{eqnarray}
+  and therefore
+  \begin{eqnarray}
+    \omega_{ba} = - \omega_{ab} \label{eq.11omeantis}
+  \end{eqnarray}
+ Hence there are 6 independent generators and their parameters:
+\begin{eqnarray}
+  \frac{1}{2} \omega_{ab} M^{ab}
+  &=& \omega_{23} M^{23} +\omega_{31} M^{31} +\omega_{12} M^{12} +\omega_{01} M^{01} +\omega_{02} M^{02} +\omega_{03} M^{03} \\
+  &=& \theta_1 J_1  +\theta_2 J_2  +\theta_3 J_3  +y_1 K_1  +y_2  K_2  +y_3  K_3, \label{eq.11gepara}
+\end{eqnarray}
+ The 6 generators are named as
+\begin{eqnarray}
+  M^{ij} = \epsilon_{ijk} J_k,  ~~ \omega_{ij} = \epsilon_{ijk} \theta_k, ~~ M^{0k} = K_k,  ~~              \omega_{0k} = y_k, \label{eq.11LTgener}
+\end{eqnarray}
+  where $a$,$b$,$c$ counts $0$ to $3$, while $i$,$j$,$k$ counts $1$ to $3$.
+
+{\bf hw11-2}: Derive Eq.\ref{eq.11gepara} from Eq.(\ref{eq.11Mantis},\ref{eq.11omeantis},\ref{eq.11LTgener}). $J_k$ gives the right-handed rotation about the k-axis, by the angle $\theta_k$, and $K_k$ gives the boost along the k-axis, by a real number $y_k$, which is called the rapidity, that measures the relative velocity between the original and the boosted frame along the k-axis, just like $\theta_k$ measures the relative azimuthal angle about the k-axis between the original and the rotated frame.
+
+  In my lecture today, I introduced the coordinate transformations,
+  and obtain explicit matrix form of all the 6 generators.  It is
+  then easy to obtain the commutation relations among all
+  the 6 generators.
+
+  We found that there is no ambiguity in the overall magnitude
+  and the sign of the the 3 generators of rotations, since they
+  should satisfy ($k,l,m = 1,2,3$)
+\begin{eqnarray}
+  [ J_k, J_l ] = i\epsilon_{klm} J_m
+\end{eqnarray}
+  where the anti-symmetric tensor $\epsilon_{123}=1$ defines the right-handed rotation. The 3 generators of rotations make the $SU(2)$ algebra, and hence the spatial rotations and the $SU(2)$ transformations have the same group structure.
+
+{\bf hw11-3}: Please show Eq.\ref{eq.11defthet3}, Eq.\ref{eq.11defy3} by using Eq.(\ref{eq.11vatran1},\ref{eq.11vatran2},\ref{eq.11omegaanti}).
+
+\begin{eqnarray}
+\omega_{12}  
+= -\omega_{21}
+=  \omega^{12}
+= -\omega^1_{~2}
+=  \omega^2_{~1} \equiv  \theta_3 \label{eq.11defthet3} 
+\end{eqnarray}
+\begin{eqnarray}
+ \omega_{03}     
+  = -\omega_{30}
+  = -\omega^{03}
+  =  \omega^0_{~3}
+  =  \omega^3_{~0}
+  \equiv   y_3 \label{eq.11defy3}
+\end{eqnarray}
+by using the metric tensor $g^{ab} = g_{ab} = {\rm diag}(1,-1,-1,-1)$ which
+  dictates the transformation between the covariant and the
+  contra-variant vector indices ($a,b = 0$ to $3$):
+\begin{eqnarray}
+ v^a &=& g^{ab} v_b \label{eq.11vatran1}\\
+ v_a &=& g_{ab} v^b \label{eq.11vatran2}
+\end{eqnarray}
+  and by using the anti-symmetricity
+\begin{eqnarray}
+  \omega_{ab} = -\omega_{ba} \label{eq.11omegaanti}
+\end{eqnarray}
+   From this exercise, you should confirm that
+\begin{eqnarray}
+  \omega^i_j = -\omega^j_i~~~   (i,j=1,2,3)
+\end{eqnarray}
+  for rotations and
+\begin{eqnarray}
+  \omega^0_k = \omega^k_0  ~~~ (k=1,2,3)
+\end{eqnarray}
+  for boosts, which distinguishes the two transformations in the general
+  expression for Lorentz transformations,
+\begin{eqnarray}
+  x^\mu \to {x'}^\mu = L^\mu_\nu x^\nu
+  = (e^{ i/2 \omega_{ab} M^{ab} })^\mu_\nu x^\nu
+  = x^\mu - \omega^\mu_\nu x^\nu + {\cal O}((\omega_{ab})^2)
+\end{eqnarray}
+  With exactly the same token, you should observe
+\begin{eqnarray}
+  J_3 &=& M^{12} = -M^{21} = M_{12} = -M^1_2 = M^2_1 = \cdots \\
+  J_2 &=& M^{31} = -M^{13} = M_{31} = -M^3_1 = M^1_3 = \cdots \\
+  K_3 &=& M^{03} = -M^{30} = -M_{03} = -M^3_0 = -M^0_3 = \cdots
+\end{eqnarray}
+  from which you can show
+\begin{eqnarray}
+  \frac{1}{2} \omega_{ab} M^{ab}
+  &=& \omega_{23} M^{23} +\omega_{31} M^{31} +\omega_{12} M^{12} +\omega_{01} M^{01} +\omega_{02} M^{02} +\omega_{03} M^{03} \\
+  &=& \theta_1 J_1  +\theta_2 J_2  +\theta_3 J_3  +y_1 K_1  +y_2  K_2  +y_3  K_3, 
+\end{eqnarray}
+when one sums over all the four-vector indices ($a,b = 0$ $to 3$).
+
+{\bf hw11-4}: Confirm the above expressions (24), (25), (28) with the
+  help of (26), (27).
+
+  This lengthy introduction shows how to connect the tensor and the
+  matrix notations.  From now on, I will use only matrix notations
+  to explain everything you need to know about Lorentz symmetry,
+  and its representations.
+
+  Let us first obtain the matrix representation of the rotation operators:
+\begin{eqnarray}
+  J_1 = 
+  \begin{pmatrix}
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -i \\
+    0 & 0 & i & 0
+  \end{pmatrix}
+  ,~~ J_2 =
+  \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & i \\
+    0 & 0 & 0 & 0 \\
+    0 & -i & 0 & 0 
+  \end{pmatrix}
+  ,~~J_3=
+  \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & -i & 0 \\
+    0 & i & 0 & 0 \\
+    0 & 0 & 0 & 0 
+  \end{pmatrix}
+\end{eqnarray}
+  It is easy to remember the above matrices as
+\begin{eqnarray}
+  (J_1)_{23} = (J_2)_{31} = (J_3)_{12} = -i
+\end{eqnarray}
+  or as
+\begin{eqnarray}
+  (J_i)_{jk} = -i \epsilon_{ijk}. \label{eq.11Jjk}
+\end{eqnarray}
+We showed that the above 3 matrices satisfy the commutation relations
+of the rotations:
+\begin{eqnarray}
+  [ J_j, J_k ] = i\epsilon_{jkl} J_l \label{eq.11Jjk2}
+\end{eqnarray}
+ in one of our past home works (in the $3 \times 3$ matrix form).
+
+{\bf hw11-5}: Please show Eq.\ref{eq.11Jjk2} again here, since now our generators are $4 \times 4$
+  Hremetian matrices, making them a part of Lorentz transformations.
+
+  Let us confirm again here, that there is no ambiguity in the sign or
+  the magnitude of the above generators.
+
+{\bf hw11-6}: Although it is trivial, please obtain the commutation relations
+  among $M_1$, $M_2$, $M_3$ when $M_k=2J_k$ ($k=1,2,3$), and also among
+  $N_1$, $N_2$, $N_3$ when $N_k = -J_k$ ($i=1,2,3$).
+
+  The first example shows that the commutation relations Eq.\ref{eq.11Jjk2} fixes the
+  overall normalization of the generators, which led to quantization
+  of angular momentum in quantum mechanics.  The second example shows
+  that the sign of the generators are also fixed. In fact, the
+  generators with the negative sign give left-handed rotations.
+
+  Our $4 \times 4$ generators for $J_k$ ($k=1,2,3$) are often called the vector
+  representation of rotations, or the adjoint representation of the
+  rotation group, $SU(2)$. There is one useful identity which I often
+  used in my research, regarding the identity Eq.\ref{eq.11Jjk}.  Please note that
+  the r.h.s. of Eq.\ref{eq.11Jjk} is minus $i$ times the structure constant of $SU(2)$.
+
+  This can be generalized.  Let the $SU(n)$ commutators be
+\begin{eqnarray}
+  [ T^a, T^b ] = i f_{abc} T^c \label{eq.11tatb}
+\end{eqnarray}
+  The adjoint representation of the generators is then
+\begin{eqnarray}
+  (T^a(A))_{bc} = (F^a)_{bc} = -i f_{abc}
+\end{eqnarray}
+
+{\bf hw11-7}: Please write down the commutation relation Eq.\ref{eq.11tatb} explicitly in
+  the adjoint representation, by using $(F^a)_{bc}$ notation, and confirm
+  that it is nothing but the Jacobi identity,
+\begin{eqnarray}
+  [A,[B,C]] + [B,[C,A]] + [C,[A,B]] = 0 \label{eq.11Jacobi}
+\end{eqnarray}
+hint: In the ajoint representation, the commutation relation (24) can
+  be written as
+\begin{eqnarray}
+  [ F^a, F^b ]_{de} = i f_{abc} F^c_{de}
+\end{eqnarray}
+  Please also prove the Jacobi identity Eq.\ref{eq.11Jacobi}.
+
+{\bf hw11-8}: Please show that the following $3$ matrices
+\begin{eqnarray}
+  K_1 =
+  \begin{pmatrix}
+     0 & i & 0 & 0\\ 
+     i & 0 & 0 & 0 \\
+     0 & 0 & 0 & 0 \\
+     0 & 0 & 0 & 0 
+  \end{pmatrix}
+  ,~~K_2 =
+  \begin{pmatrix}
+    0 & 0 & i & 0\\ 
+    0 & 0 & 0 & 0 \\
+    i & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0
+  \end{pmatrix}
+   ,~~K_3=
+   \begin{pmatrix}
+    0 & 0 & 0 & i \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    i & 0 & 0 & 0 
+   \end{pmatrix} \label{eq.11k123matx}
+\end{eqnarray}
+  satisfy the following commutation relations among themselves and
+  with $J_k$:
+\begin{eqnarray}
+  &&[ K_l, K_m ] = -i\epsilon_{lmn} J_n \label{eq.11klm}\\
+  &&[ J_l, K_m ] =  i\epsilon_{lmn} K_n \label{eq.11jlkm}
+\end{eqnarray}
+  The set of the above commutation relations and that of rotations
+\begin{eqnarray}
+  [ J_l, J_m ] =  i\epsilon_{lmn} J_n \label{eq.11jlm}
+\end{eqnarray}
+  gives the complete algebra of the Lorentz transformation.  Because
+  all the commutators of the 6 generators of the Lorentz transformations
+  form an algebra (the commutation relations), the transformations
+  generated by them, the Lorentz transformations form a group. It is
+  called the Lorentz group.
+  Please note that the boost generators $K_l$ are NOT Hermetian,
+\begin{eqnarray}
+  (K_l)^\dagger = -K_l
+\end{eqnarray}
+  (they are anti-Hermetian), but it is symmetric:
+\begin{eqnarray}
+  (K_l)^T =  K_l
+\end{eqnarray}
+  From the above commutation relations Eq.(\ref{eq.11klm},\ref{eq.11jlkm},\ref{eq.11jlm}), the sign of the boost
+  generatrors $K_l$'s are not fixed, because the replacement of $K_l$ by
+  $-K_l$ does not change the algebra. This fact has a very important
+  consequences when we study fermionic representations of the Lorentz
+  transformations.
+
+  The function of boost generators, $K_i (i=1,2,3)$ in Eq.\ref{eq.11k123matx} is understood by the coordinate transformation:
+\begin{eqnarray}
+  L(y_3 = y)
+  = e^{ i K_3 y }=
+  \begin{pmatrix}
+    \cosh y & 0 & 0 & -\sinh y \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    -\sinh y & 0 & 0 & \cosh y
+  \end{pmatrix}
+\end{eqnarray}
+
+{\bf hw11-9}: Please obtain the above boost matrix by using the definition
+  of the exponential function of a matrix.
+  Now the Lorentz boost of the coordinate system along the z-axis by
+  the rapidity y makes:
+\begin{eqnarray}
+  \begin{pmatrix}
+    t' \\ x' \\ y' \\ z'
+  \end{pmatrix}
+  = L(y_3=y)
+  \begin{pmatrix}
+    t \\ x \\ y \\ z
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    t\cosh y -z\sinh y \\ x \\ y \\ z\cosh y -t\sinh y
+  \end{pmatrix}
+\end{eqnarray}
+
+{\bf hw11-10}:
+  Please show that the rapidity $y$ is related to the relative velocity
+  $\beta$ between the two coordinate system as
+\begin{eqnarray}
+  \beta = \tanh y , ~{\rm or}~ y = \tanh^{-1}(\beta)
+\end{eqnarray}
+  by noting,
+\begin{eqnarray}
+  \cosh y &=& \gamma      =     1/\sqrt{1-\beta^2} \\
+  \sinh y &=& \gamma\beta = \beta/\sqrt{1-\beta^2}
+\end{eqnarray}
+  Just like the angles are summed up when two rotations about the same
+  axis are performed,
+\begin{eqnarray}
+  L(\theta_3=\phi_a) L(\theta_3=\phi_b)
+   = e^{ i\phi_a J_3 } e^{ i\phi_b J_3 }
+   = e^{ i(\phi_a+\phi_b) J_3 }
+   = L(\theta_3 = \phi_a + \phi_b ) \label{eq.11rotatphia}
+\end{eqnarray}
+  the rapidities add up when two boosts along the same axis are performed
+\begin{eqnarray}
+  L(y_3 = a) L(y_3 = b)
+  = e^{ i a K_3 } e^{ i b K_3 }
+  = e^{ i (a+b) K_3 }
+  = L(y_3 = a+b ) \label{eq.11boosta}
+\end{eqnarray}
+  Here, $L(\theta _3=\phi_a)$ means that all the other parameters are zero
+  ($\theta_1=\theta_2=y_1=y_2=y_3=0$).
+
+{\bf hw11-11}: Show Eq.\ref{eq.11rotatphia} and Eq.\ref{eq.11boosta}.
+  In this regard, the rapidity is called the angular variable of the
+  boost operations.  Please note the basic property of the hyperbolic
+  functions,
+\begin{eqnarray}
+  \cosh^2 y - \sinh^2 y = 1 \label{eq.11coshsinh}
+\end{eqnarray}
+that ensures the invariance
+\begin{eqnarray}
+{t'}^2 - {x'}^2 - {y'}^2 - {z'}^2
+= t^2   -  x^2   -  y^2   -  z^2
+\end{eqnarray}
+ The identity Eq.\ref{eq.11coshsinh} is related to the property of triangular functions
+\begin{eqnarray}
+  \cos^2\theta + \sin^2\theta = 1
+\end{eqnarray}
+  that ensures the conservation of the norm under rotations.
+  Finally, let us define the Lorentz transformation of vectors (objects)
+  when the coordinate system is transformed as above.
+
+  The only basic property which you should understand is that the
+  vectorial objectfs (four-momentum vector of a particle, vector fields,
+  etc) transform in the opposite direction of the coordinate
+  transformations.
+
+  Since we will study the Lorentz transformation of the particle
+  four-momentum and the vector/fermionic fields in the following
+  lectures, let me define the rotation and the boost operators of
+  the objects along the $m$-axis as:
+\begin{eqnarray}
+  R_m(\theta_m) &=& e^{ -i \theta_m J_m } ~~~ (m=1,2,3 ~{\rm or}~ x,y,z) \\
+  B_m(y_m)      &=& e^{ -i y_m      K_m } ~~~(m=1,2,3 ~{\rm or}~x,y,z)
+\end{eqnarray}
+  Please note the minus sign in the exponent, which does not exist for
+  the coordinate transformations.
+
+{\bf hw11-12}:
+  Starting from the four-momentum vector in the rest frame of a massive
+  particle,
+\begin{eqnarray}
+  p^\mu &=& 
+  \begin{pmatrix}
+    m \\ 0 \\ 0 \\ 0
+  \end{pmatrix}
+\end{eqnarray}
+  Please show
+\begin{eqnarray}
+  {p'}^\mu &=& B_z(y) p^\mu =
+  \begin{pmatrix}
+    m \cosh y \\ 0 \\ 0 \\ m \sinh y 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+   E \\ 0 \\ 0 \\ p
+  \end{pmatrix} \\
+ {p{''}}^\mu &=& R_y(\theta)B_z(y) p^\mu =
+  \begin{pmatrix}
+    E \\ p \sin\theta \\ 0 \\ p\cos\theta
+  \end{pmatrix} \\
+  {p{'''}}^\mu &=& R_z(\phi)R_y(\theta)B_z(y) p^\mu =
+  \begin{pmatrix}
+    E \\ p\sin\theta\cos\phi \\ p\sin\theta\sin\phi \\ p\cos\theta
+  \end{pmatrix}
+\end{eqnarray}
+  The combined Lorentz transformation
+\begin{eqnarray}
+  L(\theta_3=\phi) L(\theta_2=\theta) L(y_3=y)
+  = R_z(\phi)          R_y(\theta)          B_z(y)
+  = e^{ -i\phi J_3 } e^{ -i\theta J_2 } e^{ -iy K_3 }
+\end{eqnarray}
+gives the standard (polar-coordinate) parametrization of the 4-momentum.\\
+
+That's all for hw11.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

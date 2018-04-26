@@ -1,0 +1,614 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW14 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+
+  This week, I introduce the Dirac fermion and its equation of motion
+  (the Dirac equation) as a set of two Weyl fermions, $\psi_L$ and $\psi_R$,
+  which couple with the Lorentz invariant mass term.  We proved the
+  Lorentz invariance of the Dirac Lagrangian, and the Lorentz covariance
+  of Dirac equation.  We showed how a set of two Weyl fermions and their
+  e.o.m.'s can be combined into one four-spinor, called Dirac spinor,
+  and its equation, called Dirac equation.
+
+  We are now ready to learn QFT (Quantum Field Theory), in which all
+  the fields that appear in the Lagrangian should be regarded as
+  operators which creat and annihilate particles and anti-particles.
+  QFT is the only known theory which satisfies both the requirement
+  of quantum mechanics (that ensures the stability of atoms) and
+  Lorentz invariance of physics. You should master QFT since it is
+  the language with which particle physicists communicate with nature.
+
+
+  Let us start again from the Dirac equations:
+\begin{eqnarray}
+ && i\del_\mu \sigma_-^\mu \psi_L - m \psi_R = 0 \label{eq.14_1a} \\
+ && i\del_\mu \sigma_+^\mu \psi_R - m \psi_L = 0 \label{eq.14_1b} 
+\end{eqnarray}
+  We multiply Eq.\ref{eq.14_1a} by $-i\del_\nu \sigma_+^\nu$ and find
+\begin{eqnarray}
+  && -i\del_\nu \sigma_+^\nu
+  (i\del_\mu \sigma_-^\mu \psi_L - m \psi_R) = 0 \label{eq.14_2a} \\
+  && \del_\nu \del_\mu \sigma_+^\nu \sigma_-^\mu \psi_L
+  +i\del_\nu \sigma_+^\nu m \psi_R = 0 \label{eq.14_3a}
+\end{eqnarray}
+  By using Eq.\ref{eq.14_1b}, the above equation becomes
+\begin{eqnarray}
+  [\del_\nu \del_\mu \sigma_+^\nu \sigma_-^\mu + m^2] \psi_L = 0. \label{eq.14_4a}
+\end{eqnarray}
+  Now, by using the symmtric summation of $\nu$ and $\mu$ indices and the
+  properties of $\sigma$ matrices,
+\begin{eqnarray}
+  \del_\nu \del_\mu \sigma_+^\mu \sigma_-^\nu
+  = \frac{1}{2} \del_\nu \del_\mu
+    (\sigma_+^\mu \sigma_-^\nu + \sigma_+^\nu \sigma_-^\mu)
+  = \frac{1}{2} \del_\nu \del_\mu { 2 g^{\mu\nu} }
+  = \del_\nu \del_\mu g^{\mu\nu}
+  = \del_\mu \del^\mu \label{eq.14_5a}
+\end{eqnarray}
+  we find
+\begin{eqnarray}
+  [ \del_\mu \del^\mu + m^2 ] \psi_L = 0. \label{eq.14_6a}
+\end{eqnarray}
+
+{\bf hw14-1}: Please show Eq.(\ref{eq.14_3a}, \ref{eq.14_4a}, \ref{eq.14_5a}, \ref{eq.14_6a}).
+
+{\bf hw14-2}: Please multiply Eq.\ref{eq.14_1b} by $-i \del_\nu \sigma_-^\nu$, and obtain the Klein-Gordon equation (Eq.\ref{eq.14_6a}) for $\psi_R$.  
+\begin{eqnarray}
+  && [ \del_\mu \del^\mu + m^2 ] \psi_L = 0,\label{eq.14_6a2} \\
+  && [ \del_\mu \del^\mu + m^2 ] \psi_R = 0. \label{eq.14_6b}
+\end{eqnarray}
+ 
+  Since both $\psi_L(x)$ and $\psi_R(x)$ satisfy the same Klein-Gordon
+  equations, both of them have two solutions
+\begin{eqnarray}
+  && e^{-i px} = e^{-i (Et -xp_x -yp_y -zp_z)} = e^{-i(Et -{\vec p}\cdot {\vec x})} \label{eq.14_7a} \\
+  && e^{+i px} = e^{+i (Et -xp_x -yp_y -zp_z)} = e^{+i(Et -{\vec p}\cdot {\vec x})} \label{eq.14_7b}
+\end{eqnarray}
+  where ${\vec p} = (p_x,p_y,p_z)^T$ and ${\vec x} = (x,y,z)^T$, and
+\begin{eqnarray}
+  E = \sqrt{ p_x^2 + p_y^2 + p_z^2 + m^2 }
+  = \sqrt{{\vec p}  \cdot {\vec p} + m^2 } \label{eq.14_8}
+\end{eqnarray}
+
+{\bf hw14-3}: Show that both $e^{-ipx}$ in Eq.\ref{eq.14_7a} and $e^{ipx}$ in Eq.\ref{eq.14_7b} are solutions of
+  an arbitrary Klein Gordon equations:
+\begin{eqnarray}
+  [ \del_\mu \del^\mu + m^2 ] \phi(x) = 0. \label{eq.14_9}
+\end{eqnarray}
+hint: By noting
+\begin{eqnarray}
+  \del_\mu \del^\mu
+  = \left (\frac{\del}{\del t}\right)^2 -\left (\frac{\del}{\del x}\right)^2-\left (\frac{\del}{\del y}\right)^2-\left (\frac{\del}{\del z}\right)^2 \label{eq.14_10}
+\end{eqnarray}
+  apply each differntial operators to $e^{\pm ipx}$, and then sum all
+  the 4 contributions.
+  Therefore, we can expand (Fourier transform) an arbitrary solutions
+  of the Klein-Gordon equation (Eq.\ref{eq.14_9}) as
+\begin{eqnarray}
+  \phi(x) = \int d^3p [A(p) e^{-ipx} + B(p) e^{ipx}] \label{eq.14_11}
+\end{eqnarray}
+  where $A(p)$ and $B(p)$ may be called ``Fourier transform'' of $\phi(x)$ in
+  the momentum space.
+
+  Now the so-called ``negative energy solution problem'' is that the
+  solution $e^{ipx}$ has negative energy.
+
+{\bf hw14-4}: Please obtain the energy of the wave function $e^{-ipx}$ and
+  $e^{ipx}$ by using the Shroedinger equations:
+\begin{eqnarray}
+  i\frac{d}{dt} \psi(x) = H \psi(x) \label{eq.14_12}
+\end{eqnarray}
+  when $p^0 = E$ in Eq.\ref{eq.14_8}. Please confirm that $H=E$ for $e^{-ipx}$, while $H=-E$ for $e^{ipx}$.
+
+  [Historically, Dirac tried to solve this negative energy problem of
+  relativistic quantum mechanics by thinking the following way:
+  The Klein-Gordon equation has negative energy problem because it is
+  a double differential equations, as written explicitly in Eq.\ref{eq.14_9}.
+  If we obtain a covariant equation of motion which is linear in
+  the time derivative, this problem may be solved.  With this motivation,
+  he found a 4-spinor wave function, whose covariant equation of motion
+  is linear in the time derivative, Eq.(\ref{eq.14_1a},\ref{eq.14_1b}).  Unfortunately, as we showed above, his wave functions automatically satisfy the Klein-Gordon equation, and hence he could not solve the negative-energy problem.
+
+  This problem is solved by quantum field theory (QFT), in which all
+  the wave functions are re-interpreted as a set of creation and
+  annihilation operators.  Dirac did not give up his original motivation,
+  and found his famous `hole theory', which works only for fermions
+  since it makes use of Fermi statistics to define the `vacuum' filled
+  by the sea of electrons.  His hole theory turns out to be extremely
+  useful and powerful in material sciences where the `sea' of electrons
+  gives a good approximation for the ground state.]
+
+  In QFT, the Fourier transform of $\phi(x)$ in Eq.\ref{eq.14_11} is expressed as
+\begin{eqnarray}
+  \phi(x) = \int \frac{d^3p}{2E(2\pi)^3} (a(p) e^{-ipx} + b(p)^\dagger e^{ipx}) \label{eq.14_13}
+\end{eqnarray}
+  Please note that the only essential change made is that the ``Fourier
+  transform'' $A(p)$ and $B(p)$ are now regarded as $a(p)$, an operator which
+  annihilates a particle with 3-momentum $p=\vec p$, and as $b(p)^\dagger$, an
+  operator which creats its anti-particle with 3-momentum $p=\vec p$.
+
+  The creation and annihilation operators are defined by the following
+  sets of commutators (recall the Harmonic oscillators in QM):
+\begin{eqnarray}
+  &&[ a({\vec p}), a^\dagger({\vec k}) ] = (2\pi)^3 2E \delta^3({\vec p}-{\vec k}) \label{eq.14_14a} \\
+  &&[ b({\vec p}), b^\dagger({\vec k}) ] = (2\pi)^3 2E \delta^3({\vec p}-{\vec k}) \label{eq.14_14b}  \\ 
+  &&  [ a({\vec p}), b^\dagger({\vec k}) ]= [a({\vec p}), a({\vec k}) ]=[b({\vec p}), b({\vec k}) ]=0 \label{eq.14_14c}
+\end{eqnarray}
+
+  With this re-interpretation, the one-particle state with momentum
+  ${\vec k}$ can be obtained from the vacuum by applying
+  \begin{eqnarray}
+   \ket{particle,~{\vec k}}= a^\dagger({\vec k}) \ket{0} \label{eq.14_15}
+  \end{eqnarray}
+  and its wave function can be expressed as
+\begin{eqnarray}
+  \bra{0} \phi(x) \ket{particle,~{\vec k}}=  e^{-ikx} \label{eq.14_16}
+\end{eqnarray}
+  where $k^0 = E = \sqrt{ m^2 + {\vec k}^2 }$, by using the commutators
+
+{\bf hw14-5}: Show Eq.\ref{eq.14_16}.
+
+{\bf hw14-6}: Please note the Lorentz invariance of the Fourier transform
+  measure in Eq.\ref{eq.14_13} and in the normalization of the commutators in Eq.(\ref{eq.14_14a},\ref{eq.14_14b},\ref{eq.14_14c}),
+  by following the steps Eq.\ref{eq.14_17} to Eq.(\ref{eq.14_18a},\ref{eq.14_18b},\ref{eq.14_18c}) below:
+\begin{eqnarray}
+  d^4 p \delta( p^2 - m^2 ) \Theta(p^0)
+  &=&dp^0dp^1dp^2dp^3 \delta((p^0)^2-(p^1)^2-(p^2)^2-(p^3)^2-m^2) \Theta(p^0) \nonumber \\
+  &=&dp^0dp^1dp^2dp^3 \delta( (p^0)^2 -E^2 ) \Theta(p^0) \nonumber\\
+  &=&dp^0dp^1dp^2dp^3 \delta( (p^0-E) (p^0+E) ) \Theta(p^0)\nonumber\\
+  &=&dp^0dp^1dp^2dp^3 \delta( (p^0-E) (2E) ) \Theta(p^0) \nonumber\\
+  &=&    dp^1dp^2dp^3/2E
+  =    d^3 p/2E \label{eq.14_17}
+\end{eqnarray}
+  where we used the definition Eq.\ref{eq.14_8} of $E >0$. The Lorentz invariance of the first line of Eq.\ref{eq.14_17} can be shown by noting
+\begin{eqnarray}
+  &&d^4 p \to d^4 p' = det(L) d^4 p = d^4 p,~where~p'=Lp \label{eq.14_18a}\\
+  &&p^2 - m^2 \to p'^2 - m^2 = p^2 - m^2 \label{eq.14_18b} \\
+  &&{\text sign~ of~ p^0 ~can~ never~ change~ under~} p \to p'=Lp\label{eq.14_18c}
+\end{eqnarray}
+  Are the above conditions clear to you?
+  As for the one-antiparticle state with three-momentum $\vec{k}$,
+  \begin{eqnarray}
+    \ket{anti-particle,~{\vec k}}=b ^\dagger({\vec k}) \ket{0},\label{eq.14_19}
+  \end{eqnarray}
+  its wave function is obtained by
+\begin{eqnarray}
+  \bra{0}  \phi(x)^*  \ket{anti-particle,~{\vec k}}= e^{-ikx} \label{eq.14_20}
+\end{eqnarray}
+  by using the same commutators Eq.(\ref{eq.14_14a},\ref{eq.14_14b},\ref{eq.14_14c}).
+
+{\bf hw14-7}: Show Eq.\ref{eq.14_20} by using the commutators Eq.(\ref{eq.14_14a},\ref{eq.14_14b},\ref{eq.14_14c}).
+
+  The negative-energy problem is thus solved in QFT.  From this very
+  foundation of QFT, we can tell that the particle and the anti-particle
+  should have exactly the same invariant mass.
+
+  In case of a real scalar boson (like the Higgs boson), the particle
+  and the anti-particle are the same, and we express
+\begin{eqnarray}
+  H(x) = \int \frac{d^3p}{2E(2\pi)^3} [a(p) e^{-ipx} + a^\dagger(p) e^{ipx}]\label{eq.14_21}
+\end{eqnarray}
+  by using the operators $a(p)$ and $a^\dagger(p)$ only, such that
+\begin{eqnarray}
+  H^\dagger(x) = H(x). \label{eq.14_22}
+\end{eqnarray}
+  Please do note here that even though the Higgs field operator is
+  Hermetian (Eq.\ref{eq.14_22}), and we call Higgs field as a real field, its one particle wave function, $e^{-ipx}$, is complex, since it is a solution
+  of the Shreodinger (Klein-Gordon) equation. We cannot change the
+  phase of the Higgs field
+\begin{eqnarray}
+  H(x) \to H(x)' = e^{iQ\theta} H(x) \label{eq.14_23}
+\end{eqnarray}
+  for any $Q \neq 0$, because of its Hermeticity (Eq.\ref{eq.14_22}).
+  In case of Dirac fermion, the free field expansion is written as
+\begin{eqnarray}
+  &&\psi_L(x)
+  = \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+  {a({\vec p},h) e^{-ipx} u_L({\vec p},h) +b^\dagger({\vec p},h) e^{ipx} v_L({\vec p},h)} \label{eq.14_24a}\\ 
+  &&\psi_R(x)
+  = \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+  {a({\vec p},h) e^{-ipx} u_R({\vec p},h) +b^\dagger({\vec p},h) e^{ipx} v_R({\vec p},h)}\label{eq.14_24b}
+\end{eqnarray}
+  where the annihilation and creation operators satisfy the
+  anti-commutation relations,
+\begin{eqnarray}
+  { a({\vec p},h), a({\vec k},h')^\dagger }
+    = { b({\vec p},h), b({\vec k},h')^\dagger }
+    = \delta_{h,h'} (2\pi)^3 2E \delta^3( {\vec p} - {\vec k} ) \label{eq.14_25}
+\end{eqnarray}
+  and all the other combinations anti-commute. With this normalization,
+  the one-particle state wave functions are
+\begin{eqnarray}
+  &&\bra{0} \psi_L(x) a({\vec k},h)^\dagger \ket{0}=e^{-ikx} u_L(k,h)\label{eq.14_26a} \\
+  &&\bra{0} \psi_R(x) a({\vec k},h)^\dagger \ket{0}=e^{-ikx} u_R(k,h)\label{eq.14_26b}
+\end{eqnarray}
+  for a particle, and
+  \begin{eqnarray}
+   && \bra{0} \psi_L(x)^\dagger b({\vec k},h)^\dagger \ket{0}=e^{-ikx} v_L(k,h)\label{eq.14_27a} \\
+    &&\bra{0} \psi_R(x)^\dagger b({\vec k},h)^\dagger \ket{0}=e^{-ikx} v_R(k,h)\label{eq.14_27b}
+  \end{eqnarray}
+  for an anti-particle. The extra wave functions, $u_L$, $u_R$, $v_L$, $v_R$,
+  describe the Lorentz transformation property of the spin $1/2$ fields.
+  By using the Dirac equation, Eq.(\ref{eq.14_1a},\ref{eq.14_1b}), we find their e.o.m.'s:
+\begin{eqnarray}
+  &&k_\mu \sigma_-^\mu u_L(k,h) = m u_R(k,h) \label{eq.14_28a} \\
+  && k_\mu \sigma_+^\mu u_R(k,h) = m u_L(k,h) \label{eq.14_28b}
+\end{eqnarray}
+  for $u$-spinors, and
+\begin{eqnarray}
+  && -k_\mu v_L(k,h)^\dagger \sigma_-^\mu = m v_R(k,h)^\dagger \label{eq.14_29a} \\
+  && -k_\mu v_R(k,h)^\dagger \sigma_-^\mu = m v_L(k,h)^\dagger \label{eq.14_29b}
+\end{eqnarray}
+  for v-spinors.  Eq.(\ref{eq.14_29a},\ref{eq.14_29b}) can also be written as
+\begin{eqnarray}
+  &&-k_\mu \sigma_-^\mu v_L(k,h) = m v_R(k,h) \label{eq.14_29c}\\
+  && -k_\mu \sigma_+^\mu v_R(k,h) = m v_L(k,h) \label{eq.14_29d}
+\end{eqnarray}
+
+{\bf hw14-8}: Derive Eq.(\ref{eq.14_28a},\ref{eq.14_28b}) and Eq.(\ref{eq.14_29a},\ref{eq.14_29b}) by using Dirac eqation Eq.(\ref{eq.14_1a},\ref{eq.14_1b}) for the one particle/anti-particle state in Eq.(\ref{eq.14_26a},\ref{eq.14_26b}) and Eq.(\ref{eq.14_27a},\ref{eq.14_27b}).
+
+  The particle and anti-particle states in Eq.(\ref{eq.14_26a},\ref{eq.14_26b}) and Eq.(\ref{eq.14_27a},\ref{eq.14_27b}), respectively,
+  and their e.o.m.'s Eq.(\ref{eq.14_28a},\ref{eq.14_28b}) vs Eq.(\ref{eq.14_29a},\ref{eq.14_29b}), look asymmetric in this formulation.
+  In fact, we can show that Dirac equations (and hence QED and QCD)
+  are invariant under the exchange of particle and anti-partilce
+  (Charge conjugation).
+
+  Now, let us study the last remaining important subject about fermion;
+  the charge conjugation transformations.
+\begin{eqnarray}
+  && \psi_L(x) \to \psi_L(x)^c = (-i\sigma^2) \psi_L(x)^* \label{eq.14_30a}\\
+  && \psi_R(x) \to \psi_R(x)^c = (+i\sigma^2) \psi_R(x)^* \label{eq.14_30b}
+\end{eqnarray}
+  
+{\bf hw14-9}: Please confirm that with the above definitions, where the sign
+  of $i\sigma^2$ term is opposite between $\psi _L^c$ and $\psi _R^c$, the
+  double chanrge conjugations give the original fields:
+\begin{eqnarray}
+  && (\psi_L(x)^c)^c = \psi_L(x) \label{eq.14_31a}\\
+  && (\psi_R(x)^c)^c = \psi_R(x)  \label{eq.14_31b}
+\end{eqnarray}
+  By applying the above transformations Eq.(\ref{eq.14_30a},\ref{eq.14_30b}) to our free field expansions
+  Eq.(\ref{eq.14_24a},\ref{eq.14_24b}), and by requiring that
+\begin{eqnarray}
+  && \psi_L(x)^c = \psi_R(x) \label{eq.14_32a}\\
+  && \psi_R(x)^c = \psi_L(x) \label{eq.14_32b}
+\end{eqnarray}
+  we obtain v-spinors from the $u$-spinors. Please note that the condition
+  Eq.(\ref{eq.14_32a},\ref{eq.14_32b}) is valid only for Majorana fermions. In general, $v$-spinors can
+  have independent phase from the $u$-spinors, and their relative phase
+  is un-observable as long as the fermion number is conserved. We fix
+  the relative phase between u-spinors and $v$-spinors by using the Majorana
+  conditions Eq.(\ref{eq.14_32a},\ref{eq.14_32b}), so that we can use the same spinors for both Dirac and Majorana fermions.
+
+  [When I introduced with Dieter Zeppenfeld a numerical program to
+  calculate helicity amplitudes in 1985 (HZ:NPB274(1986)1), we did not
+  use the condition Eq.(\ref{eq.14_32a},\ref{eq.14_32b})  to fix our $v$-spinors.  When I applied the
+  formalism to supersymmetric models with Howard Baer and Xerxes Tata
+  in the same year (BHT:PRL57(1986)294), we encountered inconsistency
+  between our convention and the conditions Eq.(\ref{eq.14_32a},\ref{eq.14_32b})  imposed for Majorana
+  fermions, such as SUSY partners of neutral gauge and Higgs bosons.
+  We fixed the $v$-spinor conventions before the HZ paper was published,
+  and hence the inconsistent version is no more available.]
+
+{\bf hw14-10}: From the free-field expansions Eq.\ref{eq.14_24a} and Eq.\ref{eq.14_24b}, please obtain
+  the expansions for $\psi_L(x)^c$ in Eq.\ref{eq.14_33a}, and $\psi_R^c(x)$ in Eq.\ref{eq.14_33b}:
+\begin{eqnarray}
+  && \psi_L(x)^c
+  = \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+  {a^\dagger({\vec p},h) e^{ipx} u_L^c({\vec p},h) +b({\vec p},h) e^{-ipx} v_L^c({\vec p},h)} \label{eq.14_33a} \\
+  && \psi_R(x)^c
+  = \sum_{h=\pm1/2} \int \frac{d^3p}{2E(2\pi)^3}
+  {a^\dagger({\vec p},h) e^{ipx} u_R^c({\vec p},h) +b({\vec p},h) e^{-ipx} v_R^c({\vec p},h)} \label{eq.14_33b} 
+\end{eqnarray}
+
+{\bf hw14-11}: Show that the requirement Eq.(\ref{eq.14_32a},\ref{eq.14_32b}) tells
+\begin{eqnarray}
+  && v_R({\vec p},h) = u_L(p,h)^c = (-i\sigma^2) u_L(p,h)^* \label{eq.14_34a} \\
+  && v_L({\vec p},h) = u_R(p,h)^c = (+i\sigma^2) u_R(p,h)^* \label{eq.14_34b}
+\end{eqnarray}
+
+  The operators $\psi_L^c(x)$ and $\psi_R^c(x)$ Eq.(\ref{eq.14_33a},\ref{eq.14_33b}) annihilate an
+  anti-particle, and create a particle. The role of a particle and
+  an anti-particle is inter-changed between the original field operators
+  $\psi_L$ and $\psi_R$, and in the Charge conjugated operators
+  $\psi_L^c$ and $\psi_R^c$. We show at the bottom of this homework
+  that the Dirac Lagrangian is symmetric under Charge conjugation.
+
+  Let us insert an excercise here, so that you know how $u$-spinors and
+  $v$-spinors transform under Lorentz transformation. Because $v$-spinors
+  are obtained from $u$-spinors by charge conjugations Eq.(\ref{eq.14_34a},\ref{eq.14_34b}), we study
+  the Lorentz transformation of $u$-spinors only.
+
+ {\bf hw14-12} First, show that the Dirac equation Eq.(\ref{eq.14_1a},\ref{eq.14_1b}) in the fermion rest frame 
+\begin{eqnarray}
+  p^\mu = (m,0,0,0)^T \label{eq.14_35}
+\end{eqnarray}
+   tells that $u_L$ and $u_R$ spinors should be identical:
+\begin{eqnarray}
+  u_L(p,h) = u_R(p,h). \label{eq.14_36}
+\end{eqnarray}
+  In the rest frame, we choose the $z$-axis along the direction of the
+  three momentum in the observer's frame, such that the helicity
+  \begin{eqnarray}
+    h = \frac {\vec{J} \cdot \vec{p}}{|\vec{p}|}, \label{eq.14_37}
+  \end{eqnarray}
+  reduces to $J_z$. In this way, we obtain the wave function which satisfy
+\begin{eqnarray}
+  &&J_z u_L(p,h) = \frac{\sigma^3}{2} u_L(p,h) = h u_L(p,h) \label{eq.14_38a} \\
+  && J_z u_R(p,h) = \frac{\sigma^3}{2} u_R(p,h) = h u_R(p,h) \label{eq.14_38b}
+\end{eqnarray}
+   with $h=\pm 1/2$.  The solution is,
+\begin{eqnarray}
+ && u_L(p,+1/2) = u_R(p,+1/2) =\sqrt{m}
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix} \label{eq.14_39a}\\
+  && u_L(p,-1/2) = u_R(p,-1/2) =\sqrt{m}
+  \begin{pmatrix}
+    0\\ 1
+  \end{pmatrix} \label{eq.14_39b}
+\end{eqnarray}
+
+{\bf hw14-13}: Show that Eq.(\ref{eq.14_39a},\ref{eq.14_39b}) are the solutions of the Dirac equation Eq.(\ref{eq.14_1a},\ref{eq.14_1b})
+  in the rest frame and the quantization condition Eq.(\ref{eq.14_38a},\ref{eq.14_38b}).
+
+  Let us now study how the wave functions Eq.(\ref{eq.14_39a},\ref{eq.14_39b}) changed by Lorentz transformations.  We first make a boost along the positive $z$ axis by the positive rapidity $y$ (so that $h$ becomes the helicity):
+\begin{eqnarray}
+  p^\mu \to p'^\mu &=& L(0,0,0,0,0,\eta_3=y) p^\mu
+                      = e^{ -iy K_3 } p^\mu  \\
+                      &=& m( \cosh y, 0, 0, \sinh y    )^T
+                      = m( \gamma,   0, 0, \gamma\beta )^T \\
+                      &=& (E,          0, 0, p           )^T \label{eq.14_40}
+\end{eqnarray}
+ and the spinors transform as
+\begin{eqnarray}
+  u_L(p,+1/2) \to u_L'(p',+1/2)
+  &=& S_L(0,0,0,0,0,\eta_3=y) u_L(p,+1/2) \\
+  &=& e^{ \frac{\sigma^3}{2} (-y) } \sqrt{m}
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    e^{-y/2} & 0\\
+    0 & e^{y/2}
+  \end{pmatrix}
+  \sqrt{m}
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix}\\
+ &=&\sqrt{E-p}   
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix} \label{eq.14_41a} \\
+  u_L(p,-1/2) \to u_L'(p',-1/2)&=& \sqrt{E+p} 
+  \begin{pmatrix}
+    0 \\ 1
+  \end{pmatrix} \label{eq.14_41b} \\
+  u_R(p,+1/2) \to u_R'(p',+1/2) &=& 
+  S_R(0,0,0,0,0,\eta_3=y) u_R(p,+1/2) \\
+  &=& e^{ \frac{\sigma^3}{2} (+y) } \sqrt{m}
+  \begin{pmatrix}
+  1\\0
+  \end{pmatrix} 
+  = 
+  \begin{pmatrix}
+  e^{y/2} & 0\\
+  0 & e^{-y/2}
+\end{pmatrix}
+\sqrt{m}
+\begin{pmatrix}
+  1\\0
+\end{pmatrix}\\
+  &=& \sqrt{E+p} 
+  \begin{pmatrix}
+  1\\0
+\end{pmatrix} \label{eq.14_41c} \\
+u_R(p,-1/2) \to u_R'(p',-1/2)&=& \sqrt{E-p} 
+  \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} \label{eq.14_41d}                                
+\end{eqnarray}
+  
+{\bf hw14-14}: Show Eq.\ref{eq.14_40} and Eq.(\ref{eq.14_41a},\ref{eq.14_41b},\ref{eq.14_41c},\ref{eq.14_41d}).
+  Please observe that in the massless limit, E=p, only the two helicity
+  components survive:
+\begin{eqnarray}
+  && u_L(p,-1/2) = \sqrt{2E}
+  \begin{pmatrix}
+    0 \\ 1
+  \end{pmatrix} \label{eq.14_42a}\\
+  &&u_R(p,+1/2) = \sqrt{2E}
+  \begin{pmatrix}
+    1\\0
+  \end{pmatrix} \label{eq.14_42b}
+\end{eqnarray}
+ The other two combinations vanish in the massless limit ( $m=0$, or $E=p$)
+\begin{eqnarray}
+  u_L(p,+1/2) = u_R(p,-1/2) = 0 \label{eq.14_43}
+\end{eqnarray}
+  reproducing the results we obtained for Weyl fermions. We may note that
+  in the massless (high energy) limit, only the left-handed (right-handed)
+  chirality component survives for the helicity $-1/2$ ($+1/2$) states.
+
+  Let us further operate $R_y(\theta)$ and then $R_z(\phi)$ in order to obtain
+  the most general form of free fermion wave functions.  In the frame
+  where the fermion momentum takes the generic form:
+\begin{eqnarray}
+  &&p^\mu \to p{'''}^\mu
+             = R_z(\phi) R_y(\theta) B_z(y) p^\mu
+             = R_z(\phi) R_y(\theta) m ( \cosh y, 0, 0, \sinh y )^T \\ 
+             &=& R_z(\phi) R_y(\theta) ( E, 0, 0, p )^T
+             = R_z(\phi) ( E, p\sin\theta, 0, p\cos\theta )^T \\
+             &=& ( E, p\sin\theta\cos\phi, p\sin\theta\sin\phi, p\cos\theta )^T\label{eq.14_44}
+\end{eqnarray}
+  the wave functions are
+\begin{eqnarray}
+  u_L{'''}(p{'''},+1/2) &=& R_z(\phi)R_y(\theta)B_z(y) p^\mu u_L(p,+1/2)
+  =\sqrt{E-p}
+  \begin{pmatrix}
+    e^{-i\phi/2} \cos\frac{\theta}{2} \\
+    e^{i\phi/2}  \sin\frac{\theta}{2}
+  \end{pmatrix} \label{eq.14_45a} \\
+  u_L{'''}(p{'''},-1/2) &=& R_z(\phi)R_y(\theta)B_z(y) p^\mu u_L(p,-1/2)
+  =\sqrt{E+p}
+  \begin{pmatrix}
+    -e^{-i\phi/2} \sin\frac{\theta}{2} \\
+    e^{i\phi/2}  \cos\frac{\theta}{2}
+  \end{pmatrix} \label{eq.14_45b} \\
+  u_R{'''}(p{'''},+1/2) &=& R_z(\phi)R_y(\theta)B_z(y) p^\mu u_R(p,+1/2)
+  = \sqrt{E+p}
+  \begin{pmatrix}
+    e^{-i\phi/2} \cos\frac{\theta}{2} \\
+    e^{i\phi/2}  \sin\frac{\theta}{2}
+  \end{pmatrix} \label{eq.14_45c} \\
+  u_R{'''}(p{'''},-1/2) &=& R_z(\phi)R_y(\theta)B_z(y) p^\mu u_R(p,-1/2)
+  = \sqrt{E-p}
+  \begin{pmatrix}
+    -e^{-i\phi/2} \sin\frac{\theta}{2} \\
+    e^{i\phi/2}  \cos\frac{\theta}{2}
+  \end{pmatrix} \label{eq.14_45d}
+ \end{eqnarray}
+Here I introduced a notation for finite Lorentz transformations
+\begin{eqnarray}
+  &&B_z(y)      = L(0,0,0,0,0,\eta_3=y)  \label{eq.14_46a} \\
+  && R_y(\theta) = L(0,\theta_2=\theta,0,0,0,0)\label{eq.14_46b} \\
+  && R_z(\phi)   = L(0,0,\theta_3=\phi,0,0,0)\label{eq.14_46c}
+\end{eqnarray}
+   for vectors ($4\times 4$ matrices for $p^\mu$ or any $V^\mu$),
+\begin{eqnarray}
+  && B_z(y)      = S_L(0,0,0,0,0,\eta_3=y)  \label{eq.14_47a} \\
+  && R_y(\theta) = S_L(0,\theta_2=\theta,0,0,0,0) \label{eq.14_47b} \\
+  && R_z(\phi)   = S_L(0,0,\theta_3=\phi,0,0,0) \label{eq.14_47c}
+\end{eqnarray}
+  for left-handed spinors ($2\times 2$ matrices for $u_L$ or $v_L$),
+\begin{eqnarray}
+  && B_z(y)      = S_R(0,0,0,0,0,\eta_3=y) \label{eq.14_48a} \\
+  && R_y(\theta) = S_R(0,\theta_2=\theta,0,0,0,0) \label{eq.14_48b} \\
+  && R_z(\phi)   = S_R(0,0,\theta_3=\phi,0,0,0) \label{eq.14_48c}
+\end{eqnarray}
+  for right-handed spinors ($2\times 2$ matrices for $u_R$ or $v_R$).
+
+{\bf hw14-15}: Please obtain Eq.(\ref{eq.14_46a}$\to$\ref{eq.14_48c}), and derive Eq.\ref{eq.14_44} and Eq.(\ref{eq.14_45a},\ref{eq.14_45b},\ref{eq.14_45c},\ref{eq.14_45d}).
+
+  By using the charge conjugation relations in Eq.(\ref{eq.14_34a},\ref{eq.14_34b}), we obtain the $v$-spinors:
+\begin{eqnarray}
+  && v_L(p, 1/2) = (+i\sigma^2) u_R^*(p, 1/2) \label{eq.14_49a} \\
+  && v_R(p, 1/2) = (-i\sigma^2) u_L^*(p, 1/2) \label{eq.14_49b} \\
+  && v_L(p,-1/2) = (+i\sigma^2) u_R^*(p,-1/2) \label{eq.14_49c} \\
+  && v_R(p,-1/2) = (-i\sigma^2) u_L^*(p,-1/2) \label{eq.14_49d} 
+\end{eqnarray}
+
+{\bf hw14-16}: Please obtain explicit form of $v$-spinors Eq.(\ref{eq.14_49a},\ref{eq.14_49b},\ref{eq.14_49c},\ref{eq.14_49d}).
+
+  [As I wrote above, the numerical program for the above wave functions
+  were introduced in 1985 (HZ:NPB274(1986)1), which was later adopted
+  by HELAS (1991) and by MadGraph (1994).  If you read the original
+  HZ paper, you may notice that we dropped a phase factor $e^{\pm \phi/2}$
+  in order to make the numerical program simple.  This dropped phase
+  should be recovered when we study Lorentz transformations of the wave
+  functions (e.g. in the paper EPJC71(2011)1529 where we studied spin
+  $3/2$ particles), or when we study relative phase among helicity
+  amplitudes (see e.g. Appendix B of arXiv:1712.09953).]
+
+  Now, we show that the Dirac Lagrangian
+\begin{eqnarray}
+  {\cal L}_{Dirac} = \psi_L^\dagger i\del_\mu \sigma_-^\mu \psi_L
+                + \psi_R^\dagger i\del_\mu \sigma_+^\mu \psi_R
+                - m (\psi_L^\dagger \psi_R + \psi_R^\dagger \psi_L) \label{eq.14_50}
+\end{eqnarray}
+  is invariant under Charge conjugation transformations. Because ${\cal L}_{Dirac}$ is a singlet in the spinor space, it is equal to its transpose:
+\begin{eqnarray}
+  {\cal L}_{Dirac}= (  {\cal L}_{Dirac} )^T
+  = ( \psi_L^\dagger i\del_\mu \sigma_-^\mu \psi_L )^T
+  + ( \psi_R^\dagger i\del_\mu \sigma_+^\mu \psi_R )^T
+  - m ( \psi_L^\dagger \psi_R + \psi_R^\dagger \psi_L )^T\label{eq.14_51}
+\end{eqnarray}
+  Because Fermi-operators anti-commutes,
+\begin{eqnarray}
+  {\cal L}_{Dirac} &=& - i\del_\mu \psi_L^T{\sigma_-^\mu}^T {\psi_L^\dagger}^T - i\del_\mu \psi_R^T{\sigma_+^\mu}^T {\psi_R^\dagger}^T
+  + m( \psi_R^T {\psi_L^\dagger}^T + \psi_L^T {\psi_R^\dagger}^T )\\
+&=& - i\del_\mu \psi_L^T{\sigma_-^\mu}^T \psi_L^*
+  - i\del_\mu \psi_R^T {\sigma_+^\mu}^T \psi_R^*
+  + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* ) \label{eq.14_52}
+\end{eqnarray}
+
+{\bf hw14-17}: Confirm Eq.\ref{eq.14_52} is equivalent to Eq.\ref{eq.14_50}.
+
+  By ignoring the total derivative terms in ${\cal L}$,
+\begin{eqnarray}
+  {\cal L}_{Dirac}=\psi_L^T{\sigma_-^\mu}^T( i\del_\mu \psi_L^*)+\psi_R^T {\sigma_+^\mu}^T(i\del_\mu \psi_R^*) + m( \psi_R^T \psi_L^* + \psi_L^T \psi_R^* ) \label{eq.14_53}
+\end{eqnarray}
+
+{\bf hw14-18}: Confirm Eq.\ref{eq.14_53} is equivalent to Eq.\ref{eq.14_52}.
+
+  By inserting $(\sigma^2)^2 = (-i\sigma^2)(i\sigma^2) = 1$ between $\psi$'s
+  and $\sigma_\pm^\mu$, we find
+\begin{eqnarray}
+  {\cal L}_{Dirac} &=& {\psi_L^c}^\dagger \sigma^2 {\sigma_-^\mu}^T \sigma^2 ( i\del_\mu {\psi_L^c})+{\psi_R^c}^\dagger \sigma^2 {\sigma_+^\mu}^T \sigma^2(i\del_\mu {\psi_R^c}) - m( {\psi_R^c}^\dagger{\psi_L^c} + {\psi_L^c}^\dagger {\psi_R^c})  \label{eq.14_54}
+\end{eqnarray}
+
+{\bf hw14-19}: Confirm Eq.\ref{eq.14_54} is equivalent to Eq.\ref{eq.14_53}.
+
+  Finally, by noting
+\begin{eqnarray}
+  &&(\sigma^2) {\sigma_-^\mu}^T (\sigma^2) = \sigma_+^\mu \label{eq.14_55a} \\
+  && (\sigma^2) {\sigma_+^\mu}^T (\sigma^2) = \sigma_-^\mu \label{eq.14_55b}
+\end{eqnarray}
+
+{\bf hw14-20}: Show Eq.(\ref{eq.14_55a},\ref{eq.14_55b}).
+
+we find
+\begin{eqnarray}
+  {\cal L}_{Dirac}= {\psi_L^c}^\dagger i\del_\mu {\sigma_+^\mu} {\psi_L^c}+{\psi_R^c}^\dagger i\del_\mu  {\sigma_+^\mu} {\psi_R^c} - m( {\psi_R^c}^\dagger{\psi_L^c} + {\psi_L^c}^\dagger {\psi_R^c})\label{eq.14_56}
+\end{eqnarray}
+
+{\bf hw14-21}: Confirm  Eq.\ref{eq.14_56} is equivalent to Eq.\ref{eq.14_54}.
+
+  Compared to the original $ {\cal L}_{Dirac}$ in Eq.\ref{eq.14_50}, Eq.\ref{eq.14_56} shows that exactly
+  the same Lagrangian is obtained by the replacements
+\begin{eqnarray}
+  \psi_L \to \psi_R^c, ~~~\psi_R \to \psi_L^c \label{eq.14_57}
+\end{eqnarray}
+  The transformation Eq.\ref{eq.14_57} is called the Charge conjugation transformation. As we showed above, in the charge conjugated field operators, an anti-particle is annihilated, and a particle is created.  For instance,
+  for QED, the field operators
+\begin{itemize}
+  \item $\psi_{L,R}$: annihilate electron,  creat positron;
+  \item $\psi_{L,R}^c$: annihilate positrion, creat electron.
+\end{itemize}
+  The role of the electron and positron are interchanged under the
+  Charge conjugation transformation.
+
+  It is important for you to recognize that the charge-conjugation
+  relationship is obtained from the simple fact that the Lagrangian
+  density is a singlet in the spinor space, and hence it is equal
+  to its transpose, Eq.\ref{eq.14_50}=Eq.\ref{eq.14_51}. Because this is always true, the Charge conjugation plays an important role in the SM and in its extentions.
+
+  That's all for hw14.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

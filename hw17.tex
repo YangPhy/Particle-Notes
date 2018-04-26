@@ -1,0 +1,510 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW17 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+We are now ready to introduce QFT in covariant perturbation theory.
+
+  First, the full Lagrangian of a QFT is divided into the free part
+  and the interaction part,
+\begin{eqnarray}
+  {\cal L} = {\cal L}_{free} + {\cal L}_{int} \label{eq.17_1}
+\end{eqnarray}
+  We solve the equation of motions of the free Lagrangian, and use the
+  solutions (the free field expansions for spin $0$, $1/2$, and $1$ particles
+  which we derived in the past lectures) as the basis of evaluating
+  the effects of the interactions in ${\cal L}_{int}$.  In this basis (the
+  interaction basis), the S-matrix (Scattering matrix) is defined as
+\begin{eqnarray}
+  S = {\cal T} e^{ i\int d^4x {\cal L}_{int}(x) } \label{eq.17_2}
+\end{eqnarray}
+    where the exponential factor is defined as usual
+\begin{eqnarray}
+  e^{ i\int d^4x {\cal L}_{int}(x) }
+  =
+  \sum_{n=0}^\infty \frac{1}{n!} [i\int d^4x {\cal L}_{int}(x)]^n \label{eq.17_3}
+\end{eqnarray}
+    whereas the $T$ simbol stands for Time-ordering, whenever the operators
+  with two different space-time points ($x^\mu$) are multiplied, such that
+  an operator in the left-hand-side applies after the operator in the
+  right-hand-side. For instance,
+\begin{eqnarray}
+  {\cal T} A(x) B(y) =   \Theta(x^0-y^0) A(x) B(y)
+                 \pm \Theta(y^0-x^0) B(y) A(x) \label{eq.17_4}
+\end{eqnarray}
+  where the plus sign is chosen when $A(x)$ and $B(y)$ commute, while the
+  minus sign is chosen when they anti-commute.  Please note that when
+  $A(x)$ and $B(y)$ are ${\cal L}_{int}(x)$ and ${\cal L}_{int}(y)$, they always commute because
+  the Lagrangian density is a scalar (bosonic).
+
+  Therefore,
+\begin{eqnarray}
+  S &=& {\cal T} e^{ i\int d^4x {\cal L}_{int}(x) }
+       = {\cal T} \sum_{n=0}^\infty (1/n!) [i\int d^4x {\cal L}_{int}(x)]^n \nonumber \\
+       &=& 1
+       + i\int d^4x {\cal L}_{int}(x)
+       + \frac{1}{2} {\cal T} [i\int d^4x {\cal L}_{int}(x)] [i\int d^4y{\cal L}_{int}(y)]
+       + \cdots \nonumber \\
+       &&+ \frac{1}{n!} {\cal T} [i\int d^4x_1 {\cal L}_{int}(x_1)] [i\int d^4x_2 {\cal L}_{int}(x_2)]
+                            \cdots           [i\int d^4x_n {\cal L}_{int}(x_n)]
+       + \cdots \label{eq.17_5}
+\end{eqnarray}
+  where the time-ordering applies for the $n=2$ and higher power terms.
+  Let us first note that the $1/n!$ factor in the n'th power cancels once
+  we introduce the time-ordering
+\begin{eqnarray}
+  \frac{1}{n!} {\cal T} [i\int d^4x {\cal L}_{int}(x)]^n  &=& 
+  [i\int d^4x_1{\cal L}_{int}(x_1)] \Theta(x_1^0-x_2^0) 
+  [i\int d^4x_2 {\cal L}_{int}(x_2)] \Theta(x_2^0-x_3^0) \nonumber \\
+  &&[i\int d^4x_3 {\cal L}_{int}(x_3)] \Theta(x_3^0-x_4^0) 
+  \cdots 
+  [i\int d^4x_n {\cal L}_{int}(x_n)]  \label{eq.17_6}
+\end{eqnarray}
+ because there are $n!$ combinations of our labeling of
+  $\{x_1^\mu, x_2^\mu, x_3^\mu, ..., x_n^\mu\}$, while all labeling cases
+  give exactly the same results, cancelling the $1/n!$ factor.
+
+{\bf hw17-1}: Show Eq.\ref{eq.17_6}, or equivalently, Eq.\ref{eq.17_8} below.
+
+hint: Please note that the region of integration over $x_k^0$ is
+  $\infty > x_k^0 > -\infty$ for all $k=1$ to $n$. In the r.h.s. of Eq.\ref{eq.17_6}, the integration region is restricted to
+\begin{eqnarray}
+  \infty > x_1^0 > x_2^0 > \cdots > x_{n-1}^0 > x_n^0 > -\infty \label{eq.17_7}
+\end{eqnarray}
+  We can generalize the above theorem to a $n$'th power of an arbitrary
+  integral in the region $b > t > a$:
+\begin{eqnarray}
+  \frac{1}{n!} [ \int_a^b dt F(t) ]^n &=& [ \int dt_1 F(t_1)]  \Theta(b-t_1) \cdot \Theta(t_1-t_2)  [ \int dt_2 F(t_2)]  \Theta(t_2-t_3) \cdots \nonumber \\&&  [ \int dt_{n-1} F(t_{n-1})] \Theta(t_{n-1}-t_n)  [ \int dt_n F(t_n)]   \Theta(t_n-a) \label{eq.17_8}
+\end{eqnarray}
+  When $F(t)>0$ in the whole region of $b>t>a$ (positive definite), it leads
+  to a powerful tool to simulate exponential of complicated functions
+  (such as a Sudakov form factor in QED and QCD) by a Monte Carlo method.
+  When you hear ``ordering parameter'', you may recall this theorem.
+
+  The scattering amplitudes in perturbative QFT are defined as the matrix
+  elements of the above S-matrix Eq.\ref{eq.17_2}, sandwiched between the initial state from the right-hand-side and the final state from the left-hand-side:
+\begin{eqnarray}
+  S_{fi}
+  &=& \bra{final~state} S \ket{initial~state}
+  = \bra{final~state} T e^{ i\int d^4x {\cal L}_{int}(x) } \ket{initial~state} \\
+  &=& \sum_n \bra{final~state} \frac{1}{n!}T[i\int d^4x {\cal L}_{int}(x)]^n \ket{initial~state} \label{eq.17_9}
+\end{eqnarray}
+  Here, the initial and the final states are, respectively, a set of
+  particles with definite three-momentum and on-shell energy
+  ($E = \sqrt{|{\vec p}|^2+m^2}$), such as
+\begin{eqnarray}
+  &&\ket {in}=a^\dgr(p_1) b^\dgr(p_2) \ket{0} \label{eq.17_10a} \\
+  &&\ket {in}= a^\dgr(p_3) b^\dgr(p_4) \ket{0} \label{eq.17_10b} 
+\end{eqnarray}
+  for a pair of a particle and an anti-particle.  All the external particle
+  energies are on their mass-shell, $p_k^0 = E_k = \sqrt{|{\vec p}_k|^2+m_k^2}$, and hence their wave functions are plane waves,
+\begin{eqnarray}
+  e^{ -ip_k x } = e^{ -i(E_k t - {\vec p}\cdot {\vec x}) } \label{eq.17_11}
+\end{eqnarray}
+  The time-ordering of the S-matrix Eqs.(\ref{eq.17_2}.\ref{eq.17_5},\ref{eq.17_6}) tells that only the right-most operators with the earliest time can match the initial state operators, while the left-most operators with the last time can match the final state operators. If the order of the expansion is $n=2$ or larger, field operators inside several ${\cal L}_{int}(x_k)$'s can be connected within the time-ordering constraint.
+
+  The S-matrix is Poincare invariant because
+\begin{eqnarray}
+  \int d^4x {\cal L}_{int}(x) \to \int d^4x' {\cal L}_{int}(x')' = \int d^4x {\cal L}_{int}(x). \label{eq.17_12}
+\end{eqnarray}
+  and also because the time-ordering is independent of the origin of time.
+
+{\bf hw17-2}: Can you show the invariance Eq.\ref{eq.17_12} for the transformation Eq.\ref{eq.17_13}.
+\begin{eqnarray}
+  x^\mu \to x'^\mu = L^\mu_\nu x^\nu - a^\mu \label{eq.17_13}
+\end{eqnarray}
+  Because of the Poincare invariance, the matrix elements $S_{fi}$ is
+  nonzero only when the four momentum are conserved. In our example of
+  {\bf (19a,b), don't know what that is, to be determinded} ;
+\begin{eqnarray}
+  p_1^\mu + p_2^\mu = p_3^\mu + p_4^\mu ~(\mu = 0,1,2,3) \label{eq.17_14}
+\end{eqnarray}
+  In the next several lectures, we will learn the above most basic
+  properties of the S-matrix and the scattering amplitudes by using
+  the first two expansions, $n=1$ and $2$, of the SM interactions.
+
+  Let me now simply list all the relevant free field expansions. For
+  simplicity, I give those expressions for non-Majorana particles, i.e.,
+  for those particles whose anti-particle is different from the particle.
+  Expressions for Majorana, or real particles are obtained simply by
+  replacing all b-operators by $a$-operators.
+\begin{itemize}
+  \item Spin $s=0$:
+  \begin{eqnarray}
+    \Phi(x)
+  = \int \frac{d^3p}{(2E)(2\pi)^3} [ a({\vec p}) e^{-ipx} + b({\vec p})^\dgr e^{ipx} ]\label{eq.17_15}
+  \end{eqnarray}
+  \item Spin $s=1$ (massive):
+  \begin{eqnarray}
+    V^\mu(x)
+  = \int  \frac{d^3p}{(2E)(2\pi)^3}
+    \sum_{h=\pm1,0}
+    [ a({\vec p},\lambda e^{-ipx} \eps^\mu({\vec p},h)
+    + b({\vec p},\lambda)^\dgr e^{ipx}  \eps^\mu({\vec p},h)^* ] \label{eq.17_16}
+  \end{eqnarray}
+  \item Spin $s=1/2$:
+  \begin{eqnarray}
+    \Psi(x) &=& \int \frac{d^3p}{(2E)(2\pi)^3}
+    \sum_{h=\pm1/2}
+     [a({\vec p},h)      e^{-ipx} u({\vec p},h)
+    + b({\vec p},h)^\dgr e^{ipx}  v({\vec p},h) ] \label{eq.17_18a} \\
+    {\overline \Psi}(x)
+  &=& \int \frac{d^3p}{(2E)(2\pi)^3}
+    \sum_{h=\pm1/2}
+    [a({\vec p},\lambda)^\dgr e^{ipx}  {\overline u}({\vec p},\lambda)
+    + b({\vec p},\lambda)      e^{-ipx} {\overline v}({\vec p},\lambda)] \label{eq.17_18b}
+  \end{eqnarray}
+  where I show in Eq.\ref{eq.17_18b} for Dirac conjugate spinors, where the difference in the Lorentz transformation properties of the two-component
+  $\psi_L$ and $\psi_R$ spinors in the Dirac four-spinor,
+\begin{eqnarray}
+    \Psi(x) =
+  \begin{pmatrix}
+    \psi_L(x) \\ \psi_R(x)
+  \end{pmatrix} \label{eq.17_19}
+\end{eqnarray}
+are accounted for by taking the Dirac conjugates
+\begin{eqnarray}
+  {\overline \Psi}(x) = \Psi(x)^\dgr \gamma^0
+  = ( \psi_L(x)^\dgr, \psi_R(x)^\dgr ) 
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}
+  = ( \psi_R(x)^\dgr, \psi_L(x)^\dgr ) \label{eq.17_20}
+\end{eqnarray}
+for both the mass term
+\begin{eqnarray}
+  m  {\overline \Psi} \Psi = m (\psi_R^\dgr \psi_L + \psi_L^\dgr \psi_R) \label{eq.17_21}
+\end{eqnarray}
+and for the kinetic terms
+\begin{eqnarray}
+  && {\overline \Psi} \gamma^\mu P_L \Psi = \psi_L^\dgr \sigma_-^\mu \psi_L \label{eq.17_22a} \\
+  && {\overline \Psi} \gamma^\mu P_R \Psi = \psi_R^\dgr \sigma_+^\mu \psi_R \label{eq.17_22b}
+\end{eqnarray}
+\end{itemize}
+ 
+{\bf hw17-3}: Please refresh your memeory on Eq.\ref{eq.17_15} to Eqs.(\ref{eq.15_22a},\ref{eq.15_22b}).
+  If they all look deadly clear to you, please skip this homework.
+
+  With the above preparation, we are now ready to compute scattering
+  amplitudes ($S$-matrix elements) in the SM.
+
+  Our first example is the $S$-matrix elements for the process
+\begin{eqnarray}
+  H \to \tau {\overline \tau} \label{eq.17_23}
+\end{eqnarray}
+  since it seems to be the simplest possible transition amplitudes
+  which we can calculate, and since it is an interesting process.
+
+  We prepare the initial state, which is just a single Higgs boson with
+  momentum $p_H$:
+\begin{eqnarray}
+  \ket{initial~state}= a^\dgr(p_H) \ket{0} \label{eq.17_24}
+\end{eqnarray}
+  and also the final state, which has two particles,
+\begin{eqnarray}
+  \ket{final~state}= a(p_\tau,h_\tau)^\dgr b(p_{\overline \tau},h_{\overline \tau})^\dgr \ket{0} \label{eq.17_25}
+\end{eqnarray}
+   i.e., a $\tau$ lepton with momentum $p_\tau$, and helicity $h_\tau$, and an
+  anti-$\tau$ lepton (${\overline \tau}$) with momentum $p_{\overline \tau}$, and helicity $h_{\overline \tau}$.
+
+  The $S$-matrix element for this transition reads
+\begin{eqnarray}
+  S_{fi}
+  &=& \bra{final~state} S \ket{initial~state}
+  = \bra{final~state}  T e^{ i\int d^4x {\cal L}_{int}(x) } \ket{initial~state}\\ 
+  &=& \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)
+                  T e^{ i\int d^4x {\cal L}_{int}(x) } a(p_H)^\dgr \ket{0} \label{eq.17_26}
+\end{eqnarray}
+
+Now, in the expansion of the $S$-matrix
+\begin{eqnarray}
+  S = T e^{ i\int d^4x {\cal L}_{int}(x) }
+  = 1
+  + i\int d^4x {\cal L}_{int}(x)
+  + T \frac{1}{2!} (i\int d^4x {\cal L}_{int}(x))^2
+  + \cdots \label{eq.17_27}
+\end{eqnarray}
+ we notice the $0$'th term, $1$, does not have any matrix elements.
+
+{\bf hw17-4}: Prove $\bra{final~state} 1 \ket{initial~state} = 0$ by using the
+  property of the creation and annihilation operators.
+
+hint: The vacuum in perturbative QFT is defined by
+\begin{eqnarray}
+  a\ket{0}=b\ket{0}=0,~~~or~\bra{0}a^\dgr = \bra{0}b^\dgr = 0,\label{eq.17_28}
+\end{eqnarray}
+  for any particle or anti-particle operators.
+
+  We find that the 1'st term has a non-vanishing matrix elements because
+  ${\cal L}_{int}(x)$ contains the term
+\begin{eqnarray}
+  {\cal L}_{int}(x)  =  -\frac{m_\tau}{v} H(x) {\overline \Psi}_\tau(x) \Psi_\tau(x) + \cdots \label{eq.17_29}
+\end{eqnarray}
+  None of the other terms in ${\cal L}_{int}(x)$, denoted by $+\cdots$ above, contribute
+  to the amplitudes at this order ($n=1$), because of the same reason in Eq.\ref{eq.17_28}.
+
+{\bf hw17-5}: Go back to past homework, and find that the above Lagrangian
+  term for the $H-\tau-\tau$ interactions exists in ${\cal L}_{Yukawa}$. Please
+  check the sign and the magnitude of the coupling.
+
+hint: All the Higgs boson interactions in the SM are obtained by
+  replacing the Higgs v.e.v., $v$, by $v + H(x)$, since the Higgs boson is
+  the quantum of the fluctuation of the Higgs field about the vacuum
+  along the direction where the potential has the minimum (the quantum of
+  the fluctuation along the directions where the potential is flat is
+  massless, and called Nambu-Goldstone boson). Because the massless
+  Goldstone bosons are absorbed by the gauge bosons to make them massive,
+  they do not appear as an observable state. The gauge in which those
+  un-observable states do not appear is called Unitary gauge.  In the
+  Unitary gauge, all the Higgs boson interactions are obtained simply by
+  replacing the Higgs doublet fields by
+\begin{eqnarray}
+  &&\phi   = 
+  \begin{pmatrix}
+    0 \\ (v+H(x))/\sqrt{2}
+  \end{pmatrix}\label{eq.17_30a}\\
+  &&\psi^c =
+  \begin{pmatrix}
+    (v+H(x))/\sqrt{2} \\ 0
+  \end{pmatrix}\label{eq.17_30b}
+\end{eqnarray}
+  Since all the mass terms in the SM are proportional to this v.e.v., $v$,
+  this tells that all the Higgs boson interaction terms are obtained
+  from the mass terms, by the following replacements:
+\begin{eqnarray}
+  &&m   \to m   ( 1 + H(x)/v )  ~~~  for~ all ~the ~Dirac ~fermion ~masses\label{eq.17_31a}\\
+  && m^2\to m^2 ( 1 + H(x)/v )^2  ~~~for~ m_W, ~m_Z \label{eq.17_31b}\\
+  && m   \to m   ( 1 + H(x)/v )^2  ~~~for ~Majorana ~neutrino ~mass\label{eq.17_31c}
+\end{eqnarray}
+  It is only for the Higgs boson itself this rule doesn't work, since
+  the Higgs potential is
+\begin{eqnarray}
+  &&{\cal L}_{Higgs~potential}
+  = -V_{Higgs~potential}
+  = -\frac{\lambda}{4} (\phi^\dagger \phi)^2 -\mu^2 (\phi^\dagger \phi)\\ 
+  &=& -\frac{\lambda}{4}(\frac{(v+H)^2}{2})^2 -\mu^2 \frac{(v+H)^2}{2}
+  = -\frac{\lambda}{16} (v+H)^4 -\frac{\mu^2}{2} (v+H)^2 \\
+  &=& -\frac{\lambda}{16}(v^4 + 4v^3 H +6v^2 H^2 +4v H^3 +H^4)
+    -\frac{\mu^2}{2} (v^2 + 2vH + H^2) \\
+  &=& -\frac{\lambda}{16} v^4 -\frac{\mu^2}{2} v^2
+   -(\frac{\lambda}{16} 4v^3 + \frac{\mu^2}{2} 2v) H
+   -(\frac{\lambda}{16} 6v^2 + \frac{\mu^2}{2}) H^2
+   -(\frac{\lambda}{16} 4v) H^3
+   -(\frac{\lambda}{16}) H^4 \label{eq.17_32}
+\end{eqnarray}
+   The term proportional to $H$ should vanish (the potential minimum)
+\begin{eqnarray}
+  && \frac{\lambda}{4} v^2 + \mu^2 = 0 \label{eq.17_33a} \\
+  && \mu^2 = -\frac{\lambda}{4} v^2 \label{eq.17_33b}
+\end{eqnarray}
+  and hence the Higgs mass should be
+\begin{eqnarray}
+  m_H^2 = \mu^2 + \frac{\lambda}{4} 3v^2
+  = \frac{\lambda}{4} (-v^2 + 3v^2)
+  = \frac{\lambda}{2} v^2 \label{eq.17_34}
+\end{eqnarray}
+  The relevant terms for $H^3$ and $H^4$ couplings are hence
+\begin{eqnarray}
+  {\cal L}_{Higgs~potential}
+  &=& -V_{Higgs~potential}
+  = -\frac{\lambda v^2}{4} H^2
+    -\frac{\lambda}{4} H^3
+    -\frac{\lambda}{16} H^4 \\
+  &=& -\frac{\lambda v^2}{2}  \frac{H^2}{2}
+    -\frac{3 \lambda v}{2}   \frac{H^3}{3!}
+    -\frac{3 \lambda }{2}   \frac{H^4}{4!} \label{eq.17_35}
+\end{eqnarray}
+  where I dropped the constant term in the potential.
+
+{\bf hw17-6}: Please confirm the rule Eq.(\ref{eq.17_31a},\ref{eq.17_31b},\ref{eq.17_31c}), and also Eq.\ref{eq.17_35} for the SM
+  Higgs potential. Confirm that the rule Eq.\ref{eq.17_31b} does not give the correct $H^3$ and $H^4$ term in the potential.
+
+  Now, let us calculate the S-matrix elements Eq.\ref{eq.17_26}
+\begin{eqnarray}
+  S_{fi}
+  &=& \bra{final~state} S \ket{initial~state}
+  = \bra{final~state} T e^{ i\int d^4x {\cal L}_{int}(x) } \ket{initial~state} \\
+  &=& \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau) T e^{ i\int d^4x {\cal L}_{int}(x) } a(p_H)^\dgr \ket{0} \\
+  &=& \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)  [1 + i\int d^4x {\cal L}_{int}(x) +\cdots] )a(p_H)^\dgr \ket{0} \label{eq.17_36}
+\end{eqnarray}
+  with
+\begin{eqnarray}
+  {\cal L}_{int} (x) = -\frac{m_\tau}{v} H(x) {\overline \Psi}_\tau(x) \Psi_\tau(x) \label{eq.17_37}
+\end{eqnarray}
+  We find
+\begin{eqnarray}
+  S_{fi}= -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)
+      H(x) {\overline \Psi}_\tau(x) \Psi_\tau(x) a(p_H)^\dgr \ket{0} \label{eq.17_38}
+\end{eqnarray}
+  Since we have free field expansions for all the three fields,
+\begin{eqnarray}
+  H(x)  &=& \int \frac{d^3p}{(2E)(2\pi)^3} [ a({\vec p}) e^{-ipx} + a(\vec p)^\dgr e^{ipx} ] \label{eq.17_39a} \\
+\Psi(x)  &=& \int \frac{d^3p}{(2E)(2\pi)^3}
+  \sum_{h=\pm1/2} [a({\vec p},h)     e^{-ipx} u({\vec p},h)
+  + b({\vec p},h)^\dgr e^{ipx}  v({\vec p},h)]  \label{eq.17_39b} \\ 
+{\overline \Psi}(x) &=& \int \frac{d^3p}{(2E)(2\pi)^3} \sum_{h=\pm1/2}
+  { a({\vec p},\lambda)^\dgr e^{ipx}  {\overline u}({\vec p},\lambda)
+  + b({\vec p},\lambda)      e^{-ipx} {\overline v}({\vec p},\lambda) } \label{eq.17_39c}
+\end{eqnarray}
+we immediately find only the following term is non-vanishing:
+\begin{eqnarray}
+  S_{fi} &=& -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)
+  \int \frac{d^3p}{(2E)(2\pi)^3} a_H(p) e^{-ipx}
+  \nonumber \\&&\int \frac{d^3p'}{(2E')(2\pi)^3} \sum_{h'}
+      a_\tau(p',h')^\dgr e^{ip'x}  {\overline u}(p',h')
+      \nonumber \\&& \int \frac{d^3p{''}}{(2E{''})(2\pi)^3} \sum_{h{''}}
+      b_{\overline \tau}(p{''},h{''})^\dgr e^{ip{''}x} v(p{''},h{''})
+  a(p_H)^\dgr \ket{0} 
+\end{eqnarray}
+  By using the commutation and anti-commutations among operators we find
+\begin{eqnarray}
+  S_{fi}
+  &=& -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} e^{-ix p_H}
+      e^{ ix p_\tau} {\overline u}(p_\tau,h_\tau)
+      e^{ ix p_{\overline \tau}} v(p_{\overline \tau},h_{\overline \tau}) \ket{0} \\
+      &=&-i\frac{m_\tau}{v} \int d^4 x
+      e^{ix(p_\tau+p_{\overline \tau}-p_H)}
+      {\overline u}(p_\tau,h_\tau) v(p_{\overline \tau},h_{\overline \tau})  \bra{0}\ket{0} \\
+      &=& -i\frac{m_\tau}{v} (2\pi)^4 \delta^4( p_\tau+p_{\overline \tau}-p_H )
+      {\overline u}(p_\tau,h_\tau) v(p_{\overline \tau},h_{\overline \tau})  \label{eq.17_41}
+\end{eqnarray}
+  As I will explain later, we usually express the amplitudes
+  as T (transition) matrix elements, wich is defined as
+\begin{eqnarray}
+  &&\bra{f}S\ket{i}=\bra{f}(1+iT)\ket{i} \label{eq.17_42a}\\
+  &&S_{fi} =          i T_{fi}\label{eq.17_42b}
+\end{eqnarray}
+  We then have a general expression for $T_{fi}$
+\begin{eqnarray}
+  T_{fi} = (2\pi)^4 \delta^4( p_f - p_i ) M_{fi} \label{eq.17_43}
+\end{eqnarray}
+   where $p_i$ and $p_f$ are the total sum of initial and final state four
+  momenta.  Summing up, the S-matrix elements are usually expressed as
+\begin{eqnarray}
+  S_{fi} = i T_{fi}
+             = i (2\pi)^4 \delta^4( p_f - p_i ) M_{fi} \label{eq.17_44}
+\end{eqnarray}
+   after factorizing out the common factor of $i$ and the four momentum
+  conservation delta functions.  With this convention, our amplitudes
+  are simply:
+\begin{eqnarray}
+  M(H(p_H) \to \tau(p_\tau,h_\tau) {\overline \tau}(p_{\overline \tau},h_{\overline \tau}))
+  = -\frac{m_\tau}{v} {\overline u}(p_\tau,h_\tau) v(p_{\overline \tau},h_{\overline \tau}) \label{eq.17_45}
+\end{eqnarray}
+  
+{\bf hw17-7}: Please obtain Eq.\ref{eq.17_41} from Eq.\ref{eq.17_38}.
+
+  Before going on calculating various S-matrix elements (or scattering
+  amplitudes), let me explain why we introduce Transition matrix, in
+  addition to the S-matrix.
+
+  The T-matrix is related to the S-matrix symbolically as
+\begin{eqnarray}
+  S = 1 + i T
+\end{eqnarray}
+  The unitarity of the S matrix is then expressed as
+\begin{eqnarray}
+  S^\dagger S = (1 + iT)^\dagger (1+iT)
+                  = 1 -i(T^\dagger - T) + T^\dagger T
+                  = 1 \label{eq.17_47}
+\end{eqnarray}
+  or
+\begin{eqnarray}
+  -i(T-T^\dagger) = T^\dagger T \label{eq.17_48}
+\end{eqnarray}
+  This is the most useful expression of the Unitarity of the S-matrix.
+
+{\bf hw17-8}: Derive Eq.\ref{eq.17_48} from Eq.\ref{eq.17_47}.
+
+  If we take the forward scattering ($\bra{final}= (\ket{initial})^\dagger$) matrix
+  element of Eq.\ref{eq.17_48},
+\begin{eqnarray}
+  -i\bra{inital}(T-T^\dagger)\ket{inital} = \bra{inital}T^\dagger T\ket{inital} \label{eq.17_49}
+\end{eqnarray}
+  The left-hand-side of Eq.\ref{eq.17_49} is simply
+\begin{eqnarray}
+  -i\bra{inital}(T-T^\dagger)\ket{inital} = -i ( T_{ii} - (T_{ii})^* )
+  = 2 \Im(T_{ii}) \label{eq.17_50}
+\end{eqnarray}
+  which is called the imaginary part of the forward scattering amplitudes.
+  For the right-hand-side of Eq.\ref{eq.17_49}, we insert the complete set of states
+\begin{eqnarray}
+  1 = \sum_f \ket{f}\bra{f} \label{eq.17_51}
+\end{eqnarray}
+   between $T^\dagger$ and $T$, where the summation is taken over all possible
+  final states and total integral over the whole phase space for each
+  final state. We therefore find
+\begin{eqnarray}
+  2 \Im T_{ii} = \bra{i} T^\dagger \sum_f \ket{f}\bra{f} T \ket{i}
+                  = \sum_f |T_{fi}|^2 \label{eq.17_52}
+\end{eqnarray}
+  This is called the optical theorem, which states that the the imaginary
+  part of the forward scattering amplitude is proportional to the total
+  cross section of the process.
+
+{\bf hw17-9}: Reproduce the optical theorem Eq.\ref{eq.17_52}.
+
+  I find it very useful to know that perturbative calculation of the
+  S-matrix elements gives $S_{fi}$, whereas the T-matrix elements are
+  related as $T_{fi} = -i S_{fi}$. Unitarity tells that the $T_{fi}$ are
+  real in the tree-level approximation where final state interactions
+  are neglected.  When we calculate a two-point function, with the same
+  initial and the final states, the imaginary part of the T-matrix element
+  should be positive according to the optical theorem.  I often used the
+  above facts to test my calculation, such as the number of i's in tree
+  level amplitudes, and the sign of loop functions.
+
+  Please always be aware that the perturbative expansion gives the
+  S-matrix elements, rather than the T-matrix elements.  Because of this,
+  perturbative QFT computation of amplitudes gives $i$ times $T$ matrix
+  elements. It is useful to remember this fact, and express the
+  perturbatively calculated amplitudes as
+\begin{eqnarray}
+  \bra{f} S \ket{i} =  \bra{f} T e^{ i\int d^4x {\cal L}_{int}(x) } \ket{i} =   S_{fi}
+  = i T_{fi}
+  = i (2\pi)^4 \delta^4(\sum p_f - \sum p_i) M_{fi} \label{eq.17_53}
+\end{eqnarray}
+ and we expect that $T_{fi}$, and hence $M_{fi}$, should be real at the
+  tree-level.
+  Because the time-ordering of the S matrix should follow positive energy
+  oscillation, it should behave as
+\begin{eqnarray}
+  S = T e^{ -i \int_{t=-\infty}^{\infty} dt {\cal H}_{int} }
+        = T e^{  i \int_{t=-\infty}^{\infty} dt {\cal L}_{int}(x) }
+        = T e^{  i \int d^4x  {\cal L}_{int}(x) } \label{eq.17_54}
+\end{eqnarray}
+  where ${\cal H}_{int} = -{\cal L}_{int}$ denotes the Hamiltonian after integration over
+  space. Therefore, the sign of the exponent should be positive.
+  I therefore choose the above sign conventions consistently.
+
+  That's all for hw17.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

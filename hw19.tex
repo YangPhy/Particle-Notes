@@ -1,0 +1,403 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+
+%temp def
+\def\PS{\rm PS}
+\begin{document}
+
+\begin{center}
+{\large\bf HW19 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+This week, we calculate the amplitudes for $W^+ \to l^+ \nu_l$ for
+$l=e,\mu,\tau$, in the massless lepton limit, and then obtain the
+partial widths of the W boson decay into each fermion species,
+including quarks, and then its total width.
+
+Let me copy the following four equations from {\bf hw18}:
+
+The definition of Wigner's $d$-functions for $J=1$,
+\begin{eqnarray}
+  d^{J=1}_{\lmd,\lmd'}(\theta)
+= - \eps_\mu(J_z=\lmd) R_y(\theta) \eps^\mu(J_z=\lmd')^* \label{eq.19_55}
+\end{eqnarray}
+and their explicit form for all $\{\lmd,\lmd'\}$ combinations,
+\begin{eqnarray}\label{eq.19_56}
+  &&d^{J=1}_{\pm1,\pm1} =  (1+\cos\theta)/2,~~
+  d^{J=1}_{\pm1,\mp1} =  (1-\cos\theta)/2,~~
+  d^{J=1}_{\pm1,   0} =  \mp \sin\theta/\sqrt2,~~\nonumber \\
+  &&d^{J=1}_{   0,\pm1} =  \pm \sin\theta/\sqrt2,~~
+  d^{J=1}_{   0,   0} =  \cos\theta
+\end{eqnarray}
+their normalization,
+\begin{eqnarray}
+  \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\lmd,\lmd'}|^2 = 2/3 \label{eq.19_57}
+\end{eqnarray}
+and the amplitudes:
+\begin{eqnarray}
+  &&M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2))
+= g_L^{Wln} (2E) \sqrt{2}  d^{J=1}_{\lmd,+1}(\theta)\\
+&=& g/\sqrt{2} (2E) \sqrt{2} d^{J=1}_{\lmd,+1}(\theta)
+= g (2E)                   d^{J=1}_{\lmd,+1}(\theta) 
+= g m_W                    d^{J=1}_{\lmd,+1}(\theta)\label{eq.19_58}
+\end{eqnarray}
+In Eq.\ref{eq.19_58}, I added a few more lines.
+
+The partial width can be calculated as follows:
+\begin{eqnarray}
+  2m_W d\Gamma(W^+(\lmd) \to l^+ \nu_l)
+= \int |M(W^+(\lmd) \to l^+ \nu_l)|^2 d\PS_2 \label{eq.19_59}
+\end{eqnarray}
+Please let me try to explain in words the normalization of the total
+width of a particle as follows:
+
+``twice the mass times the width is equal to the total sum of all the
+transitions from the initial particle state''
+
+This will be proven by using the Unitarity of Transition matrix elements
+after we introduce the ``propagator'' next week.  Propagator connects a
+particle at two different space-time points, and hence appear only from
+the second expansion of the $S$-matrix.
+
+Here, it suffices for you to read the following mysterious sentence:
+
+``twice the mass times width is twice the imaginary part of a 1PI
+(one-particle-irreducible) propagator of the particle, and hence it is
+equal to the total sum of transition from the particle to all possible
+final state, according to the Unitarity''.
+
+The $n$-body phase space is defined as
+\begin{eqnarray}
+  d\PS_n(q=\sum_i p_i)
+= (2\pi)^4 \delta^4(q-\sum_i p_i)
+                 \Pi_{j=1}^{n} \frac{d^3p_j}{(2E_j)(2\pi)^3} \label{eq.19_60}
+\end{eqnarray}
+where $\Pi_{j=1}^{n} A_j = A_1 \cdot A_2 \cdot ... \cdot A_n$, and
+\begin{eqnarray}
+  E_j = \sqrt{ p_j^2 + m_j^2 } \label{19_61}
+\end{eqnarray}
+is the on-shell energy of the particle $j$ of mass $m_j$.
+
+We need two-body phase space for two massless particles:
+\begin{eqnarray}
+  d\PS_2(q=p_1+p_2)
+= (2\pi)^4 \delta^4(q-p_1-p_2)
+  \frac{ d^3p_1}{(2E_1)(2\pi)^3 }\frac{ d^3p_2}{(2E_2)(2\pi)^3 } \label{eq.19_62}
+\end{eqnarray}
+In the two-body rest frame, we can determine the $p_1$ and $p_2$ four
+momenta by using one of the two three-momentum, say, $p_1$ (for $l^+$ in
+our example).
+\begin{eqnarray}
+  p_1^\mu = (E, E\sin\theta \cos\phi, E\sin\theta\sin\phi, E\cos\theta)\label{eq.19_63}
+\end{eqnarray}
+The $p_2$ three momentum can be integrated by using the $\delta$
+functions for the three momentum conservation to find
+\begin{eqnarray}
+  d\PS_2(q=p_1+p_2)
+= \frac{1}{(2\pi)^2} \delta(q^0-E_1-E_2) \frac{d^3p_1}{4E_1 E_2}\label{eq.19_64}
+\end{eqnarray}
+Since the $3$-momentum conservation in the $W$ rest frame gives
+\begin{eqnarray}
+  p_1^\mu = (E, -E\sin\theta \cos\phi, -E\sin\theta\sin\phi, -E\cos\theta)\label{eq.19_65}
+\end{eqnarray}
+for the $\nu_l$ momentum, the remaining energy integral can be done as
+\begin{eqnarray}
+  d\PS_2(q=p_1+p_2)
+&=& \frac{1}{(2\pi)^2} \delta(m_W-E-E) E^2dE d\cos\theta \frac{d\phi}{(2E)^2} \\
+&=& \frac{1}{(2\pi)^2}\frac{1}{2} \frac{E^2}{(2E)^2} d\cos\theta d\phi \\
+&=& \frac{1}{32\pi^2} d\cos\theta d\phi
+= \frac{1}{8\pi} d\cos\theta \frac{d\phi }{4\pi} \label{eq.19_66}
+\end{eqnarray}
+
+{\bf hw19-1}: Derive Eq.\ref{eq.19_66} for massless two body phase space.
+
+Here I used the polar coordinate parametrization of three momenta
+\begin{eqnarray}
+  d^3 p = dp_x dp_y dp_z
+          = |p|^2 d|p| d\cos\theta d\phi \label{eq.19_67}
+\end{eqnarray}
+We can set $|p|=E$ for massless particle.
+
+If the matrix element does not depend on the orientation of the
+$l^+$ momentum direction ($\cos\theta, \phi$), which should be the case
+if $W^+$ is un-polarized, then the two-body phase space factor can be
+integrate over the angles and the total phase space is
+\begin{eqnarray}
+  \PS_2(q=p_1+p_2)
+= \int_{-1}^{+1} d\cos\theta \int_0^{2\pi} \frac{d\phi}{32\pi^2}
+= \frac{1}{8\pi} \label{eq.19_68}
+\end{eqnarray}
+I therefore parametrize the 2-body phase space as
+\begin{eqnarray}
+  d\PS_2 = \frac{1}{8\pi} \frac{d\cos\theta}{2} \frac{d\phi}{2\pi} \label{eq.19_69}
+\end{eqnarray}
+when both particles are massless, $p_1^2=p_2^2=0$.
+
+Let us give the $2$-body phase space for the most general case with two
+massive particles, $p_k^2=m_k^2 (k=1,2)$:
+\begin{eqnarray}
+  d\PS_2 = \frac{1}{8\pi} \frac{2p^*}{M} \frac{ d\cos\theta}{2} \frac{d\phi}{2\pi} \label{eq.19_70}
+\end{eqnarray}
+where $p^*$ is the magnitude of the common $3$-momentum of the two
+particles in the rest frame:
+\begin{eqnarray}\label{eq.19_71a}
+  &&p_1^\mu = (E_1, p^* \sin\theta\cos\phi, p^* \sin\theta\sin\phi, p^* \cos\theta) \nonumber \\
+  &&p_2^\mu = (E_2,-p^* \sin\theta\cos\phi, -p^* \sin\theta\sin\phi, -p^* \cos\theta)
+\end{eqnarray}
+\begin{eqnarray}
+  E_1 = \sqrt{ (p^*)^2 + m_1^2 },~~
+  E_2 = \sqrt{ (p^*)^2 + m_2^2 },~~
+  E_1+E_2 = M \label{eq.19_71b}
+\end{eqnarray}
+\begin{eqnarray}
+  \frac{2p^*}{M}
+   = \sqrt{1+(\frac{m_1}{M})^4+(\frac{m_2}{M})^4-2(\frac{m_1}{M})^2-2(\frac{m_2}{M})^2-2(\frac{m_1m_2}{M^2})^2}\label{eq.19_71c}
+\end{eqnarray}
+
+{\bf hw19-2}: Derive Eq.\ref{eq.19_70} for general $2$-body phase space.
+
+Note that Eq.\ref{eq.19_71c} can be written as
+\begin{eqnarray}
+  2Mp^*
+  &=& \sqrt{M^4+m_1^4+m_2^4-2(m_1 M)^2-2(m_2M)^2-2(m_1m_2)^2}\\
+  &=& \sqrt{M^4-2M^2(m_1^2+m_2^2)+(m_1^2-m_2^2)^2}\\
+  &=& \sqrt{(M^2-m_1)^2-m_2^2)^2-(m_1^2+m_2^2)^2+(m_1^2-m_2^2)^2} \\
+  &=& \sqrt{[M^2-m_1^2-m_2^2]^2-4m_1^2m_2^2} \\
+  &=& \sqrt{(M^2-m_1^2-m_2^2+2m_1m_2)(M^2-m_1^2-m_2^2-2m_1m_2)}\\
+  &=& \sqrt{[M^2-(m_1-m_2)^2][M^2-(m_1+m_2)^2]} \\
+  &=& \sqrt{(M-m_1+m_2)(M+m_1-m_2)(M+m_1+m_2)(M-m_1-m_2)} \label{eq.19_72}
+\end{eqnarray}
+or
+\begin{eqnarray}
+  \frac{2p^*}{M}= \sqrt{[1+\frac{m_1+m_2}{M}][1-\frac{m_1+m_2}{M}][1+\frac{m_1-m_2}{M}][1-\frac{m_1-m_2}{M}]}\label{eq.19_73}
+\end{eqnarray}
+
+{\bf hw19-3}: Show Eq.\ref{eq.19_72}, which is rather easy to memorize.
+
+The above factor dictates the $2$-body phase space suppression factor
+for massive particles, and it vanishes when
+ $M = m_1+m_2$
+which is the two particle production threshold. Since the magnitude of
+the momentum is fixed by energy-momentum conservation, the whole phase
+space is the region
+\begin{eqnarray}
+  -1 < \cos\theta < 1,~~~ 0 < \phi < 2\pi
+\end{eqnarray}
+The total volume of the $2$-body phase space is hence
+\begin{eqnarray}
+  \PS_2 = \frac{1}{8\pi} \frac{2p^*}{M} \to \frac{1}{8\pi}~(for~m_1=m_2=0). \label{eq.19_76}
+\end{eqnarray}
+It is quite useful to memorize this.
+
+Since our amplitudes, Eq.\ref{eq.19_58} do not depend on the azimuthal
+angle $\phi$, the differential decay rate is simply
+\begin{eqnarray}
+  d\Gamma = \frac{1}{2M} |M(\lmd,\theta)|^2 \frac{1}{8\pi} \frac{d\cos\theta}{2} \label{eq.19_77}
+\end{eqnarray}
+or
+\begin{eqnarray}
+  \frac{d\Gamma}{d\cos\theta}=\frac{1}{2M}\frac{1}{16\pi} |M(\lambda,\theta)|^2\label{eq.19_78}
+\end{eqnarray}
+
+{\bf hw19-4}:  Please show the angular distribution of the $l^+$ when the $W^+$
+polarization is $\lmd = +1, -1, 0$ along the $z$ axis direction. If the
+$W^+$ is produced by a collision of the up quark with momentum along
+the positive $z$ direction, and the ${\overline d}$ quark whose momentum is along
+the negative $z$-axis, what is the likely polarization of the $W^+$ ?
+Does $l^+$ tend to be produced in the forward ($\cos\theta > 0$) or the
+backward ($\cos\theta < 0$) direction ?
+
+The Lorentz invariance of physics tells us that the decay rates of
+a particle should not depend on the direction of the parent
+polarization.  If a particle decays faster when it is polarized in
+a particular direction, it tells that there is a special direction
+in our universe.
+
+By using the common integral of the $d$-functions Eq.\ref{eq.19_57}, we find
+\begin{eqnarray}
+  \Gamma(W^+ \to l^+ \nu_l)
+&=& \frac{1}{2M} \frac{1}{16\pi} \int_{-1}^{+1} d\cos\theta |M(\lambda,\theta)|^2\\
+&=& \frac{1}{2M} \frac{1}{16\pi} |g_L^{Wnl}|^2 2M^2
+    \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\lmd,+1}(\theta)^2 \\
+&=& M \frac{|g_L^{Wnl}|^2}{16\pi} \frac{2}{3} \label{eq.19_79}
+\end{eqnarray}
+
+Now, we can insert the SM coupling, we find
+\begin{eqnarray}
+  \Gamma(W^+ \to l^+ \nu_l)
+= M \frac{|g_L^{Wnl}|^2}{16\pi} \frac{2}{3}
+= M |\frac{g_W}{\sqrt 2}|^2 \frac{1}{24\pi}
+= M \frac{g_W^2}{48\pi} \label{eq.19_80}
+\end{eqnarray}
+
+{\bf hw19-5}: Derive Eq.\ref{eq.19_80}.
+
+Let us now evaluate the partial width Eq.\ref{eq.19_80} by using the observed mass of the $W$ and the couplings:
+\begin{eqnarray}
+  &&M = m_W = 80 {\rm GeV} \label{eq.19_81a}\\
+  &&\alpha = e^2/4\pi = 1/128 \label{eq.19_81b}\\
+  &&\sin^2\theta_W = 0.233 \label{eq.19_81c}
+\end{eqnarray}
+
+In the above, Eq.\ref{eq.19_81a} should be compared with the data (Review of
+Particle Physics gives more precise number with error), Eq.\ref{eq.19_81b} is
+the effective QED coupling strength at the scale of $m_W$ (or $m_Z$),
+Eq.\ref{eq.19_81c} has been measured in $e^+e^-$ collision experiments on the $Z$ boson pole at LEP collider at CERN and at SLC collider at SLAC.  We'll learn how they measured the couplings Eq.\ref{eq.19_81b} and Eq.\ref{eq.19_81c}next week.
+
+We then find
+\begin{eqnarray}
+  \alpha_W = (g_W)^2/4\pi = \alpha/\sin^2\theta_W
+                            = 1/(128\times 0.233)
+                            \approx 1/30 \label{eq.19_82}
+\end{eqnarray}
+
+{\bf hw19-6}: Verify Eq.\ref{eq.19_82}, and obtain the partial width $\Gamma(W \to  l^+ \nu_l)$ by inserting the numbers into Eq.\ref{eq.19_79}. How well do we agree with the observation? The PDG table may give
+\begin{eqnarray}
+  \Gamma(W^+ \to e^+ \nu_e),~~
+  \Gamma(W^+ \to \mu^+ \nu_\mu),~~
+  \Gamma(W^+ \to \tau^+ \nu_\tau) \label{eq.19_83}
+\end{eqnarray}
+separately.  How well do we agree with the data?  We ignored the mass
+of charged lepton, $m_l = 0$.  We expect that the finite mass effect
+should be of the order of $(m_l/m_W)^2$.  How large is the mass correction
+for $l=\tau$? Is the experimental accuracy precise enough to observe
+the $\tau$ mass effect? (You should compare the experimental error with
+the expected order of the finite mass effect.)
+
+If the PDG table does not show the data separately for Eq.\ref{eq.19_83},
+you can obtain them from the total width data times the branching
+fraction:
+\begin{eqnarray}
+  B(W^+ \to l^+ \nu_l) = \Gamma(W^+ \to l^+ \nu_l)/\Gamma_W \label{eq.19_84}
+\end{eqnarray}
+where the total width is defined as the total sum of all possible
+partial widths
+\begin{eqnarray}
+  \Gamma_W = \sum_{decay~ modes} \Gamma(W^+ \to ~decay ~mode)\label{eq.19_85}
+\end{eqnarray}
+Now, let us calculate the total W width by counting all possible
+decay modes.  They are
+\begin{enumerate}
+  \item 3 lepton channels ($l = e, \mu, \tau$)
+  \item 2 quark channels ($u+{\overline d}$, $c+{\overline s}$)
+\end{enumerate}
+
+Since there are $3$ colors for quarks, we should multiply each quark
+channels by $3$. Our estimate then tells that the total width is about
+$9$ times the single leptonic width which we calculated:
+\begin{eqnarray}
+  \Gamma_W = (3 + 3 + 3) \Gamma(W^+ \to l^+ \nu_l) \label{eq.19_87}
+\end{eqnarray}
+
+With the same approximation, the W decay branching fractions are:
+\begin{eqnarray}
+  &&B(W^+ \to e^+ \nu_e) = B(W^+ \to \mu^+ \nu_\mu)
+                        = B(W^+ \to \tau^+ \nu_\tau) = \frac{1}{9} \label{eq.19_88a}\\
+  &&B(W^+ \to u {\overline d}) = B(W^+ \to c {\overline s}) = \frac{1}{3} \label{eq.19_88b}\\
+  &&B(W^+ \to hadrons) = \frac{2}{3} \label{eq.19_88c}
+\end{eqnarray}
+
+{\bf hw19-7}: Please compare our predictions for Eq.\ref{eq.19_87}, Eq.\ref{eq.19_88a}, Eq.\ref{eq.19_88c} with the PDG tables in Review of Particle Physics.  How good or bad are they?
+
+I naively expect that our predictions for Eq.\ref{eq.19_83} is good, because we don't need higher-order QCD corrections, but our predictions for the
+total width Eq.\ref{eq.19_85} and hadronic branching fraction Eq.\ref{eq.19_88c} should fall short of the observation, because we haven't included higher order QCD corrections which are significant. From this study, please learn that it is often useful to compare with partial width (into leptonic
+channels) when we don't know QCD corrections.  Both the total width
+and branching fractions are sensitive to higher order QCD corrections,
+but the partial widths into leptonic channels aren't.
+
+Finally, it is useful for you to know that the polarization
+independence of the partial (and total) decay width can be
+expressed as
+\begin{eqnarray}
+  &&\Gamma(W(\lmd=+1) \to~ decay~ mode)
+  = \Gamma(W(\lmd=-1) \to~ decay~ mode)\\
+  &=& \Gamma(W(\lmd= 0) \to ~decay~ mode) 
+  = (1/3) \sum_\lmd \Gamma(W(\lmd) \to ~decay ~mode) \\
+  &=& \Gamma(W \to ~decay~ mode) \label{eq.19_89}
+\end{eqnarray}
+
+That the partial decay width does not depend on the W polarization
+is guaranteed by the property of the $d$-functions, Eq.\ref{eq.19_57}, which is
+simply a consequence of angular momentum conservation (or the invariance of physics under spacial rotations).
+
+{\bf hw19-8}: Please repeat the calculation by using the 4th expression in
+Eq.\ref{eq.19_89}, where we first sum over all polarization contributions, and
+then integrate over the decay phase space:
+\begin{eqnarray}
+  2 m_W \Gamma(W^+ \to l^+ \nu_l)
+= \frac{1}{3} \int \sum_{\lambda} |M(W(\lmd)\to l^+ \nu_l)|^2  d\Phi \label{eq.19_90}
+\end{eqnarray}
+
+Please observe that the $\cos\theta$ dependence of $|M|^2$ cancel
+out after summing over all three polarizations:
+\begin{eqnarray}
+  \sum_\lambda |d^{J=1}_{\lmd,+1}|^2
+  = | \frac{1 + \cos\theta}{2}   |^2
+  + | \frac{1 - \cos\theta}{2}   |^2
+  + | \frac{\sin\theta}{\sqrt{2}} |^2 \label{eq.19_91}
+\end{eqnarray}
+In more general, in a decay of massive spin $s$ particle, the
+decay angular distribution is completely flat if we sum over
+all possible polarization states:
+\begin{eqnarray}
+  \frac{1}{2s+1} \sum_{\lmd=s,s-1,...,1-s,-s} |M(X(\lmd) \to any)|^2 \label{eq.19_92}
+\end{eqnarray}
+
+The equal mixture of all possible polarization states is called
+un-polarized state. Un-polarized state does not have any specific
+direction in space, and hence its decay is flat in all directions.
+
+Finally, you may have noted
+\begin{eqnarray}
+  |M(W^+(+\lmd) \to l^+ + \nu_l   )|
+  = |M(W^-(-\lmd) \to l^- + {\overline \nu}_l)| \label{eq.19_922}
+\end{eqnarray}
+since I used $W^-$ decay amplitudes in my lecture, while I asked you
+to calculate $W^+$ decay amplitudes in the homework.  This is a
+consequence of CP invariance of the SM.
+
+{\bf hw19-9}: Show Eq.\ref{eq.19_922} in the massless lepton limit.
+
+The invariance holds in the SM in the limit of massless neutrino.
+CPV effects can arise if finite neutrino mass is included, such as
+\begin{eqnarray}
+  |M(W^+(+\lmd) \to l^+ + \nu_k   )|
+\neq |M(W^-(-\lmd) \to l^- + {\overline \nu}_k)| \label{eq.19_93}
+\end{eqnarray}
+for the mass-eigenstates $k=1,2,3$, separately, but they are loop
+suppressed (no decay rate CPV is possible in the tree-level),
+and also the sum,
+\begin{eqnarray}
+  \sum_{k=1,2,3} |M(W^+(+\lmd) \to l^+ + \nu_k   )|^2
+  = \sum_{k=1,2,3} |M(W^-(-\lmd) \to l^- + {\overline \nu}_k)|^2 \label{eq.19_94}
+\end{eqnarray}
+should be the same by the CPT theorem.  It is a little bit beyond
+the level of this introductory lecture, so please study them in an
+advanced course or in your own research.  No matter how you will study
+CPV, it is useful for you to know Eq.\ref{eq.19_922} in the leading order.
+
+That's all for hw19.\\
+
+Best regards,\\
+
+Kaoru
+
+
+\end{document}

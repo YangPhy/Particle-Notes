@@ -1,0 +1,468 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+
+\begin{document}
+\title{Particle physics HW18}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+\begin{eqnarray}
+    {\cal L}_{SM} = {\cal L}_{gauge} + {\cal L}_{fermion} + {\cal L}_{Higgs} + {\cal L}_{Yukawa} \label{eq.8LSM}
+\end{eqnarray}
+
+Recall {\bf hw09-4} for 
+\begin{eqnarray}
+    iD_\mu = i\del_\mu -g_Z (T^3-Q \sin^2\theta_W ) Z_\mu -e Q A_\mu -g_S T^a A^a_\mu,
+  \end{eqnarray}
+  and 
+\begin{eqnarray}
+    {\cal L}_{fermions} =  Q_i^\dagger iD_\mu \sigma_-^\mu Q_i
+    + {u_R}_i^\dagger iD_\mu \sigma_+^\mu {u_R}_i
+    + {d_R}_i^\dagger iD_\mu \sigma_+^\mu {d_R}_i
+    +  L_i^\dagger iD_\mu \sigma_-^\mu L_i
+    + {l_R}_i^\dagger iD_\mu \sigma_+^\mu {l_R}_i,
+  \end{eqnarray}
+  where $i=1,2,3$ are generation indices. Recall the covariant derivative for $Z$, $\gamma$ and gluons.
+  Then one can introduce $x=u_L$, $u_R$, $d_L$, $d_R$, $l_L$, $l_R$, $\nu_L$ and write out the $\gamma (A_\mu)$, $Z_\mu$, and gluon ($A^a_\mu$) interactions in the form of 
+\begin{eqnarray}
+    \vec{u}^\dagger_L O_\mu \sigma_-^\mu \vec{u}_L + \vec{u}^\dagger_R O_\mu \sigma_+^\mu \vec{u}_R  + \vec{d_R}_i^\dagger O_\mu \sigma_+^\mu \vec{d_R}_i
+    +  \vec{L}_i^\dagger iD_\mu \sigma_-^\mu \vec{L}_i
+    + \vec{l_R}_i^\dagger iD_\mu \sigma_+^\mu \vec{l_R}_i,
+\end{eqnarray}
+where $O_\mu$ is a diagnal matrix. 
+
+Recall {\bf hw10-3}, {\bf hw10-4}, we can write the Higgs potential
+\begin{eqnarray}
+    V(\phi) &=& \frac{\lambda}{4} (\phi^\dagger \phi)^2 + \mu^2 (\phi^\dagger \phi) 
+    =\frac{\lambda}{4} (\phi^\dagger \phi)^2 - \frac{\lambda v^2}{4}(\phi^\dagger \phi) \\
+    &=& \frac{\lambda}{4} \frac{(v+H)^4}{4} - \frac{\lambda v^2}{4}\frac{(v+H)^2}{2} \\
+    &=& \frac{\lambda}{16}(H^4+4vH^3+4v^2H^2-v^4),
+\end{eqnarray}
+and finally obtain ${\cal L}_{Higgs}$,
+\begin{eqnarray}
+    {\cal L}_{Higgs} &=& (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi) \\ 
+    &=& \frac{1}{2}\del_\mu H \del^\mu H + \frac{g^2}{2}W_\mu^-{W^+}^\mu \frac{(v+H)^2}{2}+\frac{g_Z^2}{4} \frac{(v+H)^2}{2} Z_\mu Z^\mu \nonumber \\ &&- \frac{\lambda}{16}(H^4+4vH^3+4v^2H^2-v^4) \\
+    &=& \frac{1}{2}\del_\mu H \del^\mu H + \frac{g^2}{4}W_\mu^-{W^+}^\mu H^2 + \frac{g^2v^2}{4}W_\mu^-{W^+}^\mu +\frac{g^2v}{2}W_\mu^-{W^+}^\mu H +\frac{g_Z^2}{8}Z_\mu Z^\mu H^2 \nonumber \\ && +\frac{g_Z^2v^2}{8}Z_\mu Z^\mu +\frac{g_Z^2 v}{4}Z_\mu Z^\mu H- \frac{\lambda}{16}H^4-\frac{\lambda v}{4}H^3-\frac{\lambda v^2}{4}H^2+  \frac{\lambda v^4}{4} \\ 
+    &=& \frac{1}{2} \del_\mu H \del^\mu H+
+                m_W^2 W^+_\mu {W^-}^\mu
+                + \frac{m_Z^2}{2} Z_\mu Z^\mu
+                + g_{HWW} H W^+_\mu {W^-}^\mu
+                \nonumber \\ &&+ \frac{g_{HZZ}}{2} H Z_\mu Z^\mu
+                + \frac{g_{HHWW}}{2} HH W^+_\mu {W^-}^\mu
+                + \frac{g_{HHZZ}}{4} HH Z_\mu Z^\mu
+                \nonumber \\ &&- \frac{m_H^2}{2} H^2
+                - \frac{g_{HHH}}{3!} H^3
+                - \frac{g_{HHHH}}{4!} H^4.
+\end{eqnarray}
+As a summary, we have
+\begin{eqnarray}
+    &&m_W= \frac{gv}{2}, m_Z=\frac{g_Zv}{2},~~ g_{HWW}=\frac{g^2v}{2},~~g_{HZZ}=\frac{g_Z^2v}{2},~~g_{HHWW}= \frac{g^2}{2},\\
+    && g_{HHZZ}=\frac{g_Z^2}{2},~~m_H=\sqrt{\frac{\lambda v^2}{2}},~~g_{HHH}=\frac{3}{2} \lambda v,~~g_{HHHH}=\frac{3}{2} \lambda
+\end{eqnarray}
+
+Recall {\bf hw10-5}, by making the replacement
+\begin{eqnarray}
+    m_f \to m_f (1+H/v)
+  \end{eqnarray}
+in
+\begin{eqnarray}
+    {\cal L}_{Yukawa} &=&
+    -u_L^\dagger M^u u_R + d_L^\dagger M^d d_R + l_L^\dagger M^l l_R + h.c. \\
+    &=&
+    -(u_L^\dagger, c_L^\dagger, t_L^\dagger) {\rm diag}\{m_u,m_c,m_t\} (u_R,c_R,t_R)^T\nonumber \\
+    &&-(d_L^\dagger, s_L^\dagger, b_L^\dagger) {\rm diag}\{m_d,m_s,m_b\} (d_R,s_R,b_R)^T \nonumber \\ &&- (e_L^\dagger, \mu_L^\dagger, \tau_L^\dagger) {\rm diag}\{m_e,m_\mu,m_\tau\} (e_R,\mu_R,\tau_R)^T
+    +
+    h.c. \\
+    &=& - \sum_f g_{Hff} m_f (f_L^\dagger f_R + f_R^\dagger f_L),
+  \end{eqnarray}
+  we have
+  \begin{eqnarray}
+    {\cal L}_{Yukawa} &=& - \sum_f  m_f (1+H/v) (f_L^\dagger f_R + f_R^\dagger f_L)
+ \end{eqnarray}
+see $g_{Hff}=m_f/v$ in 
+\begin{eqnarray}
+    {\cal L}_{Hff} = - \sum_f g_{Hff} H (f_L^\dagger f_R + f_R^\dagger f_L).
+\end{eqnarray}
+
+Recall {\bf hw11-9}, {\bf hw11-10}, {\bf hw11-11}
+\begin{eqnarray}
+    {\cal L}_{QCD} &=& \frac{1}{2g^2} Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \} = -\frac{1}{4} F^a_{\mu\nu} {F^a}^{\mu\nu} \\
+    &=& -\frac{1}{4}  (\del_\mu A_\nu^a-\del_\nu A_\mu^a)(\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a) + \frac{g}{4}[f^{abc} A^b_\mu A^c_\nu (\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a) \nonumber \\
+    && + f^{ade} {A^d}^\mu {A^e}^\nu (\del_\mu A_\nu^a-\del_\nu A_\mu^a)]-\frac{g^2}{4} f^{abc} f^{ade} A^b_\mu A^c_\nu {A^d}^\mu {A^e}^\nu
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    \phi^T i\sigma^2 L &=&
+    \begin{pmatrix}
+        0 & \frac{v+H}{\sqrt 2}
+    \end{pmatrix} 
+    \begin{pmatrix}
+        0 & 1 \\
+        -1 & 0
+    \end{pmatrix} 
+    \begin{pmatrix}
+        \nu_i \\
+        l_{Li}
+    \end{pmatrix}\\
+    &=& -\frac{v+H}{\sqrt{2}} \nu_i
+\end{eqnarray}
+\begin{eqnarray}
+{\cal L}_{\nu~mass}
+    &=& -\frac{y^\nu_{ij}}{2\Lambda} \left(\phi^T i\sigma^2 L_i\right)^T i\sigma^2 \left(\phi^T i\sigma^2 L_j\right)\\
+    & =& -\frac{y^\nu_{ij}}{2\Lambda} \left(-\frac{v+H}{\sqrt{2}} \nu_i\right)^T i\sigma^2 \left(-\frac{v+H}{\sqrt{2}} \nu_j\right)\\
+    & =& -\frac{y^\nu_{ij}}{4\Lambda} (v+H)^2 \nu^2\\
+    & =& -\frac{y^\nu_{ij} v^2}{4\Lambda} \nu^2 - \frac{y^\nu_{ij}v}{2\Lambda} H\nu^2 - \frac{y^\nu_{ij}}{4\Lambda} H^2\nu^2
+\end{eqnarray}
+
+We see the neutrino mass term
+\begin{eqnarray}
+    -\frac{1}{2} M_{ij}^\nu \nu^2 = -\frac{y^\nu_{ij} v^2}{4\Lambda} \nu^2
+\end{eqnarray}
+which corresponds to $M_{ij}^\nu = \frac{y^\nu_{ij} v^2}{2\Lambda}$. The following terms are $H-\nu-\nu$ and $H-H-\nu-\nu$, respectively. There are no $H-l-l$ and $H-H-l-l$ interaction terms.
+
+\section{ }
+With the covariant derivative
+\begin{eqnarray}
+    D_\mu - \del_\mu=
+     i g_s           T^a A^a_\mu
+    + i \frac{g_W}{\sqrt 2} [T^+ W^+_\mu  + T^- W^-_\mu]
+    + i g_Z [ T^3 - Q \sin^2\theta_W ] Z_\mu
+    + i e Q A_\mu,
+\end{eqnarray}
+we can write
+\begin{eqnarray}
+    && {\cal L}_{int}(x)
+     = {\overline \Psi}(x)_{f'} i(D_\mu -\del_\mu) \gamma^\mu \Psi(x)_f \\ 
+     &=& -\frac{g_W}{\sqrt 2} W^+_\mu(x) u_L(x)^\dgr \sigma_-^\mu d_L(x)
+     -\frac{g_W}{\sqrt 2} W^-_\mu(x)  d_L(x)^\dgr \sigma_-^\mu u_L(x)
+     \nonumber \\&&-g_Z Z_\mu(x) [(T^3_f-Q_f\sin^2\theta_w) f_L(x)^\dgr \sigma_-^\mu f_L(x)  + (-Q_f\sin^2\theta_w) f_R(x)^\dgr \sigma_+^\mu f_R(x) ]
+     \nonumber \\ &&  -e A_\mu(x)  Q_f   [ f_L(x)^\dgr \sigma_-^\mu f_L(x)
+                                   +f_R(x)^\dgr \sigma_+^\mu f_R(x) ]\\
+     &=& V_\mu(x)     [  -g_L^{Vff'} f_L(x)^\dgr \sigma_-^\mu f'_L(x)
+                     -g_R^{Vff'} f_R(x)^\dgr \sigma_+^\mu f'_R(x) ],
+ \end{eqnarray}
+where $V_\mu(x)$ stands for the vector fields.
+Now we see
+\begin{eqnarray}
+    &&g_L^{Wud} = \frac{g_W}{\sqrt 2} V(CKM)_{ud},~~~ g_L^{Wdu} = \frac{g_W}{\sqrt 2} V(CKM)_{ud}^*,~~~ g_L^{Wnl} = \frac{g_W}{\sqrt 2} V(MNS)_{ln}^*,\\
+    &&g_L^{Wln} = \frac{g_W}{\sqrt 2} V(MNS)_{ln},~~~ g_R^{Wf'f} = 0.
+\end{eqnarray}
+\begin{eqnarray}
+    g_L^{Zff} &=& g_Z (T^3_f - Q_f \sin^2\theta_w ) \\ 
+    g_R^{Zff} &=& g_Z (      - Q_f \sin^2\theta_w ) \\
+    g_L^{Aff} &=& g_R^{Aff} = e Q_f 
+\end{eqnarray}
+
+\section{ }
+In the massless case,
+\begin{eqnarray}
+    u_L(p.\frac{1}{2})=u_R(p,-\frac{1}{2})=0
+\end{eqnarray}
+and consider $V_L=i\sigma^2u_R^*$, we see $v_L=0$, i.e. $\psi_L(x)$ has only helicity $-1/2$ fermions, and helicity $+1/2$ anti-fermions. 
+
+\section{ }
+At leading order, the amplitude is
+\begin{eqnarray}
+    &&iT[W^+(q,\lambda) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)] \nonumber \\ 
+    &=&\bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} S\ket{W^+(q,\lambda)} \\
+    &=&\bra{l^+(p_1,+1/2),\nu_l(p_2,-1/2)} i\int d^4x
+    (-g_L^{Wnl} W^+_\mu(x) \nu_L^\dagger \sigma_-^\mu l_L(x) \ket{W^+(q,\lambda)} \\
+    &=&(-ig_L^{Wnl}) \int d^4x \bra{0}b_{l^+}(p_1,1/2) a_{\nu_l}(p_1,-1/2)
+    W^+_\mu(x) \nu_L^\dagger \sigma_-^\mu l_L(x) b^\dagger_{W^+}(q,\lambda) \ket{0}
+\end{eqnarray}
+Recall the fields
+\begin{eqnarray}
+&&W^+_\mu(x) = W^-_\mu(x)^\dgr
+= \sum_h \int \frac{d^3k}{2E}
+( b_{W^+}(k,h)         \epsilon_\mu(k,h)   e^{-ikx}
++ a_{W^-}(k,h)^\dagger \epsilon_\mu(k,h)^* e^{ikx}) \\
+&&f_L(x)^\dgr
+= \sum_h \int \frac{d^3k_1}{2E_1}
+( a_f(k_1,h_1)^\dgr u_L(k_1,h_1)^\dgr e^{+ik_1x}
++ b_f(k_1,h_1)      v_L(k_1,h_1)      e^{-ik_1x} ) \\ 
+&&f'_L(x) = \sum_h \int \frac{d^3k_2}{2E_2}
+( a_{f'}(k_2,h_2)    u_L(k_2,h_2) e^{-ik_2x}
++ b_{f'}(k_2,h_2)^\dgr v_K(k_2,h_2) e^{+ik_2x} ),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    &&   iT[W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)] \nonumber \\
+   &=& (-ig_L^{Wnl}) \int d^4x
+   \bra{0} b_{l^+}(p_1,1/2) a_{\nu_l}(p1,-1/2)
+       W^+_\mu(x) \nu_L(x) \sigma_-^\mu l_L(x)
+                                   b^\dagger_{W^+}(q,\lmd) \ket{0}\\ 
+   &=& (-ig_L^{Wnl}) \int d^4x e^{-ix(q-p_1-p_2)}
+   \eps_\mu(W^+,q,\lmd) u_L(p_2,-1/2)^\dgr \sigma_-^\mu v_L(p_1,+1/2).
+\end{eqnarray}
+
+\section{ }
+Recall {\bf hw18-5}, we can rewrite the amplitude in terms of $M_{fi}$
+\begin{eqnarray}
+    && iT[W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)] \nonumber \\
+   &=& (-ig_L^{Wnl}) \int d^4x e^{-ix(q-p_1-p_2)}
+   \eps_\mu(W^+,q,\lmd) u_L(p_2,-1/2)^\dgr \sigma_-^\mu v_L(p_1,+1/2)\\
+   &=& (-ig_L^{Wnl}) (2\pi)^4 \delta^4(q-p_1-p_2)
+   \eps_\mu(W^+,q,\lmd) u_L(p_2,-1/2)^\dgr \sigma_-^\mu v_L(p_1,+1/2) \\
+   &=& i M_{fi} (2\pi)^4 \delta^4(p_f-p_i),
+\end{eqnarray}
+where
+\begin{eqnarray}
+    &&   M_{fi}
+    = M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2))\\
+    &=& -\eps_\mu(W^+,q,\lmd)
+    u_L(\nu_l,p_2,-1/2)^\dgr [ g_L^{Wnl} \sigma_-^\mu ] v_L(l^+,p_1,+1/2).
+\end{eqnarray}
+Now we introduce
+\begin{eqnarray}
+    \sigma_\pm
+=    \gamma^\mu P_\pm
+=    \frac{\gamma^\mu (1 \pm \gamma_5)}{2},
+\end{eqnarray}
+and finally obtain
+\begin{eqnarray}
+M_{fi}= -g_L^{Wnl} \eps_\mu(W^+,q,\lmd)
+   u_L(\nu_l,p_2,-1/2)^\dgr \sigma_-^\mu v_L(l^+,p_1,+1/2).
+\end{eqnarray}
+In the last step, we used
+\begin{eqnarray}
+    {\overline \Psi}(x) \gamma^\mu \frac{1 \pm \gamma_5}{2} \Psi(x)
+=    \psi_\pm(x)^\dgr  \sigma_\pm^\mu  \psi_\pm(x) \label{eq.18_41b}
+\end{eqnarray}
+by denoting the two Weyl spinors as $\psi_L(x)=\psi_-(x)$ and
+$\psi_R(x)=\psi_+(x)$.
+
+\section{ }
+\begin{eqnarray}
+    R(-(\pi-\theta)) p &=&
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 &\cos(-(\pi-\theta)) & 0 &\sin(-(\pi-\theta)) \\
+        0 & 0 & 1 & 0\\
+        0 &-\sin(-(\pi-\theta)) & 0 & \cos(-(\pi-\theta))
+    \end{pmatrix}
+    \begin{pmatrix}
+        E \\ 0 \\ 0 \\ E
+    \end{pmatrix}\\
+    &=& 
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 &-\cos\theta & 0 &-\sin\theta \\
+        0 & 0 & 1 & 0\\
+        0 &\sin\theta & 0 & -\cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        E \\ 0 \\ 0 \\ E
+    \end{pmatrix}
+    = E
+    \begin{pmatrix}
+        1 \\ -\sin\theta  \\ 0 \\ -\cos\theta
+    \end{pmatrix}
+\end{eqnarray}
+Since
+\begin{eqnarray}
+    \sin(\theta+\pi)=\sin(-(\pi-\theta))=-\sin\theta,~~~\cos(\theta+\pi)=\cos(-(\pi-\theta))=-\cos\theta,
+\end{eqnarray}
+we know $R_y(-(\pi-\theta))p = R_y(\pi+\theta) p$.
+
+\section{ }
+Recall {\bf hw12}, the rotation for spinors is
+\begin{eqnarray}
+    R_y(\theta)=
+    \begin{pmatrix}
+        \cos \frac{\theta}{2} & -\sin \frac{\theta}{2} \\
+        \sin \frac{\theta}{2} & \cos \frac{\theta}{2}
+    \end{pmatrix},
+\end{eqnarray}
+so we have
+\begin{eqnarray}
+    u_L(p_2,-1/2)
+    &=& \sqrt{2E} R_y(-(\pi-\theta)) 
+    \begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix}\\
+    &=& \sqrt{2E}
+    \begin{pmatrix}
+        \cos(\pi/2-\th/2) & \sin(\pi/2-\th/2) \\
+        -\sin(\pi/2-\th/2) &  \cos(\pi/2-\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\
+    &=& \sqrt{2E} 
+    \begin{pmatrix}
+        \cos(\theta/2) \\ \sin(\theta/2)
+    \end{pmatrix} 
+\end{eqnarray}
+
+\begin{eqnarray}
+    u_L(p_2,-1/2)
+    &=& \sqrt{2E} R_y(\pi+\theta) 
+    \begin{pmatrix}
+    0 \\ 1
+    \end{pmatrix}\\
+    &=& \sqrt{2E}
+    \begin{pmatrix}
+        \cos(\pi/2+\th/2) & -\sin(\pi/2+\th/2) \\
+        \sin(\pi/2+\th/2) &  \cos(\pi/2+\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix} \\
+    &=& 
+    \sqrt{2E}
+    \begin{pmatrix}
+        -\sin(\th/2) & -\cos(\th/2) \\
+        \cos(\th/2) &  -\sin(\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ 1
+    \end{pmatrix}\\
+    &=&
+    -\sqrt{2E} 
+    \begin{pmatrix}
+       \cos(\theta/2) \\ \sin(\theta/2)
+    \end{pmatrix} 
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    v_L(p_1,+1/2) &=& R_y(\theta) v_L(p,+1/2)  \\
+    &=&\sqrt{2E}
+    \begin{pmatrix}
+        \cos(\th/2) & -\sin(\th/2)\\
+        \sin(\th/2) &  \cos(\th/2)
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ -1
+    \end{pmatrix}\\
+    &=& \sqrt{2E}
+    \begin{pmatrix}
+        \sin(\th/2) \\ -\cos(\th/2)
+    \end{pmatrix}\label{eq.18_51}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    &&M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)) \\ 
+    &=& -g_L^{Wnl} \eps_\mu(W^+,q,\lmd) u_L(\nu_l,p_2,-1/2)^\dagger \sigma_-^\mu v_L(l^+,p_1,+1/2) \\
+    &=& -g_L^{Wln} (2E) \eps_\mu(W^+,q,\lmd) 
+    \begin{pmatrix}
+        \cos(\th/2)&\sin(\th/2)
+    \end{pmatrix}
+    \sigma_-^\mu
+    \begin{pmatrix}
+        \sin(\th/2)\\ -\cos(\th/2)
+    \end{pmatrix}\\
+    &=& -g_L^{Wln} (2E)
+    \eps_\mu(W^+,q,\lmd)
+    ( 0, \cos^2(\th/2)-\sin^2(\th/2), -i, -2\sin(\th/2)\cos(\th/2) ) \\
+    &=&-g_L^{Wln} (2E)
+    \eps_\mu(W^+,q,\lmd)
+    ( 0, \cos(\theta), -i, -\sin(\theta) )
+\end{eqnarray}
+Insert the polarization vectors
+\begin{eqnarray}
+    &&\eps^\mu(q,+1) = ( 0, -1, -i, 0 )/\sqrt2  \\
+    &&\eps^\mu(q, 0) = ( 0,  0,  0, 1 ) \\
+    && \eps^\mu(q,-1) = ( 0, +1, -i, 0 )/\sqrt2 
+\end{eqnarray}
+we have
+\begin{itemize}
+    \item $\lambda=+1$: $M_{fi}=\sqrt{2}E g_L^{Wnl} (\cos\th+1)$,
+    \item $\lambda=0$: $M_{fi}=2E g_L^{Wnl} \sin\th$,
+    \item $\lambda=-1$: $M_{fi}=\sqrt{2}E g_L^{Wnl} (1-\cos\th)$.
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+    \sqrt{2} R_y(\theta) \eps^\mu(J_z=+1)^* = 
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 &\cos\theta & 0 &\sin\theta \\
+        0 & 0 & 1 & 0\\
+        0 &-\sin\theta & 0 & \cos\theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\ -1 \\ -i \\ 0 
+    \end{pmatrix}^*
+    =
+    \begin{pmatrix}
+        0 \\ -\cos\th \\ -i \\ \sin\th
+    \end{pmatrix}^*
+\end{eqnarray}
+So we have
+\begin{eqnarray}
+    -(2E)\sqrt{2} R_y(\theta) \eps^\mu(J_z=+1)^* 
+    =-(2E)\sqrt{2} ( 0, -\cos(\theta), -i, \sin(\theta) )^*/\sqrt{2}
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+ d^{J=1}_{\pm 1,\pm 1}(\theta)&=&-\eps_\mu(J_z=\pm 1) R_y(\theta) \eps^\mu(J_z=\pm 1)^* \\ 
+&=& -\frac{1}{\sqrt 2} (0,\mp 1,-i,0) \frac{1}{\sqrt 2} (0,\mp \cos\th,i,\pm \sin\th) \\ 
+&=& \frac{1+\cos\th}{2}
+\end{eqnarray}
+\begin{eqnarray}
+    d^{J=1}_{\pm 1,\mp 1}(\theta)&=&-\eps_\mu(J_z=\pm 1) R_y(\theta) \eps^\mu(J_z=\mp 1)^* \\ 
+   &=& -\frac{1}{\sqrt 2} (0,\mp 1,-i,0) \frac{1}{\sqrt 2} (0,\pm \cos\th,i,\mp \sin\th) \\ 
+   &=& \frac{1-\cos\th}{2}
+\end{eqnarray}
+\begin{eqnarray}
+    d^{J=1}_{\pm 1,0}(\theta)&=&-\eps_\mu(J_z=\pm 1) R_y(\theta) \eps^\mu(J_z=0)^* \\ 
+   &=& -\frac{1}{\sqrt 2} (0,\mp 1,-i,0)  (0,\sin\th,0,\cos\th) \\ 
+   &=& \frac{\mp\sin\th}{\sqrt 2}
+\end{eqnarray}
+\begin{eqnarray}
+    d^{J=1}_{0,\pm 1}(\theta)&=&-\eps_\mu(J_z=0) R_y(\theta) \eps^\mu(J_z=\pm 1)^* \\ 
+   &=& - (0,0,0,1) \frac{1}{\sqrt 2}(0,\mp \cos\th,i,\pm\sin\th) \\ 
+   &=& \frac{\pm\sin\th}{\sqrt 2}
+\end{eqnarray}
+\begin{eqnarray}
+    d^{J=1}_{0,0}(\theta)&=&-\eps_\mu(J_z=0) R_y(\theta) \eps^\mu(J_z=0 )^* \\ 
+   &=& - (0,0,0,1)  (0,\sin\th,0,\cos\th) \\ 
+   &=& \cos\th
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+    && \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\pm 1,\pm 1}|^2 =  \int_{-1}^{+1} d\cos\theta |\frac{1+\cos\th}{2}|^2= 2/3 \\
+    && \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\pm 1,\mp 1}|^2 =  \int_{-1}^{+1} d\cos\theta |\frac{1-\cos\th}{2}|^2= 2/3 \\
+    && \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\pm 1,\mp 1}|^2 =  \int_{-1}^{+1} d\cos\theta |\frac{\mp\sin\th}{2}|^2= 2/3 \\
+    && \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\pm 1,\mp 1}|^2 =  \int_{-1}^{+1} d\cos\theta |\frac{\pm\sin\th}{2}|^2= 2/3 \\
+    && \int_{-1}^{+1} d\cos\theta |d^{J=1}_{\pm 1,\pm 1}|^2 =  \int_{-1}^{+1} d\cos\theta |\cos\th|^2= 2/3 
+\end{eqnarray}
+
+\section{ }
+Now the amplitude can be written in terms of d-functions as 
+\begin{eqnarray}
+    M(W^+(q,\lmd) \to l^+(p_1,+1/2) \nu_l(p_2,-1/2)) =g_L^{Wln} (2E) \sqrt{2} d^{J=1}_{\lmd,+1}(\theta).
+\end{eqnarray}
+By inserting
+\begin{eqnarray}
+    d^{J=1}_{\pm 1,1}(\theta)= \frac{1\pm\cos\th}{2},~~~d^{J=1}_{0,1}(\theta)=\frac{\sin\th}{\sqrt 2},
+\end{eqnarray}
+we have
+\begin{itemize}
+    \item $\lambda=+1$: $M_{fi}=\sqrt{2}E g_L^{Wnl} (\cos\th+1)$,
+    \item $\lambda=0$: $M_{fi}=2E g_L^{Wnl} \sin\th$,
+    \item $\lambda=-1$: $M_{fi}=\sqrt{2}E g_L^{Wnl} (1-\cos\th)$,
+\end{itemize}
+which agrees with the results in {\bf hw18-10}.
+
+\end{document}

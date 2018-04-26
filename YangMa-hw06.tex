@@ -1,0 +1,399 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+
+\begin{document}
+\title{Particle physics HW6}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+Consider $A \times B = C$ is a linear (matrix) representation of $a\times b = c$, then we can also have
+\begin{itemize}
+    \item Take the complex conjugate: $(A \times B)^* = C^*$, i.e. $A^* \times B^* = C^*$,
+    \item Since $(A \times B)^{-1} =B^{-1} A^{-1} = C^{-1}$, we have $(A^{-1})^T \times (B^{-1})^T = (B^{-1} A^{-1})^T = (C^{-1})^T$,
+    \item Take the complex conjugate again, $((A^{-1})^T \times (B^{-1})^T)^* = (C^{-1})^T$, which can be rewritten as $A^{-1})^\dagger \times (B^{-1})^\dagger = (C^{-1})^\dagger$.
+\end{itemize}
+
+\section{ }
+We can write $p^\mu p_\mu$ in matrix form as
+\begin{eqnarray}
+    p^\mu p_\mu =
+    \begin{pmatrix}
+        E&p_x&p_y&p_z
+    \end{pmatrix}
+    \begin{pmatrix}
+        E \\ -p_x \\-p_y\\-p_z
+    \end{pmatrix}
+    = E^2- p_x^2-p_y^2-p_z^2.
+\end{eqnarray}
+After the transformation $p^\mu \to L p^\mu$, $p_\mu \to L' p_\mu$, we have
+\begin{eqnarray}
+    {p'}^\mu p'_\mu &=&
+    \begin{pmatrix}
+        E'&p'_x&p'_y&p'_z
+    \end{pmatrix}
+    \begin{pmatrix}
+        E' \\ -p'_x \\-p'_y\\-p'_z
+    \end{pmatrix} \nonumber \\
+    &=&
+    (L p^\mu)^T L' p_\mu = (p^\mu)^T L^T L' p_\mu
+    = E^2- p_x^2-p_y^2-p_z^2,
+\end{eqnarray}
+is invariant. To satisty this invariance,
+\begin{eqnarray}
+    L'=(L^T)^{-1}=(L^{-1})^T.
+\end{eqnarray}
+
+\section{ }
+We now transform our ``old'' matrix representation into the new tensor representation via
+\begin{eqnarray}
+    &&q_i \to q^i ~~~ U_{ij} \to U^i_j\\
+    &&q_i^* \to q_i ~~~U^*_{ij} \to U^j_i, 
+\end{eqnarray}
+and have
+transformations of $q^i$ and $q_i$ can be expressed as
+\begin{eqnarray}
+ && q^i \to (q')^i = U^i_j q^j，\\
+ && q_i \to (q')_i = U_i^j q_j.
+\end{eqnarray}
+The invariance of the norm is then written as 
+\begin{eqnarray}
+q_i q^i \to  (q')_i (q')^i
+= (U_i^j q_j) (U^i_k q^k)
+=  U_i^j U^i_k  q_j q^k
+=  \delta ^j_k   q_j q^k
+=  q_k q^k
+\end{eqnarray}
+
+\section{ }
+The $SU(2)$ transformations are
+\begin{eqnarray}
+    && \phi \to U \phi ~~ \phi^c \to U \phi^c \\
+    && {\phi^c}^* \to U^* {\phi^c}^* ~~~ L \to U L 
+\end{eqnarray}
+and then we see the invariance of  $(\phi^c)^\dagger L$
+\begin{eqnarray}
+    (\phi^c)^\dagger L \to (\phi^c)^\dagger U^\dagger U L = (\phi^c)^\dagger L.
+\end{eqnarray}
+Recall the definition of $\psi^c=i\sigma^2 \psi^*$, we have
+\begin{eqnarray}
+    (\phi^c)^\dagger L = (i\sigma^2 \psi^*)^\dagger L= (-i\sigma^2 \psi)^T L= \psi^T (-i \sigma^2)L,
+\end{eqnarray}
+so $\psi^T (-i \sigma^2)L$ is also invariant under $SU(2)$ transformation.
+
+\section{ }
+For $\phi = (\phi^+, \phi^0)^T$ and $L = (\nu_L, l_L)^T$, we have
+\begin{eqnarray}
+    (\phi^c)^\dagger L & = & \phi^T (-i\sigma^2) L = 
+    \begin{pmatrix}
+        \phi^+ & \phi^0
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & 1 \\ -1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        \nu_L \\ l_L
+    \end{pmatrix}\\
+    &=&
+    \begin{pmatrix}
+        \phi^+ & \phi^0
+    \end{pmatrix}
+    \begin{pmatrix}
+        -l_L\\\nu_L
+    \end{pmatrix}
+    = -\psi^+ l_L + \psi^0 \nu_L
+\end{eqnarray}
+
+\section{ }
+For
+\begin{eqnarray}
+    {\cal L}  =  (\del^\mu \phi)^\dagger (\del_\mu \phi) -m^2 \phi^\dagger \phi,
+\end{eqnarray}
+which is invariant under $U(1)$ transformation, we write
+\begin{eqnarray}
+    0 = \delta {\cal L} &=& {\cal L}(\phi', \del_\mu \phi') - {\cal L}(\phi, \del_\mu \phi)\\
+  &=&  [\delta {\cal L} / \delta{\phi}] \delta\phi +  [\delta {\cal L} / \delta{\del_\mu \phi}] \delta{\del_\mu \phi}\\
+  &=& (\del_\mu [\delta L/\delta{\del_\mu \phi}]) \delta\phi +  [\delta L / \delta{\del_\mu \phi}] (\del_\mu \delta\phi) \\
+  &=& \del_\mu ([\delta L/\delta{\del_\mu \phi}] \delta\phi) \\&=&  \del_\mu j(x)^\mu,
+\end{eqnarray}
+where we used the equation of motion
+\begin{eqnarray}
+    [\delta {\cal L} / \delta{\phi}]  =  \del_\mu [\delta {\cal L}/\delta{\del_\mu \phi}].
+\end{eqnarray}
+For infinitesimal transformation
+\begin{eqnarray}
+    \phi \to (1+i\theta )\phi, ~~~ \phi^\dagger  \to (1-i\theta )\phi^\dagger,
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    j^\mu &=& \frac{\delta {\cal L}}{\delta \del_\mu \phi } \delta \phi +\frac{\delta {\cal L}}{\delta \del_\mu \phi^\dagger } \delta \phi^\dagger \\
+    &=& i\theta [ (\del_\mu \phi)^\dagger \delta \phi - (\del_mu \phi) \phi^\dagger].
+\end{eqnarray}
+The charge is
+\begin{eqnarray}
+    Q=\int d^3x j^0= i\theta \int d^3 x [ (\del_0 \phi)^\dagger \delta \phi - (\del0 \phi) \phi^\dagger].
+\end{eqnarray}
+
+\section{ }
+We first use a $3\times 3$ complex matrix to represent $O$, so there are $18$ matrix elements. For $O=O^*$, we see that all the elements should be real, i.e. there are only $9$ elements. $O^T=O$ gives that, $O_{ij}=O_{ji}$ and all diagnal elements equal to zero, then there are only $3$ real numbers to paramterize the $SO(3)$ group.
+
+\section{ }
+
+\begin{enumerate}
+    \item 
+    \begin{itemize}
+        \item $O(x,0,0)$, a rotation by an angle x about the x axis,
+        \begin{eqnarray}
+            O(x,0,0)=
+            \begin{pmatrix}
+                1& 0         & 0\\
+                0&\cos x & \sin x\\
+                0&-\sin x & \cos x 
+            \end{pmatrix},
+        \end{eqnarray}
+        whose generator is
+        \begin{eqnarray}
+            J_x=\frac{1}{i}\frac{\del O(x,0,0)}{\del x}|_{x=0} =
+            \begin{pmatrix}
+                0&0&0\\
+                0&0&i\\
+                0&-i&0
+            \end{pmatrix} 
+        \end{eqnarray}
+        \item $O(0,y,0)$, a rotation by an angle y about the y axis,
+        \begin{eqnarray}
+            O(0,y,0)=
+            \begin{pmatrix}
+                \cos y& 0    & -\sin y\\
+                0&1 & 0\\
+                \sin y&0 & \cos y
+            \end{pmatrix},
+        \end{eqnarray}
+        whose generator is
+        \begin{eqnarray}
+            J_y=\frac{1}{i}\frac{\del O(0,y,0)}{\del y}|_{y=0} =
+            \begin{pmatrix}
+                0&0&-i\\
+                0&0&0\\
+                i&0&0
+            \end{pmatrix} 
+        \end{eqnarray}
+        \item $O(0,0,z)$, a rotation by an angle z about the z axis,
+        \begin{eqnarray}
+            O(0,0,z)=
+            \begin{pmatrix}
+                \cos z& \sin z    & 0\\
+                -\sin z&\cos z & 0\\
+               0 &0 & 1
+            \end{pmatrix},
+        \end{eqnarray}
+        whose generator is
+        \begin{eqnarray}
+            J_z=\frac{1}{i}\frac{\del O(0,0,z)}{\del z}|_{z=0} =
+            \begin{pmatrix}
+                0&i&0\\
+                -i&0&0\\
+                0&0&0
+            \end{pmatrix} 
+        \end{eqnarray}
+      \end{itemize} 
+    \item
+    \begin{eqnarray}
+        &&[ J_x, J_y ] = 
+        \begin{pmatrix}
+            0&0&0\\
+            0&0&i\\
+            0&-i&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&0&-i\\
+            0&0&0\\
+            i&0&0
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            0&0&-i\\
+            0&0&0\\
+            i&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&0&0\\
+            0&0&i\\
+            0&-i&0
+        \end{pmatrix}
+        =i J_z \\
+        &&[ J_y, J_z ] = 
+        \begin{pmatrix}
+            0&0&-i\\
+            0&0&0\\
+            i&0&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&i&0\\
+            -i&0&0\\
+            0&0&0
+        \end{pmatrix} 
+        -
+        \begin{pmatrix}
+            0&i&0\\
+            -i&0&0\\
+            0&0&0
+        \end{pmatrix} 
+        \begin{pmatrix}
+            0&0&-i\\
+            0&0&0\\
+            i&0&0
+        \end{pmatrix}
+        =i J_x \\
+        &&[ J_z, J_x ] = 
+        \begin{pmatrix}
+            0&i&0\\
+            -i&0&0\\
+            0&0&0
+        \end{pmatrix} 
+        \begin{pmatrix}
+            0&0&0\\
+            0&0&i\\
+            0&-i&0
+        \end{pmatrix}
+        -
+        \begin{pmatrix}
+            0&0&0\\
+            0&0&i\\
+            0&-i&0
+        \end{pmatrix}
+        \begin{pmatrix}
+            0&i&0\\
+            -i&0&0\\
+            0&0&0
+        \end{pmatrix}
+        =i J_y
+    \end{eqnarray}
+
+    \item
+    Now we can take $J_x$ to obtain the normalization factor
+    \begin{eqnarray}
+        Tr\{ J_x j_x\} = Tr\{ 
+            \begin{pmatrix}
+                0&0&0\\
+                0&0&i\\
+                0&-i&0
+            \end{pmatrix}
+            \begin{pmatrix}
+                0&0&0\\
+                0&0&i\\
+                0&-i&0
+            \end{pmatrix}
+            \} =2,
+    \end{eqnarray}
+    the same result will be derieved if we take $J_y$ or $J_z$.
+    \item 
+ 
+    \begin{eqnarray}
+        O(x,0,0)= e^{-ixJ_x}= 1-ixJ_x+\frac{1}{2!} (-ixJ_x)^2+\dots=
+        \begin{pmatrix}
+            1& 0         & 0\\
+            0&\cos x & \sin x\\
+            0&-\sin x & \cos x 
+        \end{pmatrix},
+    \end{eqnarray}
+   \begin{eqnarray}
+        O(0,y,0)= e^{-iyJ_y}= 1-iyJ_y+\frac{1}{2!} (-iyJ_y)^2+\dots=
+        \begin{pmatrix}
+            \cos y& 0    & -\sin y\\
+            0&1 & 0\\
+            \sin y&0 & \cos y
+        \end{pmatrix},
+   \end{eqnarray}
+   \begin{eqnarray}
+    O(0,0,z)=e^{-izJ_z}= 1-izJ_z+\frac{1}{2!} (-izJ_z)^2+\dots=
+    \begin{pmatrix}
+        \cos z& \sin z    & 0\\
+        -\sin z&\cos z & 0\\
+       0 &0 & 1
+    \end{pmatrix}.
+    \end{eqnarray}
+\end{enumerate}
+
+\section{ }
+\begin{enumerate}
+    \item $2 \times 2$ complex has $8$ degree of freedom (DOF). The requirement $J_k=J_k^\dagger$ reduces the DOF to $4$ by requiring the diagnal elements to be real and the anti-diagnal ones to be equal. $Tr\{ J_k\}=0$ relates the diagnal elements and then the DOF is reduced to $3$, i.e. elements of $SU(2)$ group could be paramterized by $3$ real numbers.
+    \item With $J_k = \sigma_k/2$, we have
+    \begin{eqnarray}
+        [J_i,J_j]=\frac{1}{4} [\sigma_i,\sigma_j]=2i\epsilon_{ijk}\sigma_k,
+    \end{eqnarray}
+    which can be written as
+    \begin{eqnarray}
+        &&[ J_x, J_y ] = i J_z, \\
+        &&[ J_y, J_z ] = i J_x, \\
+        &&[ J_z, J_x ] = i J_y.
+    \end{eqnarray}
+    \item 
+    \begin{eqnarray}
+        U(x,0,0)= e^{-ixJ_x}= 1-ixJ_x+\frac{1}{2!} (-ixJ_x)^2+\dots=
+        \begin{pmatrix}
+            \cos\frac{x}{2}& i\sin\frac{x}{2} \\
+            i\sin\frac{x}{2}&\cos\frac{x}{2}
+        \end{pmatrix},
+    \end{eqnarray}
+    \begin{eqnarray}
+        U(0,y,0)= e^{-iyJ_y}= 1-iyJ_y+\frac{1}{2!} (-iyJ_y)^2+\dots=
+        \begin{pmatrix}
+            \cos \frac{y}{2}&  -\sin \frac{y}{2}\\
+            \sin \frac{y}{2}&\cos \frac{y}{2}
+        \end{pmatrix},
+   \end{eqnarray}
+   \begin{eqnarray}
+    U(0,0,z)&=&e^{-izJ_z}= 1-izJ_z+\frac{1}{2!} (-izJ_z)^2+\dots\\
+    &=&
+    \begin{pmatrix}
+        \cos \frac{z}{2}-i\sin \frac{z}{2}    & 0\\
+               0 &\cos\frac{z}{2}-i\sin \frac{z}{2}  
+    \end{pmatrix}.
+    \end{eqnarray}
+\end{enumerate}
+
+\section{ }
+Here we need the {\bf Baker–Campbell–Hausdorff formula}
+\begin{eqnarray}
+    e^X e^Y = e^{X+Y+\frac{1}{2}[X,Y]+\frac{1}{12}[X,[X,Y]]}.
+\end{eqnarray}
+and then have
+\begin{eqnarray}
+    e^{ix_k T_k}e^{ix'_l T'_l}=e^{ix_k T_k+ix'_l T'_l+\frac{1}{2}[ix_k T_k,ix'_l T'_l]+\cdots}.
+\end{eqnarray}
+We see
+\begin{eqnarray}
+    [ix_k T_k,ix'_l T'_l]=x_k x'_l [ T'_l, T_k]=ix_k x'_l f_{lk}^mT_m
+\end{eqnarray}
+is a linear combination of $i T_m$, which indicates that  $e^{ix_k T_k}e^{ix'_l T'_l}$ is also a transformation.
+
+\section{ }
+\begin{itemize}
+    \item Using {\bf Jacobi's formula}
+    \begin{eqnarray}
+        {\rm det}\{e^{tB}\}=e^{Tr\{tB\}},
+    \end{eqnarray}
+    we see if ${\rm det}\{A\}={\rm det}\{e^{x_kT_k}\}=1$, then $e^{Tr\{x_kT_k\}}=1$ is true for arbitrary $x_k$, implying $Tr\{T_k\}=0$.
+    \item With
+    \begin{eqnarray}
+        A^\dagger = e^{-ix_kT_k^\dagger}= A^{-1}=e^{-x_kT_k},
+    \end{eqnarray}
+    we see $T^\dagger _k = T_k$.
+\end{itemize}
+
+\section{ }
+A complex matrix $M$ has $2n^2$ elements. The condition $M^\dagger =M$ will reduce the DOF to $n^2$ by requiring $M_{ij}=M_{ji}^*$. Then $Tr\{M\}=0$ will reduce DOF to $n^2-1$ since one of the diagnal element could be written as a linear combination of the rest diagnal elements.
+
+
+\end{document}

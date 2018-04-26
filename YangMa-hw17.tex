@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+
+\begin{document}
+\title{Particle physics HW17}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+\begin{eqnarray}
+    \frac{1}{n!}T\left[i\int d^4x {\cal L}_{int}(x)\right]^n & = &
+    \frac{1}{n!} T \int \prod_{k=1}^n d^4x_k i {\cal L}_{int}(x_k)\\
+    & =&\frac{1}{n!} \int T \left[\prod_{k=1}^{n}d^4x_k i{\cal L}_{int}(x_k)\right]\\
+    & = &\frac{1}{n!}\prod_{k=1}^{n-1} \int i\mathcal{L}_{int} (x_k) \Theta(x_k^0 - x_{k+1}^0) \int d^4 x_n i\mathcal{L}_{int}(x_n)
+\end{eqnarray}
+
+\section{ }
+\begin{eqnarray}
+   && d^4x' =\det({L^\mu}_\nu) d^4x = d^4x\\
+   && {\cal L}'_{int}(x') = {\cal L}_{int}(x)\\
+   && \int d^4x' {\cal L}'_{int}(x') = \int d^4x {\cal L}_{int}(x)
+\end{eqnarray}
+
+\section{ }
+Skip.
+\section{ }
+\begin{eqnarray}
+\bra{f}1\ket{i}=\bra{0}a(p_\tau h_\tau) b(p_{\overline \tau},h_{\overline \tau})a^\dagger (p_H) \ket{0}=\bra{0}a^\dagger (p_H) a(p_\tau,h_\tau)b(p_{\overline \tau},h_{\overline \tau})\ket{0} =0
+\end{eqnarray}
+
+\section{ }
+Recall {\bf hw10-5}, by making the replacement for lepton mass
+\begin{eqnarray}
+    m_l \to m_l (1+H/v)
+  \end{eqnarray}
+in
+\begin{eqnarray}
+    {\cal L}_{Yukawa} &=& l_L^\dagger M^l l_R + h.c. \\
+    &=& - (e_L^\dagger, \mu_L^\dagger, \tau_L^\dagger) {\rm diag}\{m_e,m_\mu,m_\tau\} (e_R,\mu_R,\tau_R)^T
+    +
+    h.c. \\
+    &=& - \sum_l g_{Hll} m_l (l_L^\dagger l_R + l_R^\dagger l_L),
+  \end{eqnarray}
+  we see
+  \begin{eqnarray}
+    {\cal L}_{Hll} &=& - \sum_l  m_l (1+H/v) (l_L^\dagger l_R + l_R^\dagger l_L)
+ \end{eqnarray}
+see $g_{H\tau\tau}=m_\tau/v$ in 
+\begin{eqnarray}
+    {\cal L}_{H\tau\tau} = - g_{H\tau\tau} H (l_{\tau,L}^\dagger l_{\tau,R} + l_{\tau,R}^\dagger l_{\tau,L})=- g_{H\tau\tau} H {\overline \Psi}_\tau \Psi_\tau.
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item Quark and lepton fields are proportional to $\phi$ (or $\phi^c$) in ${\cal L}_{Yukawa}$ so the mass terms should be modified as $m\to m(1+H(x)/v)$ by $v \to v+H(x) = v(1+H(x)/v)$. 
+    \item Neutrino fields are proportional to $\phi^2$ in ${\cal L}_{Yukawa}$ so the mass terms should be modified as $m\to m(1+H(x)/v)^2$ by $v \to v+H(x) = v(1+H(x)/v)$.
+    \item Recall
+    \begin{eqnarray}
+        D_\mu = \del_\mu +\frac{ig}{\sqrt 2} (T^+ W_\mu^+ + T^-W_\mu^-)+ig_Z(T^3-Q\sin^2\theta_W)Z_\mu + iQeA_\mu,
+    \end{eqnarray}
+    note that $Q=0$ for Higgs, so we have
+    \begin{eqnarray}
+        (D_\mu \phi)^\dagger (D^\mu \phi) =  \frac{1}{ 2}\del_\mu H \del^\mu H + \frac{g^2}{2}W_\mu^-{W^+}^\mu \frac{(v+H)^2}{2}+\frac{g_Z^2}{4} \frac{(v+H)^2}{2} Z_\mu Z^\mu. 
+    \end{eqnarray}
+    after $v \to v+H(x) = v(1+H(x)/v)$.
+    Then we see 
+    \begin{eqnarray}
+        {\cal L}_{Higgs} &=& (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi) \\ 
+        &=& \frac{1}{2}\del_\mu H \del^\mu H + \frac{g^2}{2}W_\mu^-{W^+}^\mu \frac{(v+H)^2}{2}+\frac{g_Z^2}{4} \frac{(v+H)^2}{2} Z_\mu Z^\mu -V(\phi) \\
+        &=& \frac{1}{2} \del_\mu H \del^\mu H+
+        m_W^2 W^+_\mu {W^-}^\mu
+        + \frac{m_Z^2}{2} Z_\mu Z^\mu -\frac{m_H^2}{2} H^2
+        + \cdots 
+    \end{eqnarray}
+    The $W$ and $Z$ mass terms should be modified as $m^2\to m^2(1+H(x)/v)^2$
+\end{itemize}
+Recall {\bf hw10-3}, {\bf hw10-4}, we can write the Higgs potential
+\begin{eqnarray}
+    &&{\cal L}_{Higgs~potential}=-V(\phi) =-\frac{\lambda}{4} (\phi^\dagger \phi)^2 - \mu^2 (\phi^\dagger \phi) 
+    =-\frac{\lambda}{4} (\phi^\dagger \phi)^2 + \frac{\lambda v^2}{4}(\phi^\dagger \phi) \\
+    &=& -\frac{\lambda}{4} \frac{(v+H)^4}{4} +\frac{\lambda v^2}{4}\frac{(v+H)^2}{2} 
+    = -\frac{\lambda}{16}(H^4+4vH^3+4v^2H^2-v^4) \\
+    &=&  -\frac{\lambda v^2}{2}  \frac{H^2}{2}
+    -\frac{3 \lambda v}{2}   \frac{H^3}{3!}
+    -\frac{3 \lambda }{2}   \frac{H^4}{4!},
+\end{eqnarray}
+
+If we replace $\frac{1}{2} m_H^2 H^2$ by $m_H^2 \rightarrow m_H^2(1+H/v)^2$ we see:
+\begin{eqnarray}
+    -\frac{1}{2} m_H^2 H^2  \to -\frac{1}{2} m_H^2 H^2 (1+\frac{H}{v})^2 &=& -\frac{1}{2} m_H^2 H^2 - \frac{m_H^2}{v} H^3 - \frac{m_H^2}{2v^2} H^4 \\
+    & =& -\frac{\lambda v^2}{4} H^2 - \frac{\lambda v}{2} H^3 - \frac{\lambda}{4} H^4
+\end{eqnarray}
+So we get the wrong $H^3$ and $H^4$ terms in the Higgs potential.
+
+
+\section{ }
+To calculate
+\begin{eqnarray}
+  S_{fi}= -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)
+      H(x) {\overline \Psi}_\tau(x) \Psi_\tau(x) a(p_H)^\dgr \ket{0} ,
+\end{eqnarray}
+we need to recall the three fields,
+\begin{eqnarray}
+  H(x)  &=& \int \frac{d^3p}{(2E)(2\pi)^3} [ a({\vec p}) e^{-ipx} + a(\vec p)^\dgr e^{ipx} ]  \\
+\Psi(x)  &=& \int \frac{d^3p}{(2E)(2\pi)^3}
+  \sum_{h=\pm1/2} [a({\vec p},h)     e^{-ipx} u({\vec p},h)
+  + b({\vec p},h)^\dgr e^{ipx}  v({\vec p},h)]  \\ 
+{\overline \Psi}(x) &=& \int \frac{d^3p}{(2E)(2\pi)^3} \sum_{h=\pm1/2}
+  { a({\vec p},\lambda)^\dgr e^{ipx}  {\overline u}({\vec p},\lambda)
+  + b({\vec p},\lambda)      e^{-ipx} {\overline v}({\vec p},\lambda) }
+\end{eqnarray}
+and pluig them into $S_{fi}$
+\begin{eqnarray}
+  S_{fi} &=& -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} b(p_{\overline \tau},h_{\overline \tau}) a(p_\tau,h_\tau)
+  \int \frac{d^3p}{(2E)(2\pi)^3} a_H(p) e^{-ipx}
+  \nonumber \\&&\int \frac{d^3p'}{(2E')(2\pi)^3} \sum_{h'}
+      a_\tau(p',h')^\dgr e^{ip'x}  {\overline u}(p',h')
+      \nonumber \\&& \int \frac{d^3p{''}}{(2E{''})(2\pi)^3} \sum_{h{''}}
+      b_{\overline \tau}(p{''},h{''})^\dgr e^{ip{''}x} v(p{''},h{''})
+  a(p_H)^\dgr \ket{0} 
+\end{eqnarray}
+By using the commutation and anti-commutations among operators we finally obtain
+\begin{eqnarray}
+  S_{fi}
+  &=& -i\frac{m_\tau}{v} \int d^4 x
+  \bra{0} e^{-ix p_H}
+      e^{ ix p_\tau} {\overline u}(p_\tau,h_\tau)
+      e^{ ix p_{\overline \tau}} v(p_{\overline \tau},h_{\overline \tau}) \ket{0} \\
+      &=&-i\frac{m_\tau}{v} \int d^4 x
+      e^{ix(p_\tau+p_{\overline \tau}-p_H)}
+      {\overline u}(p_\tau,h_\tau) v(p_{\overline \tau},h_{\overline \tau})  \bra{0}\ket{0} \\
+      &=& -i\frac{m_\tau}{v} (2\pi)^4 \delta^4( p_\tau+p_{\overline \tau}-p_H )
+      {\overline u}(p_\tau,h_\tau) v(p_{\overline \tau},h_{\overline \tau}) 
+\end{eqnarray}
+
+\section{ }
+Since we know
+\begin{eqnarray}
+    S^\dagger S = (1 + iT)^\dagger (1+iT)
+                    = 1 -i(T^\dagger - T) + T^\dagger T
+                    = 1 ,
+\end{eqnarray}
+one then have 
+\begin{eqnarray}
+    -i(T^\dagger - T) + T^\dagger T=0,
+\end{eqnarray}
+which is 
+\begin{eqnarray}
+    -i(T-T^\dagger) = T^\dagger T 
+\end{eqnarray}
+
+
+\section{ }
+Since we know, we can take the matrix element
+\begin{eqnarray}
+    \bra{i} -i(T-T^\dagger) - T^\dagger T \ket{i} = -i(T-T*) - (T^\dagger T)_{ii} =0,
+\end{eqnarray}
+which leads to 
+\begin{eqnarray}
+    2{\rm Im}T_{ii}=(T^\dagger T)_{ii} = \sum_{f}\bra{i}T^\dagger \ket{f}\bra{i}T\ket{i} =\sum_f |T_{fi}|^2.
+\end{eqnarray}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

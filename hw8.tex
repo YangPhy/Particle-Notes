@@ -1,0 +1,496 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW8 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,
+
+This week, I introduce
+
+\begin{enumerate}
+  \item ${\cal L}_{Higgs}$ gives W and Z mass terms, the Higgs boson kinetic
+  terms and the interactions among W, Z, Higgs.  They are
+  given all in the ``Unitary gauge''.
+  \item The Higgs potential in ${\cal L}_{Higgs}$ has $SO(4)$, or $SU(2)_L \times SU(2)_R$
+  symmetry, which breaks down spontaneously to $SO(3)$, or $SU(2)_{custodial}$.
+  This ``accidental'' symmetry gives the tree-level relation
+  \begin{eqnarray}
+    \rho =\frac{G_{NC}}{G_{CC}}=\frac{g_Z^2/m_Z^2}{g_W^2/m_W^2 }=\left (\frac{m_W}{m_Z\cos\theta_W} \right )^2=1
+  \end{eqnarray}
+  This tree-level relation is broken by radiative corrections, because
+  the $SU(2)_{custodial}$ symmetry is not respected by the Yukawa interactions
+  (mainly by the heavy top quark mass) and by the Hyper-charge gauge
+  interactions, $U(1)_Y$.  Experiments verify the symmetry including the
+  radiative corrections.  Therefore, the existence of the custodial
+  $SU(2)$ symmetry in the Higgs potential is the most important knowledge
+  we have for the otherwise completely mysterious physics of the
+  spontaneous breakdown of $SU(2)_L \times U(1)_Y$ gauge symmetry.
+
+  We can show that the $SU(2)_{custodial}$ symmetry exists in
+  general if only $SU(2)_L$ doublet Higgs bosons have v.e.v.'s.
+  Existence of non-doublet vacuum expectation values (such as
+  triplet, quartet, etc) break the symmetry in general
+  (excluding subtle cancellation among non-doublet v.e.v.'s).
+
+  Existence of the $SU(2)_L$ doublet and $Y=\pm 1/2$ Higgs boson is the
+  necessary condition for the SM to give masses to quarks and leptons.
+  That they are the only Higgs bosons which give masses to the weak
+  bosons (W and Z) is an important clue for us to explore the origin
+  of the Higgs bosons and their interactions.
+
+  \item I explain how to obtain quark and lepton masses from ${\cal L}_{Yukawa}$,
+  again in the Unitary gauge for the minimum SM Higgs boson.
+
+  We need two Unitary matrices each to diagonalize the up
+  quark, down quark, and charged lepton mass matrices
+  ($3 \times  3$ matrices in the 3 generation space).
+
+  For neutrinos, the two Unitary matrices should be a transpose of one
+  another, if their masses are Majorana type.  In this case, the diagonal
+  elements are in general complex, and the two relative phases (among
+  the three phases) have observable consequences in lepton number
+  violating processes, such as in neutrino-less double beta decay
+  ($0\nu\beta\beta$).
+
+  In the SM, all quark/leptons with the same charge, i.e., u's($2/3$),
+  d's($-1/3$), l's($-1$), and nu's($0$), have exactly the same $SU(3)_C$
+  $\times SU(2)_L \times U(1)_Y$ quantum numbers.  Because of this,
+  all the electrically neutral gauge interactions (all gluons, Z and
+  $\gamma$) are diagonal in the mass-eigenstate basis, at least in the
+  tree level.  This is called diagonal neutral currents, or the
+  absence/smallness of the flavor changing neutral currents (FCNC).
+  Therefore, FCNC's in the SM are proportional to radiative corrections,
+  and they can be sensitive to new physics beyond the SM.
+
+  In the charged current (CC), one combination of the Unitary matrices
+  which diagonalize up and down (neutrino and charged lepton) mass
+  matrices survive, and they give inter-generation transitions in
+  the mass-eigenstate bases.  The Unitary matrix for the quark sector
+  CC is called CKM (Cabibbo-Kobayashi-Maskawa) and that for the lepton
+  sector is sometimes called MNS (Maki-Nakagawa-Sakata) or PMNS,
+  including Pontecorvo.
+
+  We find that the $3\times 3$ Unitary matrix for quarks has 3 mixing angles
+  and one CP phase.  The $3\times 3$ Unitary matrix for leptons also has
+  3 mixing angle and one CP phase for transitions which conserve
+  the lepton number (such as the neutrino flavor oscillations),
+  but can also have two additional phases if all the 3 neutrino
+  masses are Majorana type.
+
+  \item Higgs interactions in the minimum SM are very simple, since all the
+  masses of weak-bosons, quarks and leptons are proportional to one
+  and only one vacuum expectation value $v$, (Majorana neutrino mass is
+  proportional to $v^2$), and the Higgs interactions are obtained simply
+  by replacing $v$ by $v+H$ in the unitary gauge.
+
+  The Higgs boson mass and the Higgs boson self interactions, ($HHH$ and
+  $HHHH$ interactions) have slightly different relationship, because two
+  terms (with positive $\lambda$ and negative $\mu^2$) in the Higgs potential
+  contribute to give the vacuum expectation value and the Higgs boson
+  mass at the same time.
+
+  All these couplings of the Higgs boson should be measured, since they
+  can be sensitive to the existence of more particles (such as another
+  Higgs doublet, which preserves the custodial $SU(2)$ symmetry, and can
+  preserve the flavor diagonal couplings if only one of the Higgs
+  doublet gives masses to fermions of the same charge).
+\end{enumerate}
+
+{\bf Now let me give my homework 08 (and 09) on the above subjects}:
+
+  Let me repeat the SM Lagrangian as
+  \begin{eqnarray}
+    {\cal L}_{SM} = {\cal L}_{gauge} + {\cal L}_{fermion} + {\cal L}_{Higgs} + {\cal L}_{Yukawa} \label{eq.8LSM}
+  \end{eqnarray}
+   and I write ${\cal L}_{Higgs}$ in terms of the Higgs bosons whose
+  3-2-1 quantum numbers are $(1,2,+1/2)$
+  \begin{eqnarray}
+    \phi = ( \phi^+, \phi^0 )^T
+  \end{eqnarray}
+  the Higgs doublet. Its gauge invariant Lagrangian is
+  \begin{eqnarray}
+    {\cal L}_{Higgs} = (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi)
+  \end{eqnarray}
+   with
+  \begin{eqnarray}
+    V(\phi) = \lambda/4 (\phi^\dagger \phi)^2
+                  + \mu^2 (\phi^\dagger \phi)
+  \end{eqnarray}
+  The potential has a minimum when $\lambda > 0$
+  and the potential should have zero slope at the minimum:
+  \begin{eqnarray}
+    \frac{dV(\phi)}{d\phi}|_{\phi=<\phi>}=0
+  \end{eqnarray}
+  which reads
+  \begin{eqnarray}
+    (\frac{\lambda}{2} <\phi>^\dagger <\phi> + \mu^2) <\phi>^\dagger = 0. \label{eq.8pde}
+  \end{eqnarray}
+  When $\mu^2 > 0$, there is only one minimum at
+  $<\phi> = 0$
+  which is a symmetric vacuum. The Higgs boson is complex and
+  its mass is $\mu$, and all $W^1$, $W^2$, $W^3$ gauge bosons as well as
+  B bosons are massless.  We cannot distinguish up quark from
+  down quark, neutrino from charged lepton, and in fact even
+  leptons are confined due to unbroken $SU(2)_L$ gauge interactions.
+  The hyper-change gauge boson is like a photon, but it couples to
+  hypercharge, rather than the electric charge.  The world looks
+  very different from the world which we live.
+
+  If $\mu^2 < 0$
+  then Eq.\ref{eq.8pde} gives two solutions, one is $<\phi> = 0$, and the other is
+  \begin{eqnarray}
+    <\phi>^\dagger <\phi> = -2\mu^2/\lambda = v^2/2 \label{eq.82so}
+  \end{eqnarray}
+  The solution $<\phi> = 0$ actually gives a local maximum of the potential,
+  and the solution Eq.\ref{eq.82so} gives the true minimum (vacuum in QFT).
+  You have shown this in the last homework. The minimum point
+  (vacuum) can be at any location as long as Eq.\ref{eq.82so} is satisfied.
+  We can for instance parametrize it as
+  \begin{eqnarray}
+    <\psi>=
+    \begin{pmatrix}
+      \frac{v}{\sqrt2} \sin\theta e^{i\alpha} \\
+      \frac{v}{\sqrt2} \cos\theta e^{i\beta}
+    \end{pmatrix}
+  \end{eqnarray}
+  with arbitrary real angles $\theta$, $\alpha$, $\beta$.  In the previous
+  homework, we showed that a combination of two $SU(2)_L$ rotations
+  and one $U(1)_Y$ rotation can bring the minimum to
+  \begin{eqnarray}
+    <\phi> = 
+    \begin{pmatrix}
+      0 \\ v/\sqrt2
+    \end{pmatrix} \label{eq.8phib}
+  \end{eqnarray}
+
+  In other words, no matter where the minimum resides in the doublet
+  field $\phi$, we can always define the new $T^3$ axis such that the
+  v.e.v. has the form Eq.\ref{eq.8phib}, and hence is has zero electromagnetic charge:
+  \begin{eqnarray}
+    Q <\phi> = (T^3 + Y) <\phi> = (-1/2 + 1/2) <\phi> = 0. \label{eq.8Q0}
+  \end{eqnarray}
+
+  This is the reason why the electromagnetic $U(1)$ symmetry, generated
+  by the charge operator $Q$ survives after the symmetry breakdown.
+  Theoretically, the SM vacuum is invariant under $U(1)_{EM}$
+ \begin{eqnarray}
+  <\phi> \to <\phi>' = e^{iQ\theta} <\phi> = <\phi>
+ \end{eqnarray}
+  because of Eq.\ref{eq.8Q0}. The vacuum (Eq.\ref{eq.8phib}) is not invariant under both $SU(2)_L$ and $U(1)_Y$ symmetries. Since all the interactions in
+  the Lagrangian are symmetric under $SU(2)_L \times U(1)_Y$ symmetry,
+  we express the symmetry breaking due to the vacuum as spontaneous
+  breakdown of the symmetry.  Since the vacuum is symmetric under
+  $U(1)$ transformation along one combination
+ \begin{eqnarray}
+  Q = T^3 + Y
+ \end{eqnarray}
+  of the 4 generators of the original $SU(2)_L \times U(1)_Y$ symmetry,
+  we say that the $SU(2)_L \times U(1)_Y$ symmetry is spontaneously
+  broken down to $U(1)_{EM}$ symmetry by the Higgs boson v.e.v. (Eq.\ref{eq.8phib}).
+
+  Now, let us show that the above symmetry breaking pattern of the
+  Higgs doublet model preserves a global symmetry, which was found
+  and named $SU(2)_{custodial}$ by t'Hooft.
+
+{\bf hw08-1}:
+
+  We can express a Higgs doublet field in terms 4 real fields
+  ($\phi_k$, $k=1,2,3,4$):
+\begin{eqnarray}
+  \phi &=& ( \phi^+, \phi^0 )^T  \label{eq.8phi1}\\
+  \phi^+ &=& ( \phi_1 + i\phi_2 )/\sqrt2 \label{eq.8phi2}\\
+  \phi^0 &=& ( \phi_3 + i\phi_4 )/\sqrt2 \label{eq.8phi3}
+\end{eqnarray}
+  Please write the Higgs potential in terms of the 4 real bosons
+\begin{eqnarray}
+  V(\phi) = V(\phi_1,\phi_2,\phi_3,\phi_4) \label{eq.8vphi}
+\end{eqnarray}
+
+{\bf hw08-2}:
+  Show that the Higgs potential Eq.\ref{eq.8vphi} is invariant under the global
+  $SO(4)$ transformation
+  \begin{eqnarray}
+    \begin{pmatrix}
+      \phi_1 \\ \phi_2 \\ \phi_3 \\ \phi_4
+    \end{pmatrix}
+    \to
+    \begin{pmatrix}
+      \phi'_1 \\ \phi'_2 \\ \phi'_3 \\ \phi'_4
+    \end{pmatrix}
+    =O
+    \begin{pmatrix}
+      \phi_1 \\ \phi_2 \\ \phi_3 \\ \phi_4
+    \end{pmatrix}
+  \end{eqnarray}
+  where $O^T O = 1$.  Please observe that if $\mu^2>0$, then all the
+  4 real bosons have the same mass, $\mu$.
+  Now, let us examine what happens to this global symmetry,
+  when $\mu^2 < 0$.
+
+{\bf hw08-3}:
+  Please show that the potential is minimized when
+  \begin{eqnarray}
+    <\phi_1>^2 + <\phi_2>^2 + <\phi_3>^2 + <\phi_4>^2
+    = v^2
+    = -4\mu^2/\lambda \label{eq.8v2}
+  \end{eqnarray}
+  It is now clear that the minimum point (vacuum) can be an arbitrary
+  location on the surface of the 4-dimensional sphere of the radius v,
+  in Eq.\ref{eq.8v2}.
+  Without loosing generality, we can choose
+  \begin{eqnarray}
+    (<\phi_1>,<\phi_2>,<\phi_3>,<\phi_4>) = (0,0,v,0) \label{eq.84rbv}
+  \end{eqnarray}
+
+{\bf hw08-4}:
+  Let us parametrize the 4 real bosons on the vacuum (Eq.\ref{eq.84rbv}) as
+  \begin{eqnarray}
+    \phi_1 = \pi_1,~~\phi_2 = \pi_2,~~\phi_3 = v + h,~~\phi_4 = \pi_3 \label{eq.84rbv4}
+  \end{eqnarray}
+  Show that the 4 real fields $(h, \pi_1, \pi_2, \pi_3)$ have zero v.e.v.:
+  \begin{eqnarray}
+    <\pi_1> = <\pi_2> = <\pi_3> = <h> = 0
+  \end{eqnarray}
+  Please rewrite the Higgs potential in terms of $\pi_k (k=1,2,3)$,
+  and $h$, and observe that the 3 $\pi_k$'s are massless, and
+  the field $h$ has the mass
+  \begin{eqnarray}
+    m(\pi_k) &=& 0,~~~   (k=1,2,3) \\
+    m(h)     &=& \sqrt{\lambda} v/2
+  \end{eqnarray}
+  Please observe that the Higgs potential after the symmetry
+  breakdown, (Eq.\ref{eq.84rbv}), still has the global $SO(3)$ symmetry:
+  \begin{eqnarray}
+    (\pi_1,\pi_2,\pi_3)^T \to O (\pi_1,\pi_2,\pi_3)^T
+  \end{eqnarray}
+   where $O$ is a $3\times 3$ orthogonal matrix, $O^T O = 1$.
+
+  This $SO(3)$ symmetry is the custodial $SU(2)$ symmetry.
+  Under this global $SO(3)$ or $SU(2)$ symmetry, the $3$ massless
+  Goldstone bosons $(\pi_1, \pi_2, \pi_3)$ transform as a triplet,
+  and hence they have the same mass (zero-mass) and have the
+  same interactions (with the Higgs boson, h).
+
+  Because the 3 Goldstone bosons transform as a triplet under this
+  global $SO(3)$ symmetry, the three $SU(2)$ weak bosons, $W^1$, $W^2$, $W^3$,
+  acquire the same mass, $m_W$, after the Higgs mechanism.
+\begin{eqnarray}
+  m(W^1) = m(W^2) = m(W^3) = m(W^\pm) \label{eq.8mw}
+\end{eqnarray}
+
+  This global $SO(3)$ symmetry is respected by the $SU(2)_L$ gauge
+  interactions, but not by the $U(1)_Y$ gauge interactions
+  (this will be proven below), and the $W^3$ mixes with B to make
+  the Z bosons.  Because the $W^3-B$ mixing is determined by their
+  weak coupling strengths, the following rule follows:
+\begin{eqnarray}
+  \frac{m_W}{m_Z}=\frac{m(W^3)}{m_Z}=\frac{g}{g_Z}=\frac{g}{\sqrt{g^2+g'2}} =\cos\theta_W \label{eq.8wBmix1}
+\end{eqnarray}
+  or, according to Veltman,
+\begin{eqnarray}
+  \rho = \frac{G_{NC}}{G_{CC}}=\frac{g_Z^2/m_Z^2}{g_W^2/m_W^2}=\left( \frac{m_W}{m_Z\cos\theta_W}\right)^2=1 \label{eq.8wBmix2}
+\end{eqnarray}
+  That all the three $W^k$ masses are the same (Eq.\ref{eq.8mw}) because of the global $SO(3)$ symmetry is the basis of this famous relation Eq.\ref{eq.8wBmix1} or Eq.\ref{eq.8wBmix2} of the MSM.  Although the above real field basis is the easiest way to observe that the Higgs potential keeps the global $SO(3)$ symmetry after the spontaneous symmetry breakdown, it is not easy to see how this symmetry is broken by the other interactions in the SM.
+  An elegant method was found by t'Hooft, and he named the residual
+  global symmetry of the Higgs potential, the custodial $SU(2)$ symmetry.
+  Let us now follow him.
+
+  First, please recall the charge conjugate doublet
+  \begin{eqnarray}
+    \phi^c = i \sigma^2 \phi^* =
+    \begin{pmatrix}
+      {\phi^0}^* \\ -\phi^-
+    \end{pmatrix}
+  \end{eqnarray}
+  We already know that $\phi^c$ has exactly the same $SU(2)_L$
+  transformations as $\phi$, but that it has opposite hypercharge
+  \begin{eqnarray}
+    Y(\phi^c) = -Y(\phi) = -1/2
+  \end{eqnarray}
+  and hence the $U(1)_Y$ interactions distinguish $\phi$ and $\phi^c$.
+  t'Hooft recognized that the MSM Higgs potential can be written as
+  \begin{eqnarray}
+    V(\phi)
+    = V(\phi^c)
+    = \frac{\lambda}{4} \frac{[\phi^\dagger \phi + (\phi^c)^\dagger \phi^c]^2}{4}
+         +\frac{\mu^2 [\phi^\dagger \phi + (\phi^c)^\dagger \phi^c]}{2} \label{eq8.V2}
+  \end{eqnarray}
+
+{\bf hw08-5}: Show Eq.\ref{eq8.V2}. If you remember showing this in one of previous homework, you can skip this homework. He introduced a quartet field,
+\begin{eqnarray}
+  \Phi = 
+  \begin{pmatrix}
+    \phi^c&\phi
+  \end{pmatrix} \label{eq.8quarfild}
+\end{eqnarray}
+  and introduced Global $SU(2)$ transformation, which we often denote
+  as $SU(2)_R$ (the reason will become clear below):
+  \begin{eqnarray}
+    \Phi \to \Phi' = \Phi U_R^\dagger \label{eq.8su2r}
+  \end{eqnarray}
+  Please note that the above transformation is essentially the $SU(2)$
+  rotation of $\phi$ and $\phi^c$.
+
+{\bf hw08-6}: Show that Eq.\ref{eq.8su2r} is the same as
+\begin{eqnarray}
+  \Phi^T \to \Phi'^T = U_R^* \Phi^T
+\end{eqnarray}
+ where
+\begin{eqnarray}
+  \Phi^T = 
+  \begin{pmatrix}
+    \phi^c \\  \phi
+  \end{pmatrix}
+\end{eqnarray}
+  Therefore, the ``doublet'', $( \phi^c, \phi )^T$ transform as
+  $2^*$ of $SU(2)_R$.
+
+{\bf hw08-7}:
+  Please show
+\begin{eqnarray}
+  Tr\{ \Phi^\dagger \Phi \}
+    = \phi^\dagger \phi + (\phi^c)^\dagger \phi^c
+    = 2 \phi^\dagger \phi
+\end{eqnarray}
+   and hence we can express $V(\phi)$ as
+\begin{eqnarray}
+  V(\phi) = \lambda/2 ( tr\{ \Phi^\dagger \Phi \}/2 )^2
+                   -\mu^2 ( tr{ \Phi^\dagger \Phi }/2 )
+\end{eqnarray}
+  The Higgs potential is clearly invariant under the joint transformation
+\begin{eqnarray}
+  \Phi \to \Phi' = (U_L) \Phi (U_R)^\dagger \label{eq.8joitran}
+\end{eqnarray}
+ where $U_L$ is the $SU(2)_L$ gauge transformation, and
+  $U_R$ is the global $SU(2)$ transformation.
+
+{\bf hw08-8}: Prove the above statement.
+  Now the quartet field acquires the v.e.v. at the potential
+  minimum, which occurs in our basis as
+\begin{eqnarray}
+  < \Phi >=
+  \begin{pmatrix}
+    <\phi^c> & <\phi> 
+  \end{pmatrix}
+  =\frac{v}{\sqrt 2}
+  \begin{pmatrix}
+    1&0 \\0 &1
+  \end{pmatrix}
+\end{eqnarray}
+  Since the v.e.v. is a unity matrix, the vacuum is invariant under
+  the global $SU(2)$ symmetry when the phases of $SU(2)_L$ and $SU(2)_R$
+  are exactly the same:
+\begin{eqnarray}
+  <\Phi> \to <\Phi>'
+             = (U_{custodial}) <\Phi> (U_{custodial})^\dagger
+             = <\Phi> \label{eq.8ptp}
+\end{eqnarray}
+  where transformation
+  \begin{eqnarray}
+    U_{custodial} = U_L = U_R = e^{ i T^a \theta^a }
+  \end{eqnarray}
+  gives the ``diagonal subgroup'' of $SU(2)_L \times SU(2)_R$.
+
+{\bf hw08-9}: Show the invariance Eq.\ref{eq.8ptp}.
+  In this description, the MSM Higgs potential has the global
+  $SU(2)_L \times SU(2)_R$ symmetry, which breaks down to the global
+  $SU(2)_{custodial}$ symmetry.  This corresponds to the breaking of
+  $SO(4)$ down to $SO(3)$ when we parametrize the Higgs doublet field
+  in terms of the 4 real fields.
+
+  Let us show how the 3 massless states (the Goldstone bosons) appear
+  in this formalism.  Please refer to our $\pi^k$ ($k=1,2,3$) notation
+  in Eq.\ref{eq.84rbv4}.  Inserting Eq.\ref{eq.84rbv4} to Eq.(\ref{eq.8phi1},\ref{eq.8phi2},\ref{eq.8phi3}), we find
+\begin{eqnarray}
+  \phi= 
+  \begin{pmatrix}
+    (\phi_1 + i\phi_2)/\sqrt{2} \\
+    (\phi_3 + i\phi_4)/\sqrt{2} 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    (\pi_1  + i\pi_2)/\sqrt{2} \\
+    (v + h  + i\pi_3)/\sqrt{2}
+  \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+  \phi^c =
+  \begin{pmatrix}
+    (v + h - i\pi_3)/\sqrt{2} \\
+    -(\pi_1 - i\pi_2)/\sqrt{2} 
+  \end{pmatrix}
+\end{eqnarray}
+\begin{eqnarray}
+  \Phi =
+  \begin{pmatrix}
+    \phi^c & \phi
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    ( v + h -i\pi_3)/\sqrt{2} & (\pi_1 + i\pi_2)/\sqrt{2} \\
+    (-\pi_1 +i\pi_2)/\sqrt{2} & ( v + h +i\pi_3)/\sqrt{2}
+  \end{pmatrix} \label{eq.8Phimx}
+\end{eqnarray}
+
+{\bf hw08-10}: Show that Eq.\ref{eq.8Phimx} can be expressed as
+\begin{eqnarray}
+  \Phi = \frac{v+h}{\sqrt{2}} + \frac{i}{\sqrt 2} \sigma^k \pi'_k \label{eq.8Phiex}
+\end{eqnarray}
+ where
+\begin{eqnarray}
+  \pi'_1 = \pi_2,~~\pi'_2 = \pi_1,~~\pi'_3 = -\pi_3
+\end{eqnarray}
+  By inserting Eq.\ref{eq.8Phiex} into the Higgs potential term $Tr\{ \Phi^\dagger \Phi \}$
+  we can tell that the three real bosons, $\pi'_k$ $(k=1,2,3)$ are all
+  massless (Goldstone bosons), and they transform as a triplet of
+  $SU(2)_{custodial}$. Can you show this?
+
+  You will learn that the result should be the same as in our $SO(4)$
+  formulation. I think that it is useful for you to learn that the
+  same symmetry, $SO(3)$ and $SU(2)$, for $\pi_k$ or $\pi'_k$, can appear
+  quite differently in the two formulations.
+
+  The $SU(2)$ language of t'Hooft is more convenient since we can clearly
+  tell that $U(1)_Y$ breaks the custodial $SU(2)$ symmetry, simply because
+  $\phi$ and $\phi^c$ have opposite hyper charges.  We will learn later
+  that the custodial $SU(2)$ symmetry is also broken by the Yukawa
+  interactions, when $m_t \neq m_b$.
+
+  In perturbative QFT, relations among masses and couplings (or
+  even in scattering amplitudes) that are satisfied at the tree
+  (classical) level are broken by radiative (quantum) corrections
+  if the relations are not protected by a symmetry of all the
+  interactions.  In our example, the $m_w/m_z = g/g_z$ relationship
+  Eq.\ref{eq.8wBmix1} is a consequence of the custodial $SU(2)$ symmetry in the Higgs potential. Because the symmetry is broken by the hyper-charge
+  gauge interactions and also by the Yukawa interactions which give
+  $m_t \neq m_b$, the relation Eq.\ref{eq.8wBmix2} receive radiative corrections which vanish when $g'/g \to 0$ ($\sin^2\theta_W \to 0$), and $(m_t-m_b) \to 0$.
+  In other words, the corrections are proportional to the factors
+  like $\sin^2\theta_W$ and ($m_t-m_b$). That we can sometimes tell how
+  the quantum corrections should behave in terms of the model
+  parameters is very important when we study phenomenological
+  consequences of QFT models, such as the SM and its extentions.
+
+Please let me stop hw08 here.\\
+
+Best wishes,\\
+
+Kaoru
+
+\end{document}

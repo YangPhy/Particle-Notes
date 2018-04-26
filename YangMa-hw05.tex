@@ -1,0 +1,201 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+%\usepackage{pstricks}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+\def\del{{\partial}}
+
+\begin{document}
+\title{Particle physics HW5}
+\author{Yang Ma}
+
+\maketitle
+
+\section{ }
+Since we see that $i \del_\mu$ is Hermetian, $i D_\mu$ should also be Hermetian.
+\begin{eqnarray}
+    (i D_\mu)^\dagger  &=& (i \del_\mu - g Q A_\mu(x))^\dagger \nonumber \\
+    &=& i \del_\mu  - g Q A_\mu(x)^\dagger \nonumber \\
+    &=& i \del_\mu  - g Q A_\mu(x),
+\end{eqnarray}
+and we see that $A_\mu(x)^\dagger = A_\mu(x)$, i.e. $A_\mu(x)$ is real.
+
+\section{ }
+With $U=e^{iQ\theta(x)}$, we see 
+\begin{eqnarray}
+    D_\mu' &=&U D_\mu U^{-1}=U \del_\mu U^{-1}+ igQUA_\mu(x) U^{-1}\\
+    &=& \del_\mu -iQ \del_\mu \theta(x) + i g Q A_\mu (x).
+\end{eqnarray}
+Since 
+\begin{eqnarray}
+    D_\mu&=&\del_\mu + i g Q A_\mu (x),\\
+    D_\mu'&=&\del_\mu + i g Q A'_\mu (x),
+\end{eqnarray}
+we can finally write out
+\begin{eqnarray}
+    A'_\mu (x)= A_\mu (x)-\frac{1}{g}\del_\mu \theta(x).
+\end{eqnarray}
+
+\section{ }
+With 
+\begin{eqnarray}
+    D_\mu=\del_\mu + i g Q A_\mu (x),
+\end{eqnarray}
+we have
+\begin{eqnarray}
+    [D_\mu, D_\nu] &=& [\del_\mu, \del_\nu + i g Q A_\nu ]+[i g Q A_\mu, \del_\nu + i g Q A_\nu ] \\
+    &=& [\del_\mu, \del_\nu] + igQ[\del_\mu, A_\nu]+igQ[A_\mu, \del_\nu]-g^2Q^2[A_\mu, A_\nu] \\
+    &=&i g Q [\del_\mu,A_\nu]+igQ[A_\mu,\del_\nu]\\
+    &=& \del_\mu A_\nu-\del_\nu A_\mu,
+\end{eqnarray}
+where we used
+\begin{eqnarray}
+    &&[\del_\mu, A_\nu]f= \del_\mu A_\nu f -A_\nu \del_\mu f = (\del_\mu A_\nu)f+A_\nu \del_mu f-A_\nu \del_\mu f =(\del_\mu A_\nu)f,\\
+    &&[A_\mu, \del_\nu]f=-[\del_\nu, A_\mu]f=- (\del_\nu A_\mu)f,
+\end{eqnarray}
+in the last step.
+For the $U(1)$ transformation $A_\mu \to A_\mu -\frac{1}{g} \del_\mu \theta$, we can obtain
+\begin{eqnarray}
+    [D_\mu, D_\nu] &\to & igQ [\del_\mu A'_\nu-\del_\nu A'_\mu]\\
+    &=&igQ [\del_\mu (A_\nu-\frac{1}{g} \del_\nu \theta)-\del_\nu (A_\mu-\frac{1}{g} \del_\mu \theta)]\\
+    &=& \del_\mu A_\nu-\del_\nu A_\mu = [D_\mu, D_\nu]
+\end{eqnarray}
+and see $[D_\mu, D_\nu]$ is invariant under $U(1)$ transformation.
+
+\section { }
+By definition, we see
+\begin{eqnarray}
+    F_{\mu \nu} = \del_\mu A_\nu-\del_\nu A_\mu = [D_\mu, D_\nu],
+\end{eqnarray}
+is invariant under $U(1)$ transformation, so is $F^{\mu \nu}$. Then we need to show $\psi(x)^\dagger \gamma^0 i D_\mu(x) \gamma^\mu \psi(x)$ and $m \psi(x)^\dagger \gamma^0 \psi(x)$ are $U(1)$ invariant. For $\psi(x)^\dagger \gamma^0 i D_\mu(x) \gamma^\mu \psi(x) = i{\overline \psi(x)}  D_\mu(x) \gamma^\mu \psi(x)$, the $U(1)$ transformation shows
+\begin{eqnarray}
+    i{\overline \psi(x)}  D_\mu(x) \gamma^\mu \psi(x) \to i {\overline \psi(x)}  U^\dagger U D_\mu(x) U^\dagger \gamma^\mu U \psi(x) =  i{\overline \psi(x)}  D_\mu(x) \gamma^\mu \psi(x),
+\end{eqnarray}
+where we used $U U^\dagger = I$.
+For $m \psi(x)^\dagger \gamma^0 \psi(x)$, the $U(1)$ transformation is
+\begin{eqnarray}
+    m \psi(x)^\dagger \gamma^0 \psi(x) \to  m \psi(x)^\dagger \gamma^0 U^\dagger U \psi(x) = U^\dagger.
+\end{eqnarray}
+Now we see all the three terms are $U(1)$ invariant, so the Largrangian is also $U(1)$ invariant.
+
+\section{ }
+\begin{eqnarray}
+    {\cal L} &=& -1/4 F_{\mu\nu} F^{\mu\nu}
+      + \psi(x)^\dagger \gamma^0 i D_\mu(x) \gamma^\mu \psi(x)
+      - m \psi(x)^\dagger \gamma^0 \psi(x) \\
+      &=& -1/4 (\del_\mu A_\nu-\del_\nu A_\mu)(\del^\mu A^\nu-\del^\nu A^\mu) 
+      + i \psi(x)^\dagger \gamma^0  (\del_\mu - i e A_\mu (x)) \gamma^\mu \psi(x) \\ && - m \psi(x)^\dagger \gamma^0 \psi(x)
+  \end{eqnarray}
+
+\section{ }
+ \begin{eqnarray}
+     &&\frac{\del {\cal L}}{\del (\del_\mu \psi^\dagger)} =0 \\
+     &&\frac{\del {\cal L}}{\del  \psi^\dagger} =  \gamma^0 (i {\slashed D} -m) \psi,
+ \end{eqnarray}
+where ${\slashed D}=D_\mu \gamma^\mu$. The equation of motion is then written as 
+\begin{eqnarray}
+    (i {\slashed D} -m) \psi(x) = 0.
+\end{eqnarray}
+\section{ }
+\begin{eqnarray}
+    \frac{\del {\cal L}}{\del (\del_\mu A_\nu)} &=&\frac{\del {\cal L}}{\del F_{\alpha \beta}}\frac{\del F_{\alpha \beta}}{\del (\del_\mu A_\nu)} = -\frac{1}{2} F^{\alpha \beta} \frac{\del F_{\alpha \beta}}{\del (\del_\mu A_\nu)} \\
+    &=& -\frac{1}{2} F^{\alpha \beta} (g^\mu_\alpha g^\nu_\beta-g^\nu_\alpha g^\mu_\beta) = -F^{\mu \nu},
+\end{eqnarray}
+\begin{eqnarray}
+    \frac{\del {\cal L}}{\del A_\nu} = i \phi^\dagger \gamma^0 (ie) \gamma^\nu \psi = - e \bar \psi \gamma^\nu \psi,
+\end{eqnarray}
+we then have the E.O.M. as
+$\del_\mu F^{\mu \nu} = e \bar \psi \gamma^\nu \psi$.
+
+\section{ }
+We can do the transformation on
+\begin{eqnarray}
+    D_\mu = \del_\mu + ig T^a A^a_\mu,
+\end{eqnarray}
+and then get
+\begin{eqnarray}
+   D_\mu'&=& U D_\mu U^\dagger = U[(\del_\mu U^\dagger)+U^\dagger \del_\mu ] + ig U ([T^a, U^\dagger]+ U^\dagger T^a) A^a_\mu \\
+    &=& \del_\mu + ig T^a A^a_\mu + U(\del_\mu U^\dagger)  + ig U [T^a, U^\dagger] A^a_\mu.
+\end{eqnarray}
+Now we will discuss $U(\del_\mu U^\dagger)$ and $ig U [T^a, U^\dagger] A^a_\mu$ respectively
+\begin{eqnarray}
+    U(\del_\mu U^\dagger) = U (\del_\mu e^{-i T^a \theta^a}) = U U^\dagger \del_\mu (-i T^a \theta^a) = -i T^a \del_\mu \theta^a,
+\end{eqnarray}
+\begin{eqnarray}
+    U [T^a, U^\dagger] &=& (1+ i T^b \theta^b ) [T^a, 1-iT^b \theta^b] = (1+ i T^b \theta^b ) f^{abc} T^c\\
+    &=& f^{abc} T^c \theta^b + {\cal O} ({\theta^b}^2),
+\end{eqnarray}
+and we have
+\begin{eqnarray}
+    D_\mu'&=& \del_\mu + ig T^a A^a_\mu -i T^a \del_\mu \theta^a + i g f^{abc} T^c \theta^b A^a_\mu \\
+    &=& \del_\mu + ig T^a {A^a_\mu}' 
+\end{eqnarray}
+and finally
+\begin{eqnarray}
+    {A^a_\mu}'= A_\mu^a-\frac{1}{g} \del_\mu \theta^a + f^{cba}\theta^b A^c_\mu.
+\end{eqnarray}
+
+\section{ }
+\begin{itemize}
+    \item From
+    \begin{eqnarray}
+        [D_\mu,D_\nu] \to U [D_\mu,D_\nu] U^\dagger,
+    \end{eqnarray}
+    we have
+    \begin{eqnarray}
+        Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \} & \to& Tr\{ U [D_\mu,D_\nu] U U^\dagger [D^\mu,D^\nu] U^\dagger \} \\ &=& Tr\{ U^\dagger U [D_\mu,D_\nu] U U^\dagger [D^\mu,D^\nu] \} \\
+        &=& Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \}.
+    \end{eqnarray}
+    \item First we write out $[D_\mu,D_\nu]$,
+    \begin{eqnarray}
+        [D_\mu,D_\nu] &=& [\del_\mu + ig T^a A^a_\mu,\del_\nu + ig T^b A^b_\nu] \\
+        &=& [\del_\mu,\del_\nu]+ [\del_\mu, ig T^b A^b_\nu ]+ [ig T^a A^a_\mu, \del_\nu]- g^2 [T^a, T^b] A^a_\mu A^b_\nu
+    \end{eqnarray}
+    and use
+    \begin{eqnarray}
+        &&[\del_\mu, A_\nu ] = \del_\mu A_\nu -A_\nu \del_\mu = (\del_\mu A_\nu) \\
+        &&[A_\mu, \del_\nu ] = -(\del_\nu A_\mu)      
+    \end{eqnarray}
+    to simplify it to
+    \begin{eqnarray}
+        [D_\mu,D_\nu] &=& ig T^b (\del_\mu A_\nu^b)-ig T^a (\del_\nu A_\mu^b)+ g^2 (i f^{abc} T^c) A^a_\mu A^b_\nu \\
+        &=& ig T^a (\del_\mu A_\nu^a-\del_\nu A_\mu^a+g f^{abc} A^c_\mu A^b_\nu ).
+    \end{eqnarray}
+    By defining
+    \begin{eqnarray}
+        F^a_{\mu \nu} &=& \del_\mu A_\nu^a-\del_\nu A_\mu^a+g f^{abc} A^c_\mu A^b_\nu \\
+        &=& \del_\mu A_\nu^a-\del_\nu A_\mu^a+g f^{abc} A^b_\mu A^c_\nu,
+    \end{eqnarray}
+    we can now write out
+    \begin{eqnarray}
+        Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \} &=& Tr\{ (ig T^a F^a_{\mu\nu})(ig T^a F^a_{\mu\nu})(ig T^b {F^b}^{\mu\nu}) \} \\
+        &=& -g^2 Tr\{T^a T^b \} F^a_{\mu\nu} {F^b}^{\mu\nu} = -\frac{g^2}{2} F^a_{\mu\nu} {F^a}^{\mu\nu},
+    \end{eqnarray}
+    where we defined normalization $Tr\{T^a T^b \}= \delta_{ab}/2$.
+\end{itemize}
+
+\section{ }
+\begin{eqnarray}
+    {\cal L} &=& c Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \} = -\frac{cg^2}{2} F^a_{\mu\nu} {F^a}^{\mu\nu} \\
+    &=& -\frac{cg^2}{2} (\del_\mu A_\nu^a-\del_\nu A_\mu^a+g f^{abc} A^b_\mu A^c_\nu)(\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a+g f^{ade} {A^d}^\mu {A^e}^\nu) \\
+    &=& -\frac{cg^2}{2} (\del_\mu A_\nu^a-\del_\nu A_\mu^a)(\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a) + \cdots
+\end{eqnarray}
+In order to match the form of
+\begin{eqnarray}
+    -\frac{1}{4} (\del_\mu A_\nu-\del_\nu A_\mu)(\del^\mu {A^\nu}-\del^\nu {A^\mu})
+\end{eqnarray}
+in $U(1)$ theory, we set $-\frac{cg^2}{2}=-\frac{1}{4}$, i.e. $c= \frac{1}{2g^2}$.
+
+\section{ }
+With the value of $c$ we obtained above, now we have
+\begin{eqnarray}
+    {\cal L} &=& \frac{1}{2g^2} Tr\{ [D_\mu,D_\nu] [D^\mu,D^\nu] \} = -\frac{1}{4} F^a_{\mu\nu} {F^a}^{\mu\nu} \\
+    &=& -\frac{1}{4}  (\del_\mu A_\nu^a-\del_\nu A_\mu^a)(\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a) + \frac{g}{4}[f^{abc} A^b_\mu A^c_\nu (\del^\mu {A^\nu}^a-\del^\nu {A^\mu}^a) \nonumber \\
+    && + f^{ade} {A^d}^\mu {A^e}^\nu (\del_\mu A_\nu^a-\del_\nu A_\mu^a)]-\frac{g^2}{4} f^{abc} f^{ade} A^b_\mu A^c_\nu {A^d}^\mu {A^e}^\nu
+\end{eqnarray}
+\end{document}

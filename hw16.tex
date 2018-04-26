@@ -1,0 +1,633 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW16 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+In this lecture, I introduce vector boson wave functions, both massless
+(photon and gluons) and massive ($W$ and $Z$).  At the end of the lecture,
+I add two comments on the fermion wave functions, concerning the
+helicity conservation for massless (Weyl) fermions and the normalization
+of $u$ and $v$ spinors.
+
+Let me start with our gauge field Lagrangian
+\begin{eqnarray}
+  {\cal L}_{gauge}
+= -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}
+= -\frac{1}{2} (\del_\mu A_\nu) (\del^\mu A^\nu -\del^\nu A^\mu) \label{eq.16_1}
+\end{eqnarray}
+which is common for all three gauge fields ($8$ gluons, $3$ W's of $SU(2)_L$,
+and $B$ for $U(1)_Y$), when we drop the interaction terms for $SU(3)$
+and $SU(2)$ gauge bosons (the $3$ and $4$ point self-interactions).
+
+After the symmetry breakdown, $SU(2)$ $W$ and $U(1)$ $B$ gauge bosons are mixed,
+and then the photon (together with the $8$ gluons) has the Lagrangian of
+the form Eq.\ref{eq.16_1}. In case of $Z$ boson, the mass term appears
+\begin{eqnarray}
+  {\cal L}_{Z}
+  = -\frac{1}{4} Z_{\mu\nu} Z^{\mu\nu} +\frac{1}{2} m_Z^2 Z_\mu Z^\mu
+  = -\frac{1}{2} (\del_\mu Z_\nu) (\del^\mu Z^\nu -\del^\nu Z^\mu)
+    +\frac{1}{2} m_Z^2 Z_\mu Z^\mu \label{eq.16_2}
+\end{eqnarray}
+For the $W$ boson, the neutral $W^1$ and $W^2$ bosons have exactly the same mass, and hence they are combined to make a complex field $W^+$ and $W^-$,
+whose Lagrangian is
+\begin{eqnarray}
+  {\cal L}_{W}
+= -\frac{1}{2} W^+_{\mu\nu} W^{- \mu\nu} + m_W^2 W^+_\mu W^{- \mu}
+= - (\del_\mu W^+_\nu) (\del^\mu W^{-\nu} -\del^\nu W^{-\mu}) + m_W^2 W^+_\mu W^{-\mu} \label{eq.16_3}
+\end{eqnarray}
+
+{\bf hw16-1}: Please confirm the above statements, obtain the first lines (checking the overall normalization and the signs of each term), and derive the second lines of Eqs.(\ref{eq.16_1}, \ref{eq.16_2}, \ref{eq.16_3}).
+
+Now, let us try to obtain the equation of motions (E.O.M.) for all the above gauge bosons, starting from the above Lagrangian. Let us start
+with the photon (and the gluons) in Eq.\ref{eq.16_1}:
+\begin{eqnarray}
+  {\cal L}_{gauge}
+&=& -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}
+= -\frac{1}{2} (\del_\mu A_\nu) (\del^\mu A^\nu -\del^\nu A^\mu) \\
+&=& +\frac{1}{2} A_\nu (\del_\mu \del^\mu A^\nu -\del^\mu \del^\nu A_\mu)
+  + (total~derivative~ term~ \del_\mu (\cdots))\\
+&=& +\frac{1}{2} A_\nu (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\mu
+  + (total~derivative ~term ~\del_\mu (\cdots))\\
+&=& +\frac{1}{2} A_\mu (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\nu
+  + (total ~derivative ~term ~\del_\mu (\cdots)) \label{eq.16_4}
+\end{eqnarray}
+The above Lagrangian is written (up to the total derivative) in terms of $A_\mu$, but in such a way that it does not contain $\del_\nu A_\mu$.
+Therefore, the E.O.M. is simply
+\begin{eqnarray}
+  \frac{\delta {\cal L}}{\delta(A_\mu)} -\frac{\del_\nu \delta {\cal L}}{\delta(\del_\nu A_\mu)}
+=  \frac{\delta {\cal L}}{\delta(A_\mu)}
+= (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) A_\nu
+= 0. \label{eq.16_5}
+\end{eqnarray}
+
+{\bf hw16-2}: Show Eq.\ref{eq.16_5}. You may obtain the E.O.M. directly from the first
+expression in ${\cal L}_{gauge}$, and confirm that it gives the same E.O.M.
+The technique I used above is quite helpful.
+
+Although the above E.O.M. looks fine (Lorentz covariant), but has a
+problem since
+\begin{eqnarray}
+  \del_\mu (g^{\mu\nu} \del_a \del^a -\del^\mu \del^\nu) = 0\label{eq.16_6}
+\end{eqnarray}
+If we consider the E.O.M. Eq.\ref{eq.16_5} as a matrix equation, where the
+differential operator may be expressed as a $4\times 4$ matrix, and the
+$A_\nu$ field as a column $4$ vector, Eq.\ref{eq.16_6} tells that the $4$ column vectors in the $4\times 4$ matrix are linearly dependent, and hence its
+determinant is zero. We cannot obtain a solution of such equation.
+
+This is a consequence of gauge invariance, which tells that only two
+components among the $4$ components of $A^\nu$ are independent.
+
+{\bf hw16-3}: Please confirm the above statement by writing $A_\nu(x)$ as
+\begin{eqnarray}
+  A_\nu(x) = \epsilon_\nu(q) e^{-iqx} \label{eq.16_7}
+\end{eqnarray}
+with
+\begin{eqnarray}
+  q^\mu = (E,0,0,E). \label{eq.16_8}
+\end{eqnarray}
+
+Although we haven't yet shown that Eq.\ref{eq.16_7} is a solution of the E.O.M. of $A_\nu(x)$, by taking it as a Fourier transform, we can transform the
+$4\times 4$ matrix of derivative operators to the $4\times 4$ matrix of four momentum
+components. Please obtain the momentum space equation for
+$\epsilon_\nu(q)$, and express it as a $4\times 4$ matrix times a column $4\times 1$
+vector. Can you calculate the determinant?
+
+Please note that when we use the solution of the free field equations
+to study the impacts of interactions, such as
+\begin{eqnarray}
+  (~ Differential~ Operator~ ) ~A(x) = J(x) \label{eq.16_9}
+\end{eqnarray}
+where the free field E.O.M. is the $J(x)=0$ limit,
+\begin{eqnarray}
+  (~ Differential~ Operator~ )  A^{(0)}(x) = 0, \label{eq.16_10}
+\end{eqnarray}
+we often use a solution $G(x,x')$ which satisfies
+\begin{eqnarray}
+  (~ Differential~ Operator~ ) G(x,x') = \delta^3(x-x') \label{eq.16_11}
+\end{eqnarray}
+in terms of which, $A(x)$ can be expressed as
+\begin{eqnarray}
+  A(x) = A^{(0)}(x) + \int d^3x' G(x,x') J(x'). \label{eq.16_12}
+\end{eqnarray}
+in perturbation theory. This is called Green's function method,
+which plays an essential role in perturbative QFT (where the
+Green's functions are called ``propagators'').
+
+{\bf hw16-4}:  Show that Eq.\ref{eq.16_12} gives a solution for Eq.\ref{eq.16_9} in the linear (first or Born) approximation in $J(x)$, and hence it is useful if the correction, $A(x)-A^{(0)}$, is small as compared to the
+free field approximation, $A^{(0)}$.  Can you tell how we can
+obtain higher order corrections?
+
+Summing up, if the differential operator describing the E.O.M. for
+a free field has zero determinant, we cannot obtain the free field
+solution, and in addition, we cannot obtain the Green's function.
+
+This all happens because of the gauge invariance, which tells that
+not all components of our gauge fields, $A^\mu(x)$, are independent.
+
+For massless gauge bosons, only two among the four components are
+physical, while for massive gauge bosons, only three among the four
+are physical (on its mass shell: when $q^2 = m_V^2$).
+
+When we include interactions in perturbation theories, we should find
+Green's functions (propagators) for all the free fields, but this is
+possible only if the operator which appears in the free field E.O.M.
+is invertible, i.e., only when their determinants are non-zero.
+
+The above two statements, the first one for the degrees of freedom
+of physical (on-shell, or $E = \sqrt{ {\vec p} \cdot {\vec p} + m^2 }$) states,
+and the second one for the existence of Green's functions, are
+related, and hence both are expressed as the necessity of
+`gauge fixing', but they are not the same.  This is because the
+conditions for the non-zero determinant is weaker than the condition
+for the physical states.  Well, a bit confusing?
+
+Please keep what I said above in your mind as something what should
+be achieved in a consistent theory of perturbative QFT, and you will
+learn more precise treatments in advanced courses (whose key words
+are gauge fixing, quantization of Abelian and non-Abelian gauge
+theories, quantum or radiative corrections to scattering amplitudes).
+
+Now, let us come back to our free field E.O.M. for massless gauge
+fields, Eq.\ref{eq.16_5}, which I copy here
+\begin{eqnarray}
+  (g_{ab} \del_c \del^c -\del_a \del_b) A^b(x) = 0. \label{eq.16_13a}
+\end{eqnarray}
+Because only two among the $4$ components of $A^b$ are physical for
+massless vector bosons, we can impose two additional constraints.
+Typically, we impose the following two conditions:
+\begin{eqnarray}
+  && \del_a A^a(x) = 0 \label{eq.16_13b} \\
+  && n_a A^a(x) = 0 \label{eq.16_13c}
+\end{eqnarray}
+
+Actually, only one of Eq.\ref{eq.16_13b} or Eq.\ref{eq.16_13c} suffices to make the determinant non-zero, and hence they are separately used as a different gauge fixing condition: Eq.\ref{eq.16_13b} is called covariant gauge fixing, while Eq.\ref{eq.16_13c} is called
+\begin{itemize}
+  \item $n^a = (1,0,0,0)$: temporal gauge, Coulomb gauge
+  \item $n^2 = n_a n^a = 0$: light-cone gauge
+  \item Other general $n^a$: axial gauge
+\end{itemize}
+Let us first show that the covariant gauge fixing constraint Eq.\ref{eq.16_13b}
+makes the E.O.M. Eq.\ref{eq.16_13a} very simple:
+\begin{eqnarray}
+  \del_a \del^a A^b(x) = 0. \label{eq.16_15}
+\end{eqnarray}
+All $A^b(x)$ components should now satisfy the Klein-Gordon equation.
+
+{\bf hw16-5}:  Show that Eq.\ref{eq.16_13a} and Eq.\ref{eq.16_13b} give Eq.\ref{eq.16_15}.
+
+Because the above Klein-Gordon operator can be expressed as
+\begin{eqnarray}
+  \del_a \del^a A^b(x) = (\del_a \del^a) g^{ab} A_b(x) = 0 \label{eq.16_16}
+\end{eqnarray}
+it is certainly invertible as a $4\times 4$ matrix.
+
+{\bf hw16-6}: By using the Fourier transform Eq.\ref{eq.16_7}, obtain the E.O.M. in the momentum space as a $4\times 4$ matrix, and find its inverse.
+
+Therefore, we can now have a free field expansion:
+\begin{eqnarray}
+  A^a(x) = \sum_h \int \frac{d^3p}{2E(2\pi)^3}
+  [a(p,h) e^{-ipx} \epsilon^a(p,h) + a(p,h)^\dgr e^{ipx} \epsilon^a(p,h)^* ] \label{eq.16_17}
+\end{eqnarray}
+just like for fermions. The Lorentz covariant part of the wave
+functions, $\epsilon^a(p,h)$, are called ``polarization vectors''.
+Let us find E.O.M. for the polarization vectors.
+
+First, the covariant gauge fixing condition Eq.\ref{eq.16_13b} gives
+\begin{eqnarray}
+  p_\mu \epsilon^\mu(p,h) = 0. \label{eq.16_18}
+\end{eqnarray}
+
+{\bf hw16-7}: Show Eq.\ref{eq.16_18}.
+
+Second, since there are only two physical degrees of freedom for
+massless vector (or for any massless particles of non-zero spin),
+we should impose additional constraint Eq.\ref{eq.16_13c} to fix $\epsilon(p,h)$,
+\begin{eqnarray}
+  n_\mu \epsilon^\mu(p,h) = 0. \label{eq.16_19}
+\end{eqnarray}
+
+The polarization vector has various expressions depending on our
+choice of the $n^\mu$ vector.
+
+The only necessary condition that the constraints Eq.\ref{eq.16_18} and Eq.\ref{eq.16_19} determine $\epsilon(p,h)$ unique is that $p^\mu$ and $n^\mu$ are not collinear:
+\begin{eqnarray} 
+  n\cdot p = n_a p^a \neq 0 \label{eq.16_20}
+\end{eqnarray}
+
+Since physics does not depend on our choice of $n^\mu$ vector, and
+since $n^\mu$ dependence appears only after the covariant gauge
+fixing Eq.\ref{eq.16_13a}, which is sufficient to make the determinant of the
+differential operator non-zero, this arbitrariness of choosing
+$n^\mu$ is sometimes called the residual symmetry after gauge ``fixing''.
+
+In case of non-Abelian gauge theory, this residual symmetry after
+gauge fixing was identified elegantly by Becchi-Rouet-Stora, and
+is called BRS symmetry.  I could follow tHooft's proof of quantization
+and renormalization of non-Abelian gauge theory only after BRS.
+
+Let us start with massive gauge boson, since it is easier to
+understand the meaning of our polarization vector, $\epsilon^a(p,h)$,
+in the rest frame of the vector boson by using our quantum mechanics
+knowledge.
+
+Let us use the W boson Lagrangian Eq.\ref{eq.16_3} for our exercise,
+\begin{eqnarray}
+  {\cal L}_{W}
+= -\frac{1}{2} W^+_{\mu\nu} W^{- \mu\nu} + m_W^2 W^+_\mu W^{- \mu}
+= - (\del_\mu W^+_\nu) (\del^\mu W^{-\nu} -\del^\nu W^{-\mu})
+  + m_W^2 W^+_\mu W^{-\mu} \label{eq.16_21}
+\end{eqnarray}
+
+The $Z$ boson case is obtained simply by replacing the mass from $m_W$
+to $m_Z$, and by replacing $b(p,h)^\dgr$ by $a(p,h)^\dgr$ in the following
+free field expansion.
+
+By using the same technique (by re-writing the Lagrangian Eq.\ref{eq.16_21} not
+to have $\del^\mu W^+_\nu$, except for the total derivative term), we
+obtain the E.O.M. for $W^-_\mu(x)$
+\begin{eqnarray}
+  (g^{ab} [\del_a \del^a+m_W^2] -\del^a \del^b) W^-_b(x) = 0. \label{eq.16_22}
+\end{eqnarray}
+Just the same as in Eq.\ref{eq.16_5}, where the Klein-Gordon operator now has the mass term. Now, again, let us impose the covariant gauge fixing
+condition
+\begin{eqnarray}
+  \del^b W^-_b(x) = 0. \label{eq.16_23}
+\end{eqnarray}
+We find, that all components of $W^-_b(x)$ fields $(b=0,1,2,3)$ satisfy
+the Klein-Gordon equation:
+\begin{eqnarray}
+  [ \del_a \del^a + m_W^2 ] W^-_b(x) = 0. \label{eq.16_24}
+\end{eqnarray}
+
+{\bf hw16-8}: Derive  Eq.\ref{eq.16_22}, and then Eq.\ref{eq.16_24}.
+
+The free field expansion hence becomes,
+\begin{eqnarray}
+  W^-_a(x)
+= \sum_h \int \frac{d^3p}{2E(2\pi)^3}
+[ a(p,h) e^{-ipx} \epsilon_a(p,h) + b(p,h)^\dgr e^{ipx} \epsilon_a(p,h)^* ] \label{eq.16_25}
+\end{eqnarray}
+where the polarization vector $\epsilon^\mu(p,h)$ satisfy
+\begin{eqnarray}
+  p_\mu \epsilon^\mu(p,h) = 0. \label{eq.16_26}
+\end{eqnarray}
+
+{\bf hw16-9}: Show Eq.\ref{eq.16_26}.
+
+Let us study the vector boson polarization vector, in the rest frame
+of a massive vector boson
+\begin{eqnarray}
+  p^\mu = (m, 0, 0, 0)^T \label{eq.16_27}
+\end{eqnarray}
+In this frame, $h=+1, 0, -1$ is the spin component along the $z$-axis:
+\begin{eqnarray}
+  J_z \epsilon^\mu(p,h) = h \epsilon^\mu(p,h) \label{eq.16_28}
+\end{eqnarray}
+
+By using the matrix representation of $J_3$ which we obtained in the
+past homeworks, we can show that the following vectors satisfy the
+eigen-value equation Eq.\ref{eq.16_28}:
+\begin{eqnarray} 
+  && \eps^\mu(p,h=+1) = (0, -1, -i, 0)^T / \sqrt{2} \label{eq.16_29a} \\
+  && \eps^\mu(p,h= 0) = (0,  0,  0, 1)^T \label{eq.16_29b} \\
+  && \eps^\mu(p,h=-1) = (0,  1, -i, 0)^T / \sqrt{2} \label{eq.16_29c}
+\end{eqnarray}
+
+{\bf hw16-10}: Show that Eq.(\ref{eq.16_29a},\ref{eq.16_29b},\ref{eq.16_29c}) satisfy Eq.\ref{eq.16_28}.
+
+The above polarization vectors satisfy
+\begin{eqnarray}
+&& \eps^\mu(p,h) p_\mu = 0 \label{eq.16_30a} \\
+&& \eps^\mu(p,h) \eps_\mu(p,h')^* = -\delta_{hh'} \label{eq.16_30b}
+\end{eqnarray}
+
+{\bf hw16-11}: Show Eq.(\ref{eq.16_30a},\ref{eq.16_30b}). Note the minus sign in the normalizations Eq.\ref{eq.16_30b}.
+
+The polarization vectors Eq.\ref{eq.16_29a} and Eq.\ref{eq.16_29c} is obtained from Eq.\ref{eq.16_29a} as follows:
+\begin{eqnarray}
+&& J_- \eps^\mu(p,+1) = \sqrt{2} \eps^\mu(p, 0) \label{eq.16_31a} \\
+&& J_- \eps^\mu(p, 0) = \sqrt{2} \eps^\mu(p,-1) \label{eq.16_31b} \\
+&& J_- \eps^\mu(p,-1) = 0 \label{eq.16_31c}
+\end{eqnarray}
+We can also show
+\begin{eqnarray}
+  J_+ \eps^\mu(p,+1) = 0, \label{eq.16_32}
+\end{eqnarray}
+and hence the $3$ polarization vectors transform as a triplet (vector)
+under rotations.
+
+{\bf hw16-12}: Show Eq.(\ref{eq.16_31a},\ref{eq.16_31b},\ref{eq.16_31c}) and Eq.\ref{eq.16_32}.
+
+hint: Step up and down operators
+\begin{eqnarray}
+  J_\pm = J_x \pm i J_y \label{eq.16_33}
+\end{eqnarray}
+can be expressed as $4\times 4$ matrix by using the $4\times 4$ matrix representation of $J_x$ and $J_y$.
+
+A somewhat strange looking sign convention of Eqs.(\ref{eq.16_29a},\ref{eq.16_29b},\ref{eq.16_29c}) was chosen by
+Jacob and Wick, because of the simplicity of Eqs.(\ref{eq.16_31a},\ref{eq.16_31b},\ref{eq.16_31c}), and is called
+Jacob-Wick phase convention.
+The set of equations Eqs.(\ref{eq.16_31a},\ref{eq.16_31b},\ref{eq.16_31c}) tells that the three $4$-vectors Eqs.(\ref{eq.16_29a},\ref{eq.16_29b},\ref{eq.16_29c}) transform as a triplet under rotation in the rest frame of a massive vector boson.
+
+{\bf hw16-13}: Please obtain
+\begin{eqnarray}
+&& \eps^\mu(p',h)   = B_z(y)   \eps^\mu(p,h) \label{eq.16_34a} \\
+&& \eps^\mu(p{''},h)  = R_y(\theta) \eps^\mu(p',h) \label{eq.16_34b} \\
+&& \eps^\mu(p{'''},h) = R_z(\phi)   \eps^\mu(p{''},h) \label{eq.16_34c} 
+\end{eqnarray}
+by using the matrix representations of $B_z$, $R_y$, $R_z$ we found in the
+past homeworks. The last expressions Eq.\ref{eq.16_34c} for $h=+1,0,-1$ are the
+general form of the vector boson polarization vector in the frame
+where the vector boson $4$-momentum is
+\begin{eqnarray}
+  && p{'''}^\mu = (E,p\sin\theta\cos\phi,p\sin\theta\sin\phi,p\cos\theta)\label{eq.16_35a} \\
+  && E = m\cosh y, p = m\sinh y \label{eq.16_35b}
+\end{eqnarray}
+When the rapidity is positive $(y>0)$, the polarization index $h=+1,0,-1$
+is called the helicity, the eigen value of the operator
+\begin{eqnarray}
+  h=\frac{ {\vec J}\cdot {\vec p}}{|{\vec p}|} \label{eq.16_36}
+\end{eqnarray}
+Note my notation for $3$-vectors:
+\begin{eqnarray}
+&& {\vec J} = (J_x, J_y, J_z)^T \label{eq.16_37a} \\
+&&{\vec p} = (p_x, p_y, p_z)^T \label{eq.16_37b} \\
+&&{\vec a} \cdot {\vec b} = a_x b_x + a_y b_y + a_z c_z \label{eq.16_37c} \\
+&& |{\vec a}| = \sqrt{ {\vec a}\cdot {\vec a} } \label{eq.16_37d}
+\end{eqnarray}
+Please note that the polarization vector of $h=0$ state and the $4$-vector
+$p^\mu$ becomes very similar at high energies ($E \gg m$, or $y \gg 1$)
+\begin{eqnarray}
+&&p^\mu
+= (E, p\sin\theta\cos\phi, p\sin\theta\sin\phi, p\cos\theta) \label{eq.16_38a} \\
+&&\eps^\mu(p,h=0)
+= \frac{1}{m}(p, E\sin\theta\cos\phi, E\sin\theta\sin\phi, E\cos\theta)  \label{eq.16_38b}
+\end{eqnarray}
+and therefore,
+\begin{eqnarray}
+  \eps^\mu(p,h=0) - \frac{p^\mu}{m}
+&=& -\frac{E-p}{m} (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta) \\
+&=& -\frac{m}{E+p} (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta) \\
+&=& -e^{-y}  (1, -\sin\theta\cos\phi, -\sin\theta\sin\phi, -\cos\theta) \label{eq.16_39}
+\end{eqnarray}
+
+{\bf hw16-14}:  Show Eq.\ref{eq.16_39}.
+
+This relation is the key in the understanding of the renormalizability
+of spontaneously broken gauge theories with a massive vector boson,
+and it gives rise to the Goldstone-boson equivalence theorem, which
+tells that the helicity zero mode of the vector boson behaves as
+the Goldstone boson at very high energies ($E \gg m$, or $e^y \gg 1$).
+
+{\bf hw16-15}: Show that the polarization sum of the spin $1$ vector boson
+wave functions gives
+\begin{eqnarray}
+  \sum_{h=\pm1,0} \eps^\mu(p,h) \eps^\nu(p,h)^*
+= [ -g^{\mu\nu} + \frac{p^\mu p^\nu}{m^2} ] \label{eq.16_40}
+\end{eqnarray}
+in general frame Eqs.(\ref{eq.16_35a},\ref{eq.16_35b}). In the rest frame Eq.\ref{eq.16_27}, it is simply
+\begin{eqnarray}
+  \sum_{h=\pm1,0} \eps^\mu(p,h) \eps^\nu(p,h)^*
+= [ -g^{\mu\nu} + \frac{p^\mu p^\nu}{m^2} ]=
+\begin{pmatrix}
+  0 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & 1
+\end{pmatrix} \label{eq.16_41}
+\end{eqnarray}
+whose trace ($=3$) counts the degree of freedom of massive vector boson.
+
+Now, we are ready to study the polarization vectors of massless gauge
+bosons.
+
+We first notice that we cannot take the $mass \to 0$ limit in the massive
+vector boson polarization vectors, since the helicity zero ($h=0$,
+longitudinally polarized) wave function diverges as $E/m$ in this limit.
+
+This contrasts sharply with the spin $1/2$ fermion wave function, for
+which the massless limit was taken smoothly from the massive wave
+functions (spinors). The reason for the difference is that in case
+of spin $1/2$ fermions, the degree of freedom does not change when we
+take the massless limit (the spin $1/2$ fermions have just two components,
+helicity $+1/2$ and $-1/2$ components, whether it is massive or massless),
+whereas in case of the vector bosons (or any higher spin particles),
+the massive state has $3$ helicity states ($2s+1$ in case of spin $s$
+particle) while the massless states have only $2$ ($h = +s$ or $-s$).
+
+We need to have constraints which excludes the longitudinally polarized
+state from the physical state of massless spin $1$ (and higher spin)
+particles. In case of massless spin $1$ particles, we need two
+constraints, as I explained above.  Let me copy them here:
+\begin{eqnarray}
+&& p_\mu \eps^\mu(p,h) = 0 \label{eq.16_42a}\\ 
+&& n_\mu \eps^\mu(p,h) = 0 \label{eq.16_42b}
+\end{eqnarray}
+
+The first condition comes from the covariant gauge fixing, the same as
+in the massive gauge boson, which projects out the scalar component
+of the $4$-component vector, the term proportional to
+\begin{eqnarray}
+&& \eps^\mu(p,s=0) = p^\mu/m~  (if~ m \neq 0) \label{eq.16_43a}\\ 
+&& \eps^\mu(p,s=0) = p^\mu/E ~ (if~ m = 0   ) \label{eq.16_43b}
+\end{eqnarray}
+
+The condition Eq.\ref{eq.16_42b} kills the remaining degree of freedom for
+massless vector boson. The residual gauge fixing vector $n^\mu$
+is arbitrary, as long as it is not parallel to $p^\mu$
+\begin{eqnarray}
+  n^\mu p_\mu = (n\cdot p) \neq 0. \label{eq.16_44}
+\end{eqnarray}
+When $n^2 = 0$ (light-like), $n^\mu$ is called the light-cone vector,
+and the gauge Eq.\ref{eq.16_42b} is called the light-cone gauge.
+
+{\bf hw16-16}: Show in the light cone gauge, the polarization sum can be
+expressed as
+\begin{eqnarray}
+  \sum_{h=\pm 1} \eps^\mu(p,h) \eps^\nu(p,h)^*
+    = -g^{\mu\nu} + (n^\mu p^\nu + n^\nu p^\mu)/(n\cdot p) \label{eq.16_45}
+\end{eqnarray}
+where $n\cdot p = n^\mu p_\mu \neq 0$.
+My favorite light-cone gauge is to choose $n^\mu$ along the $p^\mu$
+direction with the opposite $3$-momentum direction,
+\begin{eqnarray}
+  n^\mu = (|p|, -{\vec p}), ~p^\mu = (|p|, {\vec p}) \label{eq.16_46}
+\end{eqnarray}
+It is clear that $n^2 = p^2 = 0$, and $n\cdot p = 2|p|^2 > 0$ if $|p| > 0$.
+(We do not consider a massless particle with zero momentum, since
+there is no way that we can observe them as a photon.)
+
+{\bf hw16-17}: Show that when we take ${\vec p}$ along the positive $z$-direction,
+\begin{eqnarray}
+  p^\mu = (|p|, 0, 0, |p|) \label{eq.16_47}
+\end{eqnarray}
+the polarization sum in this gauge gives
+\begin{eqnarray}
+  \sum_{h=\pm1} \eps^\mu(p,h) \eps^\nu(p,h)^*
+    = -g^{\mu\nu} + (n^\mu p^\nu + n^\nu p^\mu)/(n\cdot p) =
+    \begin{pmatrix}
+      0 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 0
+    \end{pmatrix} \label{eq.16_48}
+\end{eqnarray}
+The trace is $2$, counting the degree of freedom of massless vector boson.
+
+This is the gauge I adopted when I made my computer code HELAS, which
+has been used in MadGraph. The reason is simply that we can use the
+three-momentum of the vector boson to fix the wave function, which is
+most convenient when we write purely numerical codes.
+
+For specific processes, we often find very simple analytic expressions
+for scattering amplitudes by choosing the gauge vector, $n^\mu$.
+
+{\bf hw16-18}: Show the $4\times 4$ matrix representation of the polarization
+sum Eq.\ref{eq.16_48} when $p=(E,0,0,E)$ and $n=(1,\sin\theta,0,\cos\theta)$.
+
+Now, let us examine the helicity conservation for our massless vector
+boson wave functions. For simplicity, let us take the momentum along
+the positive $z$ axis,
+\begin{eqnarray}
+  p^\mu = (E, 0, 0, E) \label{eq.16_49}
+\end{eqnarray}
+and our wave functions in the $n^\mu = (E, 0, 0, -E)$ gauge are
+\begin{eqnarray}
+  \eps^\mu(p,h) = (1/\sqrt{2}) (0, -h, -i, 0)^T \label{eq.16_50}
+\end{eqnarray}
+for the helicity $h=\pm 1$.
+
+{\bf hw16-19}: Calculate
+\begin{eqnarray}
+  && A \eps^\mu(p,h) \label{eq.16_51a}\\
+  && B \eps^\mu(p,h) \label{eq.16_51b}
+\end{eqnarray}
+for $A = J_x + K_y$ and $B = J_y - K_x$, and observe that they
+are not vanishing (our wave functions are NOT an eigen
+vectors of A and B with zero eigen values). This disagrees
+with Weinberg's conjecture I explained in my lecture.
+
+{\bf hw16-20}: Please show Eq.\ref{eq.16_52} and Eq.\ref{eq.16_53}:
+\begin{eqnarray}
+  A^2 \eps^\mu(p,h) = 0,~~~B^2 \eps^\mu(p,h) = 0 \label{eq.16_52}
+\end{eqnarray}
+\begin{eqnarray}
+  p^\mu A \eps^\mu(p,h) = 0,~~~ p^\mu B \eps^\mu(p,h) = 0 \label{eq.16_53}
+\end{eqnarray}
+Eq.\ref{eq.16_52} tells that our wave functions give zero eigen value for $W^2$. Eq.\ref{eq.16_53} tells that although our $\eps^\mu(p,h)$ are not the eigen vector of $A$ and $B$, but the transformed state can be removed by using the covariant gauge fixing condition Eq.\ref{eq.16_42a}. Either (or both?) of the above may suffice to show the proportionality
+\begin{eqnarray}
+  W^a \eps^\mu(p,h) = h p^a \eps(p,h), \label{eq.16_54}
+\end{eqnarray}
+or the conservation of helicity under Poincare transformations.
+This is my understanding.  Please let me know if you learn something
+on this issue.
+
+This completes my homework for vector boson polarization vectors.
+Before starting QFT, let us examine the helicity conservation for
+massless fermions:
+
+{\bf hw16-21}: Obtain $A = J_x + K_y$ and $B = J_y - K_x$ for $S_L$ and $S_R$
+representations, for $\psi_L$ and $\psi_R$. Let us denote them
+$A_L$ and $B_L$ for $\psi_L$, and $A_R$ and $B_R$ for $\psi_R$.
+
+{\bf hw16-22}: Show
+\begin{eqnarray}
+  && A_L u_L(p,-1/2) = B_L u_L(p,-1/2) = 0 \label{eq.16_55a} \\
+  && A_R u_R(p,-1/2) = B_R u_R(p,-1/2) = 0 \label{eq.16_55b}
+\end{eqnarray}
+for our solutions of free massless fermion wave functions.
+
+Following Weinberg's discussion, the wave functions are the
+eigenfunctions of the operators $A$ and $B$ with zero eigenvalues,
+and hence the Pauli-Lubanski operator is proportional to the
+massless four momentum vector, leading to the Poincare invariance
+of their ratio, the helicity.
+
+Although we obtained the helicity conservation for massless (Weyl)
+fermions as their E.O.M., this is a more general statement which
+explains why such E.O.M. is obtained from Lorentz invariant Lagrangian.
+
+I noticed that I forgot to study the normalization of fermion wave
+functions, which correspond to the polarization sum Eq.\ref{eq.16_40} or Eq.\ref{eq.16_45} for vector bosons. Let me give it here.
+
+First, our fermion wave functions are normalized as follows:
+\begin{eqnarray}
+  &&\sum_{h=\pm1/2} u(p,h) {\overline u}(p,h)
+    = m + p^\mu \gamma_\mu \label{eq.16_56a}\\
+  &&\sum_{h=\pm1/2} v(p,h) {\overline v}(p,h)
+    = -(m - p^\mu \gamma_\mu) \label{eq.16_56b}
+\end{eqnarray}
+in the $4$-component notation (upper two transforms as $\psi_L$,
+the lower two transform as $\psi_R$), and
+\begin{eqnarray}
+  {\overline \Psi} = \Psi^\dagger \gamma^0
+             = (\psi_R^\dagger, \psi_L^\dagger) \label{eq.16_57}
+\end{eqnarray}
+is the Dirac conjugate. You can easily prove Eqs.(\ref{eq.16_56a},\ref{eq.16_56b}) by using
+the general expressions for
+\begin{eqnarray}
+  u(p,h) =  
+  \begin{pmatrix}
+    u_L(p,h) \\ u_R(p,h)
+  \end{pmatrix},~~~
+  v(p,h) = 
+  \begin{pmatrix}
+    v_L(p,h) \\ v_R(p,h)
+  \end{pmatrix} \label{eq.16_58}
+\end{eqnarray}
+you obtained in the past homework. You may do so, but I give
+just two simple cases as this homework.
+
+{\bf hw16-23}: Show Eq.(\ref{eq.16_56a},\ref{eq.16_56b}) for a massive fermion in the rest frame, $p = (m, 0, 0, 0)$.
+
+{\bf hw16-24}: Show Eq.(\ref{eq.16_56a},\ref{eq.16_56b}) for a massless fermion in the frame $p = (E, 0, 0, E)$. Please show that there is no mixing
+between the $\psi_L$ and $\psi_R$ components, as in Eq.(\ref{eq.16_60a},\ref{eq.16_60b}).
+\begin{eqnarray}
+  \sum_{h=\pm1/2} u(p,h) {\overline u}(p,h) &=&
+  \begin{pmatrix}
+    0 & u_L(p,-\frac{1}{2}) u_L^\dgr(p,-\frac{1}{2}) \\
+    u_R(p,+\frac{1}{2}) u_R^\dgr(p,+\frac{1}{2}) & 0
+  \end{pmatrix}\nonumber \\
+  &=&
+  \begin{pmatrix}
+    0 & p\cdot \sigma_+\\
+    p\cdot \sigma_- & 0
+  \end{pmatrix} \label{eq.16_60a} \\
+  \sum_{h=\pm1/2} v(p,\lambda) {\overline v}(p,h)&=&
+  \begin{pmatrix}
+    0 & v_L(p,+\frac{1}{2}) v_L^\dgr(p,+\frac{1}{2}) \\
+    v_R(p,-\frac{1}{2}) v_R^\dgr(p,-\frac{1}{2}) & 0 
+  \end{pmatrix} \nonumber \\
+  &=&
+  \begin{pmatrix}
+    0 & -p\cdot \sigma_+\\
+    -p\cdot \sigma_- & 0
+  \end{pmatrix} \label{eq.16_60b}
+\end{eqnarray}
+That's all for hw16, and we are ready to start calculating transition 
+amplitudes in QFT.\\
+
+Best regards,\\
+
+Kaoru
+
+\end{document}

@@ -1,0 +1,408 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\begin{document}
+
+\begin{center}
+{\large\bf HW2 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students:\\
+
+Please let me first give a few comments from hw01:\\
+
+\begin{enumerate}
+  \item When you read/quote experimental data, such as
+\begin{eqnarray}
+\tau(\mu)&=& (1.2969811\pm 0.0000022) \times 10^{-6} s\\
+        &=& \rm mean \pm \rm error
+\end{eqnarray}
+please always note that the accuracy of the measurement is\\
+\begin{eqnarray}                 
+\rm accuracy = \frac{\rm error}{\rm mean}                 
+\end{eqnarray}
+which cannot change when we change the units from second
+to 1/GeV or to cm.  Also, please note that the digits
+after the decimal point should be the same between the
+mean and the error.  For instance,\\
+\begin{eqnarray} 
+100 \pm 0.01
+\end{eqnarray} 
+is not acceptable in physics.  If the error is +-0.01,
+then, the mean should be given as\\
+\begin{eqnarray} 
+100.00 \pm 0.01
+\end{eqnarray} 
+The accuracy of 1/10000.  There is another standard
+method to quote errors, which reads\\
+\begin{eqnarray} 
+\tau(\mu) = 1.2969811(22) \times 10^{-6} s
+\end{eqnarray} 
+The rule is that the number in () gives the 1-sigma
+error for the last digits of the mean.  In case of
+my example above, it becomes 100.00(1).
+I like this method since I don't need to count the
+number of 0's for high precision data.\\
+
+In the above I expressed the ``error'' as ``1-sigma error''
+Here 1-sigma stands for one-standard-deviation, in
+the Gaussian probability distribution,\\
+\begin{eqnarray} 
+P(x) = 1/\sqrt{2\pi\sigma^2} \exp\{-(x-\mu)^2/2\sigma^2\}
+\end{eqnarray} 
+which is normalized to 1,\\
+\begin{eqnarray} 
+\int_{-\infty}^{\infty} dx ~ P(x) = 1
+\end{eqnarray} 
+
+{\bf hw02-1}: prove the above identity
+and the mean of x is $\mu$,
+\begin{eqnarray} 
+\langle x\rangle = \int_{-\infty}^{\infty}dx~ xP(x) = \mu
+\end{eqnarray} 
+
+{\bf hw02-2}: prove the above identity\\
+
+The probability of x being inside the 1-sigma range,
+\begin{eqnarray} 
+\mu -\sigma < x < \mu +\sigma
+\end{eqnarray} 
+is about $67\%$.  When the measurement tells that the true
+value of x is in this range, we write\\
+\begin{eqnarray} 
+x = \mu \pm \sigma.
+\end{eqnarray} 
+
+{\bf hw02-3}: please try to show that the above estimate of $67\%$ is fine.\\
+\begin{itemize}
+  \item hint: If you know numerical integration method, please obtain
+  the probability numerically up to 3 digits.  If you don't
+  know it, you may draw a curve of P(x) vs x, and try to
+  estimate the area under P(x) approximately.  In this
+  case, if you can obtain say, about 2/3, it is fine.
+\end{itemize}
+
+
+\item When a particle decays in flight, its mean decay-in-flight
+length is\\
+\begin{eqnarray} 
+\langle l\rangle = \tau c \gamma \beta,
+\end{eqnarray} 
+where $\gamma = E/m$, $\beta = \sqrt{1-(1/\gamma)^2}$.
+Here are excercises:
+
+{\bf hw02-4}:
+Cosmic rays hit the atmosphere at about 20km above
+the ground/sea level, and produce many $\pi$, which
+decay in flight.\\
+\begin{eqnarray} 
+&&\pi^+ \to \mu^+ + \nu_\mu \\
+&&\pi^- \to \mu^- + {\overline \nu_\mu} \\
+&&\pi^0 \to \gamma \gamma \\
+\end{eqnarray} 
+Charged pion has a long lifetime, and hence flies
+significantly before decay.  If charged $\pi$ energy
+is 1.4GeV ($\gamma = E/m = 10$), how long does it fly
+before it decays into $\mu$ and neutrino ?\\
+
+{\bf hw02-5}:
+Let us assume that muon from $\pi$ decay has energy
+1GeV (again $\gamma = 10$).  How long does it fly
+before it decays ?   What is the energy of muon
+for which the mean decay-in-flight distance is 20km ?\\
+
+{\bf hw02-6}:
+Super-Kamiokande, the world largest Water Cerenkov
+neutrino detector started its operation in 1996,
+20 years ago. Its fiducial volume is 22 kton.\\
+
+Let us assume that the proton decays mainly into
+\begin{eqnarray} 
+p \to e^+ + \pi^0
+\end{eqnarray} 
+with the lifetime of
+\begin{eqnarray} 
+\tau(p) = 8 \times 10^{33} ~\rm yrs
+\end{eqnarray} 
+which is roughly the present $90\%$ CL lower bound from
+the PDG table.\\
+
+Here $90\%$ CL lower bound means that the probability
+that the proton life time is longer than
+$8 \times 10^{33}$ years is $90\%$.  In other words,
+the probability that it is shorter than this value
+is $10\%$. \\
+
+How many protons in Super-Kamiokande have decayed
+in the past 20 years ? \\
+
+Hint: first count the number of protons in 22 kton
+of water.  Then I think the rest is straightforward.\\
+
+This number tells the detection efficiency and the
+background rejection capability of the detector.
+\end{enumerate}
+
+{\bf Now, here is the homework for the 2nd lecture.}\\
+
+Today, I introduced fundamental particles of the SM.
+I explained that all the interactions of the fundamental
+particles in the SM have definite quantum numbers (generalized
+charges) under the symmetry group
+$SU(3)_{\rm color} \times SU(2)_{\rm left} \times U(1)_Y$,
+where I will explain each gauge group carefully in the
+following lectures.\\
+
+Please let me start by reviewing the group U(1),
+which is the group that governs the electromagnetic
+interactions (dictated by Maxwell's equations).\\
+
+Let us start with a complex number
+\begin{eqnarray} 
+z = x + iy,
+\end{eqnarray} 
+where x and y are real numbers, and $i=\sqrt{-1}$ is the
+unit of imaginary part.  The U(1) transformation is
+defined as the transformation of z to another complex
+number z', which is obtained by the operation,
+\begin{eqnarray} 
+z \to z' = e^{i\theta} z
+\end{eqnarray} 
+where $\theta$ is a real number (angle).  The real number
+$\theta$ is called angle, because the transformation
+$e^{i2\pi} = 1$
+is the identity.  Because of this, the operation is periodic
+in $\theta$,
+\begin{eqnarray} 
+e^{i(\theta + 2\pi)} = e^{i\theta}
+\end{eqnarray} 
+and the transformation is determined by $\theta$ in its
+`defined region',
+\begin{eqnarray} 
+0 \leq \theta < 2\pi
+\end{eqnarray} 
+or any other region whose ``length'' is just $2\pi$.\\
+We immediately notice that under the above transformation,
+the norm (abolute value) of z remain un-changed, i.e. $|z'|^2 = |z|^2$.\\
+
+{\bf hw02-7}: prove the above identity.\\
+
+The conservation of the norm is called Unitarity (or the
+conservation of Probability, since in quantum mechanics,
+the absolute value squared of the amplitudes corresponds
+to the probability).  When there is one complex number
+involved in the transformation, the group is called $U(1)$.\\
+
+Let us show that U(1) transformation is the same as the
+rotation inside a plane.  Let us start from the identity
+\begin{eqnarray} 
+e^{i\theta} = \cos\theta + i\sin\theta
+\end{eqnarray} 
+{\bf hw02-8}: prove the above identity.\\
+
+hint: there are many ways to prove it, but I usually use the
+power expansion of the functions:
+\begin{eqnarray} 
+e^{ix} = \sum_{n=0}^{n=\infty} x^n/n!
+\end{eqnarray} 
+where we split the sum into even (n=2m) and odd (n=2m+1)
+power terms,
+\begin{eqnarray} 
+e^{ix}&=&\sum_{n=0}^{n=\infty} (ix)^n/n!\\
+&=&\sum_{m=0}^{m=\infty}  (ix)^{2m}/{2m}! + (ix)^{2m+1}/{2m+1}!\\
+&=&\sum_{m=0}^{m=\infty} x^{2m}/{2m}!+i \sum_{m=0}^{n=\infty} x^{2m+1}/{2m+1}!
+\end{eqnarray}
+and then show that the first term is the expansion of $\cos(x)$
+and the latter is that of $i\sin(x)$.\\
+
+{\bf hw02-9}: When we write
+\begin{eqnarray} 
+z &=& x + iy\\
+z' &=& x' + iy'
+\end{eqnarray} 
+with real numbers x,y,x',y', and when z' are obtained from
+z by the U(1) transformation,
+$z \to z' = e^{i\theta} z$
+please obtain the transformation from (x,y) to (x',y') as
+\begin{equation}
+  \label{eq:3}
+  (x,y)^T \to (x',y')^T = O (x,y)^T
+\end{equation}
+with 2x2 real matrix O.  Here, $^T$ stands for `transpose',
+meaning
+\begin{equation}
+  \label{eq:1}
+  (x,y)^T =
+  \begin{pmatrix}
+    x\\y
+  \end{pmatrix}
+\end{equation}
+I often use this notation in my homework, since it is
+difficult to write the column vector in text.  I write
+the row vector, and put $^T$, to show that it is a column
+vector.  In short, the above expression means
+\begin{equation}
+  \label{eq:2}
+  \begin{pmatrix}
+    x\\y 
+  \end{pmatrix} \rightarrow
+  \begin{pmatrix}
+    x'\\y'
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    O_{11}&O_{12}\\
+    O_{21}&O_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    x\\y
+  \end{pmatrix}
+\end{equation}
+{\bf hw02-10}: Show
+\begin{equation}
+  \label{eq:4}
+  O^T = O^{-1}
+\end{equation}
+or
+\begin{equation}
+  \label{eq:5}
+O^T O = 1  
+\end{equation}
+
+
+The above property of the 2x2 transformation matrix
+with real numbers is called Orthogonal.  The group
+generated by the Orthogonal 2x2 matrix is called SO(2).\\
+
+Here, O stands for orthogonal, while S stands for
+special, meaning
+$\det{O} = 1.$
+This ``special'' condition tells that all the transformations
+can be obtained from the identity transformation,
+\begin{equation}
+  \label{eq:6}
+  I = {\rm diag}\{1,1\} =
+  \begin{pmatrix}
+    1&0\\
+    0&1
+  \end{pmatrix}
+\end{equation}
+by using the genrator formalism:
+\begin{equation}
+  \label{eq:7}
+O(\theta) = e^{i J \theta} I
+\end{equation}  
+{\bf hw02-11}: Show
+\begin{equation}
+  \label{eq:8}
+J = \sigma^2 =
+\begin{pmatrix}
+  0&-i\\
+  i&0
+\end{pmatrix}
+\end{equation}
+gives all the orthogonal transformation matrix which
+corresponds to U(1) transformation.\\
+
+hint: Please remember that the $\exp$ (or any
+funcation) of a matrix is defined by power expansion:
+\begin{equation}
+  \label{eq:9}
+e^{A} = \sum_{n=0}^{n=\infty} A^n/n!,
+\end{equation}
+where $A^n$ can be calculated as matrix multiplications.
+
+hint2: If $A^2$ or $A^4$ is proportional to the identity, $I$,
+then we can sum over all the n to infinity to each
+component of the marrix.\\
+
+In short, with the above homework, we showed that
+the group U(1) is the same as the group SO(2).\\
+
+Let me remind you of the mathmatical definition of
+a group.  A group has elements,
+$a, b, c, ...$
+which has a multiplication rule
+\begin{eqnarray}
+  a\times b = c,
+\end{eqnarray}
+where an arbitrary product of two elements of the group
+is an element of the group.  The multiplication rule
+usually satisfy
+\begin{eqnarray}
+(a\times b)\times c = a\times (b\times c).
+\end{eqnarray}
+The element should contain identity, $I$, for which
+\begin{eqnarray}
+a\times I = I\times a
+\end{eqnarray}
+for all elements, and also for all element a, there
+exists its inverse element, $a^{-1}$, which satisfy
+\begin{eqnarray}
+a^{-1} \times a = I.
+\end{eqnarray}
+
+{\bf hw02-12}: Show that all the above properties are satisfied
+by the element of U(1) transformation,
+$U(\theta) = e^{i\theta}$
+and also by the element of SO(2) transformation,
+\begin{equation}
+O(\theta) =
+\begin{pmatrix}
+  *&*\\
+  *&*
+\end{pmatrix}
+\end{equation}
+Please show the identity transformation for both U(1)
+and SO(2), and also the inverse transformations.\\
+
+Now, let me go on to the next complex Unitary group,
+SU(2). Just like the transformation U(1) can be
+expressed compactly as a transformation on a complex
+number, SU(2) can be expressed compactly as a transformation
+of a set of two complex numbers:
+\begin{equation}
+  \label{eq:10}
+  (z_1, z_2)^T \to (z_1',z_2')^T = U (z_1,z_2)^T
+\end{equation}
+This looks similar to the SO(2) transformation as I
+introduced above, but now, both $z_1$ and $z_2$ are complex
+numbers, and the transformation U is a $2\times 2$ matrix
+of complex numbers.  The transformation is called
+SU(2), Special Unitary transformation with 2 complex
+degrees of freedom when
+\begin{equation}
+  \label{eq:11}
+U^\dagger = U^{-1}~\text{or} ~ U^\dagger U = 1 ~~\rm (Unitary)  
+\end{equation}
+and
+$\det{\{U\}} = 1$ (Special).\\
+
+{\bf hw02-13}: Show that the SU(2) transformation preserves
+the norm of complex vectors $(z_1,z_2)^T$,
+\begin{eqnarray}
+(z_1,z_2)^* (z_1,z_2)^T = |z_1|^2 + |z_2|^2
+\end{eqnarray}
+Please note that we usually introduce a doublet of
+two complex number
+\begin{eqnarray}
+z = (z_1,z_2)^T
+\end{eqnarray}
+and for this column vector z, the unitarity condition is
+\begin{eqnarray}
+z'^\dagger z' = z^\dagger z.
+\end{eqnarray}\\
+
+
+Please let me stop here.\\
+
+Best regards,\\
+
+Kaoru
+
+
+
+\end{document}

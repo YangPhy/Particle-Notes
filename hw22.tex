@@ -1,0 +1,564 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+\def\dgr{\dagger}
+\def\eps{\epsilon}
+\def\lmd{\lambda}
+\def\th{\theta}
+\begin{document}
+
+\begin{center}
+{\large\bf HW22 for Advanced Particle Physics} \\
+  
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+This week, I explain a simple collision process e+ e- -> f fbar.
+The first part of this homework contains Z -> f fbar amplitudes,
+and the calculation of the Z boson partial and total widths.
+In the second part (hw23), we obtain e+e- to f fbar amplitudes in
+the second order of S-matrix expansion, with the Z-boson propagator.
+I will explain Schwinger-Dyson summation of one-particle-irreducible
+(1PI) two-point functions in the full Z-boson propagator, and
+show how Unitarity determines the Z-boson decay width.
+
+==================
+E: e+ e- -> f fbar
+==================
+
+Please recall the covariant derivative of the EW currents:
+
+1) D_\mu = \del_\mu
+          + i g_W/\sqrt{2} [T^+ W^+_\mu  + T^- W^-_\mu]
+          + i g_Z [ T^3 - Q \sin^2\theta_W ] Z_\mu
+          + i e Q A_\mu
+
+For simplicity, let us take the Z-boson contribution only.
+The relevant interaction Lagrangian is then
+
+2) L_\int = \Psibar i(D_\mu-\del_\mu) \gamma^\mu \Psi
+          = -gZ Z_\mu \Psibar \gamma^\mu (T^3 - Q \sw2) \Psi + ...
+
+where I introduced abbreviations gZ=g_Z=g/\cw=e/\sw\cw,
+\sw=\sin\theta_W, \cw=\cos\theta_W, \sw2=\sw^2, etc.  As always,
+e = g\sw = g'\cw = g_Z\cw\sw is worth memorizing.
+
+In the SM, we have 7 Zff coupling factors
+
+3a) u_L     gZ (T^3 - Q\sw2) = gZ( 1/2 - 2/3 \sw2) = gZuL
+3b) u_R     gZ (T^3 - Q\sw2) = gZ( 0   - 2/3 \sw2) = gZuR
+3c) d_L     gZ (T^3 - Q\sw2) = gZ(-1/2 + 1/3 \sw2) = gZdL
+3d) d_R     gZ (T^3 - Q\sw2) = gZ( 0   + 1/3 \sw2) = gZdR
+3e) n_L     gZ (T^3 - Q\sw2) = gZ( 1/2           ) = gZnL
+3f) l_L     gZ (T^3 - Q\sw2) = gZ(-1/2 +     \sw2) = gZlL
+3g) l_R     gZ (T^3 - Q\sw2) = gZ( 0   +     \sw2) = gZlR
+
+hw22-1: Please give the magnitudes of e,g,gZ,g' when
+e = \sqrt{ 4\pi\alpha }, with \alpha = \alpha(mZ) = 1/128,
+and \sw2 = 0.233.  Also, please give the magnitudes of
+gZf/gZ and (gZf/gZ)^2 for f = uL, uR, dL, dR, nL, lL, lR.
+Do you observe something interesting among the 7 couplings?
+
+For the on-shell Z boson (mZ=92GeV), the relevant fermions are,
+u=u,c, d=d,s,b, n=n1,n2,n3 or ne,nmu,ntau, l=e,mu,tau.
+Only the top-quark (u=t) cannot appear in the Z boson decays.
+
+Please remember from the previous homework that all the neutral
+currents are diagonal in the SM, since the unitary matrix which
+relates the mass-eigenstates with arbitrary current states
+cancel out for the neutral currents.  Therefore, the couplings
+are the same in the mass-eigenstate basis of nu1, nu2, nu3,
+or the charged-lepton current basis of nue, numu, nutau.
+
+hw22-2: Prove the above statements.
+
+Let us first review the Z boson decay rate into a fermion pair, f+fbar,
+which is very similar to the W boson decay we studied before.  The
+initial state is a one-Z boson state
+
+3) |i> = a^\dagger_{Z,p,\lambda} |0>
+
+Let us take the Z boson rest-frame
+
+4) p^\mu = (mZ, 0, 0, 0)
+
+and the polarization along the z-direction
+
+5) J_z \epsilon_\mu(p,h) = h \epsilon_\mu(p,h)
+
+with h=+1, or 0.  The final state is a pair of f and fbar in the same
+frame:
+
+6) |f> = a^\dagger_{f,k1,h1} b^\dagger_{fbar,k2,h2} |0>
+
+where
+
+7) k1 = E(1,  \sin\theta, 0,  \cos\theta)
+   k2 = E(1, -\sin\theta, 0, -\cos\theta)
+
+from the energy momentum conservation, we can tell
+
+8) E = mZ/2.
+
+The helicities, h1 and h2, should be chosen according to the chirality
+of f,
+
+9) h1=-h2=+1/2 for f=uR,dR,lR
+   h1=-h2=-1/2 for f=uL,dL,lL,nL
+
+For simplicity, we ignore all the masses of fermions that appear in
+Z-boson decays (the heaviest one is the b-quark, whose mass is about
+5GeV, which is about 4.5% of mZ, giving (4.5%)^2=0.2% order corrections
+to the decay rate).
+
+hw22-3: Please confirm the h1=-h2 rule for massless fermions, when
+a pair of f and fbar couples to a vector boson, in the initial state
+(Z -> f fbar) or in the final state (f fbar -> Z).
+
+Let us first obtain the amplitude
+
+10) <f(h1)fbar(-h1)| T\exp{i\Int d^4x L_int(x)} |Z(h)>
+= i (2pi)^4 \delta^4(pZ-pf-pf~) M(Z(h) > f(h1) f~(-h1))
+
+The operators in L_int(x) that contribute to the amplitudes (10) are
+
+11) Z_\mu(x)
+= \Sum_h \Int d^3k/2E
+  { a_{Z:k,h}         \eps_\mu(k,h)   e^{-ikx}
+  + a_{Z:k,h}^\dagger \eps_\mu(k,h)^* e^{ikx} }_{k^0=E_k} }
+
+where the sum is over h=+1,0,-1, and E_k=\sqrt{mZ^2+k^2}.  And
+
+12a) \Psi_f(x)
+= \Sum_h \Int d^3k/2E
+  { a_{f:k,h}         u(k,h) e^{-ikx}
+  + b_{f:k,h}^\dagger v(k,h) e^{ikx} }_{k^0=E_k} }
+
+12b) \Psi_f(x)^\dagger
+= \Sum_h \Int d^3k/2E
+  { a_{f:k,h}^\dagger u(k,h)^\dagger e^{ikx}
+  + b_{f:k,h}         v(k,h)^\dagger e^{-ikx} }_{k^0=E_k} }
+
+Please note that Z boson is real, Z_\mu^\dagger = Z_\mu, whereas the
+SM fermions other than the neutrinos are not.  Neutrinos may or may
+not be self-conjugate (Majorana).  In eqs.(12), I intentionally write
+the complex conjugates (\Psi^\dagger) rather than the Dirac conjugate
+(\Psibar = \Psi^\dagger \gamma^0), since the latter is simply obtained
+multiplying \gamma^0 from the right-hand-side of (12b).  We already
+know that the purpose of the Dirac conjugate is simply to choose the
+correct chiral components, fL or fR, when making the Lorentz
+invariants (fL^\dagger fR) or (fR^\dagger fL), or making the vectors
+(fL^\dagger \sigma_-^\mu fL) or (fR^\dagger \sigma_+^\mu fR).
+Therefore, as long as we can ignore the fermion masses,
+it is far easier to compute the amplitudes in the Weyl basis.
+
+Now in the expression (10), the transition amplitudes receive non-zero
+contribution at n=1,
+
+13) T \exp{i\Int d^4x L_int(x)}
+= T {  1 + i\Int d^4x L_int(x) + ...
+= T {  1 + i\Int d^4x
+ {-gZ Z_\mu(x) \Psibar(x) \gamma^\mu (T^3 - Q \sw2) \Psi(x)} + ...
+= 1 + \Int d^4x Z_\mu(x)
+ {(-igZfL \fL(x)^\dagger \sigma_-^\mu \fL(x)
+ +(-igZfR \fR(x)^\dagger \sigma_+^\mu \fR(x) } + ...
+
+In the last term, I drop the T-ordering since the n=1 term has only
+one time, and express the Dirac fermion fields in terms of their two
+chiral component fields, fL(x) and fR(x).  The symbol `f' stands for
+f=u,d,l,nu, and the coupling gZfL and gZfR are for Z-fL-fL and
+Z-fR-fR couplings, respectively.  Also, the factor of i multiplying
+\Int d^4x L_{int}(x) is moved to multiply the coupling factor.
+
+Now, we can evaluate the matrix elements of the above operator
+
+14) <ffbar| S |Z>
+= <ffbar| T\exp{i\Int d^4x L_int(x)} |Z>
+= <0| b_{fbar,k2,h2} a_{f,k1,h1} S a^\dagger_{Z,p,\lambda} |0>
+= (2pi)^4 \delta^4(p_Z-p_f-p_fbar) iM(Z>ffbar)
+
+by inserting eqs.(3) and (6) into (10).  Please confirm that only the
+following terms survive after using the definition of the vacuum,
+
+15) a_{any particle, any momentum, any spin} |0> = 0
+    b_{any particle, any momentum, any spin} |0> = 0
+
+and an appropriate normalization, <0|0> = 1, which depends on
+how we normalize the creation/annihilation operators.  The
+covariant normalizations for the commutator for Z, anti-commutators
+for f and fbar:
+
+16a) [ a_{k}, a^\dagger_{k'} ] = 2E \delta^3(k - k')
+16b) [ b_{k}, b^\dagger_{k'} ] = 2E \delta^3(k - k')
+
+are common, and the normalizations of one-particle states etc
+follow.  In any case, the space-time integral \Int d^4x gives
+the overall 4-momentum conservation,
+
+17) \Int d^4x e^{-i \Sum P_initial x} e^{ +i \Sum P_final x}
+  = (2\pi)^4 \delta^4( \Sum_initial p_k - \Sum_final p_l )
+
+Because this overall 4-momentum conservation is common to all the
+S-matrix element, we usually drop this term from the scattering
+amplitudes, iM, as written in eq.(14).  We find:
+
+18a) iM(Z > fL fLbar)
+= (-igZfL) \uL(k1,L)^\dagger \sigma_-^\mu \vL(k2,R)
+                                 \eps_\mu(P,\lambda)
+
+18b) iM(Z > fR fRbar)
+= (-igZfR) \uR(k1,R)^\dagger \sigma_+^\mu \vR(k2,L)
+                                 \eps_\mu(P,\lambda)
+
+hw22-4:  Derive eqs.(18) by yourself.
+
+I denote the helicity +1/2 as R, and the helicity -1/2 as L.
+The factor of i in front of M, cancels the factor of i
+in the `Feynman rules'
+
+19a) (-igZfL) \sigma_-^\mu    for Z-fL-fL vertex
+19b) (-igZfR) \sigma_+^\mu    for Z-fR-fR vertex
+
+and the tree-amplitude is real, rather than pure imaginary.
+
+Now in the rest frame of the Z boson (mZ)
+
+20) P^\mu  = (mZ, 0, 0, 0)
+
+the 3 polarization vectors are (see past homeworks)
+
+21a) \eps^\mu(P,+1) = ( 0, -1, -i, 0 )/\rt2
+21b) \eps^\mu(P, 0) = ( 0,  0,  0, 1 )
+21c) \eps^\mu(P,-1) = ( 0, +1, -i, 0 )/\rt2
+
+In the massless limit, the fermion wave functions are
+
+22a) uL(p,L) = \sqrt{2E} [ 0 ]
+                         [ 1 ]
+22b) uR(p,R) = \sqrt{2E} [ 1 ]
+                         [ 0 ]
+22c) vL(p,R) = uR(p,R)^c =  i\sigma^2 uR(p,R)^* = \rt{2E} [  0 ]
+                                                          [ -1 ]
+22d) vR(p,L) = uL(p,L)^c = -i\sigma^2 uL(p,L)^* = \rt{2E} [ -1 ]
+                                                          [  0 ]
+
+in the frame where
+
+23) p^\mu = (E, 0, 0, E)
+
+In the Z boson rest frame, both k1 and k2 have energies E=mZ/2.
+k1^\mu is obtained from p^\mu by R_y(\theta), whereas k2^\mu is
+obtained from p^\mu by R_y(\theta+\pi).  Therefore,
+
+24a) uL(k1,L) = R_y(\theta) uL(p,L)
+              = \rt{2E} [c(th/2) -s(th/2)] [0] = \rt{2E} [-s(th/2)]
+                        [s(th/2)  c(th/2)] [1]           [ c(th/2)]
+24b) uR(k1,R) = R_y(\theta) uR(p,R)
+              = \rt{2E} [c(th/2) -s(th/2)] [1] = \rt{2E} [ c(th/2)]
+                        [s(th/2)  c(th/2)] [0]           [ s(th/2)]
+24c) vL(k2,R) = R_y(\pi+\theta) vL(p,R)
+              = \rt{2E} [c(pi/2+th/2) -s(pi/2+th/2)] [ 0]
+                        [s(pi/2+th/2)  c(pi/2+th/2)] [-1]
+              = \rt{2E} [-s(th/2) -c(th/2)] [ 0] = \rt{2E} [ c(th/2)]
+                        [ c(th/2) -s(th/2)] [-1]           [ s(th/2)]
+24d) vR(k2,L) = R_y(\pi+\theta) vR(p,L)
+              = \rt{2E} [c(pi/2+th/2) -s(pi/2+th/2)] [-1]
+                        [s(pi/2+th/2)  c(pi/2+th/2)] [ 0]
+              = \rt{2E} [-s(th/2) -c(th/2)] [-1] = \rt{2E} [ s(th/2)]
+                        [ c(th/2) -s(th/2)] [ 0]           [-c(th/2)]
+
+hw22-5:  Derive eqs.(24).  What happens if we use R_y(\theta-\pi)
+instead of R_y(\theta+\pi) to obtain fbar wave functions?
+
+Now the fermion currents are (by noting (\rt{2E})^2 = 2E = mZ):
+
+25a) uL(k1,L)^\dagger \sigma_-^\mu vL(k2,R)
+   = mZ[-s(th/2),c(th/2)] [1,-\sigma^1,-\sigma^2,-\sigma^3] [c(th/2)]
+                                                            [s(th/2)]
+   = mZ[ 0, -c(th),  -i,  s(th) ]
+
+25b) uR(k1,R)^\dagger \sigma_+^\mu vR(k2,L)
+   = mZ[c(th/2),s(th/2)] [1, \sigma^1, \sigma^2, \sigma^3] [ s(th/2)]
+                                                           [-c(th/2)]
+   = mZ[ 0, -c(th),  i,  s(th) ]
+
+Now the amplitudes (18a,b) are easily calculated as
+(I denote a^\mu b_mu = a^mu * b^mu):
+
+26a) M(Z > fL fLbar)
+=(-gZfL) \uL(k1,L)^\dagger \sigma_-^\mu \vL(k2,R) \eps_\mu(P,\lambda)
+= -gZfL mZ [0,-c(th),-i,s(th)]*[0,-1,-i, 0]/\rt2  for \lambda=+1
+= -gZfL mZ [0,-c(th),-i,s(th)]*[0, 0, 0, 1]/\rt2  for \lambda= 0
+= -gZfL mZ [0,-c(th),-i,s(th)]*[0,+1,-i, 0]/\rt2  for \lambda=-1
+= -gZfL mZ (0 -c(th) +1)/\rt2   for \lambda=+1
+= -gZfL mZ (0 -0  -0 -s(th))    for \lambda= 0
+= -gZfL mZ (0 +c(th) +1)/\rt2   for \lambda=-1
+
+26b) M(Z > fR fRbar)
+=(-gZfR) \uR(k1,R)^\dagger \sigma_+^\mu \vR(k2,L) \eps_\mu(P,\lambda)
+= -gZfR mZ [0,-c(th),+i,s(th)]*[0,-1,-i, 0]/\rt2  for \lambda=+1
+= -gZfR mZ [0,-c(th),+i,s(th)]*[0, 0, 0, 1]       for \lambda= 0
+= -gZfR mZ [0,-c(th),+i,s(th)]*[0,+1,-i, 0]/\rt2  for \lambda=-1
+= -gZfL mZ (0 -c(th) -1)/\rt2   for \lambda=+1
+= -gZfL mZ (0 -0  -0 -s(th))    for \lambda= 0
+= -gZfL mZ (0 +c(th) -1)/\rt2   for \lambda=-1
+
+The amplitudes are just a (real) function of the opening angle between
+the Z boson spin quantization axis and the fL/fR momentum direction in
+the Z boson rest frame.
+
+hw22-6:  Please confirm eqs.(26), and express them by using the
+d-functions we introduced in the last homework.
+
+The decay width can be calculated as
+
+27a) \Gamma(Z > fL+fLbar)
+= 1/2mZ \Int |M(Z>fL+fLbar;\lambda,\theta)|^2 d\PS_2(P=k1+k2)
+
+27b) \Gamma(Z > fR+fRbar)
+= 1/2mZ \Int |M(Z>fR+fRbar;\lambda,\theta)|^2 d\PS_2(P=k1+k2)
+
+where the integral is over the 2-body phase space of fL and fR:
+
+28) d\PS_2(P=k1+k2)
+= (2pi)^4 \delta^4(P-k1-k2) \d^3k1/(2E1)(2pi)^3 d^3k2/(2E2)(2pi)^3
+
+In general, n-body phase space is defined as
+
+29) d\PS_n(P=\Sum_i k_i)
+= (2pi)^4 \delta^4(P-\Sum_i k_i) \Pi_j { d^3k_j/[(2E_j)(2pi)^3 }
+
+where \Pi_j A_j = A_1 * A_2 * ... * A_n, and
+
+30) E_j = \sqrt{ k_j^2 + m_j^2 }
+
+is the on-shell energy of the particle j of mass m_j.  In the two-body
+rest frame, we can determine the k_1 and k_2 4-momentum by using the
+k_1 3-momentum (which are chosen as the integration variable) as
+(for massless particles)
+
+31a) k_1^\mu = (E, Esin(th)cos(phi), Esin(th)sin(phi), Ecos(th))
+31b) k_2^\mu = (E,-Esin(th)cos(phi),-Esin(th)sin(phi),-Ecos(th))
+
+The remaining delta function and the integrations are
+
+32) delta(mZ-E-E) d^3 k_1 = delta(mZ-2E) E^2 dE dcos(th) d(phi)
+                          = mZ^2/8 dcos(th) d(phi)
+
+where E=mZ/2 is fixed when the last delta function is used.  We find
+
+33) dPS_2 = (1/8pi) dcos(th)/2 d(phi)/2pi
+
+when both particles are massless, k_1^2=k_2^2=0.  The second
+parametrization is for general mass case, k_j^2=mj^2:
+
+34) dPS_2 = (1/8pi) (2p^*/M) dcos(th)/2 d(phi)/2pi
+
+where p^* is the magnitude of the common 3-momentum of the
+two particles in the rest frame:
+
+35a) k_1^\mu = (E1, p^* s(th)c(phi), p^* s(th)s(phi), p^* c(th))
+     k_2^\mu = (E2,-p^* s(th)c(phi),-p^* s(th)s(phi),-p^* c(th))
+
+35b) E1 = \sqrt{ (p^*)^2 + m_1^2 }
+     E2 = \sqrt{ (p^*)^2 + m_2^2 }
+     E1+E2 = M
+
+35c) 2p^*/M
+   = \sqrt{1+(m1/M)^4+(m2/M)^4-2(m1/M)^2-2(m2/M)^2-2(m1m2/M^2)^2}
+
+Note that (35c) can be written as
+
+36) 2Mp^*
+  = \sqrt{M^4+(m1)^4+(m2)^4-2(m1*M)^2-2(m2*M)^2-2(m1*m2)^2}
+  = \sqrt{M^4-2M^2[(m1)^2+(m2)^2]+[(m1)^2-(m2)^2]^2}
+  = \sqrt{[M^2-(m1)^2-(m2)^2]^2-[(m1)^2+(m2)^2]^2+[(m1)^2-(m2)^2]^2}
+  = \sqrt{[M^2-(m1)^2-(m2)^2]^2-4(m1)^2(m2)^2}
+  = \sqrt{[M^2-(m1)^2-(m2)^2+2(m1)(m2)][M^2-(m1)^2-(m2)^2-2(m1)(m2)]}
+  = \sqrt{[M^2-(m1-m2)^2][M^2-(m1+m2)^2]}
+  = \sqrt{(M-m1+m2)(M+m1-m2)(M+m1+m2)(M-m1-m2)}
+
+or
+
+37) 2p^*/M
+  = \sqrt{[1+(m1+m2)/M][1-(m1+m2)/M][1+(m1-m2)/M][1-(m1-m2)/M]}
+
+The above factor dictates the 2-body phase space suppression factor
+for massive particles, and it vanishes when
+
+38) M = m1+m2
+
+which is the two particle production threshold.  Since the magnitude of
+the momentum is fixed by energy-momentum conservation, the whole phase
+space is the region
+
+39) -1 < \cos\theta < 1, 0 < \phi < 2pi
+
+The total volume of the 2-body phase space is hence
+
+40) PS_2 = 1/8pi 2p^*/M -> 1/8pi (for m1=m2=0).
+
+It is quite useful to memorize this.
+
+hw22-7:  The parametrization of the two body phase space has been done
+in the past homework.  You may repeat the proof of (33), (34), (37),
+as homework only if you cannot yet write them down without viewing
+my derivation.
+
+Since our amplitudes, (25a-b) do not depend on the azimuthal angle \phi,
+the differential decay rate is
+
+41) d\Gamma = 1/2M |M(\lambda,\theta)|^2 (1/8pi) dcos(th)/2
+
+or
+
+42) d\Gamma      1    |M(\lambda,\theta)|^2
+    -------- = -----  ---------------------
+    dcos(th)    16pi          2M
+
+The Lorentz invariance of physics tells that the decay rates of
+a particle do not depend on the direction of the polarization.
+If a particle decays faster when it is polarized in a particular
+direction, it tells that there is a special direction in our universe.
+
+hw22-8: Please obtain all the partial decay widths (43) in terms of
+the Z boson mass and the couplings.
+
+43) \Gamma(Z > fL + fLbar), and \Gamma(Z > fR + fRbar)
+
+by integrating out the \cos\theta dependence of the squared amplitudes,
+and show that they are independent of the Z boson polarization,
+\lambda.
+
+h22-9: Please obtain numerically the following partial widths:
+
+44a) \Gamma(Z > uL + uLbar)  (u=u,c;   sum over 3 colors)
+44b) \Gamma(Z > uR + uRbar)  (u=u,c;   sum over 3 colors)
+44c) \Gamma(Z > dL + dLbar)  (d=d,s,b; sum over 3 colors)
+44d) \Gamma(Z > dR + dRbar)  (d=d,s,b; sum over 3 colors)
+44e) \Gamma(Z > lL + lLbar)  (l=e,\mu,\tau)
+44f) \Gamma(Z > lR + lRbar)  (l=e,\mu,\tau)
+44g) \Gamma(Z > vL + vLbar)  (v=v_e,v_\mu,v_\tau or v=v_1,v_2,v_3)
+
+Please use mZ = 92GeV, e=\sqrt{4pi\alpha} with \alpha=1/128,
+sW^2=0.233.  Please compute
+
+45a) \Gamma(Z > u+ubar) = \Gamma(Z>uL+uLbar) + \Gamm(Z>uR+uRbar)
+45b) \Gamma(Z > d+dbar) = \Gamma(Z>dL+dLbar) + \Gamm(Z>dR+dRbar)
+45c) \Gamma(Z > l+lbar) = \Gamma(Z>lL+lLbar) + \Gamm(Z>lR+lRbar)
+45d) \Gamma(Z > v+vbar) = \Gamma(Z>vL+vLbar)
+
+Please obtain the total decay width of the Z boson as
+
+46) \Gamma_Z = 2*\Gamma(Z>uubar)
+              +3*\Gamma(Z>ddbar)
+              +3*\Gamma(Z>llbar)
+              +3*\Gamma(Z>vvbar)
+
+and compare your result with the data compiled by the PDG.
+
+Please also obtain the Z boson decay branching fractions
+
+47a) B(Z>uubar)=B(Z>ccbar)=\Gamma(Z>uubar)/\Gamma_Z
+47b) B(Z>ddbar)=B(Z>ssbar)=B(Z>bbbar)=\Gamma(Z>ddbar)/\Gamma_Z
+47c) B(Z>eebar)=B(Z>mumubar)=B(Z>tautaubar)=\Gamma(Z>uubar)/\Gamma_Z
+47d) B(Z>invisible)=3*B(Z>vvbar)=3*\Gamma(Z>vvbar)/\Gamma_Z
+
+Please compare your results with the data compiled by the PDG.
+
+The major cause of the difference comes from the QCD radiative
+corrections, which enhances all the decay widths into quarks
+by about a few %.  Smaller effects are due to finite masses
+of the b-quark and tau-leptons.  After correcting for them,
+the observed magnitude of the invisible width is very accurately
+3 times the calculated width of Z > nu nubar.  This confirmed
+that there are just 3 neutrinos in the world.
+
+The Z-bosons produced in e+e- collisions are polarized in
+the Z-boson rest frame, along the colliding e+e- beam direction.
+
+The chirality conservation in the massless electron limit tells
+that only eL and eL^c(right-handed positron), and
+eR and eR^c(left-handed positron) can annihilate to produce a
+Z boson.  The angular momentum sum along the e+e- beam
+direction tells (if we take the e- beam direction as our
+z-axis), then the initial angular momentum is
+
+48a) J_z = (-1/2) - (+1/2) = -1  when eL collides with eL^c
+48b) J_z = (+1/2) - (-1/2) = +1  when eR collides with eR^c
+
+The produced Z boson hence has J_z=-1 or J_z=+1.
+Because J_z=0 Z boson is never produced, the Z boson is
+polarized even when the beam is not polarized (half eL
+and half eR).  Because of this, the angular distribution
+of the process
+
+49) e- + e+ > Z > f + fbar
+
+has a definite \cos\theta dependence, as we found in the
+amplitudes (26a)-(26b).
+
+hw22-10:  Please show that IF exactly the same number of
+\lambda = +1, 0, -1 Z bosons are there, then all the
+angular distributions become flat:
+
+50) d\Gamma/d\cos(th) = 1/3 d\Gamma(\lambda=+1)/d\cos(th)
+                       +1/3 d\Gamma(\lambda= 0)/d\cos(th)
+                       +1/3 d\Gamma(\lambda=-1)/d\cos(th)
+
+This exercise tells that the equal weight sum of the 3 polarized
+states is the same as the un-polarized Z boson.  Since the un-polarized
+Z boson has no preferential direction, the decay angular distributions
+can only be flat (in both \cos\theta and \phi).
+
+Now, when the colliding e- and e+ are un-polarized, the produced
+Z boson is still polarized, and hence its decay distribution is
+NOT flat:
+
+51) d\Gamma\d\cos(th) = 1/2 d\Gamma(\lambda=+1)/d\cos(th)
+                       +1/2 d\Gamma(\lambda=-1)/d\cos(th)
+
+These distributions have been measured at LEP and SLC, and from the
+angular distributions, the magnitude of the weak mixing parameter
+sw2 = \sin^2\theta_W has been measured.
+
+hw22-11:  Please compute 51) for Z > l+lbar, and show that the
+Forward-Backward asymmetry can determine the magnitude of sw2:
+
+            \Gamma(\cos(th)>0) - \Gamma(\cos(th)<0)
+52) A_FB =  ---------------------------------------
+            \Gamma(\cos(th)>0) + \Gamma(\cos(th)<0)
+
+Here
+
+53a) \Gamma(cos(th)>0) = \Int_0^1  dcos(th) d\Gamma/dcos(th)
+53b) \Gamma(cos(th)<0) = \Int_-1^0 dcos(th) d\Gamma/dcos(th)
+
+hw22-12:  Please repeat the above exercise for Z > b+bbar mode, and
+compute A_FB for Z > b+bbar and Z > l+lbar when sw2=0.233.  Assuming
+that we can use three charged leptons to measure sw2, which process,
+Z > llbar or Z > bbar, is more sensitive to sw2 ?  For definiteness,
+let us assume that we gather 10^7 Z bosons.  What is the expected
+statistical error of sw2 from the lepton mode and from the b mode?
+
+That's all for hw22.
+
+Best regards,
+
+Kaoru
+
+
+
+
+\end{document}

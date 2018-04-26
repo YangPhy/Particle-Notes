@@ -1,0 +1,515 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,graphicx,color,epsfig,physics}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{feynmp}
+\textheight=9.5in \voffset=-1.0in \textwidth=6.5in \hoffset=-0.5in
+\parskip=0pt
+\def\del{{\partial}}
+
+
+\begin{document}
+
+\begin{center}
+{\large\bf HW9 for Advanced Particle Physics} \\
+
+\end{center}
+
+\vskip 0.2 in
+
+Dear students,\\
+
+Today, I explained quark and lepton masses and their mixings.
+The following points are important:
+
+\begin{enumerate}
+  \item Diagonalization of quark and lepton mass matrices give two Unitary
+  transformations (one each for Left-handed and Right-handed 
+components) between the quark and lepton mass eigenstates and the states which
+  appear in the Lagrangian before the symmetry breakdown (current 
+states).
+
+ \item In charged currents (that couple to $W^+$ and $W^-$ bosons), there
+ appear Unitary mixing between different generations of quarks and
+ leptons.  They are called $V_{CKM}$ and $V_{MNS}$.
+
+ \item In neutral currents (that couple to $Z$ and $\gamma$), there do not
+ appear couplings between different generations (absence of FCNC).
+ This is because all the fermions (of different generations) with
+ the same electric charge has exactly the same representations under
+ $SU(2)_L \times U(1)_Y$.  This was first observed by GIM in 1971, 4 years
+ after Weinberg presented his ``model for leptons'' in 1967. \label{item.9C}
+
+ \item The SM Higgs boson does not have couplings between quarks and
+ leptons of different generations (absence of FCNC).  This is because
+ the same Unitary matrices that rotates the current states to the
+ mass eigenstates rotates the Higgs-fermion-fermion couplings. \label{item.9D}
+
+ The rules \ref{item.9C} and \ref{item.9D} of the SM (absence of FCNC in $Z$ and Higgs boson
+ couplings) give a powerful tool to look for physics beyond the SM.
+ The rule \ref{item.9D} will be discussed in the next lecture/hw10.
+
+\end{enumerate}
+  {\bf Now, let us go ahead studying the Yukawa interactions}:
+
+  \begin{eqnarray}
+    {\cal L}_{Yukawa} =&& \sum_{i,j} y^u_ij Q_i^\dagger \phi^c uR_j
+                          + y^d_ij Q_i^\dagger \phi   dR_j
+                          \nonumber \\&&+ y^l_ij L_i^\dagger \phi   lR_j
+                          + y^n_ij (L_i*\phi)*(L_j*\phi)/2\Lambda
+                          + h.c.
+  \end{eqnarray}
+   where the summation are over generations $i,j = 1,2,3$.
+  In the last term I introduced the $*$ products,
+\begin{eqnarray}
+  L_i*\phi = ({n_L}_i, {l_L}_i) i\sigma^2 (\phi^+, \phi^0)^T
+               = ({n_L}_i)(\phi^0) - ({l_L}_i)(\phi^+)
+\end{eqnarray}
+  among the weak $SU(2)$ doublets, and
+\begin{eqnarray}
+  L_i*L_j = 
+  \begin{pmatrix}
+    {L_i}_1 & {L_i}_2
+  \end{pmatrix}
+  i\sigma^2 
+  \begin{pmatrix}
+    {L_j}_1 \\{L_j}_2
+  \end{pmatrix}
+  = {L_i}_1 {L_j}_2 - {L_i}_2 {L_j}_1 \label{eq.9Lij}
+\end{eqnarray}
+  among the two left-handed spinor doublets (Weyl spinors).  Note that
+  the last expression of Eq.\ref{eq.9Lij} does not vanish because $L$'s are
+  anti-commuting (fermionic) operators.  That Eq.\ref{eq.9Lij} (as well as all the other mass terms and the $h-f-f$ couplings) is invariant under the
+  Lorentz transformation will be proven in my lectures in the next 
+week.
+
+  In the Unitary gauge we can denote
+  \begin{eqnarray}
+    \phi&=&
+    \begin{pmatrix}
+      0 \\ (v+h)/\sqrt2
+    \end{pmatrix} \\
+    \phi^c&=&
+    \begin{pmatrix}
+      (v+h)/\sqrt2  \\0 
+    \end{pmatrix} 
+  \end{eqnarray}
+
+  The mass terms are then
+\begin{eqnarray}
+  {\cal L}_{Yukawa}
+    &=& \sum_{i,j} y^u_{ij} (v/\sqrt2) {u_L}_i^\dagger {u_R}_j
+               + y^d_{ij} (v/\sqrt2) {d_L}_i^\dagger {d_R}_j
+               + y^l_{ij} (v/\sqrt2) {l_L}_i^\dagger {l_R}_j
+               \nonumber \\ &&+ y^n_{ij} (v^2/4\Lambda) {n_L}_i*{n_L}_j
+               + h.c. \\
+    &=& \sum_{i,j} -M^u_{ij} {u_L}_i^\dagger {u_R}_j
+                 -M^d_{ij} {d_L}_i^\dagger {d_R}_j
+                 -M^l_{ij} {l_L}_i^\dagger {l_R}_j
+                 -M^n_{ij} {n_L}_i*{n_L}_j/2
+                 + h.c.
+\end{eqnarray}
+  where I introduce the mass matrices $M^u$, $M^d$, $M^l$, $M^\nu$.
+  $M^u$, $M^d$, $M^l$ are generic complex 3 by 3 matrices, whereas
+  $M^\nu$ is a symmetric complex 3 by 3 matrix.
+
+{\bf hw09-1}: Can you tell why $M^n$ is a symmetric matrix?
+  They can be diagonalized by using 3 by 3 unitary matrices:
+\begin{eqnarray}
+  M^u &=& (U^u_L)   {\rm diag}\{m_u, m_c,m_t\} (U^u_R)^\dagger \\
+  M^d &=& (U^d_L)   {\rm diag}\{m_d, m_s,  m_b  \} (U^d_R)^\dagger \\
+  M^l &=& (U^l_L)   {\rm diag}\{m_e, m_\mu, m_\tau\} (U^l_R)^\dagger \\
+  M^\nu &=& (U^\nu_L)^* {\rm diag}\{m_1, m_2,  m_3  \} (U^\nu_L)^\dagger
+\end{eqnarray}
+  The two unitary matrices to diagonalize the general matrix such as
+  $M^u$, $M^d$, $M^l$, are obtained as the unitary matrix $(U_R)$ which
+  diagonalizes the Hermetian matrix $M^\dagger M$ and the unitary matrix
+  $(U_L)$ which diagonalizes $M M^\dagger$.  Since the eigenvalues of the
+  Hermetian matrices, $M^\dagger M$ and $M M^\dagger$ are common and
+  non-negative, we can take their square root as the quark and charged
+  lepton masses.
+
+{\bf hw09-2}: Show that the unitary matrix $U^u_L$ diagonalizes the 
+Hermetian matrix ${M^u}^\dagger M^u$, and the unitary matrix $U^u_R$ 
+diagonalizes $(M^u) (M^u)^\dagger$.
+
+  The unitary matrix which diagonalizes the symmetric complex matrix 
+for the neutrino Majorana masses can be obtained easily by solving the
+  standard eigen value equations, but the eigen values are in general
+  complex.  Let us assume that the 3 eigenvalues are found to be
+\begin{eqnarray}
+  \lambda_k = m_k e^{i \alpha_k}   (k=1,2,3)
+\end{eqnarray}
+  by using the magnitude $m_k = | \lambda_k |$ and the phase, $\alpha_k
+  = {\rm arg}\{ \lambda_k \}$. We can then express the diagonal matrix as
+ \begin{eqnarray}
+  {\rm diag}\{ \lambda_1, \lambda_2, \lambda_3 \}
+  = P {\rm diag}\{ m_1,        m_2,        m_3        \} P,
+ \end{eqnarray}
+  where P is the diagonal phase matrix,
+\begin{eqnarray}
+  P =  {\rm diag}\{ e^{i\alpha_1/2}, e^{i\alpha_2/2}, e^{i\alpha_3/2}\}
+\end{eqnarray}
+  If we denote the unitary matrix which we obtained from the three
+  eigen vectors as ${U^\nu_L}'$,
+\begin{eqnarray}
+  M^\nu &=& {{U^\nu_L}'}^*  {\rm diag}\{\lambda_1, \lambda_2, \lambda_3\}  {{U^\nu_L}'}^\dagger \\
+  &=& {{U^\nu_L}'}^* P {\rm diag}\{m_1, m_2, m_3\} P {{U^\nu_L}'}^\dagger \\
+  &=& {U^\nu_L}^*     {\rm diag}\{m_1, m_2, m_3\}  {U^\nu_L}^\dagger
+\end{eqnarray}
+  and hence (please note the ordering of ${U^\nu_L}'$ and $P$)
+  \begin{eqnarray}
+    U^\nu_L = {U^\nu_L}' P^* \label{eq.9unm}
+  \end{eqnarray}
+
+{\bf hw09-3}: Show that the unitary matrix $U^\nu_L$ (Eq.\ref{eq.9unm}) diagonalize the (Majorana) neutrino mass matrix, $M^\nu$.
+  Finally, we can express all the current fermions in terms of
+  mass eigenstates by using the 7 Unitary matrices:
+\begin{eqnarray}
+  ({u_L}_1, {u_L}_2, {u_L}_3)^T &=& U^u_L (u_L, c_L, t_L)^T \label{eq.9unim1}\\
+  ({u_R}_1, {u_R}_2, {u_R}_3)^T &=& U^u_R (u_R, c_R, t_R)^T \label{eq.9unim2}\\
+  ({d_L}_1, {d_L}_2, {d_L}_3)^T &=& U^d_L (d_L, s_L, b_L)^T \label{eq.9unim3}\\
+  ({d_R}_1, {d_R}_2, {d_R}_3)^T &=& U^d_R (d_R, s_R, b_R)^T  \label{eq.9unim4}\\
+  ({l_L}_1, {l_L}_2, {l_L}_3)^T &=& U^l_L (e_L, \mu_L, \tau_L)^T \label{eq.9unim5}\\
+  ({l_R}_1, {l_R}_2, {l_R}_3)^T &=& U^l_R (e_R, \mu_R, \tau_R)^T \label{eq.9unim6}\\
+  ({\nu_L}_1, {\nu_L}_2, {\nu_L}_3)^T &=& U^n_L ({\nu_1}_L, {\nu_2}_L, {\nu_3}_L)^T \label{eq.9unim7}
+\end{eqnarray}
+  By inserting the above expressions into the SM Lagrangian before the
+  symmetry breakdown, we can obtain all the gauge and Higgs interactions of quark and lepton mass eigenstates.
+\begin{eqnarray}
+  (u, c, t),~~ (d, s, b), ~~ (e, \mu, \tau),~~ (\nu_1, \nu_2, \nu_3)
+\end{eqnarray}
+  Please first note that all the neutral gauge boson ($\gamma$, $Z$, 
+gluons!) interactions are diagonal in the mass-eigenstates, simply because 
+the same unitary matrix appears always as a pair like
+\begin{eqnarray}
+  (U^x_L)^\dagger (U^x_L) &=& 1   ~~~for~ x=u,d,l,\nu \\
+  (U^x_R)^\dagger (U^x_R) &=& 1   ~~~for~ x=u,d,l
+\end{eqnarray}
+
+{\bf hw09-4}: Show the $\gamma (A_\mu)$, $Z_\mu$, and gluon ($A^a_\mu$) 
+interactions of $x=u_L$, $u_R$, $d_L$, $d_R$, $l_L$, $l_R$, $\nu_L$, in terms of the mass eigenstates fermions.
+
+hint: In the original Lagrangian, they are
+\begin{eqnarray}
+  L_{fermions} =  Q_i^\dagger iD_\mu \sigma_-^\mu Q_i
+  + {u_R}_i^\dagger iD_\mu \sigma_+^\mu {u_R}_i
+  + {d_R}_i^\dagger iD_\mu \sigma_+^\mu {d_R}_i
+  +  L_i^\dagger iD_\mu \sigma_-^\mu L_i
+  + {l_R}_i^\dagger iD_\mu \sigma_+^\mu {l_R}_i
+\end{eqnarray}
+  where $i=1,2,3$ are generation indices. The covariant derivative 
+reads
+\begin{eqnarray}
+  iD_\mu = i\del_\mu -g_Z (T^3-Qx_w) Z_\mu -e Q A_\mu -g_S T^a A^a_\mu
+\end{eqnarray}
+  with $x_w=\sin^2\theta_W$, for $Z$, $\gamma$ and gluons. Please note that
+\begin{eqnarray}
+  T^3-Qx_w &=&  1/2-( 2/3)x_w ~for~ {u_L}_i (i=1,2,3) \\
+  T^3-Qx_w &=&     -( 2/3)x_w ~for~{u_R}_i (i=1,2,3) \\
+  T^3-Qx_w &=& -1/2-(-1/3)x_w ~for~ {d_L}_i (i=1,2,3) \\
+  T^3-Qx_w &=&     -(-1/3)x_w ~for~ {d_R}_i (i=1,2,3) \\
+  Q &=&  2/3 ~for~ {u_L}_i ~and~ {u_R}_i (i=1,2,3) \\
+  Q &=& -1/3 ~for~ {d_L}_i ~and~ {d_R}_i (i=1,2,3) \\
+  Q &=& -1   ~for~ {l_L}_i ~and~ {l_R}_i (i=1,2,3)
+\end{eqnarray}
+
+  The necessary condition to ensure this diagonality (the absence of 
+FCNC) is to have the unitary relations between the current states and the
+  mass eigenstates Eq.(\ref{eq.9unim1},\ref{eq.9unim2},\ref{eq.9unim3},\ref{eq.9unim4},\ref{eq.9unim5},\ref{eq.9unim6},\ref{eq.9unim7}).
+
+{\bf hw09-5}: When the charm quark was not known, most physicists thought
+  that there are only 3 quarks (Gell-Mann's $SU(3)$).  Two down
+  (charge $-1/3$) quarks, $d$ and $s$, and one charge $2/3$ quark, $u$.
+  The Lagrangian (which Weinberg should have tried in 1967) should have been something like
+\begin{eqnarray}
+  L =  Q^\dagger  iD_\mu \sigma_-^\mu Q
+  + {s_L'}^\dagger iD_\mu \sigma_-^\mu s_L'
+  + u_R^\dagger  iD_\mu \sigma_+^\mu u_R
+  + d_R^\dagger  iD_\mu \sigma_+^\mu d_R
+  + s_R^\dagger  iD_\mu \sigma_+^\mu s_R
+\end{eqnarray}
+  where $Q = (u_L, d_L')^T$ with $d_L' = \cos\theta_C d_L + \sin\theta_C s_L$
+  which was found by Cabibbo from the charged current analysis (Cabibbo
+  Universality between the leptonic and hadronic weak interactions was
+  the first hint of the Universality of weak interactions, which motivated
+  Weinberg and others to examine the Gauge theory of weak interactions).
+  $s_L'$ should be its orthogonal combination,
+\begin{eqnarray}
+  s_L' = -\sin\theta_C d_L + \cos\theta_C s_L
+\end{eqnarray}
+  Here all quarks without prime ($u_L$,$d_L$,$s_L$,$u_R$,$d_R$,$s_R$) are in the mass eigenstates, where as $d_L'$ and $s_L'$ are the current states.  Please insert the covariant derivative for the neutral currents,
+\begin{eqnarray}
+  iD_\mu = i\del_\mu -g_Z (T^3-Qx_w) Z_\mu -e Q A_\mu -g_S T^a A^a_\mu
+\end{eqnarray}
+ and obtain the interactions among all the quarks. You may find the
+  $Z$ boson coupling between $d$ and $s$ quarks, proportional to 
+$\sin\theta_C$, which disturbed Weinberg, because FCNC between $d$ and $s$ quarks are known to be extremely small (determined from $K^0-{\overline K^0}$ mixing matrix elements, which give extremely small mass differences between the
+  two mass eigenstates, $K_L$ and $K_S$).
+
+{\bf hw09-6}:  Consult RPP in the PDG webpage, look for meson summary 
+table, and obtain $m(K^+)$, $m(K_L)$, $m(K_S)$, and $R=(m(K_L)-m(K_S))/(m(K_L)+m(K_S))$. Please compare the observed ratio $R$ with a naive estimate
+\begin{eqnarray}
+  R = ((g_Z  \sin\theta_C)^2/m_Z^2)^2 (m_K)^4
+\end{eqnarray}
+   Please note at this stage that the current state $Q=(u_L, d_L')^T$ is
+  a doublet under $SU(2)_L$ but the current state $s_L'$ is a singlet.
+  In other words, among the two quarks of charge $-e/3$, $d_L'$ and $s_L'$,
+  one is a doublet, and the other is a singlet under $SU(2)_L$.
+  This violates the no-FCNC condition.  GIM introduced a new quark,
+  $c_L$ and $c_R$ in the current states, and made sL's into a down component
+  a new doublet,
+\begin{eqnarray}
+  Q' = (c_L, s_L')^T.
+\end{eqnarray}
+ 
+  In this way, GIM introduced a 2nd up quark, $c$, and made the $2\times 2$
+  version of the unitary transformations Eq.(\ref{eq.9unim1},\ref{eq.9unim2},\ref{eq.9unim3},\ref{eq.9unim4}). Once this is done, the neutral currents are automatically flavor diagonal (there is no $d-s-Z$ couplings in the Lagrangian).
+
+  FCNC can still appear in QFT via quantum/radiative corrections.
+  Benjamin Lee and Mary Gaillard used the quantization rules obtained
+  by tHooft in 1971 to perform the calculation in the GIM model (with
+  a massive c quark).  From the one-loop contribution to the $K_0-{\overline K_0}$ transition amplitudes, they estimated the charm mass to be around
+  2 GeV in 1972.  The charmonium particle $J/\psi$ was discovered in 
+1974.
+
+  Let us now compute the charged current interactions in the SM by
+  using the covariant derivative expression:
+\begin{eqnarray}
+  iD_\mu &=& i\del_\mu - g_s T^a A^a_\mu
+                        - g   T^k W^k_\mu
+                        - g'  Y   B_\mu \nonumber \\
+             &=&i\del_\mu - g_s T^a A^a_\mu
+                        - g/\sqrt2 ( T^+ W^+_\mu + T^- W^-_\mu )
+                        \nonumber \\ &&- g_Z (T^3 -Q\sin^2\theta_W) Z_\mu
+                        - e Q A_\mu,
+\end{eqnarray}
+  where $e = g\sin \theta _W = g_Z\sin\theta _W \cos\theta _W = g'\cos\theta _W$, and $A_\mu$ denotes the photon. Only $W^+_\mu$ and $W^-_\mu$ mediate charged currents in the SM.  From the Lagrangian term
+\begin{eqnarray}
+ {\cal L} = Q^\dagger iD_\mu \sigma_-^\mu Q
+  + L^\dagger iD_\mu \sigma_-^\mu L,
+\end{eqnarray}
+    we pick up the charged current parts for quarks:
+\begin{eqnarray}
+  {\cal L} _{CC}
+  &=& 
+  \begin{pmatrix}
+    u_L^\dagger & d_L^\dagger
+  \end{pmatrix} 
+  \frac{-g}{\sqrt2} \sigma_-^\mu
+  \begin{pmatrix}
+    0 & W^+_\mu\\
+    W^-_\mu & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    u_L \\ d_L
+  \end{pmatrix}\\ 
+    &=& \frac{-g}{\sqrt2} ( u_L^\dagger \sigma_-^\mu W^+_\mu d_L
+              + d_L^\dagger \sigma_-^\mu W^-_\mu u_L )
+\end{eqnarray}
+
+Now, let us insert the mass-eigenstates by using (49a-b):
+\begin{eqnarray}
+  {\cal L} _{CC} &=& \frac{-g}{\sqrt2}
+  \begin{pmatrix}
+    u_L^\dagger & c_L^\dagger & t_L^\dagger
+  \end{pmatrix}
+  {U^u_L}^\dagger \sigma_-^\mu W^+_\mu U^d_L 
+  \begin{pmatrix}
+    d_L \\ s_L \\ b_L 
+  \end{pmatrix}
+  + h.c. \\
+  &=& \frac{-g}{\sqrt2} 
+  \begin{pmatrix}
+    u_L^\dagger & c_L^\dagger & t_L^\dagger
+  \end{pmatrix}
+\sigma_-^\mu W^+_\mu V 
+\begin{pmatrix}
+  d_L \\ s_L \\ b_L 
+\end{pmatrix}
+  + h.c., \label{eq.9LCC}
+\end{eqnarray}
+where
+\begin{eqnarray}
+  V = V_{CKM} = {U^u_L}^\dagger (U^d_L) \label{eq.9CKM}
+\end{eqnarray}
+
+
+{\bf hw09-7}: Show Eq.\ref{eq.9LCC} with Eq.\ref{eq.9CKM}.
+
+  Let us examine here what Kobayashi and Maskawa found in 1973.
+  The mixing matrix V is a unitary $2 \times 2$ matrix in the 4-quark model of
+  GIM.  Let us write it down.  From Eq.\ref{eq.9LCC}, we find
+\begin{eqnarray}
+  {\cal L}_{CC}
+  =
+  \frac{-g}{\sqrt2}  W^+_\mu 
+  \begin{pmatrix}
+    u_L^\dagger & c_L^\dagger
+  \end{pmatrix}
+  \sigma_-^\mu V 
+  \begin{pmatrix}
+    d_L \\s_L
+  \end{pmatrix}+ h.c.
+\end{eqnarray}
+  Let us count the number of independent physical parameters (the
+  parameter whose values affect observable consequences of the model)
+  inside the $2 \times 2$ unitary matrix $V$.
+  Since $V$ is a $2 \times 2$ matrix of complex numbers, it has $2\times 2\times 2=8$ real numbers.
+  The unitarity condition $V^\dagger V=1$ gives 4 constraints.
+
+{\bf hw09-8}:  Why $V^\dagger V = 1$ gives 4 constraints among real numbers?
+  4 real d.o.f. (degree of freedom) remain.  In $2\times 2$ unitary matrix,
+  there is only 1 rotation angle (which is the Cabibbo angle 
+$\theta_C$). The remaining 3 real degree of freedom should hence be phases.  We may hence write
+\begin{eqnarray}
+   V=
+   \begin{pmatrix}
+    e^{i \phi_{uL}} & e^{i\phi_{cL}}
+   \end{pmatrix}
+   \begin{pmatrix}
+    \cos\theta_C & \sin\theta_C \\
+    -\sin\theta_C & \cos\theta_C 
+   \end{pmatrix}
+   \begin{pmatrix}
+    e^{-i \phi_{dL}} \\ e^{-i \phi_{sL}}
+   \end{pmatrix}
+\end{eqnarray}
+  with 4 phases. Among the 4 phases, one overall phase, common to all
+  of them ($\phi_{uL}=\phi_{cL}=\phi_{dL}=\phi_{sL}$) does not have observable
+  consequences, because physics is invariant under its magnitude due
+  to quark number conservation.
+
+{\bf hw09-9}: Please show that the common phase among all the quark fields
+  do not change $V$, and in addition, does not change any other terms in
+  the whole SM Lagrangian (quark number conservation).
+
+  We remove this overall phase, and keep the three relative phases:
+\begin{eqnarray}
+  V
+  =
+  \begin{pmatrix}
+    1 & e^{i\phi_{cL}}
+  \end{pmatrix}
+  \begin{pmatrix}
+    \cos\theta_C & \sin\theta_C \\
+    -\sin\theta_C & \cos\theta_C 
+   \end{pmatrix}
+   \begin{pmatrix}
+    e^{-i \phi_{dL}} \\ e^{-i \phi_{sL}}
+   \end{pmatrix}
+\end{eqnarray}
+  
+  Now, we have 1 angle and 3 phases, which agree with the d.o.f. 
+counting. Please note that we can absorb all the 3 phases by shifting the $c_L$, $d_L$, $s_L$ quark fields as follows:
+\begin{eqnarray}
+  &&c_L \to  e^{i\phi_{cL}} c_L'\\
+  &&d_L \to  e^{i\phi_{dL}} d_L'\\
+  &&s_L \to  e^{i\phi_{sL}} s_L'
+\end{eqnarray}
+ 
+{\bf hw09-10}: Please show that not only the CC interactions but all the 
+other gauge interactions of the SM Lagrangian remain the same when 
+expressed in terms of $c_L'$, $d_L'$, $s_L'$.
+
+  Let us now examine the Yukawa sector.  The Lagrangian after
+  diagonalization reads
+\begin{eqnarray}
+  {\cal L}
+  =
+  m_u u_L^\dagger u_R + m_c c_L^\dagger c_R + m_d dL^\dagger d_R + m_s sL^\dagger s_R + h.c.
+\end{eqnarray} 
+
+  In terms of the new fields, $c_L'$, $d_L'$, $s_L'$, it reads
+\begin{eqnarray}
+  {\cal L} = m_u u_L^\dagger u_R
+  + m_c e^{-i\phi_cL} c_L'^\dagger c_R
+  + m_d e^{-i\phi_dL} d_L'^\dagger d_R
+  + m_s e^{-i\phi_sL} s_L'^\dagger s_R
+  + h.c.
+\end{eqnarray}
+  which looks different, but we notice that the gauge interactions
+  of the SM do not change by shifting the phases of $q_R$'s,
+\begin{eqnarray}
+  c_R \to e^{i\phi_cL} c_R' \\
+  d_R \to  e^{i\phi_dL} d_R' \\
+  s_R \to  e^{i\phi_sL} s_R'
+\end{eqnarray}
+
+  Once we rewrite all the interactions in terms of $c_L'$, $c_R'$, $d_L'$, $d_R'$, $s_L'$, $s_R'$, all the 3 phase disappear.  Therefore, (4-1) phases can be absorbed into re-phasing of the quark fields. None of the 3 phases
+  can affect physical observables. Therefore, the weak interactions 
+of the 4-quark model is CP conserving (no phase in the interactions).
+
+{\bf hw09-11}: Repeat the same countings for 6-quark model, for $3 \times 3$ Unitary matrix $V$. Can you tell that in addition to 3 angles (of 
+3-dimensional rotations), 1 phase survive as a physical phase, whose magnitude
+  affects physical observables?  This is what Kobayashi and Masukawa
+  showed in 1973.
+
+  Now, let us go on to the leptons:
+\begin{eqnarray}
+  {\cal L}_{CC} &=&  \frac{-g}{\sqrt2}
+  \begin{pmatrix}
+    e_L^\dagger &\mu_L^\dagger & \tau_L^\dagger
+  \end{pmatrix}
+  {U^l_L}^\dagger \sigma_-^\mu W^-_\mu U^n_L
+  \begin{pmatrix}
+    {\nu_1}_L \\ {\nu_2}_L \\ {\nu_3}_L
+  \end{pmatrix}
+    + h.c. \\ 
+  &=& \frac{-g}{\sqrt2} 
+  \begin{pmatrix}
+    e_L^\dagger & \mu_L^\dagger & \tau_L^\dagger
+  \end{pmatrix}
+  \sigma_-^\mu W^-_\mu V + h.c.
+\end{eqnarray}
+  where
+\begin{eqnarray}
+  V = V_{MNS} = (U^l_L)^\dagger (U^n_L) \label{eq.9MNS}
+\end{eqnarray}
+
+
+{\bf hw09-12}: Show Eq.\ref{eq.9MNS}.
+
+  Please note that $V_{CKM}$ is defined as a mixing for the down quarks,
+\begin{eqnarray}
+   \begin{pmatrix}
+    d'_L \\ s'_L \\ b'_L
+   \end{pmatrix}
+   = V_{CKM}
+   \begin{pmatrix}
+    d_L \\ s_L \\ b_L
+   \end{pmatrix}
+\end{eqnarray}
+ whereas $V_{MNS}$ is defined for a mixing for the neutrinos:
+\begin{eqnarray}
+  \begin{pmatrix}
+    {\nu_e}_L \\ {\nu_\mu}_L \\ {\nu_\tau}_L
+   \end{pmatrix} 
+   =V_{MNS}
+   \begin{pmatrix}
+    {\nu_1}_L\\ {\nu_2}_L \\ {\nu_3}_L
+   \end{pmatrix}. \label{eq.9numix}
+\end{eqnarray}
+   This has the historical origin, where
+\begin{eqnarray}
+  d'_L = V_{11} d_L + V_{12} s_L + V_{13} b_L
+          = \cos\theta_C d_L + \sin\theta_C s_L + \cdots 
+\end{eqnarray}
+  is the Cabibbo $d'$ combination which reproduced the universality of 
+the weak charged current strengths, for the quarks.  For the leptons,
+  untill the neutrino oscillation was discovered in 1998 by
+  Super-Kamiokande (2015 Nobel Prize for Kajita), only the current
+  states, in the left-hand-side of Eq.\ref{eq.9numix} were known. It was then
+  natural to express the known neutrino current states in terms of
+  the mass-eigenstates.
+
+That's all for hw09.\\
+
+Best regards,\\
+
+Kaoru
+
+\end{document}
